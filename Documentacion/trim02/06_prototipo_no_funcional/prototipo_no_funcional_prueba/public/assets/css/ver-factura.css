@@ -1,0 +1,142 @@
+.main {
+    min-height: calc(100vh - 100px - 100px);
+    max-height: auto;
+}
+
+.bill {
+    width: 50%;
+    height: calc(100vh - 100px);
+    height: auto;
+    margin: 20px 0;
+    background-color: #fff;
+}
+
+.content-header-bill {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.line-logo {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    background-color: #0F1626;
+    width: 30%;
+    height: 60px;
+    border-radius: 0 0 40px 0;
+}
+
+.title-main-bill {
+    margin: 0;  
+    color: #fff;
+    font-size: 30px;
+}
+
+.content-info-bill {
+    display: flex;
+    margin-right: 30px;
+}
+
+.info-text,
+.info-date,
+.info-id,
+.info-user {
+    font-size: 18px;
+}
+
+.info-text {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.info-date {
+    margin-right: 50px;
+}
+
+.content-person {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px;
+}
+
+.content-data-person {
+    display: flex;
+    align-items: center;
+}
+
+.line {
+    height: 3px;
+    background-color: #DEF3FF;
+    border: none;
+}
+
+.content-table {
+    max-height: 260px;
+    min-height: auto;
+    background-color: rgba(150, 150, 150, 0.589);
+    margin: 0 30px;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+.content-table::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.content-table::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+.content-table:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
+.title-table {
+    padding: 16px;
+    margin: 0;
+}
+
+.table {
+    width: 100%;
+}
+
+.table,
+.item-header-table,
+.item-body-table {
+    border-collapse: collapse;
+    padding: 16px;
+    text-align: left;
+}
+
+tbody .row-body-table:nth-child(even) {
+    background-color: #55545466;
+}
+
+tbody .row-body-table:hover {
+    background-color: #fff6;
+}
+
+.content-footer-bill {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.line-logo-footer {
+    justify-content: flex-end;
+    border-radius: 40px 0 0 0;
+    padding-left: 0;
+    padding-right: 20px;
+}
+
+.title-main-bill-footer {
+    text-align: right;
+}
+
+
+
+
