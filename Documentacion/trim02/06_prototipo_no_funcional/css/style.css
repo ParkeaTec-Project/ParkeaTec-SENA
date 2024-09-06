@@ -1,0 +1,242 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/*Estilos de la cabecera*/
+
+.header,
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background-color: #0F1626;
+}
+
+.nav {
+    margin-right: 80px;
+}
+
+.menu-horizontal {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu-horizontal > li > a {
+    display: block;
+    text-decoration: none;
+}
+
+.item-nav {
+    margin-right: 20px;
+    padding: 11px;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px 0 10px 0;
+    transition: .7s;
+}
+
+.item-nav:hover {
+    background-color: #fff;
+    color: #000;
+    border-radius: 0 10px 0 0;
+}
+
+.menu-vertical {
+    position: absolute;
+    z-index: 100;
+    display: none;
+    list-style: none;
+    padding: 0;
+    width: 200px;
+    background-color: #fff;
+    transition: .7s;
+}
+
+.menu-horizontal li:hover .menu-vertical {
+    display: block;
+    transition: .7s;
+}
+
+.menu-vertical li:hover {
+    background-color: #0F1626;
+    transition: .5s;
+}
+
+.menu-vertical li:hover a {
+    color: #fff;
+}
+
+.menu-vertical li a {
+    display: block;
+    color: #000;
+    padding: 11px;
+    text-decoration: none;
+}
+
+/*Estilos de la notificacion*/
+.toast {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    z-index: 20;
+    border-radius: 12px;
+    background-color: #fff;
+    padding: 20px 35px 20px 25px;
+    box-shadow: 0 5px 10px #0000001a;
+    border-left: 6px solid #ACFFB7;
+    overflow: hidden;
+    transform: translateX(calc(100% + 30px));
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+}
+
+.toast.active-error {
+    border-left: 6px solid red;
+}
+
+.toast.active {
+    transform: translateX(0%);
+}
+
+.toast.active-error {
+    transform: translateX(0%);
+}
+
+.toast .toast-content {
+    display: flex;
+    align-items: center;
+}
+
+.toast-content .check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 35px;
+    background-color: #ACFFB7;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+}
+
+.check.active-check {
+    display: none;
+}
+
+
+.toast-content .error-icon {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 35px;
+    background-color: #FF4448;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+}
+
+.error-icon.active-error-icon {
+    display: flex;
+}
+
+.toast-content .message {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.message .text {
+    font-size: 20px;
+    font-weight: 400;
+    color: #666666; 
+}
+
+.message .text-1 {
+    font-weight: 600;
+    color: #0F1626;
+}
+
+.toast .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    padding: 5px;
+    cursor: pointer; 
+    opacity: .7;
+}
+
+.toast .close:hover {
+    opacity: 1;
+}
+
+.toast .progressToast {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background-color: #ddd;
+}
+
+.toast .progressToast:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #ACFFB7;
+}
+
+.toast .progressToast.active-error:before {
+    background-color: red;
+}
+
+.progressToast.active:before {
+    animation: progress 3s linear forwards;
+}
+
+.progressToast.active-error:before {
+    animation: progress 3s linear forwards;
+}
+
+@keyframes progress {
+    100% {
+        right: 100%;
+    }
+}
+
+/*Estilo de la seccion*/
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #DEF3FF;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #DEF3FF;
+}
+
+.footer {
+    justify-content: flex-end;
+}
