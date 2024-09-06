@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://kit.fontawesome.com/5808d06a88.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/modal.css">
     <title>Reportes</title>
 </head>
 <body>
@@ -52,16 +51,16 @@
         <section class="report">
             <nav class="nav-report">
                 <a href="#" class="item-nav-report nav1" id="seccion1">
-                    <i class="fas fa-car icon-car"></i>
-                    Reportes
+                    <i class="fas fa-chart-bar"></i>
+                    <p class="text-report">Reportes</p>
                 </a>
                 <a href="#" class="item-nav-report nav2" id="seccion2">
-                    <i class="fas fa-car icon-car"></i>
-                    Ocupacion
+                    <i class="fa-solid fa-square-parking"></i>
+                    <p class="text-report">Ocupacion</p>
                 </a>
                 <a href="#" class="item-nav-report nav3" id="seccion3">
-                    <i class="fas fa-car icon-car"></i>
-                    Ingresos
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <p class="text-report">Ingresos</p>
                 </a>
                 <span class="span"></span>
             </nav>
@@ -71,6 +70,7 @@
                     <input type="text" class="calendar-input" id="fechaInicio" placeholder="Fecha inicio">
                     <input type="text" class="calendar-input" id="fechaFin" placeholder="Fecha fin">
                 </div>
+                <!-- reportes generales -->
                 <section id="seccion1" class="section-info active">
                     <section class="content-report">
                         <section  class="section-report section-report-modific">
@@ -89,28 +89,29 @@
                     </section>
                 </section>
                 
+                <!-- reportes de ocupacion  -->
                 <section id="seccion2" class="section-info">
                     <section class="content-ocupation">
                         <section class="section-ocupation section-ocupation-modific">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>vehiculos</th>
-                                        <th>total</th>
+                                        <th>Tipo de Vehículo</th>
+                                        <th>Total Registrado</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>moto</td>
-                                        <td>45</td>
+                                        <td>Motocicleta</td>
+                                        <td>150</td>
                                     </tr>
                                     <tr>
-                                        <td>carro</td>
-                                        <td>100</td>
+                                        <td>Automóvil</td>
+                                        <td>320</td>
                                     </tr>
                                     <tr>
-                                        <td>bicicleta</td>
-                                        <td>20</td>
+                                        <td>Bicicleta</td>
+                                        <td>80</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -118,42 +119,73 @@
                         <section class="section-ocupation section-ocupation-modific">
                             <!--Div that will hold the pie chart-->
                             <div class="chart-wrapper">
-                                <div class="barra_div" id="barra_div"></div>
+                                <div class="chart_div" id="column-ocupation"></div>
                             </div>
                         </section>
                         <section class="section-ocupation">
                             <!--Div that will hold the pie chart-->
                             <div class="chart-wrapper">
-                                <div class="barra_div" id="barra_div"></div>
+                                <div class="chart_div" id="chart_area"></div>
                             </div>
                         </section>
                         <section class="section-ocupation">
                             <!--Div that will hold the pie chart-->
                             <div class="chart-wrapper">
-                                <div class="barra_div" id="barra_div"></div>
+                                <div class="chart_div" id="chart_line"></div>
                             </div>
                         </section>
                     </section>
                 </section>
                 
             
-            
-                <section id="seccion3" class="section-ingresos section-info">
-                    <p>contendio 3</p>
+                <section id="seccion3" class="section-info">
+                    <section class="content-ingresos">
+                        <section class="section-ingresos">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Tipo de Vehículo</th>
+                                        <th>Ingresos (COP)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Motocicleta</td>
+                                        <td>1,500,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Automóvil</td>
+                                        <td>4,500,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bicicleta</td>
+                                        <td>500,000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                        <section class="section-ingresos section-ingresos-modific">
+                            <!--Div that will hold the pie chart-->
+                            <div class="chart-wrapper">
+                                <div class="chart_div" id="chart_circular_ingresos"></div>
+                            </div>
+                        </section>
+                        <section class="section-ingresos">
+                            <!--Div that will hold the pie chart-->
+                            <div class="chart-wrapper">
+                                <div class="chart_div" id="chart_area_ingresos"></div>
+                            </div>
+                        </section>
+                        <section class="section-ingresos">
+                            <!--Div that will hold the pie chart-->
+                            <div class="chart-wrapper">
+                                <div class="chart_div" id="chart_bar_ingresos"></div>
+                            </div>
+                        </section>
+                    </section>
                 </section>
             </section>
         </section>
-        <div id="modal1" class="modalmask">
-            <div class="modalbox movedown">
-                <a href="#close" title="Close" class="close">X</a>
-                <h2>Cerrar sesion</h2>
-                <p>¿Deseas cerrar sesión?.</p>
-                <div class="modal-footer">
-                    <a href="#close" title="Close"><button type="button" class="btn btn-danger" data-dismiss="modal1">Cancelar</button></a>
-                    <a href="login.html"><button type="button" class="btn btn-success" >Aceptar</button></a>
-                  </div>
-                <!-- <p>Aquí puedes incluir cualquier cosa como vídeos, mapas, formularios...</p> -->
-            </div>
     </main>
     <footer class="footer">
         <img src="img/logo-parkeaTec.svg" alt="logo">

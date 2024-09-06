@@ -30,12 +30,22 @@
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    position: relative;
+    z-index: 100;
     color: #000;
     color: #fff;
     font-size: 20px;
     width: 100%;
     height: 20%;
-    border: 1px solid black;
+}
+
+.item-nav-report i {
+    color: #000;
+}
+
+.text-report {
+    margin: 0;
+    color: #000;
 }
 
 .span {
@@ -43,8 +53,16 @@
     top: 20%;
     width: 100%;
     height: 20%;
-    background-color: rgba(255, 0, 0, 0.336);
+    background-color: #def3ff;
     transition: .3s linear;
+}
+
+.icon-active {
+    color: #000;
+}
+
+.icon-inactive {
+    color: #fff;
 }
 
 .section-info {
@@ -95,21 +113,22 @@
 }
 
 #seccion1,
-#seccion2 {
+#seccion2,
+#seccion3 {
     width: 100%;
 }
 
-.content-report {
+/* .content-report {
     display: flex;
-}
+} */
 
-.section-report {
+/* .section-report {
     width: 50%;
     height: 70%;
     padding: 15px;
     background-color: #e6e6e6;
     border-radius: 10px;
-}
+} */
 
 .section-report-modific {
     margin-right: 20px;
@@ -119,14 +138,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 300px;
+    height: 100%;
 }
 
 .chart_div {
+    display: flex;
+    align-items: center;
     height: 300px;
 }
 
-.content-ocupation {
+.content-report,
+.content-ocupation,
+.content-ingresos {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -136,7 +159,9 @@
     height: 300px;
 }
 
-.section-ocupation {
+.section-report,
+.section-ocupation,
+.section-ingresos {
     width: 48%;
     height: 100%;
     padding: 15px;
@@ -144,12 +169,29 @@
     border-radius: 10px;
 }
 
-.section-ocupation-modific {
+.section-ocupation-modific,
+.section-ingresos-modific {
     margin-bottom: 20px;
 }
 
-.section-ingresos {
+.table {
     width: 100%;
-    height: 100%;
-    background-color: blue;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+.table th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.table tr:hover {
+    background-color: #f1f1f1;
 }
