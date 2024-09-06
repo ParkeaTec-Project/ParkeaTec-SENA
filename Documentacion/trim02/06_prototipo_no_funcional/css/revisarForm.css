@@ -1,0 +1,14 @@
+.input:valid ~ .label {
+    top: 0;
+    left: 15px;
+    background-color: #ACFFB7;
+    padding: 0 5px;
+}
+
+.content-img .img {
+    display: block;
+}
+
+.icon-file {
+    display: none;
+}
