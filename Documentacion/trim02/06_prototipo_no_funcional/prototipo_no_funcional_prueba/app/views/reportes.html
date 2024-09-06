@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/assets/css/style.css">
+    <link rel="stylesheet" href="../../public/assets/css/reportes.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://kit.fontawesome.com/5808d06a88.js" crossorigin="anonymous"></script>
+    <title>Reportes</title>
+</head>
+<body>
+    <header class="header">
+        <img src="../../public/assets/img/logo-parkeaTec.svg" alt="logo" class="log">
+        <nav class="nav">
+            <ul class="menu-horizontal">
+                <li>
+                    <a class="item-nav" href="#">Formulario</a>
+                    <ul class="menu-vertical">
+                        <li><a href="form.html">Llenar Formulario</a></li>
+                        <li><a href="">Revisar Formulario</a></li>
+                    </ul>
+                </li>
+                <li><a class="item-nav" href="reportes.html">Reportes</a></li>
+                <li>
+                    <a class="item-nav" href="">Parqueadero</a>
+                    <ul class="menu-vertical">
+                        <li><a href="">Asignar Espacio</a></li>
+                        <li><a href="verEspaciosParqueadero.html">Ver espacios</a></li>
+                        <li><a href="">Generar strikes</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="item-nav" href="#">Ver perfil</a>
+                    <ul class="menu-vertical">
+                        <li><a href="">Ver QR</a></li>
+                        <li><a href="realizar-reserva.html">Hacer Reserva</a></li>
+                        <li><a href="">Mis vehiculos</a></li>
+                        <li><a href="registrarUsuarios.html">Registrar Usuarios</a></li>
+                        <li><a href="">Strikes</a></li>
+                        <li><a href="ver-factura.html">Mis Facturas</a></li>
+                        <li><a href="">Historial</a></li>
+                        <li><a href="">Cerrar Sesion</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="report">
+            <nav class="nav-report">
+                <a href="#" class="item-nav-report nav1" id="seccion1">
+                    <i class="fas fa-car icon-car"></i>
+                    Reportes
+                </a>
+                <a href="#" class="item-nav-report nav2" id="seccion2">
+                    <i class="fas fa-car icon-car"></i>
+                    Ocupacion
+                </a>
+                <a href="#" class="item-nav-report nav3" id="seccion3">
+                    <i class="fas fa-car icon-car"></i>
+                    Ingresos
+                </a>
+                <span class="span"></span>
+            </nav>
+        
+            <section class="container">
+                <div class="calendar">
+                    <input type="text" class="calendar-input" id="fechaInicio" placeholder="Fecha inicio">
+                    <input type="text" class="calendar-input" id="fechaFin" placeholder="Fecha fin">
+                </div>
+                <section id="seccion1" class="section-info active">
+                    <section class="content-report">
+                        <section  class="section-report section-report-modific">
+                            <!--Div that will hold the pie chart-->
+                            <div class="chart-wrapper">
+                                <div class="chart_div" id="chart_div"></div>
+                            </div>
+                        </section>
+                        <section class="section-report">
+                            <!-- <p>contenido 1</p> -->
+                            <!--Div that will hold the pie chart-->
+                            <div class="chart-wrapper">
+                                <div class="chart_div" id="barra_div"></div>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+                
+                <section id="seccion2" class="section-info">
+                    <section class="content-ocupation">
+                        <section class="section-ocupation section-ocupation-modific">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>vehiculos</th>
+                                        <th>total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>moto</td>
+                                        <td>45</td>
+                                    </tr>
+                                    <tr>
+                                        <td>carro</td>
+                                        <td>100</td>
+                                    </tr>
+                                    <tr>
+                                        <td>bicicleta</td>
+                                        <td>20</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                        <section class="section-ocupation section-ocupation-modific">
+                            <!--Div that will hold the pie chart-->
+                            <div class="chart-wrapper">
+                                <div class="barra_div" id="barra_div"></div>
+                            </div>
+                        </section>
+                        <section class="section-ocupation">
+                            <!--Div that will hold the pie chart-->
+                            <div class="chart-wrapper">
+                                <div class="barra_div" id="barra_div"></div>
+                            </div>
+                        </section>
+                        <section class="section-ocupation">
+                            <!--Div that will hold the pie chart-->
+                            <div class="chart-wrapper">
+                                <div class="barra_div" id="barra_div"></div>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+                
+            
+            
+                <section id="seccion3" class="section-ingresos section-info">
+                    <p>contendio 3</p>
+                </section>
+            </section>
+        </section>
+    </main>
+    <footer class="footer">
+        <img src="../../public/assets/img/logo-parkeaTec.svg" alt="logo">
+    </footer>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="../../public/assets/js/reportes.js"></script>
+</body>
+</html>
