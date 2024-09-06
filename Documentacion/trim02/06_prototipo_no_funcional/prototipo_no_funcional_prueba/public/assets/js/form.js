@@ -24,6 +24,7 @@ const progress = document.querySelector('.progress');
 
 const files = document.querySelectorAll('input[type="file"]');
 const inputs = document.querySelectorAll('input');
+const textAreas = document.querySelectorAll('textarea');
 const select = document.getElementById("options")
 
 const buttton = document.getElementById('btn-booking'),
@@ -168,6 +169,54 @@ files.forEach(file => {
     });
 });
 
+function toggleForms() {
+    const allFieldsForm4Empty = Array.from(Form4.elements).every(element => element.value === "" || element.type === "button");
+    const allFieldsForm5Empty = Array.from(Form5.elements).every(element => element.value === "" || element.type === "button");
+
+    // Si todos los campos de Form4 están vacíos, habilita Form5
+    if (allFieldsForm4Empty) {
+        Array.from(Form5.elements).forEach(element => {
+            if (!element.classList.contains('btn-form')) {
+                element.disabled = false;
+            }
+        });
+    } else {
+        // Si Form4 no está vacío, deshabilita Form5
+        Array.from(Form5.elements).forEach(element => {
+            if (!element.classList.contains('btn-form')) {
+                element.disabled = true;
+            }
+        });
+    }
+
+    // Si todos los campos de Form5 están vacíos, habilita Form4
+    if (allFieldsForm5Empty) {
+        Array.from(Form4.elements).forEach(element => {
+            if (!element.classList.contains('btn-form')) {
+                element.disabled = false;
+            }
+        });
+    } else {
+        // Si Form5 no está vacío, deshabilita Form4
+        Array.from(Form4.elements).forEach(element => {
+            if (!element.classList.contains('btn-form')) {
+                element.disabled = true;
+            }
+        });
+    }
+}
+
+// Escucha cambios en ambos formularios
+Array.from(Form4.elements).forEach(element => {
+    element.addEventListener('input', toggleForms);
+    element.addEventListener('change', toggleForms); // Para detectar también cambios al borrar o modificar
+});
+
+Array.from(Form5.elements).forEach(element => {
+    element.addEventListener('input', toggleForms);
+    element.addEventListener('change', toggleForms); // Para detectar también cambios al borrar o modificar
+});
+
 
 // Seleccionar el boton de envio
 const submitBtn = document.getElementById("submit");
@@ -183,15 +232,15 @@ submitBtn.addEventListener("click", (e) => {
 
     // Recorrer todos los formularios
     forms.forEach(form => {
-        const inputs = form.querySelectorAll("input, select");
+        const inputs = form.querySelectorAll("input:not([disabled]), select:not([disabled])");
 
         //Validar cada input y select
         inputs.forEach(input => {
             input.addEventListener("blur", () => {
-                validateInput(input, select);
+                validateInput(input, select, textAreas);
             });
 
-            if (!validateInput(input, select)) {
+            if (!validateInput(input, select, textAreas)) {
                 formIsValid = false;
             }
         });
@@ -207,6 +256,12 @@ submitBtn.addEventListener("click", (e) => {
 inputs.forEach(input => {
     input.addEventListener("blur", () => {
         validateInput(input);
+    })
+})
+
+textAreas.forEach(textAreas => {
+    textAreas.addEventListener("blur", () => {
+        validateInput(textAreas);
     })
 })
 
