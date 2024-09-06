@@ -92,10 +92,6 @@ form {
     visibility: visible;
 }
 
-textarea {
-    resize: none;
-}
-
 .form-column {
     position: relative;
     display: flex;
@@ -142,6 +138,18 @@ textarea {
     left: 15px;
     background-color: #ACFFB7;
     padding: 0 5px;
+}
+
+.input.active-input:valid ~ .label {
+    top: 0;
+    left: 15px;
+    background-color: #ACFFB7;
+    padding: 0 5px;
+}
+
+.textarea {
+    resize: none;
+    padding-top: 8px;
 }
 
 .content-img {
