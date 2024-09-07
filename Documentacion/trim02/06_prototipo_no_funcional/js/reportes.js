@@ -4,7 +4,7 @@ const span = document.querySelector(".span");
 const nav1 = document.querySelector(".nav1");
 const nav2 = document.querySelector(".nav2");
 const nav3 = document.querySelector(".nav3");
-const icons = document.querySelectorAll(".item-nav-report i")
+const icons = document.querySelectorAll(".item-nav-report i");
 const textReport = document.querySelectorAll(".text-report");
 
 links.forEach(link => {
@@ -21,37 +21,37 @@ links.forEach(link => {
 });
 
 function resetIcons() {
-    icons.forEach(icon => icon.classList.add('icon-inactive'));
-    textReport.forEach(text => text.classList.add('icon-inactive'));
+    icons.forEach(icon => icon.classList.add('icon-active'));
+    textReport.forEach(text => text.classList.add('icon-active'));
 }
 
 nav1.addEventListener("click", () => {
     span.classList.remove("mov-40");
     span.classList.remove("mov-60");
     resetIcons();
-    nav1.querySelector('i').classList.remove('icon-inactive');
-    nav1.querySelector('.text-report').classList.remove('icon-inactive');
-    nav1.querySelector('i').classList.add('icon-active');
-    nav1.querySelector('.text-report').classList.add('icon-active');
+    nav1.querySelector('i').classList.add('icon-inactive');
+    nav1.querySelector('.text-report').classList.add('icon-inactive');
+    nav1.querySelector('i').classList.remove('icon-active');
+    nav1.querySelector('.text-report').classList.remove('icon-active');
 })
 
 nav2.addEventListener("click", () => {
     span.classList.add("mov-40");
     span.classList.remove("mov-60");
     resetIcons();
-    nav2.querySelector('i').classList.remove('icon-inactive');
-    nav2.querySelector('.text-report').classList.remove('icon-inactive');
-    nav2.querySelector('i').classList.add('icon-active');
-    nav2.querySelector('.text-report').classList.add('icon-active');
+    nav2.querySelector('i').classList.add('icon-inactive');
+    nav2.querySelector('.text-report').classList.add('icon-inactive');
+    nav2.querySelector('i').classList.remove('icon-active');
+    nav2.querySelector('.text-report').classList.remove('icon-active');
 })
 
 nav3.addEventListener("click", () => {
     span.classList.add("mov-60");
     resetIcons();
-    nav3.querySelector('i').classList.remove('icon-inactive');
-    nav3.querySelector('.text-report').classList.remove('icon-inactive');
-    nav3.querySelector('i').classList.add('icon-active');
-    nav3.querySelector('.text-report').classList.add('icon-active');
+    nav3.querySelector('i').classList.add('icon-inactive');
+    nav3.querySelector('.text-report').classList.add('icon-inactive');
+    nav3.querySelector('i').classList.remove('icon-active');
+    nav3.querySelector('.text-report').classList.remove('icon-active');
 });
 
 
