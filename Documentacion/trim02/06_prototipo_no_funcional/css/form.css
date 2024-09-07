@@ -185,8 +185,14 @@ form {
 .label-file {
     position: absolute;
     top: 230px;
-    text-align: center;
     padding: 8px;
+    /*Media querys*/
+    /* min-width: 125px;
+    max-width: 125px; */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
     background-color: #ACFFB7;
     cursor: pointer;
 }
@@ -223,7 +229,7 @@ form {
 .Form3,
 .Form6,
 .Form7 {
-    left: 1000px;
+    left: 2000px;
 }
 
 .step-row {
@@ -271,7 +277,7 @@ form {
 .Form4.active-negative,
 .Form5.active-negative,
 .Form6.active-negative {
-    left: -1000px;
+    left: -2000px;
 }
 
 .Form2.active-0,
@@ -327,7 +333,7 @@ form {
 .Form5.active-positive,
 .Form6.active-positive,
 .Form7.active-positive {
-    left: 1000px;
+    left: 2000px;
 }
 
 

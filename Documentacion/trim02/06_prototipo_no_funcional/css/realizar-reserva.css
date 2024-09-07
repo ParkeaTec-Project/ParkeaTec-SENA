@@ -114,10 +114,16 @@
     font-weight: bold;
     transition: .3s linear;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .btn-booking:hover {
     
     /* box-shadow: 3px 3px 2px #00000052; */
     border: 1px solid #000;
+}
+
+.btn-booking a {
+    color: #000;
+    text-decoration: none;
 }

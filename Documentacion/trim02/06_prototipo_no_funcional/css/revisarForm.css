@@ -9,6 +9,11 @@
     display: block;
 }
 
-.icon-file {
+.content-img .icon-file {
     display: none;
+}
+
+.btn-form a {
+    color: #000;
+    text-decoration: none;
 }
