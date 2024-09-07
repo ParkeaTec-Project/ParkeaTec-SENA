@@ -7,11 +7,10 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/revisarForm.css">
     <link rel="stylesheet" href="css/form.css">
-    
     <script src="https://kit.fontawesome.com/5808d06a88.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="header"></header>
+    <header class="header">
         <img src="img/logo-parkeaTec.svg" alt="logo" class="log">
         <nav class="nav">
             <ul class="menu-horizontal">
@@ -26,13 +25,13 @@
                 <li>
                     <a class="item-nav" href="">Parqueadero</a>
                     <ul class="menu-vertical">
-                        <li><a href="">Asignar Espacio</a></li>
+                        <li><a href="asignacion-espacios.html">Asignar Espacio</a></li>
                         <li><a href="verEspaciosParqueadero.html">Ver espacios</a></li>
                         <li><a href="generar-strikes.html">Generar strikes</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a class="item-nav" href="#">Ver perfil</a>
+                    <a class="item-nav" href="#">Perfil</a>
                     <ul class="menu-vertical">
                         <li><a href="escanear-qr.html">Ver QR</a></li>
                         <li><a href="realizar-reserva.html">Hacer Reserva</a></li>
@@ -158,7 +157,7 @@
                         
                             <div class="content-img">
                                 <i class="fa-regular fa-file icon-file"></i>
-                                <img class="img" src="img/placa-amarrilla.png" alt="" id="img">
+                                <img class="img" src="img/placa-amarilla.png" alt="" id="img">
                                 <input class="input-file" type="file" id="foto2">
                                 <label class="label-file" for="foto2">Cargar placa vehiculo</label>
                             </div>
@@ -255,14 +254,8 @@
                 <form action="" class="Form6">
                     <h3 class="title-form">Tus datos personales</h3>
                     <div class="form-column form-column-data">
-                        <!-- <p class="text-data">Yo</p><input class="input" type="text">
-                        <p>Identificado con </p><input type="text">
-                        <p>No.</p><input type="text">
-                        <p>De</p><input type="text">
-                        <p>acepto las condiciones del parqueadero</p> -->
                     </div>
                     <div class="content-form">
-                        
                         <div class="content-img">
                             <i class="fa-regular fa-file icon-file"></i>
                             <img class="img" src="img/firma.jfif" alt="" id="img">
@@ -343,7 +336,7 @@
                             </div>
                             <div class="content-img">
                                 <i class="fa-regular fa-file icon-file"></i>
-                                <img src="" alt="" id="img">
+                                <img class="img" src="img/licenciaConducir.jfif" alt="" id="img">
                                 <input id="fotoSerial" class="input-file" type="file">
                                 <label for="fotoSerial" class="label-file">Foto serial</label>
                             </div>
@@ -351,7 +344,7 @@
                     </div>
                     <div class="content-btn">
                         <button type="button" class="btn-form" id="Back6">Atras</button>
-                        <button type="submit" class="btn-form" id="submit" >Aprobar</button>
+                        <button type="button" class="btn-form" id="submitAprobar"><a href="#">Aprobar</a></button>
                     </div>
                     
                 </form>
