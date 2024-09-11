@@ -20,7 +20,6 @@
     position: relative;
     width: 8%;
     height: 100%;
-    background-color: #DEF3FF;
     background-color: #0F1626;
 }
 
@@ -116,18 +115,6 @@
 #seccion3 {
     width: 100%;
 }
-
-/* .content-report {
-    display: flex;
-} */
-
-/* .section-report {
-    width: 50%;
-    height: 70%;
-    padding: 15px;
-    background-color: #e6e6e6;
-    border-radius: 10px;
-} */
 
 .section-report-modific {
     margin-right: 20px;
