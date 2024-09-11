@@ -20,34 +20,67 @@ links.forEach(link => {
     });
 });
 
-function resetIcons() {
-    icons.forEach(icon => icon.classList.add('icon-active'));
-    textReport.forEach(text => text.classList.add('icon-active'));
-}
+// function resetIcons() {
+//     icons.forEach(icon => icon.classList.add('icon-active'));
+//     textReport.forEach(text => text.classList.add('icon-active'));
+// }
 
 nav1.addEventListener("click", () => {
     span.classList.remove("mov-40");
     span.classList.remove("mov-60");
-    resetIcons();
+
     nav1.querySelector('i').classList.add('icon-inactive');
     nav1.querySelector('.text-report').classList.add('icon-inactive');
     nav1.querySelector('i').classList.remove('icon-active');
     nav1.querySelector('.text-report').classList.remove('icon-active');
+
+    nav2.querySelector('i').classList.add('icon-active');
+    nav2.querySelector('.text-report').classList.add('icon-active');
+    nav2.querySelector('i').classList.remove('icon-inactive');
+    nav2.querySelector('.text-report').classList.remove('icon-inactive');
+
+    nav3.querySelector('i').classList.add('icon-active');
+    nav3.querySelector('.text-report').classList.add('icon-active');
+    nav3.querySelector('i').classList.remove('icon-inactive');
+    nav3.querySelector('.text-report').classList.remove('icon-inactive');
+
+
 })
 
 nav2.addEventListener("click", () => {
     span.classList.add("mov-40");
     span.classList.remove("mov-60");
-    resetIcons();
+
+    nav1.querySelector('i').classList.add('icon-active');
+    nav1.querySelector('.text-report').classList.add('icon-active');
+    nav1.querySelector('i').classList.remove('icon-inactive');
+    nav1.querySelector('.text-report').classList.remove('icon-inactive');
+
     nav2.querySelector('i').classList.add('icon-inactive');
     nav2.querySelector('.text-report').classList.add('icon-inactive');
     nav2.querySelector('i').classList.remove('icon-active');
     nav2.querySelector('.text-report').classList.remove('icon-active');
+
+    nav3.querySelector('i').classList.add('icon-active');
+    nav3.querySelector('.text-report').classList.add('icon-active');
+    nav3.querySelector('i').classList.remove('icon-inactive');
+    nav3.querySelector('.text-report').classList.remove('icon-inactive');
+    
 })
 
 nav3.addEventListener("click", () => {
     span.classList.add("mov-60");
-    resetIcons();
+
+    nav1.querySelector('i').classList.add('icon-active');
+    nav1.querySelector('.text-report').classList.add('icon-active');
+    nav1.querySelector('i').classList.remove('icon-inactive');
+    nav1.querySelector('.text-report').classList.remove('icon-inactive');
+
+    nav2.querySelector('i').classList.add('icon-active');
+    nav2.querySelector('.text-report').classList.add('icon-active');
+    nav2.querySelector('i').classList.remove('icon-inactive');
+    nav2.querySelector('.text-report').classList.remove('icon-inactive');
+    
     nav3.querySelector('i').classList.add('icon-inactive');
     nav3.querySelector('.text-report').classList.add('icon-inactive');
     nav3.querySelector('i').classList.remove('icon-active');
