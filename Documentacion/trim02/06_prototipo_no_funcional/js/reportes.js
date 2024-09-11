@@ -25,7 +25,6 @@ nav1.addEventListener("click", () => {
     span.classList.remove("mov-40");
     span.classList.remove("mov-60");
 
->>>>>>> 1a4ac2027723283333969f0fe562b759873503fe
     nav1.querySelector('i').classList.add('icon-inactive');
     nav1.querySelector('.text-report').classList.add('icon-inactive');
     nav1.querySelector('i').classList.remove('icon-active');
@@ -41,9 +40,6 @@ nav1.addEventListener("click", () => {
     nav3.querySelector('.text-report').classList.add('icon-active');
     nav3.querySelector('i').classList.remove('icon-inactive');
     nav3.querySelector('.text-report').classList.remove('icon-inactive');
-
-
->>>>>>> 1a4ac2027723283333969f0fe562b759873503fe
 })
 
 nav2.addEventListener("click", () => {
@@ -55,7 +51,6 @@ nav2.addEventListener("click", () => {
     nav1.querySelector('.text-report').classList.add('icon-active');
     nav1.querySelector('i').classList.remove('icon-inactive');
     nav1.querySelector('.text-report').classList.remove('icon-inactive');
->>>>>>> 1a4ac2027723283333969f0fe562b759873503fe
 
     nav2.querySelector('i').classList.add('icon-inactive');
     nav2.querySelector('.text-report').classList.add('icon-inactive');
@@ -67,8 +62,6 @@ nav2.addEventListener("click", () => {
     nav3.querySelector('.text-report').classList.add('icon-active');
     nav3.querySelector('i').classList.remove('icon-inactive');
     nav3.querySelector('.text-report').classList.remove('icon-inactive');
-
->>>>>>> 1a4ac2027723283333969f0fe562b759873503fe
 })
 
 nav3.addEventListener("click", () => {
@@ -85,7 +78,6 @@ nav3.addEventListener("click", () => {
     nav2.querySelector('i').classList.remove('icon-inactive');
     nav2.querySelector('.text-report').classList.remove('icon-inactive');
 
->>>>>>> 1a4ac2027723283333969f0fe562b759873503fe
     nav3.querySelector('i').classList.add('icon-inactive');
     nav3.querySelector('.text-report').classList.add('icon-inactive');
     nav3.querySelector('i').classList.remove('icon-active');
