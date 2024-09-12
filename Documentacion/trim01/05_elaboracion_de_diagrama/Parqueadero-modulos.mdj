@@ -6640,7 +6640,7 @@
 											"top": 795.5,
 											"width": 204,
 											"height": 13,
-											"text": "CU27-Generar reporte ocupacion"
+											"text": "CU27-Generar reportes"
 										},
 										{
 											"_type": "LabelView",
@@ -6673,7 +6673,7 @@
 									"font": "Arial;13;0",
 									"left": 460.5,
 									"top": 788.5,
-									"width": 214.4453125,
+									"width": 214,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGRpHQx4EWmL2A="
@@ -6839,7 +6839,7 @@
 											"top": 923.5,
 											"width": 192,
 											"height": 13,
-											"text": "CU28-Generar reporte ingresos"
+											"text": "CU28-Ver mis vehiculos"
 										},
 										{
 											"_type": "LabelView",
@@ -6872,7 +6872,7 @@
 									"font": "Arial;13;0",
 									"left": 338.5,
 									"top": 916.5,
-									"width": 203.62255859375,
+									"width": 202,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGRpHSswFdc6us="
@@ -17156,7 +17156,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "CU27-Generar reporte ocupacion"
+					"name": "CU27-Generar reportes"
 				},
 				{
 					"_type": "UMLUseCase",
@@ -17164,7 +17164,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "CU28-Generar reporte ingresos"
+					"name": "CU28-Ver mis vehiculos"
 				}
 			]
 		}
