@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5808d06a88.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/generarqr.css">
+    <title>Generar QR</title>
+</head>
+<body>
+    <header class="header">
+        <img src="img/logo-parkeaTec.svg" alt="logo" class="logo">
+        <nav class="nav">
+            <ul class="menu-horizontal">
+                <li>
+                    <a class="item-nav" href="#">Formulario</a>
+                    <ul class="menu-vertical">
+                        <li><a href="form.html">Llenar Formulario</a></li>
+                        <li><a href="revisarForm.html">Revisar Formulario</a></li>
+                    </ul>
+                </li>
+                <li><a class="item-nav" href="reportes.html">Reportes</a></li>
+                <li>
+                    <a class="item-nav" href="#">Parqueadero</a>
+                    <ul class="menu-vertical">
+                        <li><a href="#">Asignar Espacio</a></li>
+                        <li><a href="verEspaciosParqueadero.html">Ver espacios</a></li>
+                        <li><a href="generar-strikes.html">Generar strickes</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="item-nav" href="#">Perfil</a>
+                    <ul class="menu-vertical">
+                        <li><a href="escanear-qr.html">Ver QR</a></li>
+                        <li><a href="realizar-reserva.html">Hacer Reserva</a></li>
+                        <li><a href="#">Mis vehiculo</a></li>
+                        <li><a href="registrarUsuarios.html">Registrar Usuarios</a></li>
+                        <li><a href="#">Strikes</a></li>
+                        <li><a href="ver-factura.html">Mis Facturas</a></li>
+                        <li><a href="historial-entrada.html">Historial</a></li>
+                    </ul>
+                </li>
+                <li><a class="item-nav" href="#modal1">Cerrar Sesion</a></li>       
+            </ul>
+        </nav>
+    </header>
+    <div id="modal1" class="modalmask">
+        <div class="modalbox movedown">
+            <a href="#close" title="Close" class="close">X</a>
+            <h2>Cerrar Sesion</h2>
+            <p>¿Deseas cerrar sesion?.</p>
+            <div class="modal-footer">
+                <a href="#close" title="Close"><button type="button" class="btn btn-danger" data-dismiss="modal1">Cancelar</button></a>
+                <a href="login.html"><button type="button" class="btn btn-success">Aceptar</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="continer">
+        <h1>Generar Codigo QR</h1>
+        <form>
+            <img src="img/user.png" alt="user" class="user">
+            <img src="img/Untitled.png" alt="qr" class="qr">
+            <div class="form-group">
+                <label for="Nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" value="Juan Garnica" readonly>
+            </div>
+            <div class="form-group">
+                <label for="tipodocumento">Tipo documento</label>
+                <input type="number" id="tipodocumento" name="tipodocumento" value="1000517116" readonly>
+            </div>
+            <div class="form-group">
+                <label for="emil">Correo Electronico</label>
+                <input type="email" id="email" name="email" value="jagarnica61@soy.sena.edu.co" readonly>
+            </div>
+            <div class="form-group">
+                <label for="rol">Rol</label>
+                <input type="text" id="rol" name="rol" value="Aprendiz" readonly>
+            </div>
+            <button><a href="solicitudes.html">Generar Codigo QR</a></button>
+        </form>
+    </div>
+    <footer class="footer">
+        <img src="./img/logo-parkeaTec.svg" alt="log" class="logo">
+    </footer>
+</body>
+</html>
