@@ -72,3 +72,8 @@ button{
     margin-left: 35%;
     top: 40%;
 }
+
+a{
+    text-decoration: none;
+    color: black;
+}
