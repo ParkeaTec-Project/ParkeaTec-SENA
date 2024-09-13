@@ -6,6 +6,7 @@
     <title>Mis vehiculos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/misVehiculos.css">
     <script src="https://kit.fontawesome.com/5808d06a88.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -45,5 +46,43 @@
             </ul>
         </nav>
     </header>
+    <main class="main">
+        <section class="vehiculos">
+            <h1 class="title-vehiculos">Tus vehiculos</h1>
+            <div class="slider-container">
+                <!-- Flecha izquierda -->
+                <i class="fas fa-chevron-left flecha-izquierda"></i>
+                
+                <div class="content-vehiculos">
+                    <div class="tipo-vehiculos" id="vehiculo-1">
+                        <div class="content-data">
+                            <p>Marca: Chevrolet</p>
+                            <p>Modelo: 2024</p>
+                            <p>Placa: CVY000</p>
+                        </div>
+                        <img class="img-vehiculo" src="img/carro.png" alt="carro">
+                    </div>
+                    <div class="tipo-vehiculos" id="vehiculo-2">
+                        <div class="content-data">
+                            <p>Marca: Toyota</p>
+                            <p>Modelo: 2023</p>
+                            <p>Placa: ABC123</p>
+                        </div>
+                        <img class="img-vehiculo" src="img/carro-2.jfif" alt="carro">
+                    </div>
+                </div>
+                
+                <!-- Flecha derecha -->
+                <i class="fas fa-chevron-right flecha-derecha"></i>
+            </div>
+            <div class="content-btn-vehiculo">
+                <button class="btn-vehiculo">Actulizar</button>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <img src="./img/logo-parkeaTec.svg" alt="log" class="logo">
+    </footer>
+    <script src="js/misVehiculos.js"></script>
 </body>
 </html>

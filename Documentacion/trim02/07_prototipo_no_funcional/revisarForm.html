@@ -6,8 +6,8 @@
     <title>Revisar Formulario</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/revisarForm.css">
     <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/revisarForm.css">
     <script src="https://kit.fontawesome.com/5808d06a88.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -345,6 +345,7 @@
                     </div>
                     <div class="content-btn">
                         <button type="button" class="btn-form" id="Back6">Atras</button>
+                        <button type="button" class="btn-form btn-form-rechazar submit-comentario" id="Back6">Rechazar</button>
                         <button type="button" class="btn-form" id="submitAprobar"><a href="generarqr.html">Aprobar</a></button>
                     </div>
                     
@@ -359,6 +360,16 @@
                     <div class="step-col">Paso 6</div>
                     <div class="step-col">Paso 7</div>
                 </div>
+
+                <div class="content-comentario">
+                    <div class="modal-comentario" id="modal-comentario">
+                        <i class="bi bi-exclamation-octagon-fill icon-comentario"></i>
+                        <p>Formulario y documentacion incompletos</p>
+                        <textarea name="" id=""  placeholder="Escribe tu comentario"></textarea>
+                        <button type="submit" class="btn-form btn-comentario" id="submit-comentario" >Enviar</button>
+                    </div>
+                </div>
+                
             </div>
         </section>
     </main>
@@ -366,5 +377,6 @@
         <img src="img/logo-parkeaTec.svg" alt="logo ">
     </footer>
     <script src="js/form.js"></script>
+    <script src="js/revisarForm.js"></script>
 </body>
 </html>
