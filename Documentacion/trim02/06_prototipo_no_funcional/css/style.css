@@ -34,12 +34,9 @@ body {
     justify-content: space-around;
 }
 
-.menu-horizontal > li > a {
-    display: block;
-    text-decoration: none;
-}
-
 .item-nav {
+    display: flex;
+    align-items: center;
     margin-right: 20px;
     padding: 11px;
     border: 1px solid #fff;
@@ -47,6 +44,17 @@ body {
     text-decoration: none;
     border-radius: 10px 0 10px 0;
     transition: .7s;
+}
+
+.item-nav i {
+    font-size: 25px;
+    color: #fff;
+    margin-right: 10px;
+    transition: .7s;
+}
+
+.item-nav:hover i {
+    color: #000;
 }
 
 .item-nav:hover {
