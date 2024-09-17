@@ -25,6 +25,10 @@ nav1.addEventListener("click", () => {
     span.classList.remove("mov-40");
     span.classList.remove("mov-60");
 
+
+    span.classList.remove("mov-mobile-33");
+    span.classList.remove("mov-mobile-67");
+
     nav1.querySelector('i').classList.add('icon-inactive');
     nav1.querySelector('.text-report').classList.add('icon-inactive');
     nav1.querySelector('i').classList.remove('icon-active');
@@ -46,6 +50,9 @@ nav2.addEventListener("click", () => {
     span.classList.add("mov-40");
     span.classList.remove("mov-60");
 
+    span.classList.add("mov-mobile-33");
+    span.classList.remove("mov-mobile-67");
+
 
     nav1.querySelector('i').classList.add('icon-active');
     nav1.querySelector('.text-report').classList.add('icon-active');
@@ -66,6 +73,8 @@ nav2.addEventListener("click", () => {
 
 nav3.addEventListener("click", () => {
     span.classList.add("mov-60");
+
+    span.classList.add("mov-mobile-67");
 
 
     nav1.querySelector('i').classList.add('icon-active');

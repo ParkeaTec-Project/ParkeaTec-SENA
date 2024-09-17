@@ -22,6 +22,14 @@ const Back6 = document.getElementById('Back6');
 
 const progress = document.querySelector('.progress');
 
+const step1 = document.querySelector('.step-col-1');
+const step2 = document.querySelector('.step-col-2');
+const step3 = document.querySelector('.step-col-3');
+const step4 = document.querySelector('.step-col-4');
+const step5 = document.querySelector('.step-col-5');
+const step6 = document.querySelector('.step-col-6');
+const step7 = document.querySelector('.step-col-7');
+
 const files = document.querySelectorAll('input[type="file"]');
 const inputs = document.querySelectorAll('input');
 const textAreas = document.querySelectorAll('textarea');
@@ -40,63 +48,124 @@ const buttton = document.getElementById('btn-booking'),
 Next1.addEventListener("click", () => {
     Form1.classList.add("active-negative");
     Form2.classList.add("active-0");
+
+    step1.classList.add("active-negative");
+    step2.classList.add("active-0");
+
     progress.classList.add("active-form2");
     Form1.classList.remove("active-0");
     Form2.classList.remove("active-positive");
+
+    step1.classList.remove("active-0");
+    step2.classList.remove("active-positive");
+
     progress.classList.remove("active-form1");
 });
 
 Back1.addEventListener("click", () => {
     Form1.classList.remove("active-negative");
     Form2.classList.remove("active-0");
+
+    step1.classList.remove("active-negative");
+    step2.classList.remove("active-0");
+
     progress.classList.remove("active-form2");
     Form1.classList.add("active-0");
     Form2.classList.add("active-positive");
+
+    step1.classList.add("active-0");
+    step2.classList.add("active-positive");
+
     progress.classList.add("active-form1");
 });
 
 Next2.addEventListener("click", () => {
     Form2.classList.add("active-negative");
     Form3.classList.add("active-0")
+
+    step2.classList.add("active-negative");
+    step3.classList.add("active-0");
+
     progress.classList.add("active-form3");
+
     Form2.classList.remove("active-0");
     Form3.classList.remove("active-positive");
+
+    step2.classList.remove("active-0");
+    step3.classList.remove("active-positive");
+
     progress.classList.remove("active-form2");
 });
 
 Back2.addEventListener("click", () => {
     Form2.classList.remove("active-negative");
     Form3.classList.remove("active-0");
+
+    step2.classList.remove("active-negative");
+    step3.classList.remove("active-0");
+
     progress.classList.remove("active-form3");
+
     Form2.classList.add("active-0");
-    Form3.classList.add("active-positive")
+    Form3.classList.add("active-positive");
+
+    step2.classList.add("active-0");
+    step3.classList.add("active-positive");
+
     progress.classList.add("active-form2");
 });
 
 Next3.addEventListener("click", () => {
     Form3.classList.remove("active-0");
     Form4.classList.remove("active-positive");
+
+    step3.classList.remove("active-0");
+    step4.classList.remove("active-positive");
+
     progress.classList.remove("active-form3");
+
     Form3.classList.add("active-negative");
     Form4.classList.add("active-0");
+
+    step3.classList.add("active-negative");
+    step4.classList.add("active-0");
+
     progress.classList.add("active-form4");
 });
 
 Back3.addEventListener("click", () => {
     Form3.classList.remove("active-negative");
     Form4.classList.remove("active-0");
-    progress.classList.remove("active-form4")
+
+    step3.classList.remove("active-negative");
+    step4.classList.remove("active-0");
+
+    progress.classList.remove("active-form4");
+
     Form3.classList.add("active-0");
     Form4.classList.add("active-positive");
+
+    step3.classList.add("active-0");
+    step4.classList.add("active-positive");
+
     progress.classList.add("active-form3");
 });
 
 Next4.addEventListener("click", () => {
     Form4.classList.remove("active-0");
     Form5.classList.remove("active-positive");
+
+    step4.classList.remove("active-0");
+    step5.classList.remove("active-positive");
+
     progress.classList.remove("active-form4");
+
     Form4.classList.add("active-negative");
     Form5.classList.add("active-0");
+
+    step4.classList.add("active-negative");
+    step5.classList.add("active-0");
+
     progress.classList.add("active-form5");
 
 })
@@ -104,45 +173,90 @@ Next4.addEventListener("click", () => {
 Back4.addEventListener("click", () => {
     Form4.classList.remove("active-negative");
     Form5.classList.remove("active-0");
+
+    step4.classList.remove("active-negative");
+    step5.classList.remove("active-0");
+
     progress.classList.remove("active-form5");
+
     Form4.classList.add("active-0");
     Form5.classList.add("active-positive");
+
+    step4.classList.add("active-0");
+    step5.classList.add("active-positive");
+
     progress.classList.add("active-form4");
 })
 
 Next5.addEventListener("click", () => {
     Form5.classList.remove("active-0");
     Form6.classList.remove("active-positive");
+
+    step5.classList.remove("active-0");
+    step6.classList.remove("active-positive");
+
     progress.classList.remove("active-form5");
+
     Form5.classList.add("active-negative");
     Form6.classList.add("active-0");
+
+    step5.classList.add("active-negative");
+    step6.classList.add("active-0");
+
     progress.classList.add("active-form6");
 });
 
 Back5.addEventListener("click", () => {
     Form5.classList.remove("active-negative");
     Form6.classList.remove("active-0");
+
+    step5.classList.remove("active-negative");
+    step6.classList.remove("active-0");
+
     progress.classList.remove("active-form6");
+
     Form5.classList.add("active-0");
     Form6.classList.add("active-positive");
+
+    step5.classList.add("active-0");
+    step6.classList.add("active-positive");
+
     progress.classList.add("active-form5");
 });
 
 Next6.addEventListener("click", () => {
     Form6.classList.remove("active-0");
     Form7.classList.remove("active-positive");
+
+    step6.classList.remove("active-0");
+    step7.classList.remove("active-positive");
+
     progress.classList.remove("active-form6");
+
     Form6.classList.add("active-negative");
     Form7.classList.add("active-0");
+
+    step6.classList.add("active-negative");
+    step7.classList.add("active-0");
+
     progress.classList.add("active-form7");
 });
 
 Back6.addEventListener("click", () => {
     Form6.classList.remove("active-negative");
     Form7.classList.remove("active-0");
+
+    step6.classList.remove("active-negative");
+    step7.classList.remove("active-0");
+
     progress.classList.remove("active-form7");
+
     Form6.classList.add("active-0");
     Form7.classList.add("active-positive");
+
+    step6.classList.add("active-0");
+    step7.classList.add("active-positive");
+
     progress.classList.add("active-form6");
 })
 

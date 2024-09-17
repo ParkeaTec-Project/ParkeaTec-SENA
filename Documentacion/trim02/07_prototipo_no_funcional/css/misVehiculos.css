@@ -85,3 +85,28 @@
 #vehiculo-2 {
     display: none;
 }
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) { 
+    
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) { 
+    
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) { 
+    
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) { 
+    
+}
+
+  /* Extra small devices (phones, 375px and down) */
+@media only screen and (max-width: 375px) { 
+    
+}

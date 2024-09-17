@@ -148,6 +148,9 @@
 .section-report,
 .section-ocupation,
 .section-ingresos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 48%;
     height: 100%;
     padding: 15px;
@@ -180,4 +183,269 @@
 }
 .table tr:hover {
     background-color: #f1f1f1;
+}
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) { 
+    .report {
+        background-color: rgb(0, 174, 255);
+    }
+
+    .nav-report {
+        width: 15%;
+        margin-right: 10px;
+    }
+
+    .calendar {
+        width: 100%;
+        justify-content: flex-end 
+    }
+
+    .calendar-input {
+        width: 40%;
+    }
+
+    .content-report {
+        height: auto;
+        margin-top: 35px;
+    }
+
+    .content-ocupation,
+    .content-ingresos {
+        height: 620px;
+        margin-top: 35px;
+        overflow-y: scroll;
+    }
+
+    .section-ocupation,
+    .section-ingresos {
+        height: 49.5%;
+    }
+
+    .section-report,
+    .section-ocupation,
+    .section-ingresos {
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) { 
+    .report {
+        background-color: rgb(89, 0, 255);
+    }
+
+    .nav-report {
+        width: 18%;
+        margin-right: 10px;
+    }
+
+    .calendar {
+        width: 100%;
+        justify-content: flex-end 
+    }
+
+    .calendar-input {
+        width: 40%;
+    }
+
+    .section-report,
+    .section-ocupation,
+    .section-ingresos {
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) { 
+    .report {
+        background-color: rgb(255, 230, 0);
+    }
+
+    .nav-report {
+        width: 20%;
+        margin-right: 10px;
+    }
+
+    .item-nav-report {
+        height: 15%;
+    }
+
+    .span {
+        top: 27.5%;
+        height: 15%;
+    }
+
+    .mov-mobile-33 {
+        top: 42.5%
+    }
+    
+    .mov-mobile-67 {
+        top: 57.5%;
+    }
+
+    .calendar {
+        width: 100%;
+        justify-content: flex-end 
+    }
+
+    .calendar-input {
+        width: 35%;
+    }
+
+    .section-report,
+    .section-ocupation,
+    .section-ingresos {
+        overflow-x: scroll;
+        width: 100%;
+        margin: 0 10px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) { 
+    .report {
+        background-color: rgb(0, 255, 0);
+        flex-direction: column;
+    }
+
+    .nav-report {
+        flex-direction: row;
+        width: 100%;
+        height: 15%;
+        margin-bottom: 20px;
+    }
+
+    .span {
+        top: 0;
+        left: 0;
+        width: 33%;
+        height: 100%;
+    }
+
+    .mov-mobile-33 {
+        left: 34%
+    }
+    
+    .mov-mobile-67 {
+        left: 67%;
+    }
+
+    .item-nav-report {
+        height: 100%;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .calendar {
+        flex-direction: column;
+        width: 100%;
+        left: 0;
+    }
+
+    .calendar-input {
+        width: 100%;
+    }
+
+    .content-report,
+    .content-ocupation,
+    .content-ingresos {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        height: 300px;
+    }
+
+    .section-report,
+    .section-info,
+    .section-ocupation,
+    .section-ingresos {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        overflow-y: hidden;
+        overflow-x: scroll;
+    }
+
+    .chart_div {
+        width: 100%;
+    }
+}
+
+  /* Extra small devices (phones, 375px and down) */
+@media only screen and (max-width: 375px) { 
+    .report {
+        background-color: rgb(236, 17, 17);
+        flex-direction: column;
+    }
+
+    .nav-report {
+        flex-direction: row;
+        width: 100%;
+        height: 15%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .span {
+        top: 0;
+        left: 0;
+        width: 33%;
+        height: 100%;
+    }
+
+    .mov-mobile-33 {
+        left: 34%
+    }
+    
+    .mov-mobile-67 {
+        left: 67%;
+    }
+
+    .item-nav-report {
+        height: 100%;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .calendar {
+        flex-direction: column;
+        width: 100%;
+        left: 0;
+    }
+
+    .calendar-input {
+        width: 100%;
+    }
+
+    .content-report,
+    .content-ocupation,
+    .content-ingresos {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        height: 300px;
+    }
+
+    .section-report,
+    .section-info,
+    .section-ocupation,
+    .section-ingresos {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        overflow-y: hidden;
+        overflow-x: scroll;
+    }
+
+    .chart_div {
+        width: 100%;
+    }
 }
