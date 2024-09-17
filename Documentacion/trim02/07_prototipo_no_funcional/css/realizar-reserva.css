@@ -14,8 +14,10 @@
     justify-content: space-evenly;
     width: 45%;
     height: 400px;
+    padding: 15px 30px;
     background-color: #ffffff;
     transition: .3s linear;
+    border: 1px solid black;
 }
 
 .form:hover {
@@ -30,7 +32,7 @@
 
 .content-form {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 100px;
     width: 100%;
     margin-top: 10px;
@@ -97,13 +99,14 @@
 
 .content-btn-booking {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     gap: 3px;
+    width: 100%;
 }
 
 .btn-booking {
-    width: 55%;
+    width: 30%;
     height: 38px;
     padding: 10px;
     background-color: #ACFFB7;
@@ -128,29 +131,144 @@
     text-decoration: none;
 }
 
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) { 
+    .booking {
+      background-color: rgb(36, 162, 197);
+    }
 
-  
-  /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) { body {
-      background-color: lightblue;
-    }}
+    .content-form {
+        gap: 30px;
+    }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) { body {
-      background-color: rgb(230, 184, 173);
-    }}
+    .content-input {
+        width: 100%;
+    }
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) { body {
-      background-color: rgb(132, 133, 77);
-    }}
+    .content-btn-booking {
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    .btn-booking {
+        width: 40%;
+    }
+}
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) { body {
-      background-color: rgb(117, 30, 110);
-    }}
+@media only screen and (max-width: 992px) { 
+    .booking {
+        background-color: rgb(235, 232, 56);
+    }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) { body {
-      background-color: rgb(133, 177, 51);
-    }}
+    .form {
+        width: 55%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) { 
+    .booking {
+        background-color: rgb(47, 24, 222);
+    }
+
+    .form {
+        width: 80%;
+    }
+
+    .content-btn-booking {
+        justify-content: flex-end;
+    }
+
+    .btn-booking {
+        width: 30%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) { 
+    .booking {
+        background-color: rgb(56, 235, 163);
+    }
+
+    .form {
+        width: 80%;
+        padding: 20px;
+        justify-content: space-between;
+    }
+
+    .content-form {
+        gap: 40px;
+    }
+
+    .content-input {
+        width: 60%;
+    } 
+
+    .content-btn-booking {
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .btn-booking {
+        padding: 0;
+        width: 40%;
+        height: 40px;
+    }
+}
+
+  /* Extra small devices (phones, 375px and down) */
+@media only screen and (max-width: 375px) { 
+    .booking {
+        background-color: rgb(235, 134, 56);
+    }
+
+    .title-main {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .form {
+        height: auto;
+        padding: 10px;
+        width: 60%;
+    }
+
+    .content-form {
+        flex-direction: column;
+        gap: 0;
+        align-items: center;
+    }
+
+    .content-input {
+        width: 90%;
+    }
+
+    .content-btn-booking {
+        gap: 10px;
+    }
+
+    .btn-booking {
+        height: 50px;
+        padding: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
