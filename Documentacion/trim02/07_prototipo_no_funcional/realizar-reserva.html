@@ -16,15 +16,15 @@
         <nav class="nav">
             <ul class="menu-horizontal">
                 <li>
-                    <a class="item-nav" href="#"><i class="fa-solid fa-newspaper"></i>Formulario</a>
+                    <a class="item-nav" href="#"><i class="fa-solid fa-newspaper"></i><span class="hidden-text">Formulario</span></a>
                     <ul class="menu-vertical">
                         <li><a href="form.html">Llenar Formulario</a></li>
                         <li><a href="revisarForm.html">Revisar Formulario</a></li>
                     </ul>
                 </li>
-                <li><a class="item-nav" href="reportes.html"><i class="fas fa-chart-bar"></i>Reportes</a></li>
+                <li><a class="item-nav" href="reportes.html"><i class="fas fa-chart-bar"></i><span class="hidden-text">Reportes</span></a></li>
                 <li>
-                    <a class="item-nav" href=""><i class="bi bi-p-square-fill"></i>Parqueadero</a>
+                    <a class="item-nav" href="#"><i class="bi bi-p-square-fill"></i><span class="hidden-text">Parqueadero</span></a>
                     <ul class="menu-vertical">
                         <li><a href="asignacion-espacios.html">Asignar Espacio</a></li>
                         <li><a href="verEspaciosParqueadero.html">Ver espacios</a></li>
@@ -32,7 +32,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="item-nav" href="#"><i class="bi bi-person-circle"></i>Perfil</a>
+                    <a class="item-nav" href="#"><i class="bi bi-person-circle"></i><span class="hidden-text">Perfil</span></a>
                     <ul class="menu-vertical">
                         <li><a href="escanear-qr.html">Ver QR</a></li>
                         <li><a href="realizar-reserva.html">Hacer Reserva</a></li>
@@ -46,7 +46,12 @@
                 </li>
             </ul>
         </nav>
+        
+        <i class="bi bi-list menu-list"></i>
     </header>
+    <div class="nav-mobile">
+        <i class="bi bi-x close-mobile"></i>
+    </div>
     
     <main>
         <section class="section booking">
@@ -96,13 +101,13 @@
                             <input type="text" class="input">
                             <label class="label">Vehiculo</label>
                         </div>
-                        <div class="content-btn-booking">
-                            <a class="btn-booking btn-booking-right" href="verEspaciosParqueadero.html">Ver espacios</a>
-                            <button type="submit" class="btn-booking" id="btn-booking">Confirmar Reserva</button>
-                        </div>
                         
                     </div>
-                </div>            
+                </div>    
+                <div class="content-btn-booking">
+                    <button class="btn-booking"><a class="btn-booking btn-booking-right" href="verEspaciosParqueadero.html">Ver espacios</a></button>
+                    <button type="submit" class="btn-booking" id="btn-booking">Confirmar Reserva</button>
+                </div>  
             </form>
         </section>
         <div id="modal1" class="modalmask">

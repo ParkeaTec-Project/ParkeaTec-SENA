@@ -1,0 +1,12 @@
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    position: sticky;
+    bottom: 0;
+    background-color: #0F1626;
+}
+
+.main{
+    background-color: #DEF3FF;
+    height: calc(100vh - 100px - 100px );
+}

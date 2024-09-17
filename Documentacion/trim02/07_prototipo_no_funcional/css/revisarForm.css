@@ -17,3 +17,48 @@
     color: #000;
     text-decoration: none;
 }
+
+.btn-form-rechazar {
+    background-color: #FF4448;
+    border: 1px solid #FF4448;
+}
+
+.content-comentario {
+    display: none;
+    transition: .7s;
+}
+
+.content-comentario.active {
+    display: block;
+    transition: .7s;
+}
+
+.modal-comentario {
+    position: absolute;
+    top: 0;
+    left: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    width: 40%;
+    height: 400px;
+    background-color: #b4b4b4;
+    transition: .7s;
+}
+
+.modal-comentario textarea {
+    resize: none;
+    width: 85%;
+    height: 60%;
+}
+
+.btn-comentario {
+    margin-top: 10px;
+}
+
+.icon-comentario {
+    font-size: 35px;
+    color: #FF4448;
+}
