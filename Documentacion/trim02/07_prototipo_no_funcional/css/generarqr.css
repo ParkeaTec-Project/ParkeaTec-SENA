@@ -5,6 +5,15 @@ body {
     padding: 0;
 }
 
+.form{
+    position: relative;
+}
+
+.clase{
+    padding: 80px;
+    height: calc(100vh - 100px - 100px);
+}
+
 .continer{
     display: grid;
     background-color: white;
@@ -28,7 +37,7 @@ h1{
     border: 5px solid #d4cccc;
     border-radius: 10px;
     position: absolute;
-    top: 40%;
+    top: 15%;
 }
 
 .form-group{    
@@ -52,7 +61,7 @@ input{
     margin-bottom: 5px;
 }
 
-button{
+p{
     position: relative;
     width: 28%;
     padding: 10px;
@@ -65,12 +74,13 @@ button{
 
 .qr{
     width: 200px;
-    height: auto;
+    height: 190px;
     border: 5px solid #d4cccc;
     border-radius: 10px;
     position: absolute;
     margin-left: 35%;
-    top: 40%;
+    top: 15%;
+    left: 36%;
 }
 
 a{
