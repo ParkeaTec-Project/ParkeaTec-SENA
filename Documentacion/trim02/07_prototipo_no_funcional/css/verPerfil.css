@@ -10,6 +10,8 @@
     background-color: white;
     height: calc(100vh - 100px - 100px );
     width: 75%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .fotoPerfil {
@@ -18,4 +20,9 @@
 
 .main{
     background-color: DEF3FF;
+}
+
+.fotoPerfil{
+    width: 50%;
+    height: 70%;
 }

@@ -64,3 +64,35 @@ a{
     color: #000;
 }
 
+<<<<<<< HEAD
+=======
+@media only screen and (max-width: 1200px){
+    .main{
+        padding: 50px;
+    }
+}
+
+@media only screen and (max-width: 992px){
+    .main{
+        padding: 100px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .main{
+        padding: 70px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .main{
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 375px){
+    .main{
+        padding: 10px;
+    }
+}
+>>>>>>> 1c66f1b92c0b746b5bb60e73cb973623fdd40964
