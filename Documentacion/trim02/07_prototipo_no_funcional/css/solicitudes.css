@@ -63,3 +63,33 @@ a{
     text-decoration: none;
     color: #000;
 }
+
+@media only screen and (max-width: 1200px){
+    .main{
+        padding: 50px;
+    }
+}
+
+@media only screen and (max-width: 992px){
+    .main{
+        padding: 100px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .main{
+        padding: 70px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .main{
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 375px){
+    .main{
+        padding: 10px;
+    }
+}
