@@ -10,14 +10,14 @@ body {
 }
 
 .clase{
-    padding: 80px;
+    padding: 55px;
     height: calc(100vh - 100px - 100px);
 }
 
 .continer{
     display: grid;
     background-color: white;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     max-width: 800px;
     margin: 20px auto;
