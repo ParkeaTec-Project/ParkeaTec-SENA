@@ -13,7 +13,9 @@
 <body>
     <header class="header">
         <img src="img/logo-parkeaTec.svg" alt="logo" class="log">
-        <nav class="nav">
+        <i class="abrir-menu bi bi-list" id="abrir-menu"></i>
+        <nav class="nav" id="nav">
+            <i class="cerrar-menu bi bi-x" id="cerrar-menu"></i>
             <ul class="menu-horizontal">
                 <li>
                     <a class="item-nav" href="#"><i class="fa-solid fa-newspaper"></i><span class="hidden-text">Formulario</span></a>
@@ -46,12 +48,7 @@
                 </li>
             </ul>
         </nav>
-        
-        <i class="bi bi-list menu-list"></i>
     </header>
-    <div class="nav-mobile">
-        <i class="bi bi-x close-mobile"></i>
-    </div>
     
     <main>
         <section class="section booking">
@@ -125,6 +122,7 @@
     <footer class="footer">
         <img src="img/logo-parkeaTec.svg" alt="logo ">
     </footer>
+    <script src="js/menu.js"></script>
     <script src="js/reserva.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
 

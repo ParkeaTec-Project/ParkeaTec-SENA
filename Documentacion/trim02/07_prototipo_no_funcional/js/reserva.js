@@ -13,20 +13,6 @@ const inputs = document.querySelectorAll(".input");
 const select = document.getElementById("options");
 const inputPuesto = document.getElementById('puesto-asignado');
 
-const menuMobile = document.querySelector(".menu-list");
-const closeMobile = document.querySelector(".close-mobile");
-const nav = document.querySelector(".nav");
-const navMobile = document.querySelector(".nav-mobile");
-
-menuMobile.addEventListener("click", () => {
-    navMobile.classList.add("active");
-})
-
-closeMobile.addEventListener("click", () => {
-    navMobile.classList.remove("active");   
-})
-
-
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();

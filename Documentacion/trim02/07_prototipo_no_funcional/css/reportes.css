@@ -3,6 +3,7 @@
 }
 
 .report {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -68,7 +69,9 @@
 }
 
 .active {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .mov-40 {
@@ -84,7 +87,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 85%;
+    width: 100%;
     height: 100%;
 }
 
@@ -92,7 +95,8 @@
     display: flex;
     justify-content: center;
     position: absolute;
-    top: 0;
+    z-index: 200;
+    top: 10px;
     right: 20px;
     gap: 20px;
     width: 30%;
@@ -112,7 +116,6 @@
 
 .container .section-info {
     height: 100%;
-    overflow-y: scroll;
 }
 
 #seccion1,
@@ -135,7 +138,12 @@
 .chart_div {
     display: flex;
     align-items: center;
-    height: 300px;
+    height: 100%;
+    overflow-x: scroll;
+}
+
+#seccion1 .content-report {
+    overflow-y: visible;
 }
 
 .content-report,
@@ -147,6 +155,7 @@
     gap: 5px;
     width: 100%;
     height: 300px;
+    overflow-y: scroll;
 }
 
 .section-report,
@@ -201,6 +210,10 @@
         margin-right: 10px;
     }
 
+    .container {
+        margin-top: 80px;
+    }
+
     .calendar {
         width: 100%;
         justify-content: flex-end 
@@ -210,21 +223,26 @@
         width: 40%;
     }
 
-    .content-report {
-        height: auto;
-        margin-top: 35px;
-    }
-
-    .content-ocupation,
-    .content-ingresos {
-        height: 620px;
-        margin-top: 35px;
+    #seccion1 .content-report {
         overflow-y: scroll;
     }
 
+    .content-report,
+    .content-ocupation,
+    .content-ingresos {
+        width: 80%;
+        height: 70%;
+        overflow-y: scroll;
+    }
+
+    .container .section-info {
+        overflow-y: visible;
+    }
+
+
     .section-ocupation,
     .section-ingresos {
-        height: 49.5%;
+        height: 100%;
     }
 
     .section-report,
@@ -248,12 +266,16 @@
     }
 
     .calendar {
-        width: 100%;
+        width: 85%;
         justify-content: flex-end 
     }
 
     .calendar-input {
         width: 40%;
+    }
+
+    #seccion1 .content-report {
+        overflow-y: scroll;
     }
 
     .section-report,
@@ -302,11 +324,19 @@
         width: 35%;
     }
 
+    .container {
+        width: 80%;
+    }
+
+    #seccion1 .content-report {
+        overflow-y: scroll;
+    }
+
     .section-report,
     .section-ocupation,
     .section-ingresos {
-        overflow-x: scroll;
         width: 100%;
+        height: 60%;
         margin: 0 10px;
     }
 }
@@ -321,7 +351,7 @@
     .nav-report {
         flex-direction: row;
         width: 100%;
-        height: 15%;
+        height: 25%;
         margin-bottom: 20px;
     }
 
@@ -348,14 +378,19 @@
         width: 100%;
     }
 
+    .container .section-info {
+        overflow-x: visible;
+    }
+
     .calendar {
         flex-direction: column;
         width: 100%;
-        left: 0;
+        top: 150px;
+        left: 5px;
     }
 
     .calendar-input {
-        width: 100%;
+        width: 70%;
     }
 
     .content-report,
@@ -375,10 +410,6 @@
         margin: 0;
         overflow-y: hidden;
         overflow-x: scroll;
-    }
-
-    .chart_div {
-        width: 100%;
     }
 }
 
@@ -422,8 +453,9 @@
 
     .calendar {
         flex-direction: column;
-        width: 100%;
-        left: 0;
+        width: 80%;
+        top: 110px;
+        left: 10px;
     }
 
     .calendar-input {
@@ -447,9 +479,5 @@
         margin: 0;
         overflow-y: hidden;
         overflow-x: scroll;
-    }
-
-    .chart_div {
-        width: 100%;
     }
 }
