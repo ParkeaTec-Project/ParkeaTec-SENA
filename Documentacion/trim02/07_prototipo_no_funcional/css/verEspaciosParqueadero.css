@@ -13,17 +13,31 @@
 
 .parking-container {
     display: flex;
-    /* flex-wrap: wrap; */
     justify-content: center;
     align-items: center; 
     gap: 50px;
     width: 80%;
     height: auto;
     height: 600px;
-    /* min-height: 500px; */
     margin: 20px 0;
     background-color: #fff;
     padding: 15px;
+    overflow-y: scroll;
+}
+
+.parking-container::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.parking-container::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+.parking-container:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
 }
 
 .parking-spot {
@@ -59,10 +73,10 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    overflow-y: scroll;
     gap: 5px;
     width: 100%;
     height: 100%;
+    overflow-y: scroll;
 }
 
 .items-see::-webkit-scrollbar {
@@ -85,11 +99,11 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    overflow-y: scroll;
     gap: 5px;
     width: 40%;
     height: 100%;
     padding: 5px;
+    overflow-y: scroll;
 }
 
 .items-see-space2::-webkit-scrollbar {
@@ -123,13 +137,14 @@
 
 .content-btn-parking {
     display: flex;
+    justify-content: flex-end;
     gap: 10px;
+    width: 30%;
 }
 
 .btn-parking {
-    width: 70%;
-    height: 55px;
-    padding: 10px;
+    width: 50%;
+    padding: 13px 0;
     background-color: #ACFFB7;
     text-decoration: none;
     color: #000;
@@ -143,25 +158,108 @@
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (max-width: 1200px) { 
-    
+    .btn-parking {
+        width: 85%;
+    }
+
+    .parking-container {
+        background-color: rgb(238, 255, 0);
+        flex-wrap: wrap;
+    }
+
+    .items-see-space1,
+    .items-see-space2 {
+        width: 100%;
+        height: auto;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 992px) { 
-    
+    .parking-container {
+        background-color: rgb(255, 0, 242);
+        flex-wrap: wrap;
+    }
+
+    .items-see-space1,
+    .items-see-space2 {
+        width: 100%;
+        height: auto;
+    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 768px) { 
-    
+    .btn-parking {
+        width: 85%;
+    }
+
+    .parking-container {
+        background-color: rgb(25, 0, 255);
+        width: 80%;
+        flex-wrap: wrap;
+    }
+
+    .items-see-space1,
+    .items-see-space2 {
+        width: 100%;
+        height: auto;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) { 
+    .info-see-space {
+        flex-direction: column;
+        align-items: flex-start;
+    }
     
+    .content-btn-parking {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .btn-parking {
+        width: 65%;
+    }
+
+    .parking-container {
+        background-color: rgb(0, 255, 13);
+        flex-wrap: wrap;
+        padding: 10px 5px;
+    }
+
+    .items-see-space1,
+    .items-see-space2 {
+        width: 100%;
+    }
 }
 
   /* Extra small devices (phones, 375px and down) */
 @media only screen and (max-width: 375px) { 
-    
+    .info-see-space {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .content-btn-parking {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .btn-parking {
+        width: 65%;
+    }
+
+    .parking-container {
+        background-color: red;
+        flex-wrap: wrap;
+        padding: 10px 5px;
+    }
+
+    .items-see-space1,
+    .items-see-space2 {
+        width: 100%;
+    }
 }

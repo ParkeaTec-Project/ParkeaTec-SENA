@@ -121,6 +121,15 @@
     cursor: pointer;
 }
 
+.content-btn-user {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-user {
+    width: 30%;
+}
+
 .btn-booking:hover {
     
     /* box-shadow: 3px 3px 2px #00000052; */
@@ -158,6 +167,14 @@
     .btn-booking {
         width: 80%;
     }
+
+    .content-btn-user {
+        justify-content: center;
+    }
+
+    .btn-user {
+        width: 50%;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -176,6 +193,14 @@
 
     .btn-booking {
         width: 70%;
+    }
+
+    .content-btn-user {
+        justify-content: center;
+    }
+
+    .btn-user {
+        width: 50%;
     }
 }
 
@@ -196,6 +221,14 @@
 
     .btn-booking {
         width: 60%;
+    }
+
+    .content-btn-user {
+        justify-content: center;
+    }
+
+    .btn-user {
+        width: 50%;
     }
 }
 
@@ -234,6 +267,14 @@
         padding: 0;
         width: 80%;
         height: 40px;
+    }
+
+    .content-btn-user {
+        justify-content: center;
+    }
+
+    .btn-user {
+        width: 50%;
     }
 }
 
@@ -278,6 +319,14 @@
         width: 65%;
         height: 50px;
         padding: 0;
+    }
+
+    .content-btn-user {
+        justify-content: center;
+    }
+
+    .btn-user {
+        width: 100%;
     }
 }
 

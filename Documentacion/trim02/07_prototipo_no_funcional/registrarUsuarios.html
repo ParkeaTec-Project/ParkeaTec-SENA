@@ -13,7 +13,9 @@
 <body>
     <header class="header">
         <img src="img/logo-parkeaTec.svg" alt="logo" class="log">
-        <nav class="nav">
+        <i class="abrir-menu bi bi-list" id="abrir-menu"></i>
+        <nav class="nav" id="nav">
+            <i class="cerrar-menu bi bi-x" id="cerrar-menu"></i>
             <ul class="menu-horizontal">
                 <li>
                     <a class="item-nav" href="#"><i class="fa-solid fa-newspaper"></i>Formulario</a>
@@ -97,12 +99,11 @@
                                 <option value="option2">Vigilante</option>
                             </select>
                         </div>
-                        <div class="content-btn-booking">
-                            <button type="submit" class="btn-booking" id="btn-booking">Registrar</button>
-                        </div>
-                        
                     </div>
-                </div>            
+                </div>        
+                <div class="content-btn-booking content-btn-user">
+                    <button type="submit" class="btn-booking btn-user" id="btn-booking">Registrar</button>
+                </div>    
             </form>
         </section>
         <div id="modal1" class="modalmask">
@@ -120,6 +121,8 @@
     <footer class="footer">
         <img src="img/logo-parkeaTec.svg" alt="logo ">
     </footer>
+    <script src="js/menu.js"></script>
     <script src="js/reserva.js"></script>
+    <script src="js/registrarUsuario.js"></script>
 </body>
 </html>

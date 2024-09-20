@@ -63,8 +63,41 @@
     color: #FF4448;
 }
 
-  /* Extra small devices (phones, 375px and down) */
-  @media only screen and (max-width: 375px) { 
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) { 
+    .strike {
+        background-color: rgb(238, 255, 0);
+        width: 90%;
+        height: auto;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) { 
+    .modal-comentario {
+        left: 24%;
+        width: 50%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) { 
+    .modal-comentario {
+        left: 24%;
+        width: 50%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) { 
+    .modal-comentario {
+        left: 8%;
+        width: 85%;
+    }
+}
+
+/* Extra small devices (phones, 375px and down) */
+@media only screen and (max-width: 375px) { 
     .main {
         height: calc(100vh - 100px - 100px);
     }
@@ -225,5 +258,10 @@
     .step-col-6.active-positive,
     .step-col-7.active-positive {
         right: 288px;
+    }
+
+    .modal-comentario {
+        left: 0;
+        width: 100%;
     }
 }
