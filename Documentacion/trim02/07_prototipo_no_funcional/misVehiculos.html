@@ -12,7 +12,9 @@
 <body>
     <header class="header">
         <img src="img/logo-parkeaTec.svg" alt="logo" class="log">
-        <nav class="nav">
+        <i class="abrir-menu bi bi-list" id="abrir-menu"></i>
+        <nav class="nav" id="nav">
+            <i class="cerrar-menu bi bi-x" id="cerrar-menu"></i>
             <ul class="menu-horizontal">
                 <li>
                     <a class="item-nav" href="#"><i class="fa-solid fa-newspaper"></i>Formulario</a>
@@ -23,7 +25,7 @@
                 </li>
                 <li><a class="item-nav" href="reportes.html"><i class="fas fa-chart-bar"></i>Reportes</a></li>
                 <li>
-                    <a class="item-nav" href=""><i class="bi bi-p-square-fill"></i>Parqueadero</a>
+                    <a class="item-nav" href="#"><i class="bi bi-p-square-fill"></i>Parqueadero</a>
                     <ul class="menu-vertical">
                         <li><a href="asignacion-espacios.html">Asignar Espacio</a></li>
                         <li><a href="verEspaciosParqueadero.html">Ver espacios</a></li>
@@ -34,6 +36,7 @@
                     <a class="item-nav" href="#"><i class="bi bi-person-circle"></i>Perfil</a>
                     <ul class="menu-vertical">
                         <li><a href="verqr.html">Ver QR</a></li>
+                        <li><a href="verPerfil.html">Ver perfil</a></li>
                         <li><a href="realizar-reserva.html">Hacer Reserva</a></li>
                         <li><a href="misVehiculos.html">Mis vehiculos</a></li>
                         <li><a href="registrarUsuarios.html">Registrar Usuarios</a></li>
@@ -56,33 +59,40 @@
                 <div class="content-vehiculos">
                     <div class="tipo-vehiculos" id="vehiculo-1">
                         <div class="content-data">
-                            <p>Marca: Chevrolet</p>
-                            <p>Modelo: 2024</p>
-                            <p>Placa: CVY000</p>
+                            <p class="content-data-vehiculo">Marca: Chevrolet</p>
+                            <p class="content-data-vehiculo">Modelo: 2024</p>
+                            <p class="content-data-vehiculo">Placa: CVY000</p>
                         </div>
                         <img class="img-vehiculo" src="img/carro.png" alt="carro">
+                        <div class="content-btn-vehiculo">
+                            <button class="btn-vehiculo">Eliminar</button>
+                        </div>
                     </div>
                     <div class="tipo-vehiculos" id="vehiculo-2">
                         <div class="content-data">
-                            <p>Marca: Toyota</p>
-                            <p>Modelo: 2023</p>
-                            <p>Placa: ABC123</p>
+                            <p class="content-data-vehiculo">Marca: Toyota</p>
+                            <p class="content-data-vehiculo">Modelo: 2023</p>
+                            <p class="content-data-vehiculo">Placa: ABC123</p>
                         </div>
                         <img class="img-vehiculo" src="img/carro-2.jfif" alt="carro">
+                        <div class="content-btn-vehiculo">
+                            <button class="btn-vehiculo">Eliminar</button>
+                        </div>
                     </div>
                 </div>
-                
                 <!-- Flecha derecha -->
                 <i class="fas fa-chevron-right flecha-derecha"></i>
             </div>
-            <div class="content-btn-vehiculo">
+            <div class="content-btn">
                 <button class="btn-vehiculo">Actualizar</button>
+                <button class="btn-vehiculo">Agregar vehiculo</button>
             </div>
         </section>
     </main>
     <footer class="footer">
         <img src="./img/logo-parkeaTec.svg" alt="log" class="logo">
     </footer>
+    <script src="js/menu.js"></script>
     <script src="js/misVehiculos.js"></script>
 </body>
 </html>

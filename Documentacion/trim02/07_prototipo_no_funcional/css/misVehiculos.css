@@ -14,8 +14,10 @@
     margin-top: 55px;
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 1px solid black;
 }
 
 .flecha-izquierda, .flecha-derecha {
@@ -41,6 +43,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 100%;
 }
 
@@ -66,17 +69,19 @@
 .content-btn-vehiculo {
     display: flex;
     justify-content: flex-end;
+    margin: 10px 0;
+    width: 100%;
 }
 
 .btn-vehiculo {
     width: 20%;
     height: 38px;
     padding: 10px;
-    background-color: #ACFFB7;
+    background-color: #FF4448;
     text-decoration: none;
     color: #000;
     text-align: center;
-    border: 1px solid #ACFFB7;
+    border: 1px solid #FF4448;
     font-weight: bold;
     box-sizing: border-box;
     cursor: pointer;
@@ -86,27 +91,132 @@
     display: none;
 }
 
+.content-btn {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.content-btn .btn-vehiculo {
+    width: 30%;
+    background-color: #ACFFB7;
+    border: 1px solid #ACFFB7;
+}
+
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (max-width: 1200px) { 
-    
+    .vehiculos {
+        background-color: rgb(255, 0, 212);
+        width: 80%;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 992px) { 
-    
+    .vehiculos {
+        background-color: rgb(47, 0, 255);
+        width: 100%;
+    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 768px) { 
-    
+    .vehiculos {
+        background-color: rgb(0, 255, 213);
+        width: 100%;
+    }
+
+    .content-btn .btn-vehiculo {
+        width: 30%;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) { 
-    
+    .vehiculos {
+        background-color: rgb(115, 255, 0);
+        width: 100%;
+        padding: 5px;
+    }
+
+    .flecha-izquierda,
+    .flecha-derecha {
+        top: 168px;
+    }
+
+    .content-data {
+        gap: 10px;
+    }
+
+    .content-data-vehiculo {
+        text-align: center;
+    }
+
+    .img-vehiculo {
+        width: 80%;
+        height: 180px;
+    }
+
+    .content-btn-vehiculo .btn-vehiculo {
+        width: 50%;
+    }
+
+    .content-btn .btn-vehiculo {
+        width: 50%;
+    }
 }
 
   /* Extra small devices (phones, 375px and down) */
 @media only screen and (max-width: 375px) { 
-    
+    .main {
+        padding: 15px;
+    }
+    .vehiculos {
+        background-color: red;
+        width: 100%;
+        padding: 5px;
+    }
+
+    .flecha-izquierda {
+        top: 225px;
+        left: 4px;
+    }
+
+    .slider-container {
+        margin-top: 30px;
+    }
+
+    .content-vehiculos {
+        margin-top: 0;
+    }
+
+    .tipo-vehiculos {
+        width: 100%;
+    }
+
+    .content-data {
+        flex-direction: column;
+        width: 100%;
+        padding-left: 10px;
+    }
+
+    .img-vehiculo {
+        width: 80%;
+        height: 150px;
+    }
+
+    .flecha-derecha {
+        top: 225px;
+        right: 4px;
+    }
+
+    .content-btn-vehiculo .btn-vehiculo {
+        width: 50%;
+        margin-right: 10px;
+    }
+
+    .content-btn .btn-vehiculo {
+        width: 50%;
+    }
 }

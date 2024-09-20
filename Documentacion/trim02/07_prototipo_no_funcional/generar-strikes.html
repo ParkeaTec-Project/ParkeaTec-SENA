@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu factura</title>
+    <title>Generar Strike</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://kit.fontawesome.com/5808d06a88.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -13,7 +13,9 @@
 <body>
     <header class="header">
         <img src="img/logo-parkeaTec.svg" alt="logo" class="log">
-        <nav class="nav">
+        <i class="abrir-menu bi bi-list" id="abrir-menu"></i>
+        <nav class="nav" id="nav">
+            <i class="cerrar-menu bi bi-x" id="cerrar-menu"></i>
             <ul class="menu-horizontal">
                 <li>
                     <a class="item-nav" href="#"><i class="fa-solid fa-newspaper"></i>Formulario</a>
@@ -35,6 +37,7 @@
                     <a class="item-nav" href="#"><i class="bi bi-person-circle"></i>Perfil</a>
                     <ul class="menu-vertical">
                         <li><a href="verqr.html">Ver QR</a></li>
+                        <li><a href="verPerfil.html">Ver perfil</a></li>
                         <li><a href="realizar-reserva.html">Hacer Reserva</a></li>
                         <li><a href="misVehiculos.html">Mis vehiculos</a></li>
                         <li><a href="registrarUsuarios.html">Registrar Usuarios</a></li>
@@ -49,60 +52,41 @@
     </header>
     
     <main class="main">
-        <section class="bill" >
-            
-            <div class="search-form">
-                <h2>Buscar Usuario para Generar Strike</h2>
-                <form id="searchForm">
-                    
-                    <label for="nombres">Nombres:</label>
-                    <input type="text" id="nombres" name="nombres" required>
-        
-                    <label for="apellidos">Apellidos:</label>
-                    <input type="text" id="apellidos" name="apellidos" required>
-        
-                    <label for="documento">Documento:</label>
-                    <input type="text" id="documento" name="documento" required>
-        
-                    <button type="button" id="searchButton">Buscar</button>
+        <section class="strike">
+            <div class="content-strike">
+                <h2 class="title-strike">Buscar Usuario para Generar Strike</h2>
+                <form class="form" id="form">
+                    <div class="content-form">
+                        <div class="content-form-data">
+                            <label class="label" for="nombres">Nombres:</label>
+                            <input type="text" id="nombres" name="nombres" class="input" required>
+                        </div>
+                        <div class="content-form-data">
+                            <label class="label" for="apellidos">Apellidos:</label>
+                            <input type="text" id="apellidos" name="apellidos" class="input" required>
+                        </div>
+                    </div>
+                    <div class="content-form">
+                        <div class="content-form-data">
+                            <label class="label" for="documento">Documento:</label>
+                            <input type="number" id="documento" name="documento" class="input" required>
+                        </div>
+                        <div class="content-form-data">
+                            <label class="label" for="placa">Placa:</label>
+                            <input type="text" id="placa" name="placa" class="input" required>
+                        </div>
+                    </div>
+                    <div class="content-form">
+                        <div class="content-form-data content-form-data-modific">
+                            <label for="strike">Motivo del strike</label>
+                            <textarea name="strike" id="strike" class="textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="content-btn-strike">
+                        <button type="button" id="RegistrarStrike" class="btn-strike">Registar Strike</button>
+                    </div>
                 </form>
-               <a href="realizar-reserva.html"><button type="button" id="searchButton">Volver</button></a> 
-                
             </div>
-            <div style="margin-top: 6%;">
-
-            </div>
-            <!-- Modal -->
-            <!-- Modal -->
-<div id="strikeModal" class="modal">
-    <div class="modal-content">
-        <span class="close-button" id="closeModal">&times;</span>
-        <h2>Generar Strike</h2>
-        <form  id="strikeForm">
-            <!-- Campos para mostrar la información del formulario de búsqueda -->
-            <label for="modalNombres">Nombres:</label>
-            <input type="text" id="modalNombres" name="modalNombres" readonly>
-            
-            <label for="modalApellidos">Apellidos:</label>
-            <input type="text" id="modalApellidos" name="modalApellidos" readonly>
-
-            <label for="modalDocumento">Documento:</label>
-            <input type="text" id="modalDocumento" name="modalDocumento" readonly>
-            
-            <label for="motivo">Motivo de Strike:</label>
-            <input type="text" id="motivo" name="motivo" required>
-
-            <label for="hora">Hora del Strike:</label>
-            <input type="time" id="hora" name="hora" required>
-
-            <label for="comentario">Comentario:</label>
-            <textarea id="comentario" name="comentario" rows="4" required></textarea>
-
-            <button type="submit">Generar Strike</button>
-        </form>
-    </div>
-</div>
-
         </section>
         <div id="modal1" class="modalmask">
             <div class="modalbox movedown">
@@ -117,49 +101,11 @@
             </div>
     </main>
     <footer class="footer">
-        <img src="../../public/assets/img/logo-parkeaTec.svg" alt="logo">
+        <img src="img/logo-parkeaTec.svg" alt="logo">
     </footer>
+    <script src="js/menu.js"></script>
 </body>
 </html>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const searchButton = document.getElementById('searchButton');
-        const strikeModal = document.getElementById('strikeModal');
-        const closeModal = document.getElementById('closeModal');
-        const searchForm = document.getElementById('searchForm');
-        const strikeForm = document.getElementById('strikeForm');
-    
-        searchButton.addEventListener('click', function () {
-            // Obtener los valores del formulario de búsqueda
-            const nombres = document.getElementById('nombres').value;
-            const apellidos = document.getElementById('apellidos').value;
-            const documento = document.getElementById('documento').value;
-    
-            // Rellenar los campos del modal con los valores obtenidos
-            strikeForm.querySelector('#modalNombres').value = nombres;
-            strikeForm.querySelector('#modalApellidos').value = apellidos;
-            strikeForm.querySelector('#modalDocumento').value = documento;
-            strikeForm.querySelector('#motivo').value = `Strike para ${nombres} ${apellidos} (${documento})`;
-            strikeForm.querySelector('#hora').value = ''; // Puedes dejar este campo vacío o poner una hora predeterminada
-            strikeForm.querySelector('#comentario').value = ''; // Puedes dejar este campo vacío para que el usuario lo complete
-    
-            // Mostrar el modal
-            strikeModal.style.display = 'block';
-        });
-    
-        closeModal.addEventListener('click', function () {
-            // Ocultar el modal al hacer clic en el botón de cerrar
-            strikeModal.style.display = 'none';
-        });
-    
-        window.addEventListener('click', function (event) {
-            if (event.target === strikeModal) {
-                // Ocultar el modal si se hace clic fuera del contenido del modal
-                strikeModal.style.display = 'none';
-            }
-        });
-    });
-    </script>
-    
+
     

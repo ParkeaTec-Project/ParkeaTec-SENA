@@ -1,19 +1,20 @@
-
 const parkingContainerCar = document.getElementById("parking-container-car");
 const parkingContainerMotorBike = document.getElementById("parking-container-motorbike");
 const parkingContainerBicycle = document.getElementById("parking-container-bicycle");
 
-const parkingContainerCarWidth = parkingContainerCar.clientWidth;
+const parkingContainerCarWidth = 700;
 console.log(parkingContainerCarWidth);
-const parkingContainerCarHeight = parkingContainerCar.clientHeight;
+const parkingContainerCarHeight = 270;
 console.log(parkingContainerCarHeight);
-const parkingContainerBikerWidth = parkingContainerMotorBike.clientWidth;
+
+const parkingContainerBikerWidth = 700;
 console.log(parkingContainerBikerWidth);
-const parkingContainerBikerHeight = parkingContainerMotorBike.clientHeight;
+const parkingContainerBikerHeight = 270;
 console.log(parkingContainerBikerHeight);
-const parkingContainerBicyleWidth = parkingContainerBicycle.clientWidth;
+
+const parkingContainerBicyleWidth = 470;
 console.log(parkingContainerBicyleWidth);
-const parkingContainerBicyleHeight = parkingContainerBicycle.clientHeight;
+const parkingContainerBicyleHeight = 570;
 console.log(parkingContainerBicyleHeight);
 
 const spotSize = 50; //Tamaño fijo de cada casilla

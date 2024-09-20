@@ -344,10 +344,6 @@ form {
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (max-width: 1200px) { 
-    .main {
-        height: calc(100vh - 100px - 100px);
-    }
-
     .form {
         width: 90%;
     }
@@ -359,10 +355,6 @@ form {
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 992px) { 
-    .main {
-        height: calc(100vh - 100px - 100px);
-    }
-
     .form {
         width: 90%;
     }
@@ -374,10 +366,6 @@ form {
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 768px) { 
-    .main {
-        height: calc(100vh - 100px - 100px);
-    }
-
     .form {
         width: 90%;
     }
@@ -391,15 +379,17 @@ form {
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) { 
     .main {
-        height: calc(100vh - 100px - 100px);
+        height: calc(100vh - 100px);
     }
 
     .form {
         width: 90%;
+        height: 80%;
     }
 
     .container {
         background-color: rgb(55, 21, 248);
+        height: 100%;
     }
 
     .title-form {

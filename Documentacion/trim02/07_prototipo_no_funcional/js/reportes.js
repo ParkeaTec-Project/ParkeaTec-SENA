@@ -1,4 +1,4 @@
-const links = document.querySelectorAll("a");
+const links = document.querySelectorAll(".item-nav-report");
 const sections = document.querySelectorAll(".section-info")
 const span = document.querySelector(".span");
 const nav1 = document.querySelector(".nav1");

@@ -13,7 +13,9 @@
 <body>
     <header class="header">
         <img src="img/logo-parkeaTec.svg" alt="logo" class="log">
-        <nav class="nav">
+        <i class="abrir-menu bi bi-list" id="abrir-menu"></i>
+        <nav class="nav" id="nav">
+            <i class="cerrar-menu bi bi-x" id="cerrar-menu"></i>
             <ul class="menu-horizontal">
                 <li>
                     <a class="item-nav" href="#"><i class="fa-solid fa-newspaper"></i><span class="hidden-text">Formulario</span></a>
@@ -24,7 +26,7 @@
                 </li>
                 <li><a class="item-nav" href="reportes.html"><i class="fas fa-chart-bar"></i><span class="hidden-text">Reportes</span></a></li>
                 <li>
-                    <a class="item-nav" href=""><i class="bi bi-p-square-fill"></i><span class="hidden-text">Parqueadero</span></a>
+                    <a class="item-nav" href="#"><i class="bi bi-p-square-fill"></i><span class="hidden-text">Parqueadero</span></a>
                     <ul class="menu-vertical">
                         <li><a href="asignacion-espacios.html">Asignar Espacio</a></li>
                         <li><a href="verEspaciosParqueadero.html">Ver espacios</a></li>
@@ -35,6 +37,7 @@
                     <a class="item-nav" href="#"><i class="bi bi-person-circle"></i><span class="hidden-text">Perfil</span></a>
                     <ul class="menu-vertical">
                         <li><a href="verqr.html">Ver QR</a></li>
+                        <li><a href="verPerfil.html">Ver perfil</a></li>
                         <li><a href="realizar-reserva.html">Hacer Reserva</a></li>
                         <li><a href="misVehiculos.html">Mis vehiculos</a></li>
                         <li><a href="registrarUsuarios.html">Registrar Usuarios</a></li>
@@ -46,11 +49,7 @@
                 </li>
             </ul>
         </nav>
-        <i class="bi bi-list menu-list"></i>
     </header>
-    <div class="nav-mobile"></div>
-        <i class="bi bi-x close-mobile"></i>
-    </div>
     <main class="main">
         <section class="bill">
             <div class="content-header-bill">
@@ -163,5 +162,6 @@
     <footer class="footer">
         <img src="img/logo-parkeaTec.svg" alt="logo">
     </footer>
+    <script src="js/menu.js"></script>
 </body>
 </html>
