@@ -1,0 +1,119 @@
+/* Estilos para la sección de bienvenida */
+.welcome-section {
+    background-color: #DEF3FF;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px;
+}
+
+.welcome-section h1 {
+    color: #0F1626;
+    margin-bottom: 20px;
+    font-size: 1.5rem; /* Ajuste del tamaño del texto */
+}
+
+.summary {
+    margin-bottom: 30px;
+}
+
+.summary h2 {
+    color: #0F1626;
+    margin-bottom: 15px;
+    font-size: 1.25rem; /* Ajuste del tamaño del texto */
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px; /* Espacio entre los elementos */
+}
+
+.stat {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    flex: 1 1 200px; /* Flexibilidad para el tamaño */
+    max-width: 300px; /* Ancho máximo */
+    box-sizing: border-box; /* Incluye el padding y border en el ancho total */
+}
+
+.stat h3 {
+    margin: 0;
+    color: #0F1626;
+    font-size: 1rem; /* Ajuste del tamaño del texto */
+}
+
+.stat p {
+    font-size: 1.5rem; /* Ajuste del tamaño del texto */
+    font-weight: bold;
+    color: #333;
+}
+
+.quick-access {
+    margin-top: 20px;
+}
+
+.quick-access h2 {
+    color: #0F1626;
+    margin-bottom: 15px;
+    font-size: 1.25rem; /* Ajuste del tamaño del texto */
+}
+
+.btn-success {
+    background-color: #393c3b;
+    border: 1px solid #FFFFFF;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem; /* Ajuste del tamaño del texto */
+    border-radius: 5px;
+    margin: 10px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* Media Queries para Responsividad */
+
+/* Para dispositivos móviles */
+@media (max-width: 768px) {
+    .welcome-section {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .stat {
+        flex: 1 1 100%; /* Los elementos ocuparán el 100% del ancho en pantallas pequeñas */
+    }
+
+    .btn-success {
+        padding: 10px 20px; /* Ajuste del padding */
+        font-size: 0.875rem; /* Ajuste del tamaño del texto */
+    }
+}
+
+/* Para tabletas */
+@media (max-width: 1024px) {
+    .welcome-section {
+        margin: 15px;
+        padding: 15px;
+    }
+
+    .stat {
+        flex: 1 1 45%; /* Los elementos ocuparán el 45% del ancho en tabletas */
+    }
+
+    .btn-success {
+        padding: 12px 24px; /* Ajuste del padding */
+        font-size: 0.9rem; /* Ajuste del tamaño del texto */
+    }
+}
