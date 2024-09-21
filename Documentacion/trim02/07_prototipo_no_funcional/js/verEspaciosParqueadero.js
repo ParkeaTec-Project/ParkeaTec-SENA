@@ -108,34 +108,3 @@ generarEspacios();
 //window.addEventListener('resize', generarEspacios);
 
 
-document.addEventListener('DOMContentLoaded', function(){
-    const añadir = document.getElementById('añadir');
-    const espaciomodal = document.getElementById('espaciomodal');
-    const closemodal = document.getElementById('closemodal');
-    const form = document.getElementById('form');
-
-    añadir.addEventListener('click', function () {
-
-        form.querySelector('#area').value = '';
-        form.querySelector('#espacio').value = '';
-        form.querySelector('#option').value = '';
-        form.querySelector('#establecer').value = '';
-
-
-        espaciomodal.style.display = 'block';
-    });
-
-    closemodal.addEventListener('click', function () {
-        // Ocultar el modal al hacer clic en el botón de cerrar
-        espaciomodal.style.display = 'none';
-    });
-
-    window.addEventListener('click', function (event) {
-        if (event.target === strikeModal) {
-            // Ocultar el modal si se hace clic fuera del contenido del modal
-            espaciomodal.style.display = 'none';
-        }
-    });
-
-
-})
