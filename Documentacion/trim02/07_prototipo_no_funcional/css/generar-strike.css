@@ -86,7 +86,6 @@ input[type=number]::-webkit-outer-spin-button {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (max-width: 1200px) { 
     .strike {
-        background-color: rgb(238, 255, 0);
         width: 90%;
         height: auto;
     }
@@ -95,7 +94,6 @@ input[type=number]::-webkit-outer-spin-button {
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 992px) { 
     .strike {
-        background-color: rgb(255, 0, 242);
         width: 90%;
         height: auto;
     }
@@ -104,7 +102,6 @@ input[type=number]::-webkit-outer-spin-button {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 768px) { 
     .strike {
-        background-color: rgb(25, 0, 255);
         width: 90%;
         height: auto;
     }
@@ -113,7 +110,6 @@ input[type=number]::-webkit-outer-spin-button {
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) { 
     .strike {
-        background-color: rgb(0, 255, 13);
         width: 85%;
         height: auto;
     }
@@ -141,7 +137,6 @@ input[type=number]::-webkit-outer-spin-button {
   /* Extra small devices (phones, 375px and down) */
 @media only screen and (max-width: 375px) { 
     .strike {
-        background-color: red;
         width: 85%;
         height: auto;
     }

@@ -143,10 +143,6 @@
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (max-width: 1200px) { 
-    .booking {
-      background-color: rgb(36, 162, 197);
-    }
-
     .form {
         width: 80%;
     }
@@ -179,10 +175,6 @@
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 992px) { 
-    .booking {
-        background-color: rgb(235, 232, 56);
-    }
-
     .form {
         width: 80%;
     }
@@ -206,10 +198,6 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 768px) { 
-    .booking {
-        background-color: rgb(47, 24, 222);
-    }
-
     .form {
         width: 80%;
     }
@@ -234,10 +222,6 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) { 
-    .booking {
-        background-color: rgb(56, 235, 163);
-    }
-
     .form {
         width: 80%;
         padding: 20px;
@@ -280,10 +264,6 @@
 
   /* Extra small devices (phones, 375px and down) */
 @media only screen and (max-width: 375px) { 
-    .booking {
-        background-color: rgb(235, 134, 56);
-    }
-
     .title-main {
         margin-bottom: 10px;
         text-align: center;

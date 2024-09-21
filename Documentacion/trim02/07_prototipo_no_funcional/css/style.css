@@ -268,10 +268,6 @@ body {
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 768px) { 
-    .booking {
-        background-color: rgb(47, 24, 222);
-    }
-
     .abrir-menu,
     .cerrar-menu {
         display: block;
@@ -348,10 +344,6 @@ body {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) { 
-    .booking {
-        background-color: rgb(56, 235, 163);
-    }
-
     .abrir-menu,
     .cerrar-menu {
         display: block;
