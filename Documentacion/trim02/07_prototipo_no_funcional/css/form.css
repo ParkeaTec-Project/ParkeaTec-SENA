@@ -187,9 +187,6 @@ form {
     position: absolute;
     top: 230px;
     padding: 8px;
-    /*Media querys*/
-    /* min-width: 125px;
-    max-width: 125px; */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -224,12 +221,20 @@ form {
     cursor: pointer;
 }
 
+.form-column-select-vehiculo {
+    margin-top: 15px;
+}
+
+.select-vehiculo {
+    width: 55%;
+}
+
 .Form2,
+.Form3,
 .Form4,
 .Form5,
-.Form3,
-.Form6,
-.Form7 {
+.Form6
+    {
     left: 2000px;
 }
 
@@ -290,38 +295,34 @@ form {
 .Form3.active-0,
 .Form4.active-0,
 .Form5.active-0,
-.Form6.active-0,
-.Form7.active-0 {
+.Form6.active-0 {
     left: 0px;
 }
 
 .progress.active-form1 {
-    width: 14%;
+    width: 15%;
 }
 
 .progress.active-form2 {
-    width: 28%;
+    width: 31%;
 }
 
 .progress.active-form3 {
-    width: 42%;
+    width: 48%;
 }
 
 .progress.active-form4 {
-    width: 56%;
+    width: 65%;
 }
 
 .progress.active-form5 {
-    width: 70%;
+    width: 81%;
 }
 
 .progress.active-form6 {
-    width: 84%;
-}
-
-.progress.active-form7 {
     width: 100%;
 }
+
 
 /* Atras */
 .Form1.active-0,
@@ -337,8 +338,7 @@ form {
 .Form3.active-positive,
 .Form4.active-positive,
 .Form5.active-positive,
-.Form6.active-positive,
-.Form7.active-positive {
+.Form6.active-positive {
     left: 2000px;
 }
 
@@ -347,20 +347,12 @@ form {
     .form {
         width: 90%;
     }
-    
-    .container {
-        background-color: rgb(248, 21, 21);
-    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 992px) { 
     .form {
         width: 90%;
-    }
-
-    .container {
-        background-color: rgb(150, 248, 21);
     }
 }
 
@@ -369,11 +361,6 @@ form {
     .form {
         width: 90%;
     }
-
-    .container {
-        background-color: rgb(21, 248, 218);
-    }
-
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -388,7 +375,6 @@ form {
     }
 
     .container {
-        background-color: rgb(55, 21, 248);
         height: 100%;
     }
 
@@ -460,10 +446,6 @@ form {
     }
     .form {
         width: 90%;
-    }
-
-    .container {
-        background-color: rgb(248, 21, 161);
     }
 
     .title-form {

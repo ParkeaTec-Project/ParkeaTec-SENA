@@ -4,21 +4,18 @@ const Form3 = document.querySelector('.Form3');
 const Form4 = document.querySelector('.Form4');
 const Form5 = document.querySelector('.Form5');
 const Form6 = document.querySelector('.Form6');
-const Form7 = document.querySelector('.Form7');
 
 const Next1 = document.getElementById('Next1');
 const Next2 = document.getElementById('Next2');
 const Next3 = document.getElementById('Next3');
 const Next4 = document.getElementById('Next4');
 const Next5 = document.getElementById('Next5');
-const Next6 = document.getElementById('Next6');
 
 const Back1 = document.getElementById('Back1');
 const Back2 = document.getElementById('Back2');
 const Back3 = document.getElementById('Back3');
 const Back4 = document.getElementById('Back4');
 const Back5 = document.getElementById('Back5');
-const Back6 = document.getElementById('Back6');
 
 const progress = document.querySelector('.progress');
 
@@ -28,7 +25,6 @@ const step3 = document.querySelector('.step-col-3');
 const step4 = document.querySelector('.step-col-4');
 const step5 = document.querySelector('.step-col-5');
 const step6 = document.querySelector('.step-col-6');
-const step7 = document.querySelector('.step-col-7');
 
 const files = document.querySelectorAll('input[type="file"]');
 const inputs = document.querySelectorAll('input');
@@ -224,40 +220,23 @@ Back5.addEventListener("click", () => {
     progress.classList.add("active-form5");
 });
 
-Next6.addEventListener("click", () => {
-    Form6.classList.remove("active-0");
-    Form7.classList.remove("active-positive");
 
+Back5.addEventListener("click", () => {
+    Form5.classList.remove("active-negative");
+    Form6.classList.remove("active-0");
+
+    step5.classList.remove("active-negative");
     step6.classList.remove("active-0");
-    step7.classList.remove("active-positive");
 
     progress.classList.remove("active-form6");
 
-    Form6.classList.add("active-negative");
-    Form7.classList.add("active-0");
+    Form5.classList.add("active-0");
+    Form6.classList.add("active-positive");
 
-    step6.classList.add("active-negative");
-    step7.classList.add("active-0");
+    step5.classList.add("active-0");
+    step6.classList.add("active-positive");
 
-    progress.classList.add("active-form7");
-});
-
-Back6.addEventListener("click", () => {
-    Form6.classList.remove("active-negative");
-    Form7.classList.remove("active-0");
-
-    step6.classList.remove("active-negative");
-    step7.classList.remove("active-0");
-
-    progress.classList.remove("active-form7");
-
-    Form6.classList.add("active-0");
-    Form7.classList.add("active-positive");
-
-    step6.classList.add("active-0");
-    step7.classList.add("active-positive");
-
-    progress.classList.add("active-form6");
+    progress.classList.add("active-form5");
 })
 
 
@@ -281,54 +260,6 @@ files.forEach(file => {
             iconFile.style.display = "inline";
         }
     });
-});
-
-function toggleForms() {
-    const allFieldsForm4Empty = Array.from(Form4.elements).every(element => element.value === "" || element.type === "button");
-    const allFieldsForm5Empty = Array.from(Form5.elements).every(element => element.value === "" || element.type === "button");
-
-    // Si todos los campos de Form4 están vacíos, habilita Form5
-    if (allFieldsForm4Empty) {
-        Array.from(Form5.elements).forEach(element => {
-            if (!element.classList.contains('btn-form')) {
-                element.disabled = false;
-            }
-        });
-    } else {
-        // Si Form4 no está vacío, deshabilita Form5
-        Array.from(Form5.elements).forEach(element => {
-            if (!element.classList.contains('btn-form')) {
-                element.disabled = true;
-            }
-        });
-    }
-
-    // Si todos los campos de Form5 están vacíos, habilita Form4
-    if (allFieldsForm5Empty) {
-        Array.from(Form4.elements).forEach(element => {
-            if (!element.classList.contains('btn-form')) {
-                element.disabled = false;
-            }
-        });
-    } else {
-        // Si Form5 no está vacío, deshabilita Form4
-        Array.from(Form4.elements).forEach(element => {
-            if (!element.classList.contains('btn-form')) {
-                element.disabled = true;
-            }
-        });
-    }
-}
-
-// Escucha cambios en ambos formularios
-Array.from(Form4.elements).forEach(element => {
-    element.addEventListener('input', toggleForms);
-    element.addEventListener('change', toggleForms); // Para detectar también cambios al borrar o modificar
-});
-
-Array.from(Form5.elements).forEach(element => {
-    element.addEventListener('input', toggleForms);
-    element.addEventListener('change', toggleForms); // Para detectar también cambios al borrar o modificar
 });
 
 

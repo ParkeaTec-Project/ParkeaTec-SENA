@@ -1,4 +1,5 @@
 .main {
+    position: relative;
     height: calc(100vh - 100px - 100px);
     padding: 30px;
 }
@@ -69,11 +70,13 @@
 .content-btn-vehiculo {
     display: flex;
     justify-content: flex-end;
+    gap: 10px;
     margin: 10px 0;
     width: 100%;
 }
 
-.btn-vehiculo {
+.btn-vehiculo,
+.btn-vehiculo-actualizar {
     width: 20%;
     height: 38px;
     padding: 10px;
@@ -85,6 +88,11 @@
     font-weight: bold;
     box-sizing: border-box;
     cursor: pointer;
+}
+
+.btn-vehiculo-actualizar {
+    background-color: #ACFFB7;
+    border: 1px solid #ACFFB7;
 }
 
 #vehiculo-2 {
@@ -99,15 +107,218 @@
 }
 
 .content-btn .btn-vehiculo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 30%;
-    background-color: #ACFFB7;
-    border: 1px solid #ACFFB7;
+    background-color: #0F1626;
+    border: 1px solid #0F1626;
 }
+
+.btn-vehiculo-agregar {
+    width: 100%;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    color: #fff;
+}
+
+.modal-agregar {
+    display: none;
+    transition: .7s;
+}
+
+.modal-agregar.close {
+    display: none;
+}
+
+.modal-agregar.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 30;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: .7s;
+    background-color: #00000080;
+}
+
+.content-modal-agregar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 40%;
+    height: 60%;
+    text-align: center;
+    box-shadow: 0 4px 8px #00000033;
+}
+
+.cerrar-modal,
+.btn-actualizar {
+    display: block;
+    font-size: 25px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.actualizar-vehiculo {
+    width: 100%;
+}
+
+.content-cerrar-icon,
+.content-actualizar-vehiculo,
+.content-actualizar-icon {
+    position: sticky;
+    left: 0;
+}
+
+.content-actualizar-icon,
+.content-cerrar-icon {
+    margin: 0;
+    width: 100%;
+}
+
+.content-cerrar-icon {
+    display: flex;
+    justify-content: flex-end;
+}
+.content-actualizar-icon,
+.actualizar-vehiculo {
+    display: flex;
+    justify-content: center;
+}
+
+.content-form-document-modal {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60%;
+    overflow-x: scroll;
+}
+
+.content-form-document-modal::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.content-form-document-modal::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+.content-form-document-modal:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
+.content-form-document-modal > :last-child {
+    margin-right: 0;
+}
+
+.content-img {
+    position: relative;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 97%;
+    height: 100%;
+    margin-right: 20px;
+    border: 1px solid black;
+    background-color: #afafaf33;
+}
+
+.content-img img {
+    width: 60%;
+    height: 70%;
+    object-fit: cover;
+}
+
+.input-file {
+    display: none;
+}
+
+.label-file {
+    padding: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    background-color: #ACFFB7;
+    cursor: pointer;
+}
+
+.btn-form {
+    width: 20%;
+    height: 38px;
+    padding: 10px;
+    background-color: #ACFFB7;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    border: 1px solid #ACFFB7;
+    font-weight: bold;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.modal-eliminar {
+    display: none;
+    transition: .7s;
+}
+
+.modal-eliminar.close {
+    display: none;
+}
+
+.modal-eliminar.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: .7s;
+    background-color: #00000080;
+}
+
+.content-modal-eliminar {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 35%;
+    height: 25%;
+    text-align: center;
+    box-shadow: 0 4px 8px #00000033;
+}
+
+.btn-cancelar {
+    background-color: #FF4448;
+    border: 1px solid #FF4448;
+}
+
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (max-width: 1200px) { 
     .vehiculos {
-        background-color: rgb(255, 0, 212);
         width: 80%;
     }
 }
@@ -115,27 +326,68 @@
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 992px) { 
     .vehiculos {
-        background-color: rgb(47, 0, 255);
         width: 100%;
+    }
+
+    .content-btn-vehiculo .btn-vehiculo,
+    .btn-vehiculo-actualizar {
+        width: 30%;
+        margin-right: 10px;
+    }
+
+    .btn-vehiculo-actualizar {
+        margin-left: 10px;
+        margin-right: 0;
+    }
+
+    .content-btn .btn-vehiculo {
+        width: 30%;
+    }
+
+    .content-modal-agregar, 
+    .content-modal-agregar2 {
+        width: 85%;
+    }
+
+    .btn-form {
+        width: 50%;
     }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 768px) { 
     .vehiculos {
-        background-color: rgb(0, 255, 213);
         width: 100%;
     }
 
+    .content-btn-vehiculo .btn-vehiculo,
+    .btn-vehiculo-actualizar {
+        width: 50%;
+        margin-right: 10px;
+    }
+
+    .btn-vehiculo-actualizar {
+        margin-left: 10px;
+        margin-right: 0;
+    }
+
     .content-btn .btn-vehiculo {
-        width: 30%;
+        width: 50%;
+    }
+
+    .content-modal-agregar, 
+    .content-modal-agregar2 {
+        width: 85%;
+    }
+
+    .btn-form {
+        width: 50%;
     }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) { 
     .vehiculos {
-        background-color: rgb(115, 255, 0);
         width: 100%;
         padding: 5px;
     }
@@ -159,10 +411,30 @@
     }
 
     .content-btn-vehiculo .btn-vehiculo {
+        width: 80%;
+    }
+
+    .content-btn-vehiculo .btn-vehiculo,
+    .btn-vehiculo-actualizar {
         width: 50%;
+        margin-right: 10px;
+    }
+
+    .btn-vehiculo-actualizar {
+        margin-left: 10px;
+        margin-right: 0;
     }
 
     .content-btn .btn-vehiculo {
+        width: 50%;
+    }
+
+    .content-modal-agregar, 
+    .content-modal-agregar2 {
+        width: 90%;
+    }
+
+    .btn-form {
         width: 50%;
     }
 }
@@ -173,7 +445,6 @@
         padding: 15px;
     }
     .vehiculos {
-        background-color: red;
         width: 100%;
         padding: 5px;
     }
@@ -211,12 +482,27 @@
         right: 4px;
     }
 
-    .content-btn-vehiculo .btn-vehiculo {
+    .content-btn-vehiculo .btn-vehiculo,
+    .btn-vehiculo-actualizar {
         width: 50%;
         margin-right: 10px;
     }
 
+    .btn-vehiculo-actualizar {
+        margin-left: 10px;
+        margin-right: 0;
+    }
+
     .content-btn .btn-vehiculo {
+        width: 50%;
+    }
+
+    .content-modal-agregar, 
+    .content-modal-agregar2 {
+        width: 90%;
+    }
+
+    .btn-form {
         width: 50%;
     }
 }

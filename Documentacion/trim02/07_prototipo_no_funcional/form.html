@@ -13,7 +13,7 @@
 </head>
 <body>
     <header class="header">
-        <img src="img/logo-parkeaTec.svg" alt="logo" class="log">
+        <a href="index.html"><img src="img/logo-parkeaTec.svg" alt="logo" class="logo"></a>
         <i class="abrir-menu bi bi-list" id="abrir-menu"></i>
         <nav class="nav" id="nav">
             <i class="cerrar-menu bi bi-x" id="cerrar-menu"></i>
@@ -45,7 +45,7 @@
                         <li><a href="">Strikes</a></li>
                         <li><a href="ver-factura.html">Mis Facturas</a></li>
                         <li><a href="historial-entrada.html">Historial</a></li>
-                        <li><a class="item-nav" href="#modal1">Cerrar Sesion</a></li>
+                        <li><a href="#modal1">Cerrar Sesion</a></li>
                     </ul>
                 </li>
             </ul>
@@ -183,8 +183,17 @@
 
                  <!-- Estrcutura del formulario 4 -->
                  <form action="" class="Form4">
-                    <h3 class="title-form title-form-modific">Tu vehiculo</h3>
-                    <h3 class="title-form">Motocicleta</h3>
+                    <h3 class="title-form">Tus datos de vehiculo</h3>
+                    <div class="form-column form-column-select form-column-select-vehiculo">
+                        <h3 class="form-column title-form7 select-vehiculo" for="tipoVehiculo">Tipo de Vehículo:</h3>
+                        <select id="tipoVehiculo" name="tipoVehiculo" class="option-vehiculo">
+                            <option value="motocicleta">motocicleta</option>
+                            <option value="bicicleta">Bicicleta</option>
+                            <option value="carro">Carro</option>
+                            <option value="monopatin">Monopatin</option>
+                        </select>
+                    </div>
+                    
                     <div class="content-form">
                         <div class="form-column">
                             <input class="input" type="text">
@@ -192,11 +201,11 @@
                         </div>
                         <div class="form-column">
                             <input class="input" type="text">
-                            <label class="label">Cilindraje</label>
+                            <label class="label">Modelo</label>
                         </div>
                         <div class="form-column">
                             <input class="input" type="text">
-                            <label class="label">Color</label>
+                            <label class="label">Año</label>
                         </div>
                     </div>
                     <div class="content-form">
@@ -206,7 +215,7 @@
                         </div>
                         <div class="form-column">
                             <input class="input" type="text">
-                            <label class="label">Modelo</label>
+                            <label class="label">Color</label>
                         </div>
                         <div class="form-column">
                             <textarea name="" id="" class="input textarea"></textarea>
@@ -222,41 +231,6 @@
 
                 <!-- Estrcutura del formulario 5 -->
                 <form action="" class="Form5">
-                    <h3 class="title-form title-form-modific">Tu vehiculo</h3>
-                    <h3 class="title-form">Bicicleta</h3>
-                    <div class="content-form">
-                        <div class="form-column">
-                            <input class="input" type="text">
-                            <label class="label">Marca</label>
-                        </div>
-                        <div class="form-column">
-                            <input class="input" type="text">
-                            <label class="label">Clase</label>
-                        </div>
-                        <div class="form-column">
-                            <input class="input" type="text">
-                            <label class="label">Color</label>
-                        </div>
-                    </div>
-                    <div class="content-form content-form-modific">
-                        <div class="form-column">
-                            <input class="input" type="text">
-                            <label class="label">No. Marco</label>
-                        </div>
-                        <div class="form-column">
-                            <textarea name="" id="" class="input textarea"></textarea>
-                            <label class="label">observaciones</label>
-                        </div>
-                    </div>
-                    
-                    <div class="content-btn">
-                        <button type="button" class="btn-form" id="Back4">Atras</button>
-                        <button type="button" class="btn-form" id="Next5">Siguiente</button>
-                    </div>
-                </form>
-
-                <!-- Estrcutura del formulario 6 -->
-                <form action="" class="Form6">
                     <h3 class="title-form">Tus datos personales</h3>
                     <div class="content-form">
                         
@@ -281,13 +255,13 @@
                     </div>
                     
                     <div class="content-btn">
-                        <button type="button" class="btn-form" id="Back5">Atras</button>
-                        <button type="button" class="btn-form" id="Next6">Siguiente</button>
+                        <button type="button" class="btn-form" id="Back4">Atras</button>
+                        <button type="button" class="btn-form" id="Next5">Siguiente</button>
                     </div>
                 </form>
 
-                <!-- Estrcutura del formulario 7 -->
-                <form action="" class="Form7">
+                <!-- Estrcutura del formulario 6 -->
+                <form action="" class="Form6">
                     <h3 class="title-form">Tus documentos de vehiculo</h3>
                     <div class="form-column form-column-select">
                         <h3 class="title-form title-form7">tipo de vehiculo</h3>
@@ -347,7 +321,7 @@
                         </div>
                     </div>
                     <div class="content-btn">
-                        <button type="button" class="btn-form" id="Back6">Atras</button>
+                        <button type="button" class="btn-form" id="Back5">Atras</button>
                         <button type="submit" class="btn-form" id="submit" >Enviar</button>
                     </div>
                     
@@ -360,8 +334,6 @@
                     <div class="step-col step-col-4">Paso 4</div>
                     <div class="step-col step-col-5">Paso 5</div>
                     <div class="step-col step-col-6">Paso 6</div>
-                    <div class="step-col step-col-7">Paso 7</div>
-                    
                 </div>
             </div>
         </section>

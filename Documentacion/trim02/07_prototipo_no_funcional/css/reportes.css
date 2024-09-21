@@ -142,6 +142,21 @@
     overflow-x: scroll;
 }
 
+.chart_div::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.chart_div::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+.chart_div:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
 #seccion1 .content-report {
     overflow-y: visible;
 }
@@ -156,6 +171,54 @@
     width: 100%;
     height: 300px;
     overflow-y: scroll;
+}
+
+/* Scroll del contenedor del reporte*/
+.content-report::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.content-report::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+.content-report:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
+/* Scroll del contenedor de la ocupacion*/
+.content-ocupation::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.content-ocupation::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+.content-ocupation:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
+/* Scroll del contenedor de los ingresos*/
+.content-ingresos::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.content-ingresos::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+.content-ingresos:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
 }
 
 .section-report,

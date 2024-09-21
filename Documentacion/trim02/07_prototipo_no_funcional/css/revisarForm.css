@@ -28,30 +28,40 @@
     transition: .7s;
 }
 
+.content-comentario.close {
+    display: none;
+}
+
 .content-comentario.active {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     transition: .7s;
+    background-color: #00000080;
 }
 
 .modal-comentario {
-    position: absolute;
-    top: 0;
-    left: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
     width: 40%;
-    height: 400px;
-    background-color: #b4b4b4;
-    transition: .7s;
+    height: 60%;
+    text-align: center;
+    box-shadow: 0 4px 8px #00000033;
 }
 
 .modal-comentario textarea {
     resize: none;
     width: 85%;
     height: 60%;
+    background-color: #a5a5a533;
 }
 
 .btn-comentario {
@@ -63,36 +73,46 @@
     color: #FF4448;
 }
 
+.cerrar-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 23px;
+    width: 23px;
+    height: 23px;
+    color: #000;
+    cursor: pointer;
+}
+
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (max-width: 1200px) { 
-    .strike {
-        background-color: rgb(238, 255, 0);
-        width: 90%;
-        height: auto;
+    .modal-comentario {
+        width: 65%;
+        height: 45%;
     }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (max-width: 992px) { 
     .modal-comentario {
-        left: 24%;
-        width: 50%;
+        width: 80%;
+        height: 45%;
     }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (max-width: 768px) { 
     .modal-comentario {
-        left: 24%;
-        width: 50%;
+        width: 70%;
+        height: 45%;
     }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) { 
     .modal-comentario {
-        left: 8%;
         width: 85%;
+        height: 45%;
     }
 }
 
@@ -103,10 +123,6 @@
     }
     .form {
         width: 90%;
-    }
-
-    .container {
-        background-color: rgb(248, 21, 161);
     }
 
     .title-form {
@@ -183,8 +199,7 @@
     .step-col-3,
     .step-col-4,
     .step-col-5,
-    .step-col-6,
-    .step-col-7 {
+    .step-col-6 {
         left: 288px;
     }
 
@@ -202,8 +217,7 @@
     .step-col-3.active-0,
     .step-col-4.active-0,
     .step-col-5.active-0,
-    .step-col-6.active-0,
-    .step-col-7.active-0 {
+    .step-col-6.active-0 {
         left: 0px;
     }
 
@@ -217,28 +231,25 @@
     }
     
     .progress.active-form2 {
-        width: 100%;
-    }
-    
-    .progress.active-form3 {
         width: 150%;
     }
     
-    .progress.active-form4 {
+    .progress.active-form3 {
         width: 200%;
     }
     
-    .progress.active-form5 {
+    .progress.active-form4 {
         width: 250%;
     }
     
-    .progress.active-form6 {
+    .progress.active-form5 {
         width: 300%;
     }
     
-    .progress.active-form7 {
+    .progress.active-form6 {
         width: 350%;
     }
+    
 
 
     /* Atras */
@@ -255,13 +266,12 @@
     .step-col-3.active-positive,
     .step-col-4.active-positive,
     .step-col-5.active-positive,
-    .step-col-6.active-positive,
-    .step-col-7.active-positive {
+    .step-col-6.active-positive {
         right: 288px;
     }
 
     .modal-comentario {
-        left: 0;
-        width: 100%;
+        width: 90%;
+        height: 45%;
     }
 }
