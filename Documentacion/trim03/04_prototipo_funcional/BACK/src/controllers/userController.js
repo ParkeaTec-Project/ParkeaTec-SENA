@@ -1,5 +1,25 @@
 import User from '../models/user.js';
 
+const login = async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const { user, permisos } = await User.login(email, password);
+        res.status(200).json({ 
+            message: "Login exitoso",
+            user: {
+                id: user.id, 
+                nombre: user.nombre,
+                email: user.email,
+                rol: user.rol_id,
+                permisos
+            },
+        });
+    } catch(err) {
+        res.status(400).send(err);
+    }
+};
+
 const crearUsuarios = async(req, res) => {
     const { id_documento, nombre, apellido, telefono, direccion, correo, password, foto_usuario, centro_formacion, ficha_aprendiz,
         firma_usuario, foto_documento, foto_carnet, id_tipo_documento, rol_id } = req.body;
@@ -32,5 +52,6 @@ const obtenerUsuarios = async (req, res) => {
 
 export default {
     obtenerUsuarios,
-    crearUsuarios
+    crearUsuarios,
+    login
 };

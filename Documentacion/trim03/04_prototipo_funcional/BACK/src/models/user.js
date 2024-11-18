@@ -20,44 +20,27 @@ class user {
         this.rol_id = rol_id;
     }
 
-    async crearUsuarios() {
-
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(this.password, salt);
-
-        const query = 'INSERT INTO usuario (id_documento, nombre, apellido, telefono, direccion, correo, password, foto_usuario, centro_formacion, ficha_aprendiz, firma_usuario, foto_documento, foto_carnet,  id_tipo_documento, rol_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-        
-        return new Promise((resolve, reject) => {
-            connection.query(query, [this.id_documento, this.nombre, this.apellido, this.telefono, this.direccion, this.correo, hashedPassword, this.foto_usuario, this.centro_formacion, this.ficha_aprendiz, this.firma_usuario, this.foto_documento, this.foto_carnet, this.id_tipo_documento, this.rol_id], (err, result) => {
-                if(err) {
-                    return reject(err);
-                }
-                resolve(result);
-            });
-        });
-
-
-
-    }
-
     static async login(email, password) {
-        const query = 'SELECT * FROM usuario WHERE email = ?';
+        const query = 'SELECT * FROM usuario WHERE correo_electronico = ?';
 
         return new Promise((resolve, reject) => {
             connection.query(query, [email], async (err, result) => {
-                if (err) {
-                    return reject(err)
+                if(err) {
+                    console.error('Error al iniciar sesion:', err);
+                    return reject(err);
                 }
 
-                if (result.length === 0) {
+                if(result.length === 0) {
                     return reject("Usuario no encontrado");
                 }
 
                 const user = result[0];
-                const isMatch = await bcrypt.compare(password, user.password);
+                console.log(user);
+                console.log(password);
+                const isMatch = await bcrypt.compare(password, user.contraseña);
 
-                if (!isMatch) {
-                    return reject("Contraseña incorrecta")
+                if(!isMatch) {
+                    return reject("Contraseña incorrecta");
                 }
 
                 const permisosQuery = `
@@ -69,17 +52,42 @@ class user {
                 `
 
                 connection.query(permisosQuery, [user.rol_id], (err, permisosResult) => {
-                    if (err) {
+                    if(err) {
                         return reject(err);
                     }
 
+                    console.log(permisosResult)
                     const permisos = permisosResult.map(permiso => permiso.permiso);
 
-                    resolve({ user, permisos });
-                })
-            })
-        })
+                    resolve({ user, permisos })
+                });
+            });
+        });
+    } 
+
+
+    async crearUsuarios() {
+        try {
+            const salt = await bcrypt.genSalt(10);
+            const hashedPassword = await bcrypt.hash(this.password, salt);
+
+            const query = 'INSERT INTO usuario (id_documento, nombre, apellido, telefono, direccion, correo_electronico, contraseña, foto_usuario, centro_formacion, ficha_aprendiz, firma_usuario, foto_documento, foto_carnet,  id_tipo_documento, rol_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        
+            return new Promise((resolve, reject) => {
+                connection.query(query, [this.id_documento, this.nombre, this.apellido, this.telefono, this.direccion, this.correo, hashedPassword, this.foto_usuario, this.centro_formacion, this.ficha_aprendiz, this.firma_usuario, this.foto_documento, this.foto_carnet, this.id_tipo_documento, this.rol_id], (err, result) => {
+                if(err) {
+                    console.error('Error al insertar usuario:', err);
+                    return reject(err);
+                }
+                resolve(result);
+                });
+            });
+        } catch (err) {
+            console.error('Error general en crearUsuarios:', err);
+            throw err;
+        }
     }
+        
 
     static async obtenerUsuarios() {
         const query = 'SELECT * FROM usuario';
@@ -90,6 +98,10 @@ class user {
         } catch (err) {
             throw err;
         }
+    }
+
+    static async obtenerUsuarioId() {
+        
     }
 }
 
