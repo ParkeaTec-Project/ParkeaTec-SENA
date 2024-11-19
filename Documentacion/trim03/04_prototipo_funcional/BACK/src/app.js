@@ -4,12 +4,12 @@ import cors from 'cors';
 import userRoutes from './routes/userRoutes.js'
 
 const app = express();
-const port = 3000;
+const port = 4000;
 
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use('/parkeatec', userRoutes);
+app.use('/api', userRoutes);
 
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
