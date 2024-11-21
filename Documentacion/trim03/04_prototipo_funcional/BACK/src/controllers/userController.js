@@ -37,7 +37,6 @@ const crearUsuarios = async(req, res) => {
 };
 
 
-
 const obtenerUsuarios = async (req, res) => {
     try {
         const usuarios = await User.obtenerUsuarios();
@@ -50,8 +49,48 @@ const obtenerUsuarios = async (req, res) => {
     }
 };
 
+const obtenerUsuarioId = async (req, res) => {
+    try {
+        const usuarioId = req.params.id;
+
+        if(!usuarioId) {
+            return res.status(400).json({ error: "Id de usuario invalido" })
+        }
+
+        const usuario = await User.obtenerUsuarioId(usuarioId);
+        res.status(200).json({ usuario });
+    } catch(err) {
+        if(err === "Usuario no encontrado") {
+            return res.status(404).json({ error: 'Usuario no encontrado' });
+        }
+
+        console.error("Error al obtener el usuario por ID:", err);
+        res.status(500).json({ error: "Error en el servidor" });
+    }
+};
+
+const actualizarUsuarioId = async (req, res) => {
+    try {
+        const { password } = req.body;
+        const usuarioId = req.params.id;
+
+        const actualizarUsuarioId = new User(password, usuarioId);
+
+        const result = await actualizarUsuarioId.actualizarUsuarioId();
+        if (result.affectedRows === 0) {
+            res.status(404).send({ message: "Usuario no encontrado" });
+        }
+        res.status(200).send({ message: "Usuario actualiazado correctamente", result });
+    } catch(err) {
+        console.error("Error al actualizar el usuario:", err);
+        res.status(500).send({ message: "Error al actualizar el usuario" })
+    }
+};
+
 export default {
     obtenerUsuarios,
     crearUsuarios,
-    login
+    login,
+    obtenerUsuarioId,
+    actualizarUsuarioId
 };

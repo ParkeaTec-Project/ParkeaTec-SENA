@@ -100,8 +100,41 @@ class user {
         }
     }
 
-    static async obtenerUsuarioId() {
-        
+    static async obtenerUsuarioId(id) {
+        const query = 'SELECT * FROM usuario WHERE id_documento = ?';
+
+        try {
+            return new Promise((resolve, reject) => {
+                connection.query(query, [id], (err, result) => {
+                    if (err) {
+                        console.error('Error al encontrar al usuario', err);
+                        return reject(err);
+                    }
+
+                    if(result.length === 0) {
+                        return reject("Usuario no encontrado");
+                    }
+
+                    resolve(result[0]);
+                })
+            })
+        } catch(err) {
+            console.error('Error general en obtener usuario por id:', err);
+            throw err;
+        }
+    }
+
+    async actualizarUsuarioId() {
+        const query = 'UPDATE usuario SET contraseña = ? WHERE id_documento = ?';
+
+        return new Promise((resolve, reject) => {
+            connection.query(query, [this.contraseña, this.id], (err, result) => {
+                if(err) {
+                    return reject(err)
+                }
+                resolve(result);
+            });
+        })
     }
 }
 
