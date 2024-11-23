@@ -2,7 +2,7 @@ import connection from "../db/connection.js";
 import bcrypt from "bcrypt";
 
 class user {
-    constructor(id_documento, nombre, apellido, telefono, direccion, correo, password, foto_usuario, centro_formacion, ficha_aprendiz, firma_usuario, foto_documento, foto_carnet, id_tipo_documento, rol_id) {
+    constructor({ id_documento, nombre, apellido, telefono, direccion, correo, password, foto_usuario, centro_formacion, ficha_aprendiz, firma_usuario,foto_documento, foto_carnet, id_tipo_documento, rol_id }) {
         this.id_documento = id_documento;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -18,6 +18,8 @@ class user {
         this.foto_carnet = foto_carnet;
         this.id_tipo_documento = id_tipo_documento;
         this.rol_id = rol_id;
+
+        console.log("contraseña constructor:", this.password);
     }
 
     static async login(email, password) {
@@ -58,6 +60,7 @@ class user {
 
                     console.log(permisosResult)
                     const permisos = permisosResult.map(permiso => permiso.permiso);
+
 
                     resolve({ user, permisos })
                 });
@@ -125,16 +128,35 @@ class user {
     }
 
     async actualizarUsuarioId() {
-        const query = 'UPDATE usuario SET contraseña = ? WHERE id_documento = ?';
+        try {
+            console.log("Contraseña proporcionada:", this.password);
+            
 
-        return new Promise((resolve, reject) => {
-            connection.query(query, [this.contraseña, this.id], (err, result) => {
-                if(err) {
-                    return reject(err)
-                }
-                resolve(result);
+            
+            const salt = await bcrypt.genSalt(10);
+            const hashedPassword = await bcrypt.hash(this.password, salt);
+
+            return new Promise((resolve, reject) => {
+                const checkQuery = 'SELECT * FROM usuario WHERE id_documento = ?';
+                connection.query(checkQuery, [this.id_documento], (err, result) => {
+                    if(err) return reject(err);
+    
+                    if(result.length === 0) {
+                        return reject(new Error('Usuario no encontrado'));
+                    }
+    
+    
+                    const query = 'UPDATE usuario SET contraseña = ? WHERE id_documento = ?';
+                    
+                    connection.query(query, [hashedPassword, this.id_documento], (err, result) => {
+                        if(err) return reject(err);
+                        resolve(result);
+                    });
+                });
             });
-        })
+        } catch(err) {
+            throw err;
+        }
     }
 }
 

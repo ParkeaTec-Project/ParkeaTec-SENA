@@ -8,9 +8,9 @@ const login = async (req, res) => {
         res.status(200).json({ 
             message: "Login exitoso",
             user: {
-                id: user.id, 
+                id: user.id_documento, 
                 nombre: user.nombre,
-                email: user.email,
+                email: user.correo_electronico,
                 rol: user.rol_id,
                 permisos
             },
@@ -21,11 +21,12 @@ const login = async (req, res) => {
 };
 
 const crearUsuarios = async(req, res) => {
-    const { id_documento, nombre, apellido, telefono, direccion, correo, password, foto_usuario, centro_formacion, ficha_aprendiz,
+    const { id_documento, nombre, apellido, telefono, direccion, correo, contraseña, foto_usuario, centro_formacion, ficha_aprendiz,
         firma_usuario, foto_documento, foto_carnet, id_tipo_documento, rol_id } = req.body;
 
-    const crearUsuario = new User(id_documento, nombre, apellido, telefono, direccion, correo, password, foto_usuario, centro_formacion,
-        ficha_aprendiz, firma_usuario, foto_documento, foto_carnet, id_tipo_documento, rol_id);
+    const crearUsuario = new User({ id_documento: id_documento, nombre: nombre, apellido: apellido, telefono: telefono, direccion: direccion, correo: correo, password: contraseña, foto_usuario: foto_usuario, centro_formacion: centro_formacion, ficha_aprendiz: ficha_aprendiz, firma_usuario: firma_usuario, foto_documento: foto_documento, foto_carnet: foto_carnet, id_tipo_documento: id_tipo_documento, rol_id: rol_id });
+
+    console.log("create usuario", crearUsuario);
 
     try {
         const result = await crearUsuario.crearUsuarios();
@@ -71,16 +72,26 @@ const obtenerUsuarioId = async (req, res) => {
 
 const actualizarUsuarioId = async (req, res) => {
     try {
+        console.log(req.body)
         const { password } = req.body;
         const usuarioId = req.params.id;
 
-        const actualizarUsuarioId = new User(password, usuarioId);
+        console.log("id usuario:", usuarioId);
+        console.log("new contraseña:", password);
 
-        const result = await actualizarUsuarioId.actualizarUsuarioId();
-        if (result.affectedRows === 0) {
-            res.status(404).send({ message: "Usuario no encontrado" });
+        if(!password) {
+            return res.status(400).send({ message: "Falta informacion requerida" })
         }
+
+        const updateUsuario = new User({ id_documento: usuarioId, password: password });
+        const result = await updateUsuario.actualizarUsuarioId();
+
+        if (result.affectedRows === 0) {
+            return res.status(404).send({ message: "Usuario no encontrado" });
+        }
+
         res.status(200).send({ message: "Usuario actualiazado correctamente", result });
+        
     } catch(err) {
         console.error("Error al actualizar el usuario:", err);
         res.status(500).send({ message: "Error al actualizar el usuario" })
