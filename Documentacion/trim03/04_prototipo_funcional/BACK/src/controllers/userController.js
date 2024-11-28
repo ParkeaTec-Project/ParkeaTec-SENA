@@ -16,7 +16,7 @@ const login = async (req, res) => {
             },
         });
     } catch(err) {
-        res.status(400).send(err);
+        res.status(400).json({ message: err} );
     }
 };
 
@@ -30,10 +30,10 @@ const crearUsuarios = async(req, res) => {
 
     try {
         const result = await crearUsuario.crearUsuarios();
-        res.status(200).send("Usuario creado");
+        res.status(200).json({ message: "Usuario creado" });
     } catch (err) {
         console.error("Error al crear el usuario:", err);
-        res.status(500).send("Error al crear el usuario");
+        res.status(500).json({ message: "Error al crear el usuario" });
     }
 };
 
