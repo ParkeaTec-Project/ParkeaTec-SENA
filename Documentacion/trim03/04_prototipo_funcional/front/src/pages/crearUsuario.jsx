@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { Container, Form, Button, Row, Col } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function CrearUsuario() {
     const [formData, setFormData] = useState({
@@ -28,18 +31,6 @@ function CrearUsuario() {
         });
     };
 
-    const tipoDocumentoOptions = [
-        { id: 1, nombre: "Cedula de ciudadania" },
-        { id: 2, nombre: "Cedula de extranjeria" },
-        { id: 3, nombre: "Tarjeta de identidad" }
-    ];
-
-    const rolOptions = [
-        { id: 1, nombre: "Administrador" },
-        { id: 2, nombre: "Vigilante" },
-        { id: 3, nombre: "Usuario" }
-    ];
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(formData);
@@ -68,65 +59,190 @@ function CrearUsuario() {
     };
 
     return (
-        <form onSubmit={ handleSubmit }>
-            <label htmlFor="nroDocumento">Nro Documento</label>
-            <input name="id_documento" id="nroDocumento" value={ formData.id_documento } onChange={ handleChange }/>
+        <Container className="mt-5">
+            <h2 className="mb-4">Crear Usuario</h2>
+            <Form onSubmit={ handleSubmit }>
+                <Form.Group className="mb-3" controlId="nroDocumento">
+                    <Form.Label>Nro Documento</Form.Label>
+                    <Form.Control 
+                        type="text"
+                        placeholder="Ingrese su documento"
+                        name="id_documento"
+                        value={ formData.id_documento }
+                        onChange={ handleChange }
+                    />
+                </Form.Group>
 
-            <label htmlFor="nombre">Nombre</label>
-            <input name="nombre" id="nombre" value={ formData.nombre } onChange={ handleChange }/>
+                <Row>
+                    <Col md={6} className="mb-3">
+                        <Form.Group controlId="nombre">
+                            <Form.Label>Nombre</Form.Label>
+                            <Form.Control 
+                                type="text"
+                                placeholder="nombre"
+                                name="nombre"
+                                value={ formData.nombre } 
+                                onChange={ handleChange }
+                            />
+                        </Form.Group>
+                    </Col>
 
-            <label htmlFor="apellido">Apellido</label>
-            <input name="apellido" id="apellido" value={ formData.apellido } onChange={ handleChange }/>
+                    <Col md={6} className="mb-3">
+                        <Form.Group controlId="apellido">
+                            <Form.Label>Apellido</Form.Label>
+                            <Form.Control 
+                                type="text"
+                                placeholder="Apellido"
+                                name="apellido"
+                                value={ formData.apellido } 
+                                onChange={ handleChange }
+                            />
+                        </Form.Group>
+                    </Col>
+                </Row>
 
-            <label htmlFor="telefono">Telefono</label>
-            <input name="telefono" id="telefono" value={ formData.telefono } onChange={ handleChange }/>
+                <Form.Group className="mb-3" controlId="telefono">
+                    <Form.Label>Telefono</Form.Label>
+                    <Form.Control 
+                        type="text"
+                        placeholder="Telefono"
+                        name="telefono"
+                        value={ formData.telefono } 
+                        onChange={ handleChange }
+                    />
+                </Form.Group>
 
-            <label htmlFor="direccion">Direccion</label>
-            <input name="direccion" id="direccion" value={ formData.direccion } onChange={ handleChange }/>
+                <Form.Group className="mb-3" controlId="telefono">
+                    <Form.Label>Direccion</Form.Label>
+                    <Form.Control 
+                        type="text"
+                        placeholder="Direccion"
+                        name="direccion"
+                        value={ formData.direccion } 
+                        onChange={ handleChange }
+                    />
+                </Form.Group>
 
-            <label htmlFor="correo">Correo</label>
-            <input name="correo" id="correo" value={ formData.correo } onChange={ handleChange }/>
+                <Form.Group className="mb-3" controlId="correo">
+                    <Form.Label>Correo</Form.Label>
+                    <Form.Control 
+                        type="email"
+                        placeholder="correo"
+                        name="correo"
+                        value={ formData.correo } 
+                        onChange={ handleChange }
+                    />
+                </Form.Group>
 
-            <label htmlFor="contraseña">Contraseña</label>
-            <input name="contraseña" id="contraseña" value={ formData.contraseña } onChange={ handleChange }/>
+                <Form.Group className="mb-3" controlId="contraseña">
+                    <Form.Label>Contraseña</Form.Label>
+                    <Form.Control 
+                        type="password"
+                        placeholder="contraseña"
+                        name="contraseña"
+                        value={ formData.contraseña } 
+                        onChange={ handleChange }
+                    />
+                </Form.Group>
 
-            <label htmlFor="fotoUsuario">Foto usuario</label>
-            <input name="foto_usuario" id="fotoUsuario" value={ formData.foto_usuario } onChange={ handleChange }/>
+                <Form.Group className="mb-3" controlId="fotoUsuario">
+                    <Form.Label>Foto Usuario</Form.Label>
+                    <Form.Control 
+                        type="text"
+                        placeholder="foto"
+                        name="foto_usuario"
+                        value={ formData.foto_usuario } 
+                        onChange={ handleChange }
+                    />
+                </Form.Group>
 
-            <label htmlFor="centroFormacion">Centro de Formacion</label>
-            <input name="centro_formacion" id="centroFormacion" value={ formData.centro_formacion } onChange={ handleChange }/>
+                <Form.Group className="mb-3" controlId="centroFormacion">
+                    <Form.Label>Centro de Formacion</Form.Label>
+                    <Form.Control 
+                        type="text"
+                        placeholder="Centro formacion"
+                        name="centro_formacion"
+                        value={ formData.centro_formacion } 
+                        onChange={ handleChange }
+                    />
+                </Form.Group>
 
-            <label htmlFor="ficha">Ficha</label>
-            <input name="ficha_aprendiz" id="ficha" value={ formData.ficha_aprendiz } onChange={ handleChange }/>
+                <Form.Group className="mb-3" controlId="ficha">
+                    <Form.Label>Ficha</Form.Label>
+                    <Form.Control 
+                        type="text"
+                        placeholder="Ficha"
+                        name="ficha_aprendiz"
+                        value={ formData.ficha_aprendiz } 
+                        onChange={ handleChange }
+                    />
+                </Form.Group>
 
-            <label htmlFor="firma">Firma Usuario</label>
-            <input name="firma_usuario" id="firma" value={ formData.firma_usuario } onChange={ handleChange }/>
+                <Form.Group className="mb-3" controlId="firma">
+                    <Form.Label>Firma Usuario</Form.Label>
+                    <Form.Control 
+                        type="text"
+                        placeholder="Firma"
+                        name="firma_usuario"
+                        value={ formData.firma_usuario } 
+                        onChange={ handleChange }
+                    />
+                </Form.Group>
 
-            <label htmlFor="fotoDocumento">Foto del documento</label>
-            <input name="foto_documento" id="fotoDocumento" value={ formData.foto_documento } onChange={ handleChange }/>
+                <Form.Group className="mb-3" controlId="fotoDocumento">
+                    <Form.Label>Foto del documento</Form.Label>
+                    <Form.Control 
+                        type="text"
+                        placeholder="foto documento"
+                        name="foto_documento"
+                        value={ formData.foto_documento } 
+                        onChange={ handleChange }
+                    />
+                </Form.Group>
 
-            <label htmlFor="fotoCarnet">Foto del Carnet</label>
-            <input name="foto_carnet" id="fotoCarnet" value={ formData.foto_carnet } onChange={ handleChange }/>
+                <Form.Group className="mb-3" controlId="fotoCarnet">
+                    <Form.Label>Foto del Carnet</Form.Label>
+                    <Form.Control 
+                        type="text"
+                        placeholder="foto carnet"
+                        name="foto_carnet"
+                        value={ formData.foto_carnet } 
+                        onChange={ handleChange }
+                    />
+                </Form.Group>
 
-            <label htmlFor="tipoDocumento">Tipo de documento</label>
-            <select name="id_tipo_documento" id="tipoDocumento" value={ formData.id_tipo_documento } onChange={ handleChange }>
-                <option>Selecciona tu documento</option>
-                { tipoDocumentoOptions.map((doc) => (
-                    <option key={ doc.id } value={ doc.id }> { doc.nombre } </option>
-                )) }
-            </select>
+                <Form.Group className="mb-3" controlId="tipoDocumento">
+                    <Form.Label>Tipo de documento</Form.Label>
+                    <Form.Select 
+                        name="id_tipo_documento"
+                        value={ formData.id_tipo_documento } 
+                        onChange={ handleChange }
+                    >
+                        <option value="">Selecciona tu documento</option>
+                        <option value="1">Cedula de ciudadania</option>
+                        <option value="2">Cedula de extranjeria</option>
+                        <option value="3">Tarjeta de identidad</option>
+                    </Form.Select>
+                </Form.Group>
 
-            <label htmlFor="rol">Rol</label>
-            <select name="rol_id" id="rol" value={ formData.rol_id } onChange={ handleChange }>
-                <option>Selecciona un rol</option>
-                {rolOptions.map((rol) => (
-                    <option key={rol.id} value={rol.id}> {rol.nombre} </option>
-                ))}
-            </select>
+                <Form.Group className="mb-3" controlId="rol">
+                    <Form.Label>Rol</Form.Label>
+                    <Form.Select
+                        name="rol_id"
+                        value={ formData.rol_id } 
+                        onChange={ handleChange }
+                    >
+                        <option value="">Selecciona un rol</option>
+                        <option value="1">Administrador</option>
+                        <option value="2">Vigilante</option>
+                        <option value="3">Usuario</option>
+                    </Form.Select>
+                </Form.Group>
 
-            <button type="submit">Crear usuario</button>
-        </form>
-    )
+                <Button variant="success" type="submit">Crear usuario</Button>
+            </Form>
+        </Container>
+    );
 }
 
 export default CrearUsuario;

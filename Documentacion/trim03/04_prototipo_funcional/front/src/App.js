@@ -1,7 +1,10 @@
 //import logo from './logo.svg';
 import './App.css';
 //import Login from './pages/login';
-import CrearUsuario from './pages/crearUsuario';
+//import CrearUsuario from './pages/crearUsuario';
+import VerUsuarios from './pages/verUsuarios';
+import ActualizarUsuario from './pages/actualizarUsuario';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
@@ -24,7 +27,12 @@ function App() {
 
 
     //<Login />
-    <CrearUsuario />
+    <Router>
+      <Routes>
+        <Route path='/usuarios' element={ <VerUsuarios /> } />
+        <Route path='/editarUsuario/:id' element={ <ActualizarUsuario /> } />
+      </Routes>
+    </Router>
   );
 }
 

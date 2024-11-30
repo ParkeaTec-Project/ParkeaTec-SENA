@@ -98,10 +98,31 @@ const actualizarUsuarioId = async (req, res) => {
     }
 };
 
+const borrarUsuarioId = async (req, res) => {
+    try {
+        const usuarioId = req.params.id;
+
+        if(!usuarioId) {
+            return res.status(400).json({ message: "Falta id de usuario" })
+        }
+
+        const deleteUsuario = await User.borrarUsuarioId(usuarioId)
+        res.status(200).json({ message: "usuario eliminado", deleteUsuario })
+    } catch(err) {
+        if(err === "Usuario no encontrado") {
+            return res.status(404).json({ error: 'Usuario no encontrado' });
+        }
+
+        console.error("Error al obtener el usuario por ID:", err);
+        res.status(500).json({ error: "Error en el servidor" });
+    }
+}
+
 export default {
     obtenerUsuarios,
     crearUsuarios,
     login,
     obtenerUsuarioId,
-    actualizarUsuarioId
+    actualizarUsuarioId,
+    borrarUsuarioId
 };

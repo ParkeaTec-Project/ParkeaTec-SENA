@@ -158,6 +158,29 @@ class user {
             throw err;
         }
     }
+
+    static async borrarUsuarioId(id) {
+        try {
+            return new Promise((resolve, reject) => {
+                const checkQuery = 'SELECT * FROM usuario WHERE id_documento = ?';
+                connection.query(checkQuery, [id], (err, result) => {
+                    if(err) return reject(err);
+
+                    if(result.length === 0) {
+                        return reject(new Error("Usuario no encontrado"));
+                    }
+
+                    const query = 'DELETE FROM usuario WHERE id_documento = ?';
+                    connection.query(query, [id], (err, result) => {
+                        if(err) return reject(err);
+                        resolve(result);
+                    });
+                });
+            });
+        } catch(err) {
+            throw err;
+        }
+    }
 }
 
 export default user;
