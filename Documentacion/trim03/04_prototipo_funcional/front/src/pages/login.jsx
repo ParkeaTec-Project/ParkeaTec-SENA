@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Form, Button } from 'react-bootstrap';
+
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -44,19 +46,19 @@ function Login() {
     return (
         <div>
             <h1>Login</h1>
-            <form onSubmit={ handleSubmit }>
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" value={ email } onChange={ handleChangeEmail }/>
-                </div>
+            <Form onSubmit={ handleSubmit }>
+                <Form.Group className="mb-3" controlId="email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="email" value={ email } onChange={ handleChangeEmail } placeholder="name@example.com"/>
+                </Form.Group>
 
-                <div>
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" value={ password } onChange={ handleChangePassword }/>
-                </div>
+                <Form.Group className="mb-3" controlId="password">
+                    <Form.Label>Contraseña</Form.Label>
+                    <Form.Control type="password" value={ password } onChange={ handleChangePassword } />
+                </Form.Group>
 
-                <button type="submit">Enviar</button>
-            </form>
+                <Button variant="success" type="submit">Success</Button>
+            </Form>
         </div>
     );
 }

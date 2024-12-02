@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from "react-router-dom";
 
 
 function CrearUsuario() {
@@ -241,7 +242,11 @@ function CrearUsuario() {
 
                 <Button variant="success" type="submit">Crear usuario</Button>
             </Form>
+            <button>
+                <Link to="/login">Login</Link>
+            </button>
         </Container>
+        
     );
 }
 
