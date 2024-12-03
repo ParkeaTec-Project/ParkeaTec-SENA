@@ -102,52 +102,67 @@ function CrearUsuario() {
                     </Col>
                 </Row>
 
-                <Form.Group className="mb-3" controlId="telefono">
-                    <Form.Label>Telefono</Form.Label>
-                    <Form.Control 
-                        type="text"
-                        placeholder="Telefono"
-                        name="telefono"
-                        value={ formData.telefono } 
-                        onChange={ handleChange }
-                    />
-                </Form.Group>
+                <Row>
+                    <Col md={6} className="mb-3">
+                        <Form.Group className="mb-3" controlId="telefono">
+                        <Form.Label>Telefono</Form.Label>
+                        <Form.Control 
+                            type="text"
+                            placeholder="Telefono"
+                            name="telefono"
+                            value={ formData.telefono } 
+                            onChange={ handleChange }
+                        />
+                        </Form.Group>
+                    </Col>
 
-                <Form.Group className="mb-3" controlId="telefono">
-                    <Form.Label>Direccion</Form.Label>
-                    <Form.Control 
-                        type="text"
-                        placeholder="Direccion"
-                        name="direccion"
-                        value={ formData.direccion } 
-                        onChange={ handleChange }
-                    />
-                </Form.Group>
+                    <Col md={6} className="mb-3">
+                        <Form.Group className="mb-3" controlId="telefono">
+                        <Form.Label>Direccion</Form.Label>
+                        <Form.Control 
+                            type="text"
+                            placeholder="Direccion"
+                            name="direccion"
+                            value={ formData.direccion } 
+                            onChange={ handleChange }
+                        />
+                        </Form.Group>
+                    </Col>
+                </Row>
 
-                <Form.Group className="mb-3" controlId="correo">
-                    <Form.Label>Correo</Form.Label>
-                    <Form.Control 
-                        type="email"
-                        placeholder="correo"
-                        name="correo"
-                        value={ formData.correo } 
-                        onChange={ handleChange }
-                    />
-                </Form.Group>
+                <Row>
+                    <Col md={6} className="mb-3">
+                        <Form.Group className="mb-3" controlId="correo">
+                        <Form.Label>Correo</Form.Label>
+                        <Form.Control 
+                            type="email"
+                            placeholder="correo"
+                            name="correo"
+                            value={ formData.correo } 
+                            onChange={ handleChange }
+                        />
+                        </Form.Group>
+                    </Col>
 
-                <Form.Group className="mb-3" controlId="contraseña">
-                    <Form.Label>Contraseña</Form.Label>
-                    <Form.Control 
-                        type="password"
-                        placeholder="contraseña"
-                        name="contraseña"
-                        value={ formData.contraseña } 
-                        onChange={ handleChange }
-                    />
-                </Form.Group>
+                    <Col md={6} className="mb-3">
+                        <Form.Group className="mb-3" controlId="contraseña">
+                        <Form.Label>Contraseña</Form.Label>
+                        <Form.Control 
+                            type="password"
+                            placeholder="contraseña"
+                            name="contraseña"
+                            value={ formData.contraseña } 
+                            onChange={ handleChange }
+                        />
+                        </Form.Group>
+                    </Col>
+                    
+                </Row>
+            
+
 
                 <Form.Group className="mb-3" controlId="fotoUsuario">
-                    <Form.Label>Foto Usuario</Form.Label>
+                <Form.Label>Foto Usuario</Form.Label>
                     <Form.Control 
                         type="text"
                         placeholder="foto"
@@ -156,7 +171,7 @@ function CrearUsuario() {
                         onChange={ handleChange }
                     />
                 </Form.Group>
-
+                    
                 <Form.Group className="mb-3" controlId="centroFormacion">
                     <Form.Label>Centro de Formacion</Form.Label>
                     <Form.Control 

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import styles from '../styles/header.module.css';
 
 const Header = () => (
-  <Navbar className='justify-content-end' bg="dark" variant="dark" expand="lg">
+  <Navbar className={`justify-content-end ${styles.header} `} variant="dark" expand="lg">
     <Container>
       <Navbar.Brand href="#home">ParkeaTEC</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -29,6 +30,10 @@ const Header = () => (
               <NavDropdown.Item href='#'>Strikes</NavDropdown.Item>
               <NavDropdown.Item href='#'>Mis Facturas</NavDropdown.Item>
               <NavDropdown.Item href='#'>Historial</NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link to="/usuarios">Ver usuarios</Link>
+              </NavDropdown.Item>
+              
               <NavDropdown.Item href='#'>Cerrar Sesión</NavDropdown.Item>
             </NavDropdown>
         </Nav>

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Table from 'react-bootstrap/Table';
 
 function VerUsuarios() {
     const [usuarios, setUsuarios] = useState([]);
@@ -55,7 +57,36 @@ function VerUsuarios() {
     return (
         <div>
             <h2>Lista de usuarios</h2>
-            <ul>
+            <Table striped="columns" bordered hover size="sm">
+                <thead>
+                    <tr>
+                        <th>nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            { usuarios.map((usuario) => (
+                                <div>
+                                    <p key={usuario.id_documento}>{usuario.nombre}</p>
+                                </div>
+                    
+                            ))}
+                        </td>
+
+                        <td>
+                            { usuarios.map((usuario) => (
+                                <div>
+                                    <button onClick={() => handleEdit(usuario.id_documento)}>Editar</button>
+                                    <button onClick={() => handleDelete(usuario.id_documento)}>Borrar</button>
+                                </div>
+                            ))}
+                        </td>
+                    </tr>
+                </tbody>
+            </Table>
+            {/* <ul>
                 { usuarios.map((usuario) => (
                     <div>
                         <li key={usuario.id_documento}>{usuario.nombre}</li>
@@ -64,9 +95,10 @@ function VerUsuarios() {
                     </div>
                     
                 ))}
-                
-            </ul>
-            
+            </ul> */}
+            <button>
+                <Link to="/crearUsuario">Crear Usuario</Link>
+            </button>
         </div>
     );
 }
