@@ -45,24 +45,39 @@ class user {
                     return reject("Contraseña incorrecta");
                 }
 
-                const permisosQuery = `
-                    SELECT p.nombre AS permiso
-                    FROM roles r
-                    JOIN rol_permisos rp ON r.id = rp.rol_id
-                    JOIN permisos p ON rp.permiso_id = p.id
-                    WHERE r.id = ?;
+                
+                const infoUser = `
+                    SELECT 
+                        r.nombre AS rol,
+                        p.nombre AS permiso
+                    FROM 
+                        usuario u
+                    INNER JOIN 
+                        roles r ON u.rol_id = r.id
+                    INNER JOIN 
+                        rol_permisos rp ON r.id = rp.rol_id
+                    INNER JOIN 
+                        permisos p ON rp.permiso_id = p.id
+                    WHERE 
+                        u.id_documento = ?;
                 `
 
-                connection.query(permisosQuery, [user.rol_id], (err, permisosResult) => {
+                connection.query(infoUser, [user.id_documento], (err, userResult) => {
                     if(err) {
                         return reject(err);
                     }
 
-                    console.log(permisosResult)
-                    const permisos = permisosResult.map(permiso => permiso.permiso);
+                    if(userResult.length > 0) {
+                        const rol = userResult[0].rol;
+                        const permisos = userResult.map(user => user.permiso);
 
+                        console.log(rol, permisos);
 
-                    resolve({ user, permisos })
+                        resolve({ user, rol, permisos})
+                    } else {
+                        reject("no se encontraron datos para este usuario")
+                    }
+
                 });
             });
         });

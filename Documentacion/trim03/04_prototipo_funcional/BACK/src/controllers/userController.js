@@ -4,14 +4,24 @@ const login = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        const { user, permisos } = await User.login(email, password);
+        const { user, rol, permisos } = await User.login(email, password);
+
+        req.session.user = {
+            email: email,
+            rol,
+            permisos
+        };
+
+        console.log("Sesion creada:", req.session.user);
+
         res.status(200).json({ 
             message: "Login exitoso",
             user: {
                 id: user.id_documento, 
                 nombre: user.nombre,
                 email: user.correo_electronico,
-                rol: user.rol_id,
+                rol_id: user.rol_id,
+                rol,
                 permisos
             },
         });
@@ -19,6 +29,18 @@ const login = async (req, res) => {
         res.status(400).json({ message: err} );
     }
 };
+
+const cerrarSesion = async (req, res) => {
+    req.session.destroy(err => {
+        if(err) {
+            return res.status(500).json({ message: "Error al cerrar sesion" })
+        }
+
+        //Limpiar las cookies
+        res.clearCookie('connect.sid');
+        res.status(200).json({ message: "Sesion cerrada exitosamente" })
+    })
+}
 
 const crearUsuarios = async(req, res) => {
     const { id_documento, nombre, apellido, telefono, direccion, correo, contraseña, foto_usuario, centro_formacion, ficha_aprendiz,
@@ -124,5 +146,6 @@ export default {
     login,
     obtenerUsuarioId,
     actualizarUsuarioId,
-    borrarUsuarioId
+    borrarUsuarioId,
+    cerrarSesion
 };

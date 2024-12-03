@@ -12,15 +12,18 @@ function VerUsuarios() {
                 headers: {
                     "Content-Type": "application/json"
                 },
+                credentials: "include" //incluye las cookies de sesion
             });
 
-            if(!response.ok) {
-                throw new Error(`Error: ${response.status}`)
+            if(response.ok) {
+                const data = await response.json();
+                setUsuarios(data)
+                console.log("Usuarios obtenidos:", data)
+            } else if (response.status === 401) {
+                alert("Inicia sesion primero para acceder a esta seccion")
+                window.location.href = "/login"
             }
-
-            const data = await response.json();
-            setUsuarios(data)
-            console.log("Usuarios obtenidos:", data)
+            
         } catch (error) {
             console.error("Error al obtener los usuarios:", error.message)
         }

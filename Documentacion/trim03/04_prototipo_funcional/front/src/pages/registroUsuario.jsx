@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
 
 
-function CrearUsuario() {
+function RegistroUsuario() {
     const [formData, setFormData] = useState({
         id_documento: "",
         nombre: "",
@@ -14,13 +14,13 @@ function CrearUsuario() {
         correo: "",
         contraseña: "",
         foto_usuario: "",
-        centro_formacion: null,
-        ficha_aprendiz: null,
+        centro_formacion: "",
+        ficha_aprendiz: "",
         firma_usuario: "",
         foto_documento: "",
-        foto_carnet: null,
+        foto_carnet: "",
         id_tipo_documento: "",
-        rol_id: ""
+        rol_id: "3"
     });
 
     const handleChange = (e) => {
@@ -61,7 +61,7 @@ function CrearUsuario() {
 
     return (
         <Container className="mt-5 mb-5">
-            <h2 className="mb-4">Crear Usuario</h2>
+            <h2 className="mb-4">Registro</h2>
             <Form onSubmit={ handleSubmit }>
                 <Form.Group className="mb-3" controlId="nroDocumento">
                     <Form.Label>Nro Documento</Form.Label>
@@ -172,7 +172,7 @@ function CrearUsuario() {
                     />
                 </Form.Group>
                     
-                {/* <Form.Group className="mb-3" controlId="centroFormacion">
+                <Form.Group className="mb-3" controlId="centroFormacion">
                     <Form.Label>Centro de Formacion</Form.Label>
                     <Form.Control 
                         type="text"
@@ -181,9 +181,9 @@ function CrearUsuario() {
                         value={ formData.centro_formacion } 
                         onChange={ handleChange }
                     />
-                </Form.Group> */}
+                </Form.Group>
 
-                {/* <Form.Group className="mb-3" controlId="ficha">
+                <Form.Group className="mb-3" controlId="ficha">
                     <Form.Label>Ficha</Form.Label>
                     <Form.Control 
                         type="text"
@@ -192,7 +192,7 @@ function CrearUsuario() {
                         value={ formData.ficha_aprendiz } 
                         onChange={ handleChange }
                     />
-                </Form.Group> */}
+                </Form.Group>
 
                 <Form.Group className="mb-3" controlId="firma">
                     <Form.Label>Firma Usuario</Form.Label>
@@ -216,7 +216,7 @@ function CrearUsuario() {
                     />
                 </Form.Group>
 
-                {/* <Form.Group className="mb-3" controlId="fotoCarnet">
+                <Form.Group className="mb-3" controlId="fotoCarnet">
                     <Form.Label>Foto del Carnet</Form.Label>
                     <Form.Control 
                         type="text"
@@ -225,7 +225,7 @@ function CrearUsuario() {
                         value={ formData.foto_carnet } 
                         onChange={ handleChange }
                     />
-                </Form.Group> */}
+                </Form.Group>
 
                 <Form.Group className="mb-3" controlId="tipoDocumento">
                     <Form.Label>Tipo de documento</Form.Label>
@@ -241,7 +241,7 @@ function CrearUsuario() {
                     </Form.Select>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="rol">
+                {/* <Form.Group className="mb-3" controlId="rol">
                     <Form.Label>Rol</Form.Label>
                     <Form.Select
                         name="rol_id"
@@ -253,7 +253,7 @@ function CrearUsuario() {
                         <option value="2">Vigilante</option>
                         <option value="3">Usuario</option>
                     </Form.Select>
-                </Form.Group>
+                </Form.Group> */}
 
                 <Button variant="success" type="submit">Crear usuario</Button>
             </Form>
@@ -265,4 +265,4 @@ function CrearUsuario() {
     );
 }
 
-export default CrearUsuario;
+export default RegistroUsuario;
