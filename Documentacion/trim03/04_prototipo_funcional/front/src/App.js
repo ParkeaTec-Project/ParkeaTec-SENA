@@ -1,5 +1,6 @@
 //import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './pages/login';
@@ -8,19 +9,55 @@ import RegistroUsuario from './pages/registroUsuario';
 import VerUsuarios from './pages/verUsuarios';
 import ActualizarUsuario from './pages/actualizarUsuario';
 import CerrarSesion from './pages/cerrarSesion';
+import Registro from './pages/registro';
+import HeaderLogin from './components/HeaderLogin';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  //const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const session = async () => {
+      try {
+        const response = await fetch("http://localhost:4000/api/verificarSesion", {
+          credentials: "include"}
+        );
+
+        const data = await response.json();
+        console.log(data);
+
+        if(data.isAuthenticated) {
+          setIsAuthenticated(true);
+          //setUser(data.user);
+        } else {
+          setIsAuthenticated(false);
+          //setUser(null);
+        }
+      } catch(error) {
+        console.error("Error al verificar la sesion", error);
+      }
+    };
+
+    session();
+  }, []);
+
   return (
     <Router>
-      <Header />
+      { isAuthenticated ? (
+        <Header />
+      ) : (
+        <HeaderLogin />
+      ) }
       <CerrarSesion />
       <Routes>
+
         <Route path='/crearUsuario' element={ <CrearUsuario /> } />
         <Route path='/registroUsuario' element={ <RegistroUsuario /> } />
         <Route path='/usuarios' element={ <VerUsuarios /> } />
         <Route path='/editarUsuario/:id' element={ <ActualizarUsuario /> } />
         <Route path='/login' element={ <Login /> } />
+        <Route path='/registro' element={ <Registro /> } />
       </Routes>
       <Footer />
     </Router>

@@ -11,6 +11,7 @@ router.post('/user', userController.crearUsuarios);
 router.put('/userUpdate/:id', userController.actualizarUsuarioId);
 router.delete('/userDelete/:id', userController.borrarUsuarioId);
 router.post('/cerrarSesion', userController.cerrarSesion);
+router.get('/verificarSesion', userController.checkSession);
 
 
 export default router;

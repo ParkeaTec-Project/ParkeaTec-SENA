@@ -14,6 +14,11 @@ const HeaderLogin = () => (
                 <Link to='/registro'>Registro</Link>
             </Nav>
         </Navbar.Collapse>
+        <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className='ms-auto'>
+                <Link to='/login'>Login</Link>
+            </Nav>
+        </Navbar.Collapse>
     </Container>
   </Navbar>
 );

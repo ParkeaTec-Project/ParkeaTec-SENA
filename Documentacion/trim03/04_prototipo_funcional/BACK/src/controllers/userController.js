@@ -30,6 +30,19 @@ const login = async (req, res) => {
     }
 };
 
+const checkSession = async (req, res) => {
+    if (req.session.user) {
+        res.status(200).json({
+            isAuthenticated: true,
+            user: req.session.user
+        });
+    } else {
+        res.status(200).json({
+            isAuthenticated: false
+        });
+    }
+};
+
 const cerrarSesion = async (req, res) => {
     req.session.destroy(err => {
         if(err) {
@@ -147,5 +160,6 @@ export default {
     obtenerUsuarioId,
     actualizarUsuarioId,
     borrarUsuarioId,
-    cerrarSesion
+    cerrarSesion,
+    checkSession
 };

@@ -33,7 +33,7 @@ function Login() {
             if(response.ok) {
                 console.log("Login exitoso:", data);
                 alert("Login exitoso");
-                //window.location.href = '/Home';
+                window.location.href = '/crearUsuario';
             } else {
                 console.error("Error en el login:", data.message);
                 alert("Error:" + data.message);
