@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Container } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 
 function Login() {
@@ -45,7 +46,7 @@ function Login() {
     };
 
     return (
-        <div>
+        <Container>
             <h1>Login</h1>
             <Form onSubmit={ handleSubmit }>
                 <Form.Group className="mb-3" controlId="email">
@@ -60,7 +61,11 @@ function Login() {
 
                 <Button variant="success" type="submit">Success</Button>
             </Form>
-        </div>
+
+            <div className="mt-3">
+                <Link to={'/recuperarPassword'}>Olvidaste tu contraseña?</Link>
+            </div>
+        </Container>
     );
 }
 
