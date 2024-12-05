@@ -1,4 +1,6 @@
 import User from '../models/user.js';
+import fs from 'node:fs';
+
 
 const login = async (req, res) => {
     const { email, password } = req.body;
@@ -69,6 +71,44 @@ const crearUsuarios = async(req, res) => {
     } catch (err) {
         console.error("Error al crear el usuario:", err);
         res.status(500).json({ message: "Error al crear el usuario" });
+    }
+};
+
+const registroUsuario = async(req, res) => {
+
+    const { id_documento, nombre, apellido, telefono, direccion, correo, contraseña, centro_formacion, ficha_aprendiz,
+        id_tipo_documento, rol_id } = req.body;
+    const { foto_usuario, firma_usuario, foto_documento, foto_carnet } = req.files;
+    
+    console.log("datos", req.body)
+    if (!req.files || Object.keys(req.files).length === 0) {
+        console.log("error: No files were uploaded.");
+        return res.status(400).json({ message: "No puede estar vacio, carga una imagen" });
+    }
+
+    
+
+    if (!foto_usuario || !firma_usuario || !foto_documento || !foto_carnet) {
+        return res.status(400).json({ message: "Faltan archivos requeridos." });
+    }
+
+    
+
+    const fotoUsuarioPath = foto_usuario ? `uploads/${foto_usuario[0].filename}` : null;
+    const firmaUsuarioPath = firma_usuario ? `uploads/${firma_usuario[0].filename}` : null;
+    const fotoDocumentoPath = foto_documento ? `uploads/${foto_documento[0].filename}` : null;
+    const fotoCarnetPath = foto_carnet ? `uploads/${foto_carnet[0].filename}` : null;
+
+    const registroUsuario = new User({ id_documento: id_documento, nombre: nombre, apellido: apellido, telefono: telefono, direccion: direccion, correo: correo, password: contraseña, foto_usuario: fotoUsuarioPath, centro_formacion: centro_formacion, ficha_aprendiz: ficha_aprendiz, firma_usuario: firmaUsuarioPath, foto_documento: fotoDocumentoPath, foto_carnet: fotoCarnetPath, id_tipo_documento: id_tipo_documento, rol_id: rol_id });
+
+    console.log("registro usuario", registroUsuario);
+
+    try {
+        const result = await registroUsuario.RegistroUsuario();
+        res.status(200).json({ message: "Registro exitoso", data: result });
+    } catch (err) {
+        console.error("Error al hacer el registro:", err);
+        res.status(500).json({ message: "Error al hacer el registro" });
     }
 };
 
@@ -156,6 +196,7 @@ const borrarUsuarioId = async (req, res) => {
 export default {
     obtenerUsuarios,
     crearUsuarios,
+    registroUsuario,
     login,
     obtenerUsuarioId,
     actualizarUsuarioId,

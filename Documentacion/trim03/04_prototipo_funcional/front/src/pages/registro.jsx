@@ -12,45 +12,60 @@ function Registro(){
         direccion: "",
         correo: "", //
         contraseña: "", //
-        foto_usuario: "", //
+        foto_usuario: null, //
         centro_formacion: "", //
         ficha_aprendiz: "", //
-        firma_usuario: "", //
-        foto_documento: "", //
-        foto_carnet: "", //
+        firma_usuario: null, //
+        foto_documento: null, //
+        foto_carnet: null, //
         id_tipo_documento: "", //
-        rol_id: "3"
+        rol_id: "3",
     });
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
 
-        setFormData({
-            ...formData,
-            [name]: value
-        });
+    const handleChange = (e) => {
+        const { name, value, files } = e.target;
+
+        if(files) {
+            setFormData({
+                ...formData,
+                [name]: files[0]
+            });
+        } else {
+            setFormData({
+                ...formData,
+                [name]: value
+            });
+        }
+        
     };
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData);
+        console.log("prueba front", formData);
+
+        const data = new FormData();
+        console.log(data);
+
+        Object.keys(formData).forEach(key => {
+            data.append(key, formData[key])
+        });
 
         try {
-            const response = await fetch("http://localhost:4000/api/user", {
+            const response = await fetch("http://localhost:4000/api/registro", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(formData),
+                body: data,
+                credentials: "include"
             });
 
-            const data = await response.json();
+            const result = await response.json();
 
             if(response.ok) {
                 alert("Usuario Creado");
-                console.log("Usuario Creado");
+                console.log("Usuario Creado", result);
             } else {
-                alert("Error", data.message);
+                alert("Error", result.message);
             }
         } catch(error) {
             console.log("Error al conectar con el servidor", error);
@@ -59,9 +74,9 @@ function Registro(){
     }
 
     return(
-        <Container className='mt-4 mb-7'>
+        <Container className='mt-4 mb-4 py-5'>
             <h1>Registro Aprendiz</h1>
-            <Form className='mt-5 mb-7' onSubmit={ handleSubmit }>
+            <Form className='mt-5 mb-4' onSubmit={ handleSubmit }>
                 <Row>
                     <Col>
                         <Form.Label className='mt-1'>Nombres</Form.Label>
@@ -74,19 +89,7 @@ function Registro(){
                         >
                         </Form.Control>
                     </Col>
-                    <Col>
-                        <Form.Label className='mt-1'>Correo electronico</Form.Label>
-                        <Form.Control 
-                            className='mt-1' 
-                            type='email'
-                            name='correo'
-                            value={ formData.correo }
-                            onChange={ handleChange }
-                        >
-                        </Form.Control>
-                    </Col>
-                </Row>
-                <Row>
+                
                     <Col>
                         <Form.Label className='mt-1'>Apellidos</Form.Label>
                         <Form.Control 
@@ -94,6 +97,19 @@ function Registro(){
                             type='text'
                             name='apellido'
                             value={ formData.apellido }
+                            onChange={ handleChange }
+                        >
+                        </Form.Control>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Form.Label className='mt-1'>Correo electronico</Form.Label>
+                        <Form.Control 
+                            className='mt-1' 
+                            type='email'
+                            name='correo'
+                            value={ formData.correo }
                             onChange={ handleChange }
                         >
                         </Form.Control>
@@ -149,10 +165,6 @@ function Registro(){
                             <option value='3'>Tarjeta de identidad</option>
                         </Form.Select>
                     </Col>
-                    {/* <Col>
-                        <Form.Label className='mt-1'>Confirmar Constraseña</Form.Label>
-                        <Form.Control className='mt-1' type='Password'></Form.Control>
-                    </Col> */}
                 </Row>
                 <Row>
                     <Col>
@@ -172,9 +184,8 @@ function Registro(){
                         <Form.Label className='mt-1'>Foto Usuario</Form.Label>
                         <Form.Control
                             className='mt-1'
-                            type='text'
+                            type='file'
                             name='foto_usuario'
-                            value={ formData.foto_usuario }
                             onChange={ handleChange }
                         >
                         </Form.Control>
@@ -207,9 +218,8 @@ function Registro(){
                         <Form.Label className='mt-1'>Firma Usuario</Form.Label>
                         <Form.Control
                             className='mt-1'
-                            type='text'
+                            type='file'
                             name='firma_usuario'
-                            value={ formData.firma_usuario }
                             onChange={ handleChange }
                         >
                         </Form.Control>
@@ -220,9 +230,8 @@ function Registro(){
                         <Form.Label className='mt-1'>Foto Documento</Form.Label>
                         <Form.Control
                             className='mt-1'
-                            type='text'
+                            type='file'
                             name='foto_documento'
-                            value={ formData.foto_documento }
                             onChange={ handleChange }
                         >
                         </Form.Control>
@@ -231,9 +240,8 @@ function Registro(){
                         <Form.Label className='mt-1'>Foto Carnet</Form.Label>
                         <Form.Control
                             className='mt-1'
-                            type='text'
+                            type='file'
                             name='foto_carnet'
-                            value={ formData.foto_carnet }
                             onChange={ handleChange }
                         >
                         </Form.Control>

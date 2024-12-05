@@ -15,7 +15,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  //const [user, setUser] = useState(null);
 
   useEffect(() => {
     const session = async () => {
@@ -29,10 +28,8 @@ function App() {
 
         if(data.isAuthenticated) {
           setIsAuthenticated(true);
-          //setUser(data.user);
         } else {
           setIsAuthenticated(false);
-          //setUser(null);
         }
       } catch(error) {
         console.error("Error al verificar la sesion", error);

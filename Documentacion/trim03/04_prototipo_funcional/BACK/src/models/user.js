@@ -75,7 +75,23 @@ class user {
 
                         resolve({ user, rol, permisos})
                     } else {
-                        reject("no se encontraron datos para este usuario")
+                        const rolQuery = `
+                            SELECT r.nombre AS rol 
+                            FROM roles r
+                            INNER JOIN usuario u ON u.rol_id = r.id
+                            WHERE u.id_documento = ?;
+                        `;
+
+                        connection.query(rolQuery, [user.id_documento], (err, rolResult) => {
+                            console.log("rolResult:", rolResult)
+                            if(rolResult.length > 0) {
+                                const rol = rolResult[0].rol;
+                                resolve({ user, rol, permisos: [] });
+                            } else {
+                                reject("No se encontró el rol para este usuario.");
+                            }
+                        })
+                        
                     }
 
                 });
@@ -102,6 +118,30 @@ class user {
             });
         } catch (err) {
             console.error('Error general en crearUsuarios:', err);
+            throw err;
+        }
+    }
+
+    async RegistroUsuario() {
+        
+        try {
+            const salt = await bcrypt.genSalt(10);
+            const hashedPassword = await bcrypt.hash(this.password, salt);
+
+            console.log("prueba modelo", this.id_documento, this.nombre, this.apellido, this.telefono, this.direccion, this.correo, hashedPassword, this.foto_usuario, this.centro_formacion, this.ficha_aprendiz, this.firma_usuario, this.foto_documento, this.foto_carnet, this.id_tipo_documento, this.rol_id);
+            const query = 'INSERT INTO usuario (id_documento, nombre, apellido, telefono, direccion, correo_electronico, contraseña, foto_usuario, centro_formacion, ficha_aprendiz, firma_usuario, foto_documento, foto_carnet,  id_tipo_documento, rol_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        
+            return new Promise((resolve, reject) => {
+                connection.query(query, [this.id_documento, this.nombre, this.apellido, this.telefono, this.direccion, this.correo, hashedPassword, this.foto_usuario, this.centro_formacion, this.ficha_aprendiz, this.firma_usuario, this.foto_documento, this.foto_carnet, this.id_tipo_documento, this.rol_id], (err, result) => {
+                if(err) {
+                    console.error('Error al hacer el registro de usuario:', err);
+                    return reject(err);
+                }
+                resolve(result);
+                });
+            });
+        } catch (err) {
+            console.error('Error general en registro de usuario:', err);
             throw err;
         }
     }
