@@ -150,7 +150,7 @@ function CrearUsuario() {
                         <Form.Control 
                             type="password"
                             placeholder="password"
-                            name="contraseña"
+                            name="password"
                             value={ formData.password } 
                             onChange={ handleChange }
                         />
