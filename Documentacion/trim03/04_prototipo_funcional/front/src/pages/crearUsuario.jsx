@@ -12,7 +12,7 @@ function CrearUsuario() {
         telefono: "",
         direccion: "",
         correo: "",
-        contraseña: "",
+        password: "",
         foto_usuario: "",
         centro_formacion: null,
         ficha_aprendiz: null,
@@ -149,9 +149,9 @@ function CrearUsuario() {
                         <Form.Label>Contraseña</Form.Label>
                         <Form.Control 
                             type="password"
-                            placeholder="contraseña"
+                            placeholder="password"
                             name="contraseña"
-                            value={ formData.contraseña } 
+                            value={ formData.password } 
                             onChange={ handleChange }
                         />
                         </Form.Group>

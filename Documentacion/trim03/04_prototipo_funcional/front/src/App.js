@@ -12,6 +12,7 @@ import CerrarSesion from './pages/cerrarSesion';
 import Registro from './pages/registro';
 import HeaderLogin from './components/HeaderLogin';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import RecuperarPassword from './pages/recuperarPassword';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -55,6 +56,7 @@ function App() {
         <Route path='/editarUsuario/:id' element={ <ActualizarUsuario /> } />
         <Route path='/login' element={ <Login /> } />
         <Route path='/registro' element={ <Registro /> } />
+        <Route path='/recuperarPassword' element={ <RecuperarPassword /> } />
       </Routes>
       <Footer />
     </Router>

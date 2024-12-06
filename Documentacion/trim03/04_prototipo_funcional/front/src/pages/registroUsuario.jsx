@@ -12,7 +12,7 @@ function RegistroUsuario() {
         telefono: "",
         direccion: "",
         correo: "",
-        contraseña: "",
+        password: "",
         foto_usuario: "",
         centro_formacion: "",
         ficha_aprendiz: "",
@@ -150,13 +150,12 @@ function RegistroUsuario() {
                         <Form.Control 
                             type="password"
                             placeholder="contraseña"
-                            name="contraseña"
-                            value={ formData.contraseña } 
+                            name="password"
+                            value={ formData.password } 
                             onChange={ handleChange }
                         />
                         </Form.Group>
                     </Col>
-                    
                 </Row>
             
 

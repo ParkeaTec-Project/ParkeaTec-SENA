@@ -11,7 +11,7 @@ function Registro(){
         telefono: "", //
         direccion: "",
         correo: "", //
-        contraseña: "", //
+        password: "", //
         foto_usuario: null, //
         centro_formacion: "", //
         ficha_aprendiz: "", //
@@ -119,8 +119,8 @@ function Registro(){
                         <Form.Control 
                             className='mt-1' 
                             type='password'
-                            name='contraseña'
-                            value={ formData.contraseña }
+                            name='password'
+                            value={ formData.password }
                             onChange={ handleChange }
                         >
                         </Form.Control>

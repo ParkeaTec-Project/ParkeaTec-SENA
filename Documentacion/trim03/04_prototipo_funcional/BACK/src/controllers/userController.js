@@ -76,8 +76,9 @@ const crearUsuarios = async(req, res) => {
 
 const registroUsuario = async(req, res) => {
 
-    const { id_documento, nombre, apellido, telefono, direccion, correo, contraseña, centro_formacion, ficha_aprendiz,
+    const { id_documento, nombre, apellido, telefono, direccion, correo, password, centro_formacion, ficha_aprendiz,
         id_tipo_documento, rol_id } = req.body;
+
     const { foto_usuario, firma_usuario, foto_documento, foto_carnet } = req.files;
     
     console.log("datos", req.body)
@@ -92,14 +93,12 @@ const registroUsuario = async(req, res) => {
         return res.status(400).json({ message: "Faltan archivos requeridos." });
     }
 
-    
-
     const fotoUsuarioPath = foto_usuario ? `uploads/${foto_usuario[0].filename}` : null;
     const firmaUsuarioPath = firma_usuario ? `uploads/${firma_usuario[0].filename}` : null;
     const fotoDocumentoPath = foto_documento ? `uploads/${foto_documento[0].filename}` : null;
     const fotoCarnetPath = foto_carnet ? `uploads/${foto_carnet[0].filename}` : null;
 
-    const registroUsuario = new User({ id_documento: id_documento, nombre: nombre, apellido: apellido, telefono: telefono, direccion: direccion, correo: correo, password: contraseña, foto_usuario: fotoUsuarioPath, centro_formacion: centro_formacion, ficha_aprendiz: ficha_aprendiz, firma_usuario: firmaUsuarioPath, foto_documento: fotoDocumentoPath, foto_carnet: fotoCarnetPath, id_tipo_documento: id_tipo_documento, rol_id: rol_id });
+    const registroUsuario = new User({ id_documento: id_documento, nombre: nombre, apellido: apellido, telefono: telefono, direccion: direccion, correo: correo, password: password, foto_usuario: fotoUsuarioPath, centro_formacion: centro_formacion, ficha_aprendiz: ficha_aprendiz, firma_usuario: firmaUsuarioPath, foto_documento: fotoDocumentoPath, foto_carnet: fotoCarnetPath, id_tipo_documento: id_tipo_documento, rol_id: rol_id });
 
     console.log("registro usuario", registroUsuario);
 
