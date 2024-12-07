@@ -14,44 +14,58 @@ function CrearUsuario() {
         correo: "",
         password: "",
         foto_usuario: "",
-        centro_formacion: null,
+        centro_formacion: "",
         ficha_aprendiz: null,
-        firma_usuario: "",
-        foto_documento: "",
+        firma_usuario: null,
+        foto_documento: null,
         foto_carnet: null,
         id_tipo_documento: "",
         rol_id: ""
     });
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value, files } = e.target;
 
-        setFormData({ 
-            ...formData,
-            [name]: value
-        });
+        if(files) {
+            setFormData({
+                ...formData,
+                [name]: files[0]
+            });
+        } else {
+            setFormData({ 
+                ...formData,
+                [name]: value
+            });
+        }
+        
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(formData);
 
+        const data = new FormData();
+        console.log(data);
+
+        Object.keys(formData).forEach(key => {
+            data.append(key, formData[key])
+        });
+
+
         try {
             const response = await fetch("http://localhost:4000/api/user", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(formData),
+                body: data,
+                credentials: "include"
             });
 
-            const data = await response.json();
+            const result = await response.json();
 
             if(response.ok) {
                 alert("Usuario Creado");
                 console.log("Usuario Creado");
             } else {
-                alert("Error", data.message);
+                alert("Error", result.message);
             }
         } catch (error) {
             console.log("Error al conectar con el servidor", error);
@@ -62,7 +76,7 @@ function CrearUsuario() {
     return (
         <Container className="mt-5 mb-5">
             <h2 className="mb-4">Crear Usuario</h2>
-            <Form onSubmit={ handleSubmit }>
+            <Form onSubmit={ handleSubmit } encType="multipart/form-data">
                 <Form.Group className="mb-3" controlId="nroDocumento">
                     <Form.Label>Nro Documento</Form.Label>
                     <Form.Control 
@@ -158,21 +172,18 @@ function CrearUsuario() {
                     </Col>
                     
                 </Row>
-            
-
 
                 <Form.Group className="mb-3" controlId="fotoUsuario">
                 <Form.Label>Foto Usuario</Form.Label>
                     <Form.Control 
-                        type="text"
+                        type="file"
                         placeholder="foto"
                         name="foto_usuario"
-                        value={ formData.foto_usuario } 
                         onChange={ handleChange }
                     />
                 </Form.Group>
                     
-                {/* <Form.Group className="mb-3" controlId="centroFormacion">
+                <Form.Group className="mb-3" controlId="centroFormacion">
                     <Form.Label>Centro de Formacion</Form.Label>
                     <Form.Control 
                         type="text"
@@ -181,20 +192,9 @@ function CrearUsuario() {
                         value={ formData.centro_formacion } 
                         onChange={ handleChange }
                     />
-                </Form.Group> */}
+                </Form.Group>
 
-                {/* <Form.Group className="mb-3" controlId="ficha">
-                    <Form.Label>Ficha</Form.Label>
-                    <Form.Control 
-                        type="text"
-                        placeholder="Ficha"
-                        name="ficha_aprendiz"
-                        value={ formData.ficha_aprendiz } 
-                        onChange={ handleChange }
-                    />
-                </Form.Group> */}
-
-                <Form.Group className="mb-3" controlId="firma">
+                {/* <Form.Group className="mb-3" controlId="firma">
                     <Form.Label>Firma Usuario</Form.Label>
                     <Form.Control 
                         type="text"
@@ -203,29 +203,8 @@ function CrearUsuario() {
                         value={ formData.firma_usuario } 
                         onChange={ handleChange }
                     />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="fotoDocumento">
-                    <Form.Label>Foto del documento</Form.Label>
-                    <Form.Control 
-                        type="text"
-                        placeholder="foto documento"
-                        name="foto_documento"
-                        value={ formData.foto_documento } 
-                        onChange={ handleChange }
-                    />
-                </Form.Group>
-
-                {/* <Form.Group className="mb-3" controlId="fotoCarnet">
-                    <Form.Label>Foto del Carnet</Form.Label>
-                    <Form.Control 
-                        type="text"
-                        placeholder="foto carnet"
-                        name="foto_carnet"
-                        value={ formData.foto_carnet } 
-                        onChange={ handleChange }
-                    />
                 </Form.Group> */}
+
 
                 <Form.Group className="mb-3" controlId="tipoDocumento">
                     <Form.Label>Tipo de documento</Form.Label>

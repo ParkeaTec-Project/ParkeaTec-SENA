@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    //const [userData, setUserData] = useState(null)
 
     const handleChangeEmail = (e) => setEmail(e.target.value);
     const handleChangePassword = (e) => setPassword(e.target.value);
@@ -33,6 +34,8 @@ function Login() {
 
             if(response.ok) {
                 console.log("Login exitoso:", data);
+                console.log("sesion:", data.sesion.user_id);
+                //setUserData(data.sesion.user_id);
                 alert("Login exitoso");
                 window.location.href = '/crearUsuario';
             } else {
@@ -48,6 +51,7 @@ function Login() {
     return (
         <Container>
             <h1>Login</h1>
+            {/* <p>usuario: { userData }</p> */}
             <Form onSubmit={ handleSubmit }>
                 <Form.Group className="mb-3" controlId="email">
                     <Form.Label>Email</Form.Label>

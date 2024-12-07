@@ -23,7 +23,9 @@ const Header = () => (
             </NavDropdown>
             <NavDropdown title='Perfil'>
               <NavDropdown.Item href='#'>Generar QR</NavDropdown.Item>
-              <NavDropdown.Item href='#'>Ver Perfil</NavDropdown.Item>
+              <NavDropdown.Item href='#'>
+                <Link to="/verPerfil">Ver Perfil</Link>
+              </NavDropdown.Item>
               <NavDropdown.Item href='#'>Hacer Reserva</NavDropdown.Item>
               <NavDropdown.Item href='#'>Mis Vehiculos</NavDropdown.Item>
               <NavDropdown.Item href='#'>Registrar Usuarios</NavDropdown.Item>

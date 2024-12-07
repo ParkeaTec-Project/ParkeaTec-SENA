@@ -159,7 +159,7 @@ class user {
     }
 
     static async obtenerUsuarioId(id) {
-        const query = 'SELECT * FROM usuario WHERE id_documento = ?';
+        const query = 'SELECT u.id_documento, u.nombre, u.apellido, u.telefono, u.direccion, u.correo_electronico, u.contraseña, u.foto_usuario, u.firma_usuario, u.foto_documento, u.foto_carnet, r.nombre as rol, td.nombre_documento FROM usuario as u inner join roles as r on u.rol_id = r.id inner join tipo_documento as td on u.id_tipo_documento = td.id WHERE u.id_documento = ?';
 
         try {
             return new Promise((resolve, reject) => {

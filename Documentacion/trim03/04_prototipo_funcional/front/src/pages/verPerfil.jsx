@@ -1,10 +1,94 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Form, Row, Col } from "react-bootstrap";
 
 function VerPerfil(){
+
+  const [sesion, setSesion] = useState('');
+  const [userData, setUserData] = useState({
+    usuario: {
+      nombre: "",
+      correo_electronico: "",
+      nombre_documento: "",
+      id_documento: "",
+      rol: "",
+      foto_usuario: "",
+    }
+  });
+
+  useEffect(() => {
+    const obtenerSesion = async () => {
+      try {
+        //ruta para obtener la sesion
+        const response = await fetch("http://localhost:4000/api/verificarSesion", {
+          credentials: "include"
+        });
+
+        const data = await response.json();
+        console.log(data);
+        setSesion(data);
+      } catch(err) {
+        console.error("ocurrio un error al obtener la sesion:", err);
+      }
+    }
+
+    obtenerSesion();
+  }, []);
+
+  useEffect(() => {
+    const obtenerUsuario = async () => {
+      try {
+        //ruta obtener usuarios
+        const response = await fetch(`http://localhost:4000/api/user/${sesion.user.user_id}`, {
+          method: "GET",
+          credentials: "include",
+        });
+
+        if(!response.ok) {
+          throw new Error("Error al obtener el usuario");
+        }
+
+        const data = await response.json();
+        console.log("datos usuario:", data);
+        setUserData(data);
+      } catch(err) {
+        console.error("Error:", err)
+      }
+    };
+
+    if(sesion) {
+      obtenerUsuario();
+    }
+
+  }, [sesion])
+  
     return(
         <Container className='mt-4 mb-5'>
             <h1>Perfil</h1>
+            {/* <img src={ userData?.usuario?.foto_usuario ? `http://localhost:4000/uploads/${userData.usuario.foto_usuario}` : "img"} alt="imagen usuario"/> */}
+            {/* <img src={`http://localhost:4000/${userData?.usuario?.foto_usuario?.replace('uploads/', '')}`} alt="imagen usuario" /> */}
+            
+            <img src={`http://localhost:4000/${userData?.usuario?.foto_usuario}`} alt="imagen usuario" />
+
+            {/* <img
+  src={`http://localhost:4000/${userData?.usuario?.foto_usuario}`}
+  alt="imagen usuario"
+  onError={(e) => {
+    e.target.onerror = null; // Evita un bucle infinito si la imagen por defecto también falla
+    e.target.src = 'http://localhost:4000/uploads/default.jpg'; // Ruta de la imagen por defecto
+  }}
+/> */}
+
+{/* const handleImageError = (e) => {
+  e.target.onerror = null; // Evita bucles infinitos
+  e.target.src = 'http://localhost:4000/uploads/default.jpg'; // Imagen por defecto
+};
+
+<img
+  src={`http://localhost:4000/${userData?.usuario?.foto_usuario}`}
+  alt="imagen usuario"
+  onError={handleImageError}
+/> */}
+            
             <Form className='mt-3 mb-7'>
                 <Row className="mb-3">
                     <Col>
@@ -12,7 +96,7 @@ function VerPerfil(){
                     </Col>
                     <Col>
                         <Form.Label >Nombre Completo</Form.Label>
-                        <Form.Control className="mt-2" type="text" disabled placeholder="Juan Garnica"></Form.Control>
+                        <Form.Control className="mt-2" type="text" disabled placeholder="" value={ userData?.usuario?.nombre || "" } ></Form.Control>
                     </Col>
                 </Row>
                 <Row className="mb-3">
@@ -21,7 +105,7 @@ function VerPerfil(){
                     </Col>
                     <Col>
                         <Form.Label className="mt-2">Tipo Documento</Form.Label>
-                        <Form.Control className="mt-2" type="text" disabled placeholder="Cedula de ciudadania"></Form.Control>
+                        <Form.Control className="mt-2" type="text" disabled placeholder="" value={ userData?.usuario?.nombre_documento || "" }></Form.Control>
                     </Col>
                 </Row>
                 <Row className="mb-3">
@@ -30,7 +114,7 @@ function VerPerfil(){
                     </Col>
                     <Col>
                         <Form.Label className="mt-2">Numero Documento</Form.Label>
-                        <Form.Control className="mt-2" type="number" disabled placeholder="1098765432"></Form.Control>
+                        <Form.Control className="mt-2" type="number" disabled placeholder="" value={ userData?.usuario?.id_documento || "" }></Form.Control>
                     </Col>
                 </Row>
                 <Row className="mb-3">
@@ -39,7 +123,7 @@ function VerPerfil(){
                     </Col>
                     <Col>
                         <Form.Label className="mt-2">Correo electronico</Form.Label>
-                        <Form.Control className="mt-2" type="email" disabled placeholder="juan@gmail.com"></Form.Control>
+                        <Form.Control className="mt-2" type="email" disabled placeholder="" value={ userData?.usuario?.correo_electronico || "" }></Form.Control>
                     </Col>
                 </Row>
                 <Row className="mb-3">
@@ -47,8 +131,8 @@ function VerPerfil(){
                     
                     </Col>
                     <Col>
-                        <Form.Label className="mt-2" mb-5>Rol</Form.Label>
-                        <Form.Control className="mt-2 mb-5" type="Text" disabled placeholder="Aprendiz"></Form.Control>
+                        <Form.Label className="mt-2 mb-5" >Rol</Form.Label>
+                        <Form.Control className="mt-2 mb-5" type="Text" disabled placeholder="" value={ userData?.usuario?.rol || "" }></Form.Control>
                     </Col>
                 </Row>
             </Form>
@@ -57,43 +141,3 @@ function VerPerfil(){
 }
 
 export default VerPerfil;
-
-/*function UserInfo(){
-  return (
-    <Container>
-      <h2 className="mb-4">Información del Usuario</h2>
-      <Form>
-        <Row className="mb-3">
-          <Col>
-            <Form.Group controlId="formUserName">
-              <Form.Label>Nombre</Form.Label>
-              <Form.Control type="text" disabled />
-            </Form.Group>
-          </Col>
-          <Col>
-            <Form.Group controlId="formUserEmail">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" disabled />
-            </Form.Group>
-          </Col>
-        </Row>
-        <Row className="mb-3">
-          <Col>
-            <Form.Group controlId="formUserPhone">
-              <Form.Label>Teléfono</Form.Label>
-              <Form.Control type="text" disabled />
-            </Form.Group>
-          </Col>
-          <Col>
-            <Form.Group controlId="formUserAddress">
-              <Form.Label>Dirección</Form.Label>
-              <Form.Control type="text" disabled />
-            </Form.Group>
-          </Col>
-        </Row>
-      </Form>
-    </Container>
-  );
-};
-
-export default UserInfo;*/
