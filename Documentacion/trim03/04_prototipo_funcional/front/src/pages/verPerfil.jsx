@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Form, Row, Col } from "react-bootstrap";
+import styles from '../styles/header.module.css'
 
 function VerPerfil(){
 
@@ -67,7 +68,7 @@ function VerPerfil(){
             {/* <img src={ userData?.usuario?.foto_usuario ? `http://localhost:4000/uploads/${userData.usuario.foto_usuario}` : "img"} alt="imagen usuario"/> */}
             {/* <img src={`http://localhost:4000/${userData?.usuario?.foto_usuario?.replace('uploads/', '')}`} alt="imagen usuario" /> */}
             
-            <img src={`http://localhost:4000/${userData?.usuario?.foto_usuario}`} alt="imagen usuario" />
+            <img className={styles.img} src={`http://localhost:4000/${userData?.usuario?.foto_usuario}`} alt="imagen usuario"/>
 
             {/* <img
   src={`http://localhost:4000/${userData?.usuario?.foto_usuario}`}
