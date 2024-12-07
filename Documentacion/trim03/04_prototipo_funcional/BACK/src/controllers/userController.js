@@ -9,6 +9,7 @@ const login = async (req, res) => {
         const { user, rol, permisos } = await User.login(email, password);
 
         req.session.user = {
+            user_id: user.id_documento,
             email: email,
             rol,
             permisos
@@ -24,8 +25,9 @@ const login = async (req, res) => {
                 email: user.correo_electronico,
                 rol_id: user.rol_id,
                 rol,
-                permisos
+                permisos,
             },
+            sesion: req.session.user,
         });
     } catch(err) {
         res.status(400).json({ message: err} );
@@ -58,10 +60,23 @@ const cerrarSesion = async (req, res) => {
 }
 
 const crearUsuarios = async(req, res) => {
-    const { id_documento, nombre, apellido, telefono, direccion, correo, contraseña, foto_usuario, centro_formacion, ficha_aprendiz,
+    const { id_documento, nombre, apellido, telefono, direccion, correo, password, centro_formacion, ficha_aprendiz,
         firma_usuario, foto_documento, foto_carnet, id_tipo_documento, rol_id } = req.body;
 
-    const crearUsuario = new User({ id_documento: id_documento, nombre: nombre, apellido: apellido, telefono: telefono, direccion: direccion, correo: correo, password: contraseña, foto_usuario: foto_usuario, centro_formacion: centro_formacion, ficha_aprendiz: ficha_aprendiz, firma_usuario: firma_usuario, foto_documento: foto_documento, foto_carnet: foto_carnet, id_tipo_documento: id_tipo_documento, rol_id: rol_id });
+    const { foto_usuario } = req.file;
+
+    if (!req.file || Object.keys(req.file).length === 0) {
+        console.log("error: No files were uploaded.");
+        return res.status(400).json({ message: "No puede estar vacio, carga una imagen" });
+    }
+
+    if(!req.file) {
+        return res.status(400).json({ message: "Faltan archivo requerido" });
+    }
+
+    const fotoUsuarioPath = req.file ? `uploads/${req.file.filename}` : null;
+
+    const crearUsuario = new User({ id_documento: id_documento, nombre: nombre, apellido: apellido, telefono: telefono, direccion: direccion, correo: correo, password: password, foto_usuario: fotoUsuarioPath, centro_formacion: centro_formacion, ficha_aprendiz: ficha_aprendiz, firma_usuario: firma_usuario, foto_documento: foto_documento, foto_carnet: foto_carnet, id_tipo_documento: id_tipo_documento, rol_id: rol_id });
 
     console.log("create usuario", crearUsuario);
 
@@ -86,8 +101,6 @@ const registroUsuario = async(req, res) => {
         console.log("error: No files were uploaded.");
         return res.status(400).json({ message: "No puede estar vacio, carga una imagen" });
     }
-
-    
 
     if (!foto_usuario || !firma_usuario || !foto_documento || !foto_carnet) {
         return res.status(400).json({ message: "Faltan archivos requeridos." });

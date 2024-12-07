@@ -23,10 +23,11 @@ class user {
     }
 
     static async login(email, password) {
-        const query = 'SELECT * FROM usuario WHERE correo_electronico = ?';
+        const query = 'CALL ObtenerEmail(?)';
 
         return new Promise((resolve, reject) => {
             connection.query(query, [email], async (err, result) => {
+                console.log("obtener email:", result);
                 if(err) {
                     console.error('Error al iniciar sesion:', err);
                     return reject(err);
@@ -36,8 +37,10 @@ class user {
                     return reject("Usuario no encontrado");
                 }
 
-                const user = result[0];
-                console.log(user);
+                const user1 = result[0];
+                const user = result[0][0];
+                console.log("sin array", user1);
+                console.log("doble array", user);
                 console.log(password);
                 const isMatch = await bcrypt.compare(password, user.contraseña);
 
@@ -46,21 +49,7 @@ class user {
                 }
 
                 
-                const infoUser = `
-                    SELECT 
-                        r.nombre AS rol,
-                        p.nombre AS permiso
-                    FROM 
-                        usuario u
-                    INNER JOIN 
-                        roles r ON u.rol_id = r.id
-                    INNER JOIN 
-                        rol_permisos rp ON r.id = rp.rol_id
-                    INNER JOIN 
-                        permisos p ON rp.permiso_id = p.id
-                    WHERE 
-                        u.id_documento = ?;
-                `
+                const infoUser = 'CALL InfoUsuario(?)';
 
                 connection.query(infoUser, [user.id_documento], (err, userResult) => {
                     if(err) {
@@ -105,7 +94,7 @@ class user {
             const salt = await bcrypt.genSalt(10);
             const hashedPassword = await bcrypt.hash(this.password, salt);
 
-            const query = 'INSERT INTO usuario (id_documento, nombre, apellido, telefono, direccion, correo_electronico, contraseña, foto_usuario, centro_formacion, ficha_aprendiz, firma_usuario, foto_documento, foto_carnet,  id_tipo_documento, rol_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+            const query = 'Call CrearUsuario(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
         
             return new Promise((resolve, reject) => {
                 connection.query(query, [this.id_documento, this.nombre, this.apellido, this.telefono, this.direccion, this.correo, hashedPassword, this.foto_usuario, this.centro_formacion, this.ficha_aprendiz, this.firma_usuario, this.foto_documento, this.foto_carnet, this.id_tipo_documento, this.rol_id], (err, result) => {
@@ -129,7 +118,7 @@ class user {
             const hashedPassword = await bcrypt.hash(this.password, salt);
 
             console.log("prueba modelo", this.id_documento, this.nombre, this.apellido, this.telefono, this.direccion, this.correo, hashedPassword, this.foto_usuario, this.centro_formacion, this.ficha_aprendiz, this.firma_usuario, this.foto_documento, this.foto_carnet, this.id_tipo_documento, this.rol_id);
-            const query = 'INSERT INTO usuario (id_documento, nombre, apellido, telefono, direccion, correo_electronico, contraseña, foto_usuario, centro_formacion, ficha_aprendiz, firma_usuario, foto_documento, foto_carnet,  id_tipo_documento, rol_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+            const query = 'Call Registro(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
         
             return new Promise((resolve, reject) => {
                 connection.query(query, [this.id_documento, this.nombre, this.apellido, this.telefono, this.direccion, this.correo, hashedPassword, this.foto_usuario, this.centro_formacion, this.ficha_aprendiz, this.firma_usuario, this.foto_documento, this.foto_carnet, this.id_tipo_documento, this.rol_id], (err, result) => {
@@ -159,7 +148,7 @@ class user {
     }
 
     static async obtenerUsuarioId(id) {
-        const query = 'SELECT * FROM usuario WHERE id_documento = ?';
+        const query = 'SELECT u.id_documento, u.nombre, u.apellido, u.telefono, u.direccion, u.correo_electronico, u.contraseña, u.foto_usuario, u.firma_usuario, u.foto_documento, u.foto_carnet, r.nombre as rol, td.nombre_documento FROM usuario as u inner join roles as r on u.rol_id = r.id inner join tipo_documento as td on u.id_tipo_documento = td.id WHERE u.id_documento = ?';
 
         try {
             return new Promise((resolve, reject) => {

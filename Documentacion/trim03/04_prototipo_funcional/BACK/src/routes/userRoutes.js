@@ -10,8 +10,8 @@ const router = express.Router();
 router.post('/userLogin', userController.login); //
 router.get('/users', autenticacion, userController.obtenerUsuarios); //
 router.get('/user/:id', userController.obtenerUsuarioId); //
-router.post('/user', userController.crearUsuarios); 
-router.post('/registro', upload, userController.registroUsuario);
+router.post('/user', upload('single'), userController.crearUsuarios); 
+router.post('/registro', upload('multiple'), userController.registroUsuario);
 router.put('/userUpdate/:id', userController.actualizarUsuarioId);
 router.delete('/userDelete/:id', userController.borrarUsuarioId);
 router.post('/cerrarSesion', userController.cerrarSesion);

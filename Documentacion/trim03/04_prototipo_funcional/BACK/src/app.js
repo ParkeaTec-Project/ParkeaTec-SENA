@@ -3,9 +3,16 @@ import session from 'express-session';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import userRoutes from './routes/userRoutes.js'
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const app = express();
 const port = 4000;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 app.use(session({
     secret: 'clave',
