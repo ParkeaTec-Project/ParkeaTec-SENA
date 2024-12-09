@@ -14,6 +14,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RecuperarPassword from './pages/recuperarPassword';
 import VerPerfil from './pages/verPerfil';
 import RealizarReserva from './pages/RealizarReserva';
+import VerReservas from './pages/VerReservas';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -59,6 +60,7 @@ function App() {
         <Route path='/recuperarPassword' element={ <RecuperarPassword /> } />
         <Route path='/verPerfil' element={ <VerPerfil /> } />
         <Route path='/RealizarReserva' element={ <RealizarReserva /> } />
+        <Route path='/VerReservas' element={ <VerReservas /> } />
       </Routes>
       <Footer />
     </Router>
