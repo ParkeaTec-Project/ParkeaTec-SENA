@@ -33,16 +33,18 @@ class user {
                     return reject(err);
                 }
 
-                if(result.length === 0) {
+                if(result[0].length === 0) {
                     return reject("Usuario no encontrado");
                 }
 
-                const user1 = result[0];
+                //const user1 = result[0];
                 const user = result[0][0];
-                console.log("sin array", user1);
-                console.log("doble array", user);
+                console.log("userPrubea", user);
+                //console.log("sin array", user1);
+                //console.log("doble array", user);
                 console.log(password);
                 const isMatch = await bcrypt.compare(password, user.contraseña);
+                console.log("password isMatch", isMatch);
 
                 if(!isMatch) {
                     return reject("Contraseña incorrecta");
@@ -50,31 +52,29 @@ class user {
 
                 
                 const infoUser = 'CALL InfoUsuario(?)';
+                // const infoUser = 'SELECT r.nombre AS rol, p.nombre AS permiso FROM usuario u INNER JOIN roles r ON u.rol_id = r.id INNER JOIN rol_permisos rp ON r.id = rp.rol_id INNER JOIN permisos p ON rp.permiso_id = p.id WHERE u.id_documento = ?;'
 
                 connection.query(infoUser, [user.id_documento], (err, userResult) => {
                     if(err) {
                         return reject(err);
                     }
+                    console.log("userResult:", userResult)
 
-                    if(userResult.length > 0) {
-                        const rol = userResult[0].rol;
-                        const permisos = userResult.map(user => user.permiso);
+                    if(userResult[0].length > 0) {
+                        const rol = userResult[0][0].rol;
+                        const permisos = userResult[0].map(user => user.permiso);
 
                         console.log(rol, permisos);
 
                         resolve({ user, rol, permisos})
                     } else {
-                        const rolQuery = `
-                            SELECT r.nombre AS rol 
-                            FROM roles r
-                            INNER JOIN usuario u ON u.rol_id = r.id
-                            WHERE u.id_documento = ?;
-                        `;
+                        const rolQuery = `CALL InfoRol(?)`;
+                        // const rolQuery = 'SELECT r.nombre AS rol FROM roles r INNER JOIN usuario u ON u.rol_id = r.id WHERE u.id_documento = ?;'
 
                         connection.query(rolQuery, [user.id_documento], (err, rolResult) => {
                             console.log("rolResult:", rolResult)
                             if(rolResult.length > 0) {
-                                const rol = rolResult[0].rol;
+                                const rol = rolResult[0][0].rol;
                                 resolve({ user, rol, permisos: [] });
                             } else {
                                 reject("No se encontró el rol para este usuario.");
@@ -102,6 +102,7 @@ class user {
                     console.error('Error al insertar usuario:', err);
                     return reject(err);
                 }
+                console.log("creacion usuario", result);
                 resolve(result);
                 });
             });
@@ -137,7 +138,7 @@ class user {
         
 
     static async obtenerUsuarios() {
-        const query = 'SELECT * FROM usuario';
+        const query = 'SELECT * FROM obtenerusuario';
 
         try {
             const [result] = await connection.promise().query(query);
@@ -148,7 +149,8 @@ class user {
     }
 
     static async obtenerUsuarioId(id) {
-        const query = 'SELECT u.id_documento, u.nombre, u.apellido, u.telefono, u.direccion, u.correo_electronico, u.contraseña, u.foto_usuario, u.firma_usuario, u.foto_documento, u.foto_carnet, r.nombre as rol, td.nombre_documento FROM usuario as u inner join roles as r on u.rol_id = r.id inner join tipo_documento as td on u.id_tipo_documento = td.id WHERE u.id_documento = ?';
+        const query = 'CALL DetalleUsuarioDocumento(?)';
+        // const query = 'SELECT u.id_documento, u.nombre, u.apellido, u.telefono, u.direccion, u.correo_electronico, u.contraseña, u.foto_usuario, u.firma_usuario, u.foto_documento, u.foto_carnet, r.nombre AS rol, td.nombre_documento FROM usuario AS u INNER JOIN roles AS r ON u.rol_id = r.id INNER JOIN tipo_documento AS td ON u.id_tipo_documento = td.id WHERE u.id_documento = ?;'
 
         try {
             return new Promise((resolve, reject) => {
@@ -162,7 +164,7 @@ class user {
                         return reject("Usuario no encontrado");
                     }
 
-                    resolve(result[0]);
+                    resolve(result[0][0]);
                 })
             })
         } catch(err) {
@@ -181,18 +183,20 @@ class user {
             const hashedPassword = await bcrypt.hash(this.password, salt);
 
             return new Promise((resolve, reject) => {
-                const checkQuery = 'SELECT * FROM usuario WHERE id_documento = ?';
+                const checkQuery = 'CALL ObtenerUsuarioId(?)';
                 connection.query(checkQuery, [this.id_documento], (err, result) => {
                     if(err) return reject(err);
     
-                    if(result.length === 0) {
+                    if(result[0].length === 0) {
                         return reject(new Error('Usuario no encontrado'));
                     }
     
     
-                    const query = 'UPDATE usuario SET contraseña = ? WHERE id_documento = ?';
+                    //const query = 'UPDATE usuario SET contraseña = ? WHERE id_documento = ?';
+                    const query = 'CALL ActualizarUsuario(?, ?)';
                     
                     connection.query(query, [hashedPassword, this.id_documento], (err, result) => {
+                        console.log("actualizar", result)
                         if(err) return reject(err);
                         resolve(result);
                     });
@@ -206,7 +210,7 @@ class user {
     static async borrarUsuarioId(id) {
         try {
             return new Promise((resolve, reject) => {
-                const checkQuery = 'SELECT * FROM usuario WHERE id_documento = ?';
+                const checkQuery = 'CALL ObtenerUsuarioId(?)';
                 connection.query(checkQuery, [id], (err, result) => {
                     if(err) return reject(err);
 
@@ -214,7 +218,7 @@ class user {
                         return reject(new Error("Usuario no encontrado"));
                     }
 
-                    const query = 'DELETE FROM usuario WHERE id_documento = ?';
+                    const query = 'BorrarUsuario(?)';
                     connection.query(query, [id], (err, result) => {
                         if(err) return reject(err);
                         resolve(result);

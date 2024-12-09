@@ -1,5 +1,5 @@
-//import logo from './logo.svg';
 import './App.css';
+import './styles/app.css'
 import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -7,7 +7,6 @@ import Login from './pages/login';
 import CrearUsuario from './pages/crearUsuario';
 import VerUsuarios from './pages/verUsuarios';
 import ActualizarUsuario from './pages/actualizarUsuario';
-import CerrarSesion from './pages/cerrarSesion';
 import Registro from './pages/registro';
 import HeaderLogin from './components/HeaderLogin';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -47,7 +46,7 @@ function App() {
       ) : (
         <HeaderLogin />
       ) }
-      <CerrarSesion />
+      {/* <CerrarSesion /> */}
       <Routes>
 
         <Route path='/crearUsuario' element={ <CrearUsuario /> } />

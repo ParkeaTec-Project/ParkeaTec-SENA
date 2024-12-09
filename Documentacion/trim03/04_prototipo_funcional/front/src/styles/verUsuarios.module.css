@@ -1,0 +1,30 @@
+.title {
+    margin-top: 25px;
+    margin-left: 66px;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.td {
+    padding: 0 !important;
+    width: 200px;
+    height: 60px;
+}
+
+.contentBtn {
+    width: 100%;
+    margin-top: 15px;
+    padding-left: 66px;
+    
+}
+
+.contentBtn a {
+    text-decoration: none;
+    color: #fff;
+}
+
+

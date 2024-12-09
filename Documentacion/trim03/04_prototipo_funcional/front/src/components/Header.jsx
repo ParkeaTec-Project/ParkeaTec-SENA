@@ -1,10 +1,12 @@
 import React from 'react';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import CerrarSesion from '../pages/cerrarSesion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from '../styles/header.module.css';
-
+console.log(styles);
 const Header = () => (
+  
   <Navbar className={`justify-content-end ${styles.header} `} variant="dark" expand="lg">
     <Container>
       <Navbar.Brand href="#home">ParkeaTEC</Navbar.Brand>
@@ -24,7 +26,7 @@ const Header = () => (
             <NavDropdown title='Perfil'>
               <NavDropdown.Item href='#'>Generar QR</NavDropdown.Item>
               <NavDropdown.Item href='#'>
-                <Link to="/verPerfil">Ver Perfil</Link>
+                <Link to="/verPerfil" className={`${styles.linkItemLogin}`}>Ver Perfil</Link>
               </NavDropdown.Item>
               <NavDropdown.Item href='#'>Hacer Reserva</NavDropdown.Item>
               <NavDropdown.Item href='#'>Mis Vehiculos</NavDropdown.Item>
@@ -33,10 +35,10 @@ const Header = () => (
               <NavDropdown.Item href='#'>Mis Facturas</NavDropdown.Item>
               <NavDropdown.Item href='#'>Historial</NavDropdown.Item>
               <NavDropdown.Item>
-                <Link to="/usuarios">Ver usuarios</Link>
+                <Link to="/usuarios" className={`${styles.linkItemLogin}`}>Ver usuarios</Link>
               </NavDropdown.Item>
               
-              <NavDropdown.Item href='#'>Cerrar Sesión</NavDropdown.Item>
+              <NavDropdown.Item href='#'><CerrarSesion /></NavDropdown.Item>
             </NavDropdown>
         </Nav>
       </Navbar.Collapse>

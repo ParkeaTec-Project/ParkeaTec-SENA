@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, Container} from 'react-bootstrap';
+import { Navbar, Nav, Container, NavDropdown} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from '../styles/header.module.css';
@@ -10,14 +10,15 @@ const HeaderLogin = () => (
       <Navbar.Brand href="#home">ParkeaTEC</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className='ms-auto'>
-                <Link to='/registro'>Registro</Link>
-            </Nav>
-        </Navbar.Collapse>
-        <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className='ms-auto'>
-                <Link to='/login'>Login</Link>
-            </Nav>
+          <Nav className="ms-auto">
+            <NavDropdown.Item className='mx-5'>
+              <Link to='/registro' className={`${styles.linkItem}`}>Registro</Link>
+            </NavDropdown.Item>
+
+            <NavDropdown.Item>
+              <Link to='/login' className={`${styles.linkItem}`}>Login</Link>
+            </NavDropdown.Item>
+          </Nav>
         </Navbar.Collapse>
     </Container>
   </Navbar>

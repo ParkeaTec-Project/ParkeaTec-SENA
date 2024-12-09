@@ -7,3 +7,19 @@
     width: 400px;
     height: 400px;
 }
+
+.linkItem,
+.cerrarSesion,
+.linkItemLogin {
+    text-decoration: none;
+    color: #fff;
+}
+
+.cerrarSesion,
+.linkItemLogin {
+    color: #000;
+}
+
+:global(.dropdown-menu.show) {
+  margin-top: 8px !important;
+}

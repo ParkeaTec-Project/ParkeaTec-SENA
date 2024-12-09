@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Table from 'react-bootstrap/Table';
+import { Table, Button, Modal } from "react-bootstrap";
+import styles from '../styles/verUsuarios.module.css';
+import ActualizarUsuario from "./actualizarUsuario";
 
-function VerUsuarios() {
+function VerUsuarios({ actualizarUsuario }) {
+    const [showModal, setShowModal] = useState(false);
     const [usuarios, setUsuarios] = useState([]);
+    const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(null);
+
+    console.log("userPrueba", usuarioSeleccionado);
 
     const obtenerUsuarios = async () => {
         try {
@@ -33,10 +39,27 @@ function VerUsuarios() {
         obtenerUsuarios();
     }, []);
 
-    const handleEdit = async (id) => {
-        console.log(`Editar usuario con ID: ${id}`)
-        window.location.href = `/editarUsuario/${id}`;
+    useEffect(() => {
+        // Este useEffect se ejecutará cuando el estado 'usuarioSeleccionado' cambie.
+        console.log("usuarioSeleccionado cambió:", usuarioSeleccionado);
+    }, [usuarioSeleccionado]);
+
+    const handleEdit = async (usuario) => {
+        console.log("Usuario editado:", usuario);
+        setUsuarioSeleccionado(usuario);
+        setShowModal(true);
+        // console.log(`Editar usuario con ID: ${id}`)
+        // window.location.href = `/editarUsuario/${id}`;
     };
+
+    const handleUpdate = async (usuarioActualizado) => {
+        try {
+            await actualizarUsuario(usuarioActualizado);
+            setShowModal(false);
+        } catch (error) {
+            console.error("Error al actualizar el usuario", error)
+        }
+    }
 
     const handleDelete = async (id) => {
         console.log(`Borrar usuario con ID: ${id}`)
@@ -59,49 +82,51 @@ function VerUsuarios() {
 
     return (
         <div>
-            <h2>Lista de usuarios</h2>
-            <Table striped="columns" bordered hover size="sm">
+            <h2 className={`${styles.title}`}>Lista de usuarios</h2>
+            <Table striped bordered hover className={`text-center align-middle ${styles.table}`}>
                 <thead>
                     <tr>
                         <th>nombre</th>
+                        <th>Apellidos</th>
+                        <th>Rol</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            { usuarios.map((usuario) => (
-                                <div>
-                                    <p key={usuario.id_documento}>{usuario.nombre}</p>
-                                </div>
-                    
-                            ))}
-                        </td>
+                    { usuarios.map((usuario) => (
+                        <tr key={usuario.id_documento}>
+                            <td className={`${styles.td}`}>{ usuario.nombre }</td>
+                            <td className={`${styles.td}`}>{ usuario.apellido }</td>
+                            <td className={`${styles.td}`}>{ usuario.rol }</td>
+                            <td className={`${styles.td}`}>
+                                <Button className="m-1" variant="success" onClick={() => handleEdit(usuario)}>Editar</Button>
 
-                        <td>
-                            { usuarios.map((usuario) => (
-                                <div>
-                                    <button onClick={() => handleEdit(usuario.id_documento)}>Editar</button>
-                                    <button onClick={() => handleDelete(usuario.id_documento)}>Borrar</button>
-                                </div>
-                            ))}
-                        </td>
-                    </tr>
+                                <Button className="m-1" variant="danger" onClick={() => handleDelete(usuario.id_documento)}>Borrar</Button>
+                            </td>
+                        </tr>
+                    )) }
                 </tbody>
             </Table>
-            {/* <ul>
-                { usuarios.map((usuario) => (
-                    <div>
-                        <li key={usuario.id_documento}>{usuario.nombre}</li>
-                        <button onClick={() => handleEdit(usuario.id_documento)}>Editar</button>
-                        <button onClick={() => handleDelete(usuario.id_documento)}>Borrar</button>
-                    </div>
-                    
-                ))}
-            </ul> */}
-            <button>
-                <Link to="/crearUsuario">Crear Usuario</Link>
-            </button>
+            <div className={`${styles.contentBtn}`}>
+                <Button variant="success">
+                    <Link to="/crearUsuario">Crear Usuario</Link>
+                </Button>
+            </div>
+
+            {/*Modal para actualizar el usuario */}
+            <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title>Actualizar Usuario</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    { usuarios && (
+                        <ActualizarUsuario 
+                            usuario={ usuarioSeleccionado }
+                            handleUpdate={ handleUpdate }
+                        />
+                    ) }
+                </Modal.Body>
+            </Modal>
         </div>
     );
 }

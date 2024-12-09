@@ -2,32 +2,45 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-function ActualizarUsuario() {
+function ActualizarUsuario({ usuario, handleUpdate }) {
+    console.log("pruebaActualizarUsuario", usuario);
     const { id } = useParams();
     const [formData, setFormData] = useState({
         nombre: '',
         correo_electronico: '',
         contraseña: ''
-
     });
 
     useEffect(() => {
         console.log(id)
-        const usuario = async () => {
+        if(usuario) {
+            setFormData({
+                nombre: usuario.nombre,
+                correo_electronico: usuario.correo_electronico,
+                contraseña: usuario.contraseña
+            });
+        } else {
+
+        }
+        const fetchUsuario = async () => {
             try {
-                const response = await fetch(`http://localhost:4000/api/user/${id}`);
+                const response = await fetch(`http://localhost:4000/api/user/${usuario.id_documento}`);
                 const data = await response.json();
                 console.log(data.usuario);
                 
-                setFormData(data.usuario);
+                setFormData({
+                    nombre: data.usuario.nombre,
+                    correo_electronico: data.usuario.correo_electronico,
+                    contraseña: usuario.contraseña
+                });
                 
             } catch (error) {
                 console.error("Error al actualizar el usuario:", error)
             }
         };
 
-        usuario();
-    }, [id]);
+        fetchUsuario();
+    }, [id, usuario]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -46,7 +59,7 @@ function ActualizarUsuario() {
         console.log(dataToUpdate);
 
         try {
-            const response = await fetch(`http://localhost:4000/api/userUpdate/${id}`, {
+            const response = await fetch(`http://localhost:4000/api/userUpdate/${usuario.id_documento}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"

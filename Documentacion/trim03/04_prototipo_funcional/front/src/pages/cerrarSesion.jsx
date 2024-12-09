@@ -1,4 +1,5 @@
 import React from "react";
+import styles from '../styles/header.module.css'
 
 function CerrarSesion () {
     
@@ -27,8 +28,7 @@ function CerrarSesion () {
 
     return (
         <div>
-            <h1>Bienvenido</h1>
-            <button onClick={ cerrarSesion }>Cerrar sesion</button>
+            <a href="!#" className={`${styles.cerrarSesion}`} onClick={ cerrarSesion }>Cerrar sesion</a>
         </div>
     );
 }
