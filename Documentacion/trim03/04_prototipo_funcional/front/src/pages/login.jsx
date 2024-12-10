@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button, Container } from 'react-bootstrap';
+import { Form, Button, Container, Modal } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import styles from '../styles/login.module.css';
 
@@ -8,6 +8,10 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     //const [userData, setUserData] = useState(null)
+
+    //Modal
+    const [showModal, setShowModal] = useState(false);
+    const [modalMessage, setModalMessage] = useState("");
 
     const handleChangeEmail = (e) => setEmail(e.target.value);
     const handleChangePassword = (e) => setPassword(e.target.value);
@@ -37,17 +41,25 @@ function Login() {
                 console.log("Login exitoso:", data);
                 console.log("sesion:", data.sesion.user_id);
                 //setUserData(data.sesion.user_id);
-                alert("Login exitoso");
-                window.location.href = '/crearUsuario';
+                setModalMessage("Login exitoso");
+                setShowModal(true);
+
+                setTimeout(() => {
+                    setShowModal(false);
+                    window.location.href = '/crearUsuario';
+                }, 2000)
+
             } else {
                 console.error("Error en el login:", data.message);
-                alert("Error:" + data.message);
+                setModalMessage("Error:" + data.message);
             }
         } catch (error) {
             console.error("Error al conectar con el servidor", error);
             alert("Error al conectar con el servidor");
         }
     };
+
+    const handleCloseModal = () => setShowModal(false);
 
     return (
         <Container className={`${styles.container}`}>
@@ -70,6 +82,12 @@ function Login() {
                 <Button variant="success" type="submit">Success</Button>
             </Form>
 
+            <Modal show={showModal} onHide={handleCloseModal}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Login</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{ modalMessage }</Modal.Body>
+            </Modal>
         </Container>
     );
 }

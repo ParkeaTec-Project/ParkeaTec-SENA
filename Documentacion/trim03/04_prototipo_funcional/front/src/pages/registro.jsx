@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Modal } from 'react-bootstrap';
 import styles from '../styles/registroUsuario.module.css';
 
 function Registro(){
@@ -21,6 +21,9 @@ function Registro(){
         id_tipo_documento: "", //
         rol_id: "3",
     });
+
+    const [showModal, setShowModal] = useState(false);
+    const [modalMessage, setModalMessage] = useState("");
 
 
     const handleChange = (e) => {
@@ -62,16 +65,20 @@ function Registro(){
             const result = await response.json();
 
             if(response.ok) {
-                alert("Usuario Creado");
+                setModalMessage("Registro exitoso");
+                setShowModal(true);
                 console.log("Usuario Creado", result);
             } else {
-                alert("Error", result.message);
+                setModalMessage("Error", result.message);
+                setShowModal(false);
             }
         } catch(error) {
             console.log("Error al conectar con el servidor", error);
             alert("Error al conectar con el servidor");
         };
     }
+
+    const handleCloseModal = () => setShowModal(false);
 
     return(
         <Container className={`mt-4 mb-4 py-5 ${styles.container}`}>
@@ -249,6 +256,19 @@ function Registro(){
                 </Row>
                 <Button className={`mt-3 ${styles.button}`} variant="success" type='submit'>Registrarse</Button>
             </Form>
+
+            {/* Modal */}
+            <Modal show={showModal} onHide={handleCloseModal}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Registrado</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{ modalMessage }</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="danger" onClick={handleCloseModal}>
+                        Cerrar
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </Container>
     );
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Form, Button, Row, Col } from "react-bootstrap";
+import { Container, Form, Button, Row, Col, Modal } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import { Link } from "react-router-dom";
 
@@ -22,6 +22,10 @@ function CrearUsuario() {
         id_tipo_documento: "",
         rol_id: ""
     });
+
+    //Modal 
+    const [showModal, setShowModal] = useState(false);
+    const [modalMessage, setModalMessage] = useState("");
 
     const handleChange = (e) => {
         const { name, value, files } = e.target;
@@ -62,16 +66,20 @@ function CrearUsuario() {
             const result = await response.json();
 
             if(response.ok) {
-                alert("Usuario Creado");
+                setModalMessage("Usuario Creado");
+                setShowModal(true);
                 console.log("Usuario Creado");
             } else {
-                alert("Error", result.message);
+                setModalMessage("Error", result.message);
+                setShowModal(false);
             }
         } catch (error) {
             console.log("Error al conectar con el servidor", error);
             alert("Error al conectar con el servidor")
         }
     };
+
+    const handleCloseModal = () => setShowModal(false);
 
     return (
         <Container className="mt-5 mb-5">
@@ -236,6 +244,19 @@ function CrearUsuario() {
 
                 <Button className="mb-5" variant="success" type="submit" >Crear usuario</Button>
             </Form>
+
+            {/* modal */}
+            <Modal show={showModal} onHide={handleCloseModal}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Creado</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{ modalMessage }</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="danger" onClick={handleCloseModal}>
+                        Cerrar
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </Container>
         
     );

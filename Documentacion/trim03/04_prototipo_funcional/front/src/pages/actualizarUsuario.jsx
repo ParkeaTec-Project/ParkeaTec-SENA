@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Form, Button } from "react-bootstrap"
+import { Form, Button, Modal } from "react-bootstrap"
 
 function ActualizarUsuario({ usuario, handleUpdate, obtenerUsuario }) {
     console.log("pruebaActualizarUsuario", usuario);
@@ -14,6 +14,9 @@ function ActualizarUsuario({ usuario, handleUpdate, obtenerUsuario }) {
         rol: '',
         rol_id: '',
     });
+
+    const [showModal, setShowModal] = useState(false);
+    const [modalMessage, setModalMessage] = useState("");
 
     useEffect(() => {
         console.log(id)
@@ -54,15 +57,19 @@ function ActualizarUsuario({ usuario, handleUpdate, obtenerUsuario }) {
             });
 
             if(response.ok) {
-                alert("Usuario actualizado correctamente");
+                setModalMessage("Usuario actualizado correctamente");
+                setShowModal(true);
                 obtenerUsuario();
             } else {
-                alert("Error al actualizar el usuario");
+                setModalMessage("Error al actualizar el usuario");
+                setShowModal(false);
             }
         } catch(error) {
             console.error("Error al actualizar el usuario:", error);
         }
     };
+
+    const handleCloseModal = () => setShowModal(false);
 
     return (
         <div>
@@ -124,6 +131,18 @@ function ActualizarUsuario({ usuario, handleUpdate, obtenerUsuario }) {
                 
                 <Button variant="primary" type="submit" className="w-100">Actualizar</Button>
             </Form>
+
+            <Modal show={showModal} onHide={handleCloseModal}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Actualizado</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{ modalMessage }</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="danger" onClick={handleCloseModal}>
+                        Cerrar
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     );
 }

@@ -9,6 +9,10 @@ function VerUsuarios({ actualizarUsuario }) {
     const [usuarios, setUsuarios] = useState([]);
     const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(null);
 
+    //Modal
+    const [showModalDelete, setShowModalDelete] = useState(false);
+    const [modalMessage, setModalMessage] = useState("");
+
     console.log("userPrueba", usuarioSeleccionado);
 
     const obtenerUsuarios = async () => {
@@ -68,15 +72,19 @@ function VerUsuarios({ actualizarUsuario }) {
             });
 
             if(response.ok) {
-                alert("Usuario eliminado correctamente");
+                setModalMessage("Usuario eliminado correctamente");
+                setShowModalDelete(true);
                 setUsuarios(usuarios.filter((usuario) => usuario.id_documento !== id));
             } else {
-                alert("Error al eliminar el usuario");
+                setModalMessage("Error al eliminar el usuario");
+                setShowModalDelete(false);
             }
         } catch (err) {
             console.error("Error al eliminar el usuario:", err)
         }
     };
+
+    const handleCloseModal = () => setShowModalDelete(false);
 
     return (
         <div>
@@ -130,6 +138,19 @@ function VerUsuarios({ actualizarUsuario }) {
                         
                     ) }
                 </Modal.Body>
+            </Modal>
+
+            {/* Modal delete */}
+            <Modal show={showModalDelete} onHide={handleCloseModal}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Eliminado</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{ modalMessage }</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="danger" onClick={handleCloseModal}>
+                        Cerrar
+                    </Button>
+                </Modal.Footer>
             </Modal>
         </div>
     );
