@@ -64,7 +64,9 @@ function VerPerfil(){
   
     return(
         <Container className='mt-4 mb-5'>
-            <h1>Perfil</h1>
+            <Row>
+              <Col>
+              <h1>Perfil</h1>
             {/* <img src={ userData?.usuario?.foto_usuario ? `http://localhost:4000/uploads/${userData.usuario.foto_usuario}` : "img"} alt="imagen usuario"/> */}
             {/* <img src={`http://localhost:4000/${userData?.usuario?.foto_usuario?.replace('uploads/', '')}`} alt="imagen usuario" /> */}
             
@@ -89,54 +91,26 @@ function VerPerfil(){
   alt="imagen usuario"
   onError={handleImageError}
 /> */}
-            
-            <Form className='mt-3 mb-7'>
-                <Row className="mb-3">
-                    <Col>
-                    
-                    </Col>
-                    <Col>
+
+              </Col>
+              <Col>
+              <Form className='mt-3 mb-7'>
                         <Form.Label >Nombre Completo</Form.Label>
                         <Form.Control className="mt-2" type="text" disabled placeholder="" value={ userData?.usuario?.nombre || "" } ></Form.Control>
-                    </Col>
-                </Row>
-                <Row className="mb-3">
-                    <Col>
-                    
-                    </Col>
-                    <Col>
                         <Form.Label className="mt-2">Tipo Documento</Form.Label>
                         <Form.Control className="mt-2" type="text" disabled placeholder="" value={ userData?.usuario?.nombre_documento || "" }></Form.Control>
-                    </Col>
-                </Row>
-                <Row className="mb-3">
-                    <Col>
-                    
-                    </Col>
-                    <Col>
+
                         <Form.Label className="mt-2">Numero Documento</Form.Label>
                         <Form.Control className="mt-2" type="number" disabled placeholder="" value={ userData?.usuario?.id_documento || "" }></Form.Control>
-                    </Col>
-                </Row>
-                <Row className="mb-3">
-                    <Col>
-                    
-                    </Col>
-                    <Col>
+
                         <Form.Label className="mt-2">Correo electronico</Form.Label>
                         <Form.Control className="mt-2" type="email" disabled placeholder="" value={ userData?.usuario?.correo_electronico || "" }></Form.Control>
-                    </Col>
-                </Row>
-                <Row className="mb-3">
-                    <Col>
-                    
-                    </Col>
-                    <Col>
-                        <Form.Label className="mt-2 mb-5" >Rol</Form.Label>
-                        <Form.Control className="mt-2 mb-5" type="Text" disabled placeholder="" value={ userData?.usuario?.rol || "" }></Form.Control>
-                    </Col>
-                </Row>
+
+                        <Form.Label className="mt-2" >Rol</Form.Label>
+                        <Form.Control className="mt-2 " type="Text" disabled placeholder="" value={ userData?.usuario?.rol || "" }></Form.Control>
             </Form>
+              </Col>
+            </Row>
         </Container>
     );
 }
