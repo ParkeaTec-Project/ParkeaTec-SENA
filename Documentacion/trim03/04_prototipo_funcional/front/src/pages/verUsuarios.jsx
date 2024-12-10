@@ -115,15 +115,18 @@ function VerUsuarios({ actualizarUsuario }) {
 
             {/*Modal para actualizar el usuario */}
             <Modal show={showModal} onHide={() => setShowModal(false)} centered>
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className="bg-primary text-white">
                     <Modal.Title>Actualizar Usuario</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     { usuarios && (
-                        <ActualizarUsuario 
-                            usuario={ usuarioSeleccionado }
-                            handleUpdate={ handleUpdate }
-                        />
+                        <div className="p-3">
+                            <ActualizarUsuario 
+                                usuario={ usuarioSeleccionado }
+                                handleUpdate={ handleUpdate }
+                            />
+                        </div>
+                        
                     ) }
                 </Modal.Body>
             </Modal>

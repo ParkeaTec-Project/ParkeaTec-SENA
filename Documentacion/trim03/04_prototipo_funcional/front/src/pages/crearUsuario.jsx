@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 
 function CrearUsuario() {
@@ -76,7 +76,7 @@ function CrearUsuario() {
     return (
         <Container className="mt-5 mb-5">
             <h2 className="mb-4">Crear Usuario</h2>
-            <Form onSubmit={ handleSubmit } encType="multipart/form-data">
+            <Form onSubmit={ handleSubmit } encType="multipart/form-data" className="mb-5">
                 <Form.Group className="mb-3" controlId="nroDocumento">
                     <Form.Label>Nro Documento</Form.Label>
                     <Form.Control 
@@ -234,11 +234,8 @@ function CrearUsuario() {
                     </Form.Select>
                 </Form.Group>
 
-                <Button variant="success" type="submit">Crear usuario</Button>
+                <Button className="mb-5" variant="success" type="submit" >Crear usuario</Button>
             </Form>
-            <button>
-                <Link to="/login">Login</Link>
-            </button>
         </Container>
         
     );
