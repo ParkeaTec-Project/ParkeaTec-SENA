@@ -1,5 +1,4 @@
-.header,
-.footer {
+.header{
     display: flex;
     justify-content: space-between !important;
     width: 100%;
@@ -41,3 +40,14 @@
 :global(.dropdown-menu.show) {
   margin-top: 8px !important;
 }
+
+.footer {
+    background-color: #0F1626;      
+    position: relative;          
+    width: 100%;                 
+    padding: 1rem;               
+    text-align: center;          
+    color: white;                
+    font-size: 16px;             
+    margin-top: 5%;            
+  }

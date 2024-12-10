@@ -1,15 +1,20 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from '../styles/header.module.css';
 
-
-const Footer = () => (
-  <footer className={`text-white py-3 position-fixed bottom-0 w-100 ${styles.footer}`}>
-    <Container className="text-center">
-      <p>© 2024 ParkeaTEC. Todos los derechos reservados.</p>
-    </Container>
-  </footer>
-);
+function Footer() {
+  return (
+    <footer className={`text-white py-3 bottom-0 w-100 ${styles.footer}`}>
+      <Container>
+        <Row>
+          <Col>
+            <p className="text-center">&copy; 2024  ParkeaTec</p>
+          </Col>
+        </Row>
+      </Container>
+    </footer>
+  );
+}
 
 export default Footer;
