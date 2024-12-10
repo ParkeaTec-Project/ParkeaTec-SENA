@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import Button from 'react-bootstrap/Button';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import styles from '../styles/registroUsuario.module.css';
 
 function Registro(){
     const [formData, setFormData] = useState({
@@ -74,14 +74,14 @@ function Registro(){
     }
 
     return(
-        <Container className='mt-4 mb-4 py-5'>
+        <Container className={`mt-4 mb-4 py-5 ${styles.container}`}>
             <h1>Registro Aprendiz</h1>
             <Form className='mt-5 mb-4' onSubmit={ handleSubmit }>
-                <Row>
-                    <Col>
+                <Row className='justify-content-center'>
+                    <Col className={`${styles.col}`}>
                         <Form.Label className='mt-1'>Nombres</Form.Label>
                         <Form.Control 
-                            className='mt-1' 
+                            className={`mt-1 ${styles.input} `}
                             type='text'
                             name='nombre'
                             value={ formData.nombre }
@@ -90,10 +90,10 @@ function Registro(){
                         </Form.Control>
                     </Col>
                 
-                    <Col>
+                    <Col className={`${styles.col}`}>
                         <Form.Label className='mt-1'>Apellidos</Form.Label>
                         <Form.Control 
-                            className='mt-1' 
+                            className={`mt-1 ${styles.input} `}
                             type='text'
                             name='apellido'
                             value={ formData.apellido }
@@ -102,11 +102,11 @@ function Registro(){
                         </Form.Control>
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
+                <Row className='justify-content-center'>
+                    <Col className={`${styles.col}`}>
                         <Form.Label className='mt-1'>Correo electronico</Form.Label>
                         <Form.Control 
-                            className='mt-1' 
+                            className={`mt-1 ${styles.input} `}
                             type='email'
                             name='correo'
                             value={ formData.correo }
@@ -114,10 +114,10 @@ function Registro(){
                         >
                         </Form.Control>
                     </Col>
-                    <Col>
+                    <Col className={`${styles.col}`}>
                         <Form.Label className='mt-1'>Contraseña</Form.Label>
                         <Form.Control 
-                            className='mt-1' 
+                            className={`mt-1 ${styles.input} `}
                             type='password'
                             name='password'
                             value={ formData.password }
@@ -126,11 +126,11 @@ function Registro(){
                         </Form.Control>
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
+                <Row className='justify-content-center'>
+                    <Col className={`${styles.col}`}>
                         <Form.Label className='mt-1'>Telefono</Form.Label>
                         <Form.Control 
-                            className='mt-1' 
+                            className={`mt-1 ${styles.input} `}
                             type='number'
                             name='telefono'
                             value={ formData.telefono }
@@ -138,10 +138,10 @@ function Registro(){
                         >
                         </Form.Control>
                     </Col>
-                    <Col>
+                    <Col className={`${styles.col}`}>
                         <Form.Label className='mt-1'>Direccion</Form.Label>
                         <Form.Control 
-                            className='mt-1' 
+                            className={`mt-1 ${styles.input} `}
                             type='text'
                             name='direccion'
                             value={ formData.direccion }
@@ -150,11 +150,11 @@ function Registro(){
                         </Form.Control>
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
+                <Row className='justify-content-center'>
+                    <Col className={`${styles.col}`}>
                         <Form.Label className='mt-1'>Tipo Documento</Form.Label>
                         <Form.Select 
-                            className='mt-1'
+                            className={`mt-1 ${styles.input} `}
                             name='id_tipo_documento'
                             value={ formData.id_tipo_documento }
                             onChange={ handleChange }
@@ -165,12 +165,11 @@ function Registro(){
                             <option value='3'>Tarjeta de identidad</option>
                         </Form.Select>
                     </Col>
-                </Row>
-                <Row>
-                    <Col>
+
+                    <Col className={`${styles.col}`}>
                         <Form.Label className='mt-1'>Numero de documento</Form.Label>
                         <Form.Control
-                            className='mt-1'
+                            className={`mt-1 ${styles.input} `}
                             type='number'
                             name='id_documento'
                             value={ formData.id_documento }
@@ -179,21 +178,22 @@ function Registro(){
                         </Form.Control>
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
+            
+                <Row className='justify-content-center'>
+                    <Col className={`${styles.col}`}>
                         <Form.Label className='mt-1'>Foto Usuario</Form.Label>
                         <Form.Control
-                            className='mt-1'
+                            className={`mt-1 ${styles.input} `}
                             type='file'
                             name='foto_usuario'
                             onChange={ handleChange }
                         >
                         </Form.Control>
                     </Col>
-                    <Col>
+                    <Col className={`${styles.col}`}>
                         <Form.Label className='mt-1'>Centro Formacion</Form.Label>
                         <Form.Control
-                            className='mt-1'
+                            className={`mt-1 ${styles.input} `}
                             type='text'
                             name='centro_formacion'
                             value={ formData.centro_formacion }
@@ -202,11 +202,11 @@ function Registro(){
                         </Form.Control>
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
+                <Row className='justify-content-center'>
+                    <Col className={`${styles.col}`}>
                         <Form.Label className='mt-1'>Ficha Aprendiz</Form.Label>
                         <Form.Control
-                            className='mt-1'
+                            className={`mt-1 ${styles.input} `}
                             type='text'
                             name='ficha_aprendiz'
                             value={ formData.ficha_aprendiz }
@@ -214,10 +214,10 @@ function Registro(){
                         >
                         </Form.Control>
                     </Col>
-                    <Col>
+                    <Col className={`${styles.col}`}>
                         <Form.Label className='mt-1'>Firma Usuario</Form.Label>
                         <Form.Control
-                            className='mt-1'
+                            className={`mt-1 ${styles.input} `}
                             type='file'
                             name='firma_usuario'
                             onChange={ handleChange }
@@ -225,21 +225,21 @@ function Registro(){
                         </Form.Control>
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
+                <Row className='justify-content-center'>
+                    <Col className={`${styles.col}`}>
                         <Form.Label className='mt-1'>Foto Documento</Form.Label>
                         <Form.Control
-                            className='mt-1'
+                            className={`mt-1 ${styles.input} `}
                             type='file'
                             name='foto_documento'
                             onChange={ handleChange }
                         >
                         </Form.Control>
                     </Col>
-                    <Col>
+                    <Col className={`${styles.col}`}>
                         <Form.Label className='mt-1'>Foto Carnet</Form.Label>
                         <Form.Control
-                            className='mt-1'
+                            className={`mt-1 ${styles.input} `}
                             type='file'
                             name='foto_carnet'
                             onChange={ handleChange }
@@ -247,7 +247,7 @@ function Registro(){
                         </Form.Control>
                     </Col>
                 </Row>
-                <Button variant="success" type='submit'>Registrarse</Button>
+                <Button className={`mt-3 ${styles.button}`} variant="success" type='submit'>Registrarse</Button>
             </Form>
         </Container>
     );
