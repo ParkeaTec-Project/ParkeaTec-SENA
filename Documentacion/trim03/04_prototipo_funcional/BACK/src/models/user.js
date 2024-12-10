@@ -218,7 +218,7 @@ class user {
                         return reject(new Error("Usuario no encontrado"));
                     }
 
-                    const query = 'BorrarUsuario(?)';
+                    const query = 'CALL BorrarUsuario(?)';
                     connection.query(query, [id], (err, result) => {
                         if(err) return reject(err);
                         resolve(result);
