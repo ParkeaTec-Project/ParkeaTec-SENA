@@ -48,8 +48,6 @@ function VerUsuarios({ actualizarUsuario }) {
         console.log("Usuario editado:", usuario);
         setUsuarioSeleccionado(usuario);
         setShowModal(true);
-        // console.log(`Editar usuario con ID: ${id}`)
-        // window.location.href = `/editarUsuario/${id}`;
     };
 
     const handleUpdate = async (usuarioActualizado) => {
@@ -88,6 +86,7 @@ function VerUsuarios({ actualizarUsuario }) {
                     <tr>
                         <th>nombre</th>
                         <th>Apellidos</th>
+                        <th>Correo</th>
                         <th>Rol</th>
                         <th>Acciones</th>
                     </tr>
@@ -97,6 +96,7 @@ function VerUsuarios({ actualizarUsuario }) {
                         <tr key={usuario.id_documento}>
                             <td className={`${styles.td}`}>{ usuario.nombre }</td>
                             <td className={`${styles.td}`}>{ usuario.apellido }</td>
+                            <td className={`${styles.td}`}>{ usuario.correo_electronico }</td>
                             <td className={`${styles.td}`}>{ usuario.rol }</td>
                             <td className={`${styles.td}`}>
                                 <Button className="m-1" variant="success" onClick={() => handleEdit(usuario)}>Editar</Button>
@@ -124,6 +124,7 @@ function VerUsuarios({ actualizarUsuario }) {
                             <ActualizarUsuario 
                                 usuario={ usuarioSeleccionado }
                                 handleUpdate={ handleUpdate }
+                                obtenerUsuario={ obtenerUsuarios }
                             />
                         </div>
                         

@@ -3,13 +3,16 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap"
 
-function ActualizarUsuario({ usuario, handleUpdate }) {
+function ActualizarUsuario({ usuario, handleUpdate, obtenerUsuario }) {
     console.log("pruebaActualizarUsuario", usuario);
     const { id } = useParams();
     const [formData, setFormData] = useState({
         nombre: '',
+        apellido: '',
         correo_electronico: '',
-        contraseña: ''
+        contraseña: '',
+        rol: '',
+        rol_id: '',
     });
 
     useEffect(() => {
@@ -21,7 +24,9 @@ function ActualizarUsuario({ usuario, handleUpdate }) {
                     const data = await response.json();
                     console.log(data.usuario);
                     
-                    setFormData(data.usuario);
+                    setFormData(
+                        data.usuario,
+                    );
                     
                 } catch (error) {
                     console.error("Error al actualizar el usuario:", error)
@@ -50,6 +55,7 @@ function ActualizarUsuario({ usuario, handleUpdate }) {
 
             if(response.ok) {
                 alert("Usuario actualizado correctamente");
+                obtenerUsuario();
             } else {
                 alert("Error al actualizar el usuario");
             }
@@ -72,6 +78,16 @@ function ActualizarUsuario({ usuario, handleUpdate }) {
                     />
                 </Form.Group>
 
+                <Form.Group className="mb-3" controlId="formApellido">
+                    <Form.Label>Apellido</Form.Label>
+                    <Form.Control 
+                        type="text"
+                        name="apellido"
+                        value={ formData.apellido }
+                        onChange={ handleChange }
+                    />
+                </Form.Group>
+
                 <Form.Group className="mb-3" controlId="formCorreo">
                     <Form.Label>Correo</Form.Label>
                     <Form.Control 
@@ -90,6 +106,20 @@ function ActualizarUsuario({ usuario, handleUpdate }) {
                         value={ formData.contraseña } 
                         onChange={ handleChange }
                     />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="rol">
+                    <Form.Label>Rol</Form.Label>
+                    <Form.Select
+                        name="rol_id"
+                        value={ formData.rol_id } 
+                        onChange={ handleChange }
+                    >
+                        
+                        <option value="1">Administrador</option>
+                        <option value="2">Vigilante</option>
+                        <option value="3">Usuario</option>
+                    </Form.Select>
                 </Form.Group>
                 
                 <Button variant="primary" type="submit" className="w-100">Actualizar</Button>

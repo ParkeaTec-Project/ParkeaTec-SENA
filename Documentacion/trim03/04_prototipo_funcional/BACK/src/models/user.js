@@ -176,6 +176,7 @@ class user {
     async actualizarUsuarioId() {
         try {
             console.log("Contraseña proporcionada:", this.password);
+            console.log("rol_id proporcionado:", this.rol_id);
             
             const salt = await bcrypt.genSalt(10);
             const hashedPassword = await bcrypt.hash(this.password, salt);
@@ -193,9 +194,9 @@ class user {
     
     
                     //const query = 'UPDATE usuario SET contraseña = ? WHERE id_documento = ?';
-                    const query = 'CALL ActualizarUsuario(?, ?, ?, ?)';
+                    const query = 'CALL ActualizarUsuario(?, ?, ?, ?, ?, ?)';
                     
-                    connection.query(query, [this.nombre, this.correo,hashedPassword, this.id_documento], (err, result) => {
+                    connection.query(query, [this.nombre, this.apellido, this.correo, hashedPassword, this.rol_id, this.id_documento], (err, result) => {
                         console.log("actualizar", result)
                         if(err) return reject(err);
                         resolve(result);

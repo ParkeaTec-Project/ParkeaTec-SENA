@@ -160,17 +160,18 @@ const obtenerUsuarioId = async (req, res) => {
 const actualizarUsuarioId = async (req, res) => {
     try {
         console.log(req.body)
-        const { nombre, correo_electronico, contraseña } = req.body;
+        const { nombre, apellido, correo_electronico, contraseña, rol_id } = req.body;
         const usuarioId = req.params.id;
 
         console.log("id usuario:", usuarioId);
+        console.log("body:", req.body);
         console.log("new contraseña:", contraseña);
 
-        if(!nombre || !correo_electronico || !contraseña) {
+        if(!nombre || !apellido || !correo_electronico || !contraseña || !rol_id) {
             return res.status(400).send({ message: "Falta informacion requerida" })
         }
 
-        const updateUsuario = new User({ id_documento: usuarioId, nombre: nombre, correo: correo_electronico, password: contraseña });
+        const updateUsuario = new User({ id_documento: usuarioId, nombre: nombre, apellido: apellido, correo: correo_electronico, password: contraseña, rol_id: rol_id });
         const result = await updateUsuario.actualizarUsuarioId();
 
         if (result.affectedRows === 0) {
