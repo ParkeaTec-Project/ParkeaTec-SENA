@@ -12,6 +12,9 @@ import HeaderLogin from './components/HeaderLogin';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RecuperarPassword from './pages/recuperarPassword';
 import VerPerfil from './pages/verPerfil';
+import RealizarReserva from './pages/RealizarReserva';
+import VerReservas from './pages/VerReservas';
+import GenerarStrike from './pages/GenerarStrike';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -56,6 +59,9 @@ function App() {
         <Route path='/registro' element={ <Registro /> } />
         <Route path='/recuperarPassword' element={ <RecuperarPassword /> } />
         <Route path='/verPerfil' element={ <VerPerfil /> } />
+        <Route path='/RealizarReserva' element={ <RealizarReserva /> } />
+        <Route path='/VerReservas' element={ <VerReservas /> } />
+        <Route path='/GenerarStrike' element={ <GenerarStrike /> } />
       </Routes>
       <Footer />
     </Router>
