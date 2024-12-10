@@ -67,10 +67,12 @@ function VerPerfil(){
             <Row>
               <Col>
               <h1>Perfil</h1>
-            {/* <img src={ userData?.usuario?.foto_usuario ? `http://localhost:4000/uploads/${userData.usuario.foto_usuario}` : "img"} alt="imagen usuario"/> */}
-            {/* <img src={`http://localhost:4000/${userData?.usuario?.foto_usuario?.replace('uploads/', '')}`} alt="imagen usuario" /> */}
-            
-            <img className={styles.img} src={`http://localhost:4000/${userData?.usuario?.foto_usuario}`} alt="imagen usuario"/>
+              <img className={styles.img} src={`http://localhost:4000/${userData?.usuario?.foto_usuario}`} alt="imagen usuario"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = 'http://localhost:4000/uploads/default.avif';
+              }}
+              />
 
             {/* <img
   src={`http://localhost:4000/${userData?.usuario?.foto_usuario}`}

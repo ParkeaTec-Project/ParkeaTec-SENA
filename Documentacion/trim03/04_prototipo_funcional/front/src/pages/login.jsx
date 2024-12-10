@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Container } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import styles from '../styles/login.module.css';
 
 
 function Login() {
@@ -49,26 +50,26 @@ function Login() {
     };
 
     return (
-        <Container>
+        <Container className={`${styles.container}`}>
             <h1>Login</h1>
-            {/* <p>usuario: { userData }</p> */}
-            <Form onSubmit={ handleSubmit }>
-                <Form.Group className="mb-3" controlId="email">
+            <Form onSubmit={ handleSubmit } className={`${styles.form}`}>
+                <Form.Group className={`mb-3 ${styles.input}`} controlId="email">
                     <Form.Label>Email</Form.Label>
                     <Form.Control type="email" value={ email } onChange={ handleChangeEmail } placeholder="name@example.com"/>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="password">
+                <Form.Group className={`mb-3 ${styles.input}`} controlId="password">
                     <Form.Label>Contraseña</Form.Label>
                     <Form.Control type="password" value={ password } onChange={ handleChangePassword } />
                 </Form.Group>
 
+                <div className={`mt-3 ${styles.recuperarContraseña}`}>
+                    <Link to={'/recuperarPassword'}>Olvidaste tu contraseña?</Link>
+                </div>
+
                 <Button variant="success" type="submit">Success</Button>
             </Form>
 
-            <div className="mt-3">
-                <Link to={'/recuperarPassword'}>Olvidaste tu contraseña?</Link>
-            </div>
         </Container>
     );
 }

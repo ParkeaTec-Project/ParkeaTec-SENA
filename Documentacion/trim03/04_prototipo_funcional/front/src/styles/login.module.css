@@ -1,0 +1,29 @@
+.container,
+.containerRecuperar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 72px - 56px);
+}
+
+.containerRecuperar {
+    justify-content: flex-start;
+}
+
+.form {
+    width: 40%;
+}
+
+.input {
+    width: 100%;
+}
+
+.recuperarContraseña {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.recuperarContraseña a {
+    text-decoration: none;
+}

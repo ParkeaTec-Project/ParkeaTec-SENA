@@ -3,11 +3,13 @@ import { Navbar, Nav, Container, NavDropdown} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from '../styles/header.module.css';
+import logo from '../assets/logo-parkeaTec.svg';
 
 const HeaderLogin = () => (
-  <Navbar className={`justify-content-end ${styles.header} `} variant="dark" expand="lg">
-    <Container>
-      <Navbar.Brand href="#home">ParkeaTEC</Navbar.Brand>
+  <Navbar className={`justify-content-between ${styles.header} `} variant="dark" expand="lg">
+    <Container className={`${styles.container}`}>
+      <img src={`${logo}`} className={`${styles.imgLogo}`} alt='logoParqueTec'/>
+      <Navbar.Brand href="#home">ParkeaTec</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">

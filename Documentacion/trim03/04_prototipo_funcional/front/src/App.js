@@ -49,7 +49,7 @@ function App() {
       ) : (
         <HeaderLogin />
       ) }
-      {/* <CerrarSesion /> */}
+
       <Routes>
 
         <Route path='/crearUsuario' element={ <CrearUsuario /> } />
