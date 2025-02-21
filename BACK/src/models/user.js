@@ -194,9 +194,9 @@ class user {
     
     
                     //const query = 'UPDATE usuario SET contraseña = ? WHERE id_documento = ?';
-                    const query = 'CALL ActualizarUsuario(?, ?, ?, ?, ?, ?)';
+                    const query = 'CALL ActualizarUsuario(?, ?, ?, ?, ?)';
                     
-                    connection.query(query, [this.nombre, this.apellido, this.correo, hashedPassword, this.rol_id, this.id_documento], (err, result) => {
+                    connection.query(query, [this.nombre, this.correo, hashedPassword, this.rol_id, this.id_documento], (err, result) => {
                         console.log("actualizar", result)
                         if(err) return reject(err);
                         resolve(result);
