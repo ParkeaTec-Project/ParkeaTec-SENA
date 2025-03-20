@@ -106,9 +106,9 @@ DROP TABLE IF EXISTS `parqueadero`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `parqueadero` (
-  `id_parqueadero` varchar(10) NOT NULL,
+  `id_parqueadero` int(10) AUTO_INCREMENT,
   `tipo_parqueadero` varchar(20) DEFAULT NULL,
-  `espacio_parqueadero` int(11) DEFAULT NULL,
+  `numero_espacio` varchar(10) DEFAULT NULL,
   `disponibilidad` varchar(10) DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id_parqueadero`)
@@ -321,7 +321,7 @@ CREATE TABLE `uso_parqueadero` (
   `fecha_salida` datetime DEFAULT NULL,
   `estado` varchar(10) DEFAULT NULL,
   `placa` varchar(6) DEFAULT NULL,
-  `id_parqueadero` varchar(10) DEFAULT NULL,
+  `id_parqueadero` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_uso`),
   KEY `Fk_id_uso_placa` (`placa`),
   KEY `Fk_id_uso_parqueadero` (`id_parqueadero`),
