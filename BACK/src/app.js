@@ -2,7 +2,9 @@ import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import userRoutes from './routes/userRoutes.js'
+import userRoutes from './routes/userRoutes.js';
+import parqueaderoRoutes from './routes/parqueaderoRoutes.js';
+import reservaRoutes from './routes/reservaRoutes.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -34,6 +36,8 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 app.use('/api', userRoutes);
+app.use('/api', parqueaderoRoutes);
+app.use('/api', reservaRoutes);
 
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
