@@ -25,68 +25,47 @@ class user {
     static async login(email, password) {
         const query = 'CALL ObtenerEmail(?)';
 
-        return new Promise((resolve, reject) => {
-            connection.query(query, [email], async (err, result) => {
-                console.log("obtener email:", result);
-                if(err) {
-                    console.error('Error al iniciar sesion:', err);
-                    return reject(err);
-                }
+        try {
+            const [result] = await connection.promise().query(query, [email]);
 
-                if(result[0].length === 0) {
-                    return reject("Usuario no encontrado");
-                }
+            if (result[0].length === 0) {
+                throw new Error("Usuario no encontrado");
+            }
 
-                //const user1 = result[0];
-                const user = result[0][0];
-                console.log("userPrubea", user);
-                //console.log("sin array", user1);
-                //console.log("doble array", user);
-                console.log(password);
-                const isMatch = await bcrypt.compare(password, user.contraseña);
-                console.log("password isMatch", isMatch);
+            const user = result[0][0];
 
-                if(!isMatch) {
-                    return reject("Contraseña incorrecta");
-                }
+            const isMatch = await bcrypt.compare(password, user.contraseña);
 
-                
-                const infoUser = 'CALL InfoUsuario(?)';
-                // const infoUser = 'SELECT r.nombre AS rol, p.nombre AS permiso FROM usuario u INNER JOIN roles r ON u.rol_id = r.id INNER JOIN rol_permisos rp ON r.id = rp.rol_id INNER JOIN permisos p ON rp.permiso_id = p.id WHERE u.id_documento = ?;'
+            if (!isMatch) {
+                throw new Error("Contraseña incorrecta");
+            }
 
-                connection.query(infoUser, [user.id_documento], (err, userResult) => {
-                    if(err) {
-                        return reject(err);
-                    }
-                    console.log("userResult:", userResult)
+            const inforUser = 'CALL infoUsuario(?)';
 
-                    if(userResult[0].length > 0) {
-                        const rol = userResult[0][0].rol;
-                        const permisos = userResult[0].map(user => user.permiso);
+            const [userResult] = await connection.promise().query(inforUser, [user.id_documento]);
+            
+            if (userResult[0].length > 0) {
+                const rol = userResult[0][0].rol;
+                const permisos = userResult[0].map(user => user.permiso);
+                return { user, rol, permisos };
+            } 
 
-                        console.log(rol, permisos);
+            const rolQuery = 'CALL InfoRol(?)';
+            const [rolResult] = await connection.promise().query(rolQuery, [user.id_documento]);
 
-                        resolve({ user, rol, permisos})
-                    } else {
-                        const rolQuery = `CALL InfoRol(?)`;
-                        // const rolQuery = 'SELECT r.nombre AS rol FROM roles r INNER JOIN usuario u ON u.rol_id = r.id WHERE u.id_documento = ?;'
+            if (rolResult[0].length > 0) {
+                const rol = rolResult[0][0].rol;
+                return { user, rol, permisos: [] };
+            } else {
+                throw new Error("No se encontro el rol para este usuario");
+            }
 
-                        connection.query(rolQuery, [user.id_documento], (err, rolResult) => {
-                            console.log("rolResult:", rolResult)
-                            if(rolResult.length > 0) {
-                                const rol = rolResult[0][0].rol;
-                                resolve({ user, rol, permisos: [] });
-                            } else {
-                                reject("No se encontró el rol para este usuario.");
-                            }
-                        })
-                        
-                    }
-
-                });
-            });
-        });
+        } catch (error) {
+            console.error("Error al iniciar sesion:", error);
+            throw error;
+        }
     } 
+ 
 
 
     async crearUsuarios() {
@@ -95,21 +74,39 @@ class user {
             const hashedPassword = await bcrypt.hash(this.password, salt);
 
             const query = 'Call CrearUsuario(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-        
-            return new Promise((resolve, reject) => {
-                connection.query(query, [this.id_documento, this.nombre, this.apellido, this.telefono, this.direccion, this.correo, hashedPassword, this.foto_usuario, this.centro_formacion, this.ficha_aprendiz, this.firma_usuario, this.foto_documento, this.foto_carnet, this.id_tipo_documento, this.rol_id], (err, result) => {
-                if(err) {
-                    console.error('Error al insertar usuario:', err);
-                    return reject(err);
-                }
-                console.log("creacion usuario", result);
-                resolve(result);
-                });
-            });
-        } catch (err) {
-            console.error('Error general en crearUsuarios:', err);
-            throw err;
+
+            const [result] = await connection.promise().query(query, [this.id_documento, this.nombre, this.apellido, this.telefono, this.direccion, this.correo, hashedPassword, this.foto_usuario, this.centro_formacion, this.ficha_aprendiz, this.firma_usuario, this.foto_documento, this.foto_carnet, this.id_tipo_documento, this.rol_id]);
+
+            console.log("Resultado de la consulta:", result);
+            if (result.affectedRows === 0) {
+                throw new Error("Error al insertar usuario");
+            }
+
+            return result;
+        } catch (error) {
+            console.error("Error en crear el usuario:", error);
+            throw error;
         }
+        // try {
+        //     const salt = await bcrypt.genSalt(10);
+        //     const hashedPassword = await bcrypt.hash(this.password, salt);
+
+        //     const query = 'Call CrearUsuario(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        
+        //     return new Promise((resolve, reject) => {
+        //         connection.query(query, [this.id_documento, this.nombre, this.apellido, this.telefono, this.direccion, this.correo, hashedPassword, this.foto_usuario, this.centro_formacion, this.ficha_aprendiz, this.firma_usuario, this.foto_documento, this.foto_carnet, this.id_tipo_documento, this.rol_id], (err, result) => {
+        //         if(err) {
+        //             console.error('Error al insertar usuario:', err);
+        //             return reject(err);
+        //         }
+        //         console.log("creacion usuario", result);
+        //         resolve(result);
+        //         });
+        //     });
+        // } catch (err) {
+        //     console.error('Error general en crearUsuarios:', err);
+        //     throw err;
+        // }
     }
 
     async RegistroUsuario() {
