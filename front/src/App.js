@@ -1,7 +1,7 @@
 import './App.css';
 import './styles/app.css'
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './pages/login';
@@ -15,6 +15,7 @@ import VerPerfil from './pages/verPerfil';
 import RealizarReserva from './pages/RealizarReserva';
 import VerReservas from './pages/VerReservas';
 import GenerarStrike from './pages/GenerarStrike';
+import Formulario from './pages/form';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -51,7 +52,8 @@ function App() {
       ) }
 
       <Routes>
-
+        
+        <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path='/crearUsuario' element={ <CrearUsuario /> } />
         <Route path='/usuarios' element={ <VerUsuarios /> } />
         <Route path='/editarUsuario/:id' element={ <ActualizarUsuario /> } />
@@ -62,6 +64,7 @@ function App() {
         <Route path='/RealizarReserva' element={ <RealizarReserva /> } />
         <Route path='/VerReservas' element={ <VerReservas /> } />
         <Route path='/GenerarStrike' element={ <GenerarStrike /> } />
+        <Route path='/Formulario' element = { <Formulario/> }/>
       </Routes>
       <Footer />
     </Router>

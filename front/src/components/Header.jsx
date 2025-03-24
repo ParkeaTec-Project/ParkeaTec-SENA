@@ -16,8 +16,10 @@ const Header = () => (
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto">
             <NavDropdown title='Formulario'>
-                <NavDropdown.Item href='#'>Llenar Formulario</NavDropdown.Item>
-                <NavDropdown.Item href='#'>Revisar Formulario</NavDropdown.Item>
+                <NavDropdown.Item href='#'>
+                  <Link to= "/Formulario"className={`${styles.linkItemLogin}`} >Llenar Formulario</Link>
+                  </NavDropdown.Item>
+                <NavDropdown.Item href='#' >Revisar Formulario</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#">Reportes</Nav.Link>
             <NavDropdown title='Parqueadero'>
