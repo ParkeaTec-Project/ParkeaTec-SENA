@@ -1,9 +1,8 @@
 function autenticacion (req, res, next) {
-    if(req.session.user) {
-        next();
-    } else {
-        res.status(401).json({ message: "Acceso no autorizado" })
+    if(!req.params.id) {
+        return res.status(400).json({ message: "Falta ID de usuario" });
     }
+    next();
 }
 
 export default autenticacion;

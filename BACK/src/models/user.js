@@ -66,8 +66,6 @@ class user {
         }
     } 
  
-
-
     async crearUsuarios() {
         try {
             const salt = await bcrypt.genSalt(10);
@@ -87,52 +85,29 @@ class user {
             console.error("Error en crear el usuario:", error);
             throw error;
         }
-        // try {
-        //     const salt = await bcrypt.genSalt(10);
-        //     const hashedPassword = await bcrypt.hash(this.password, salt);
-
-        //     const query = 'Call CrearUsuario(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
         
-        //     return new Promise((resolve, reject) => {
-        //         connection.query(query, [this.id_documento, this.nombre, this.apellido, this.telefono, this.direccion, this.correo, hashedPassword, this.foto_usuario, this.centro_formacion, this.ficha_aprendiz, this.firma_usuario, this.foto_documento, this.foto_carnet, this.id_tipo_documento, this.rol_id], (err, result) => {
-        //         if(err) {
-        //             console.error('Error al insertar usuario:', err);
-        //             return reject(err);
-        //         }
-        //         console.log("creacion usuario", result);
-        //         resolve(result);
-        //         });
-        //     });
-        // } catch (err) {
-        //     console.error('Error general en crearUsuarios:', err);
-        //     throw err;
-        // }
     }
 
     async RegistroUsuario() {
-        
         try {
             const salt = await bcrypt.genSalt(10);
             const hashedPassword = await bcrypt.hash(this.password, salt);
 
-            console.log("prueba modelo", this.id_documento, this.nombre, this.apellido, this.telefono, this.direccion, this.correo, hashedPassword, this.foto_usuario, this.centro_formacion, this.ficha_aprendiz, this.firma_usuario, this.foto_documento, this.foto_carnet, this.id_tipo_documento, this.rol_id);
-            const query = 'Call Registro(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-        
-            return new Promise((resolve, reject) => {
-                connection.query(query, [this.id_documento, this.nombre, this.apellido, this.telefono, this.direccion, this.correo, hashedPassword, this.foto_usuario, this.centro_formacion, this.ficha_aprendiz, this.firma_usuario, this.foto_documento, this.foto_carnet, this.id_tipo_documento, this.rol_id], (err, result) => {
-                if(err) {
-                    console.error('Error al hacer el registro de usuario:', err);
-                    return reject(err);
-                }
-                resolve(result);
-                });
-            });
-        } catch (err) {
-            console.error('Error general en registro de usuario:', err);
-            throw err;
+            const query = 'CALL Registro(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+            
+            const [result] = await connection.promise().query(query, [this.id_documento, this.nombre, this.apellido, this.telefono, this.direccion, this.correo, hashedPassword, this.foto_usuario, this.centro_formacion, this.ficha_aprendiz, this.firma_usuario, this.foto_documento, this.foto_carnet, this.id_tipo_documento, this.rol_id]);
+
+            console.log("resultado de la consola");
+            if (result.affectedRows === 0) {
+                throw new Error("Error al hacer el registro de usuario");
+            }
+
+            return result;
+        } catch (error) {
+            console.error("Error al crear el registro de usuario", error);
+            throw error;
         }
-    }
-        
+    }  
 
     static async obtenerUsuarios() {
         const query = 'SELECT * FROM obtenerusuario';
@@ -146,85 +121,78 @@ class user {
     }
 
     static async obtenerUsuarioId(id) {
-        const query = 'CALL DetalleUsuarioDocumento(?)';
-        // const query = 'SELECT u.id_documento, u.nombre, u.apellido, u.telefono, u.direccion, u.correo_electronico, u.contraseña, u.foto_usuario, u.firma_usuario, u.foto_documento, u.foto_carnet, r.nombre AS rol, td.nombre_documento FROM usuario AS u INNER JOIN roles AS r ON u.rol_id = r.id INNER JOIN tipo_documento AS td ON u.id_tipo_documento = td.id WHERE u.id_documento = ?;'
-
         try {
-            return new Promise((resolve, reject) => {
-                connection.query(query, [id], (err, result) => {
-                    if (err) {
-                        console.error('Error al encontrar al usuario', err);
-                        return reject(err);
-                    }
+            const query = 'CALL DetalleUsuarioDocumento(?)';
+            // const query = 'SELECT u.id_documento, u.nombre, u.apellido, u.telefono, u.direccion, u.correo_electronico, u.contraseña, u.foto_usuario, u.firma_usuario, u.foto_documento, u.foto_carnet, r.nombre AS rol, td.nombre_documento FROM usuario AS u INNER JOIN roles AS r ON u.rol_id = r.id INNER JOIN tipo_documento AS td ON u.id_tipo_documento = td.id WHERE u.id_documento = ?;'
 
-                    if(result.length === 0) {
-                        return reject("Usuario no encontrado");
-                    }
+            const [result] = await connection.promise().query(query, [id]);
 
-                    resolve(result[0][0]);
-                })
-            })
-        } catch(err) {
-            console.error('Error general en obtener usuario por id:', err);
-            throw err;
+            if (result[0].length === 0) {
+                throw new Error(`Usuario no encontrado con id ${id}`);
+            }
+
+            return result[0];
+        } catch (error) {
+            console.error(`Error al obtener usuario con id ${id}: `, error.message);
+            throw error;
         }
     }
 
     async actualizarUsuarioId() {
         try {
-            console.log("Contraseña proporcionada:", this.password);
-            console.log("rol_id proporcionado:", this.rol_id);
-            
             const salt = await bcrypt.genSalt(10);
             const hashedPassword = await bcrypt.hash(this.password, salt);
 
             console.log("contraseña hasheada", hashedPassword);
 
-            return new Promise((resolve, reject) => {
-                const checkQuery = 'CALL ObtenerUsuarioId(?)';
-                connection.query(checkQuery, [this.id_documento], (err, result) => {
-                    if(err) return reject(err);
-    
-                    if(result[0].length === 0) {
-                        return reject(new Error('Usuario no encontrado'));
-                    }
-    
-    
-                    //const query = 'UPDATE usuario SET contraseña = ? WHERE id_documento = ?';
-                    const query = 'CALL ActualizarUsuario(?, ?, ?, ?, ?)';
-                    
-                    connection.query(query, [this.nombre, this.correo, hashedPassword, this.rol_id, this.id_documento], (err, result) => {
-                        console.log("actualizar", result)
-                        if(err) return reject(err);
-                        resolve(result);
-                    });
-                });
-            });
-        } catch(err) {
-            throw err;
+            const checkQuery = 'CALL ObtenerUsuarioId(?)';
+            const [checkResult] = await connection.promise().query(checkQuery, [this.id_documento]);
+            console.log("checkResult", checkResult)
+            if (checkResult[0].length === 0) {
+                throw new Error(`Usuario no encontrado con id: ${this.id_documento}`);
+            }
+
+            //const query = 'UPDATE usuario SET contraseña = ? WHERE id_documento = ?';
+            const query = 'CALL ActualizarUsuario(?, ?, ?, ?, ?)';
+
+            const [result] = await connection.promise().query(query, [this.nombre, this.correo, hashedPassword, this.rol_id, this.id_documento]);
+            console.log("resultado..", result);
+            if (result.length === 0) {
+                throw new Error(`Error al actualizar el usuario con id ${this.id_documento}`);
+            }
+
+            return result;
+
+        } catch (error) {
+            console.error("Error en actualizar el usuario", error);
+            throw error;
         }
     }
 
     static async borrarUsuarioId(id) {
+        if (!id || isNaN(id)) {
+            throw new Error("ID de usuario invalido")
+        }
+
         try {
-            return new Promise((resolve, reject) => {
-                const checkQuery = 'CALL ObtenerUsuarioId(?)';
-                connection.query(checkQuery, [id], (err, result) => {
-                    if(err) return reject(err);
+            const checkQuery = 'CALL ObtenerUsuarioId(?)';
+            const [checkResult] = await connection.promise().query(checkQuery, [id]);
 
-                    if(result.length === 0) {
-                        return reject(new Error("Usuario no encontrado"));
-                    }
+            if (checkResult[0].length === 0) {
+                throw new Error(`Usuario no encontrado con id ${id}`);
+            }
 
-                    const query = 'CALL BorrarUsuario(?)';
-                    connection.query(query, [id], (err, result) => {
-                        if(err) return reject(err);
-                        resolve(result);
-                    });
-                });
-            });
-        } catch(err) {
-            throw err;
+            const query = 'CALL BorrarUsuario(?)';
+            const [result] = await connection.promise().query(query, [id]);
+
+            if (result.affectedRows === 0) {
+                throw new Error(`No se pudo borrar el usuario con el id ${id}`);
+            }
+
+            return result;
+        } catch (error) {
+            console.error(`Error al borrar el usuario con id ${id}`)
+            throw error;
         }
     }
 }

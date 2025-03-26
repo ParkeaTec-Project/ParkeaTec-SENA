@@ -1,3 +1,4 @@
+import { error } from 'node:console';
 import User from '../models/user.js';
 import fs from 'node:fs';
 
@@ -85,37 +86,43 @@ const crearUsuarios = async(req, res) => {
 };
 
 const registroUsuario = async(req, res) => {
-
-    const { id_documento, nombre, apellido, telefono, direccion, correo, password, centro_formacion, ficha_aprendiz,
-        id_tipo_documento, rol_id } = req.body;
-
-    const { foto_usuario, firma_usuario, foto_documento, foto_carnet } = req.files;
-    
-    console.log("datos", req.body)
-    if (!req.files || Object.keys(req.files).length === 0) {
-        console.log("error: No files were uploaded.");
-        return res.status(400).json({ message: "No puede estar vacio, carga una imagen" });
-    }
-
-    if (!foto_usuario || !firma_usuario || !foto_documento || !foto_carnet) {
-        return res.status(400).json({ message: "Faltan archivos requeridos." });
-    }
-
-    const fotoUsuarioPath = foto_usuario ? `uploads/${foto_usuario[0].filename}` : null;
-    const firmaUsuarioPath = firma_usuario ? `uploads/${firma_usuario[0].filename}` : null;
-    const fotoDocumentoPath = foto_documento ? `uploads/${foto_documento[0].filename}` : null;
-    const fotoCarnetPath = foto_carnet ? `uploads/${foto_carnet[0].filename}` : null;
-
-    const registroUsuario = new User({ id_documento: id_documento, nombre: nombre, apellido: apellido, telefono: telefono, direccion: direccion, correo: correo, password: password, foto_usuario: fotoUsuarioPath, centro_formacion: centro_formacion, ficha_aprendiz: ficha_aprendiz, firma_usuario: firmaUsuarioPath, foto_documento: fotoDocumentoPath, foto_carnet: fotoCarnetPath, id_tipo_documento: id_tipo_documento, rol_id: rol_id });
-
-    console.log("registro usuario", registroUsuario);
-
     try {
+        const { id_documento, nombre, apellido, telefono, direccion, correo, password, centro_formacion, ficha_aprendiz,
+            id_tipo_documento, rol_id } = req.body;
+
+        const foto_usuario = req.files?.foto_usuario?.[0]?.filename || null;
+        const firma_usuario = req.files?.firma_usuario?.[0]?.filename || null;
+        const foto_documento = req.files?.foto_documento?.[0]?.filename || null;
+        const foto_carnet = req.files?.foto_carnet?.[0]?.filename || null;
+    
+        console.log("datos", req.body);
+
+        if (!foto_usuario || !firma_usuario || !foto_documento || !foto_carnet) {
+            return res.status(400).json({ message: "Faltan archivos requeridos." });
+        }
+
+        const fotoUsuarioPath = foto_usuario ? `uploads/${foto_usuario}` : null;
+        const firmaUsuarioPath = firma_usuario ? `uploads/${firma_usuario}` : null;
+        const fotoDocumentoPath = foto_documento ? `uploads/${foto_documento}` : null;
+        const fotoCarnetPath = foto_carnet ? `uploads/${foto_carnet}` : null;
+
+        const registroUsuario = new User({ 
+            id_documento: id_documento, nombre: nombre, apellido: apellido, 
+            telefono: telefono, direccion: direccion, correo: correo, 
+            password: password, foto_usuario: fotoUsuarioPath, 
+            centro_formacion: centro_formacion, ficha_aprendiz: ficha_aprendiz, 
+            firma_usuario: firmaUsuarioPath, foto_documento: fotoDocumentoPath, 
+            foto_carnet: fotoCarnetPath, id_tipo_documento: id_tipo_documento, rol_id: rol_id 
+        });
+
+        console.log("registro usuario", registroUsuario);
         const result = await registroUsuario.RegistroUsuario();
-        res.status(200).json({ message: "Registro exitoso", data: result });
-    } catch (err) {
+    
+        
+        res.status(201).json({ message: "Registro exitoso", data: result });
+    } catch (error) {
         console.error("Error al hacer el registro:", err);
-        res.status(500).json({ message: "Error al hacer el registro" });
+        res.status(500).json({ message: error.message });
     }
 };
 
@@ -124,11 +131,11 @@ const obtenerUsuarios = async (req, res) => {
     try {
         const usuarios = await User.obtenerUsuarios();
         if(Object.keys(usuarios).length === 0) {
-            res.status(404).send("No existen usuarios");
+            res.status(404).json({ message: "No existen usuarios" });
         }
         res.status(200).json(usuarios);
     } catch (err) {
-        res.status(500).send("Error al obtener los usuarios");
+        res.status(500).json({ message: "Error al obtener los usuarios" });
     }
 };
 
@@ -142,42 +149,49 @@ const obtenerUsuarioId = async (req, res) => {
 
         const usuario = await User.obtenerUsuarioId(usuarioId);
         res.status(200).json({ usuario });
-    } catch(err) {
-        if(err === "Usuario no encontrado") {
-            return res.status(404).json({ error: 'Usuario no encontrado' });
+    } catch (error) {
+        if(error.message.includes("Usuario no encontrado")) {
+            return res.status(404).json({ message: error.message });
         }
 
-        console.error("Error al obtener el usuario por ID:", err);
-        res.status(500).json({ error: "Error en el servidor" });
+        console.error("Error al obtener el usuario por ID:", error);
+        res.status(500).json({ message: "Error interno" });
     }
 };
 
 const actualizarUsuarioId = async (req, res) => {
     try {
         console.log(req.body)
-        const { nombre, apellido, correo_electronico, contraseña, rol_id } = req.body;
+        const { nombre, email, contraseña, rol_id } = req.body;
         const usuarioId = req.params.id;
 
         console.log("id usuario:", usuarioId);
         console.log("body:", req.body);
         console.log("new contraseña:", contraseña);
 
-        if(!nombre || !apellido || !correo_electronico || !contraseña || !rol_id) {
-            return res.status(400).send({ message: "Falta informacion requerida" })
+        if(!nombre || !email || !contraseña || !rol_id) {
+            return res.status(400).json({ message: "Falta informacion requerida" })
         }
 
-        const updateUsuario = new User({ id_documento: usuarioId, nombre: nombre, apellido: apellido, correo: correo_electronico, password: contraseña, rol_id: rol_id });
+        const updateUsuario = new User({ 
+            id_documento: usuarioId, nombre: nombre, 
+            correo: email, password: contraseña, 
+            rol_id: rol_id 
+        });
         const result = await updateUsuario.actualizarUsuarioId();
 
         if (result.affectedRows === 0) {
-            return res.status(404).send({ message: "Usuario no encontrado" });
+            return res.status(404).json({ message: "Usuario no encontrado" });
         }
 
-        res.status(200).send({ message: "Usuario actualiazado correctamente", result });
+        res.status(200).json({ 
+            message: "Usuario actualiazado correctamente", result,
+            affectedRows: result.affectedRows
+        });
         
-    } catch(err) {
-        console.error("Error al actualizar el usuario:", err);
-        res.status(500).send({ message: "Error al actualizar el usuario" })
+    } catch(error) {
+        console.error("Error al actualizar el usuario:", error);
+        res.status(500).json({ message: error.message })
     }
 };
 
@@ -185,19 +199,23 @@ const borrarUsuarioId = async (req, res) => {
     try {
         const usuarioId = req.params.id;
 
-        if(!usuarioId) {
+        if(!usuarioId || !/^\d+$/.test(usuarioId)) {
             return res.status(400).json({ message: "Falta id de usuario" })
         }
 
         const deleteUsuario = await User.borrarUsuarioId(usuarioId)
-        res.status(200).json({ message: "usuario eliminado", deleteUsuario })
-    } catch(err) {
-        if(err === "Usuario no encontrado") {
-            return res.status(404).json({ error: 'Usuario no encontrado' });
+        res.status(200).json({ message: "Usuario eliminado", deleteUsuario })
+    } catch(error) {
+        if(error.message.includes("Usuario no encontrado")) {
+            return res.status(404).json({ message: error.message });
         }
 
-        console.error("Error al obtener el usuario por ID:", err);
-        res.status(500).json({ error: "Error en el servidor" });
+        if (error.message.includes("ID de usuario invalido")) {
+            return res.status(400).json({ message: error.message });
+        }
+
+        console.error("Error al obtener el usuario por ID:", usuarioId, error);
+        res.status(500).json({ message: "Error interno" });
     }
 }
 

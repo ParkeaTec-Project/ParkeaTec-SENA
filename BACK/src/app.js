@@ -5,6 +5,7 @@ import cors from 'cors';
 import userRoutes from './routes/userRoutes.js';
 import parqueaderoRoutes from './routes/parqueaderoRoutes.js';
 import reservaRoutes from './routes/reservaRoutes.js';
+import notFoundHandler from './middleware/notFoundHandler.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -38,6 +39,8 @@ app.use(bodyParser.json());
 app.use('/api', userRoutes);
 app.use('/api', parqueaderoRoutes);
 app.use('/api', reservaRoutes);
+
+app.use(notFoundHandler);
 
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
