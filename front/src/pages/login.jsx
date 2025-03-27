@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Modal } from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from '../styles/login.module.css';
 
-
-function Login() {
+function Login({ session }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    //const [userData, setUserData] = useState(null)
 
     //Modal
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState("");
+    const navigate = useNavigate();
 
-    const handleChangeEmail = (e) => setEmail(e.target.value);
+    //const handleChangeEmail = (e) => setEmail(e.target.value);
     const handleChangePassword = (e) => setPassword(e.target.value);
 
     const handleSubmit = async (e) => {
@@ -25,7 +24,7 @@ function Login() {
         };
 
         try {
-            const response = await fetch("http://localhost:4000/api/userLogin", {
+            const response = await fetch("http://localhost:4000/api/login", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -35,18 +34,17 @@ function Login() {
             });
 
             const data = await response.json();
-            localStorage.setItem('user', JSON.stringify(data));
+            
 
             if(response.ok) {
                 console.log("Login exitoso:", data);
-                console.log("sesion:", data.sesion.user_id);
-                //setUserData(data.sesion.user_id);
                 setModalMessage("Login exitoso");
                 setShowModal(true);
-
+                //setIsAuthenticated(true);
+                await session();
                 setTimeout(() => {
                     setShowModal(false);
-                    window.location.href = '/crearUsuario';
+                    navigate('/crearUsuario');
                 }, 2000)
 
             } else {
@@ -67,7 +65,7 @@ function Login() {
             <Form onSubmit={ handleSubmit } className={`${styles.form}`}>
                 <Form.Group className={`mb-3 ${styles.input}`} controlId="email">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" value={ email } onChange={ handleChangeEmail } placeholder="name@example.com"/>
+                    <Form.Control type="email" value={ email } onChange={ (e) => setEmail(e.target.value) } placeholder="name@example.com"/>
                 </Form.Group>
 
                 <Form.Group className={`mb-3 ${styles.input}`} controlId="password">

@@ -19,37 +19,32 @@ import Formulario from './pages/form';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
+  
+ 
+   
     const session = async () => {
       try {
         const response = await fetch("http://localhost:4000/api/verificarSesion", {
-          credentials: "include"}
-        );
+          credentials: "include"
+        });
 
         const data = await response.json();
         console.log(data);
+        setIsAuthenticated(data.isAuthenticated)
 
-        if(data.isAuthenticated) {
-          setIsAuthenticated(true);
-        } else {
-          setIsAuthenticated(false);
-        }
       } catch(error) {
         console.error("Error al verificar la sesion", error);
       }
     };
 
-    session();
-  }, []);
+useEffect(() => {
+  session();
+}, []);
 
   return (
     <Router>
-      { isAuthenticated ? (
-        <Header />
-      ) : (
-        <HeaderLogin />
-      ) }
+      
+      { isAuthenticated ? <Header /> : <HeaderLogin /> }
 
       <Routes>
         
@@ -57,7 +52,7 @@ function App() {
         <Route path='/crearUsuario' element={ <CrearUsuario /> } />
         <Route path='/usuarios' element={ <VerUsuarios /> } />
         <Route path='/editarUsuario/:id' element={ <ActualizarUsuario /> } />
-        <Route path='/login' element={ <Login /> } />
+        <Route path='/login' element={ <Login session={ session }/> } />
         <Route path='/registro' element={ <Registro /> } />
         <Route path='/recuperarPassword' element={ <RecuperarPassword /> } />
         <Route path='/verPerfil' element={ <VerPerfil /> } />

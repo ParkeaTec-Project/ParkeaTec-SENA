@@ -20,12 +20,14 @@ function CerrarSesion () {
         
             if(response.ok) {
                 const data = await response.json();
+                console.log(data);
                 console.log(data.message);
                 setModalMessage("Se ha cerrado la sesion");
                 setShowModal(true);
 
                 setTimeout(() => {
                     setShowModal(false);
+                    //setIsAuthenticated(false);
                     window.location.href = "/login";
                 }, 2000)
             } else {

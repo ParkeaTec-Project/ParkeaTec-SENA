@@ -1,7 +1,25 @@
-import { error } from 'node:console';
 import User from '../models/user.js';
-import fs from 'node:fs';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+import ms from 'ms';
+dotenv.config();
 
+const generateToken = (user, rol, permisos) => {
+    return jwt.sign(
+        {
+            id: user.id_documento,
+            nombre: user.nombre,
+            email: user.correo_electronico,
+            rol_id: user.rol_id,
+            rol,
+            permisos
+        },
+        process.env.JWT_SECRET,
+        {
+            expiresIn: process.env.JWT_EXPIRES_IN
+        }
+    );
+};
 
 const login = async (req, res) => {
     const { email, password } = req.body;
@@ -9,57 +27,56 @@ const login = async (req, res) => {
     try {
         const { user, rol, permisos } = await User.login(email, password);
 
-        req.session.user = {
-            user_id: user.id_documento,
-            email: email,
-            rol,
-            permisos
-        };
+        const token = generateToken(user, rol, permisos);
+        res.cookie('authToken', token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'Strict',
+            maxAge: parseInt(process.env.JWT_COOKIE_EXPIRES_MS)
+        });
 
-        console.log("Sesion creada:", req.session.user);
+        console.log('Hora local:', new Date().toString());
+console.log('Token expira en (ms):', ms(process.env.JWT_EXPIRES_IN));
+console.log('Cookie expira en (ms):', process.env.JWT_COOKIE_EXPIRES_MS);
 
-        res.status(200).json({ 
-            message: "Login exitoso",
+        res.status(200).json({
+            message: 'Login exitoso',
             user: {
-                id: user.id_documento, 
+                id: user.id_documento,
                 nombre: user.nombre,
-                email: user.correo_electronico,
-                rol_id: user.rol_id,
-                rol,
-                permisos,
-            },
-            sesion: req.session.user,
+                rol
+            }
         });
     } catch(error) {
-        //res.status(400).json({ message: error.message} );
         console.error("Error de login", error)
         res.status(400).json({ message: error.message });
     }
 };
 
-const checkSession = async (req, res) => {
-    if (req.session.user) {
-        res.status(200).json({
-            isAuthenticated: true,
-            user: req.session.user
-        });
-    } else {
-        res.status(200).json({
-            isAuthenticated: false
-        });
-    }
+const protectedRoute = (req, res) => {
+    res.json({
+        message: 'Ruta protegida - Acceso concedido',
+        user: req.user
+    });
+};
+
+const verificarAutenticacion = async (req, res) => {
+    res.status(200).json({
+        isAuthenticated: true,
+        user: req.user
+    });
 };
 
 const cerrarSesion = async (req, res) => {
-    req.session.destroy(err => {
-        if(err) {
-            return res.status(500).json({ message: "Error al cerrar sesion" })
-        }
-
-        //Limpiar las cookies
-        res.clearCookie('connect.sid');
-        res.status(200).json({ message: "Sesion cerrada exitosamente" })
-    })
+    res.clearCookie('authToken', {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'Strict'
+    });
+    res.status(200).json({
+        isAuthenticated: false,
+        message: 'Sesion cerrada'
+    });
 }
 
 const crearUsuarios = async(req, res) => {
@@ -228,5 +245,6 @@ export default {
     actualizarUsuarioId,
     borrarUsuarioId,
     cerrarSesion,
-    checkSession
+    verificarAutenticacion,
+    protectedRoute
 };
