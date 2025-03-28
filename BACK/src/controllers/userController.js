@@ -1,7 +1,6 @@
 import User from '../models/user.js';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import ms from 'ms';
 dotenv.config();
 
 const generateToken = (user, rol, permisos) => {
@@ -34,10 +33,6 @@ const login = async (req, res) => {
             sameSite: 'Strict',
             maxAge: parseInt(process.env.JWT_COOKIE_EXPIRES_MS)
         });
-
-        console.log('Hora local:', new Date().toString());
-console.log('Token expira en (ms):', ms(process.env.JWT_EXPIRES_IN));
-console.log('Cookie expira en (ms):', process.env.JWT_COOKIE_EXPIRES_MS);
 
         res.status(200).json({
             message: 'Login exitoso',
