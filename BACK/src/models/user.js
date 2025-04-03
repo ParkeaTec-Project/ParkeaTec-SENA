@@ -65,6 +65,46 @@ class user {
             throw error;
         }
     } 
+
+    static async findOne(email) {
+        const query = 'CALL ObtenerEmail(?)';
+
+        try {
+            const [result] = await connection.promise().query(query, [email]);
+            if (result[0].length === 0) {
+                throw new Error("Usuario no encontrado");
+            }
+
+            return result[0];
+        } catch (error) {
+            console.error(`Error al obtener usuario`, error.message);
+            throw error;
+        }
+    }
+
+    async findById() {
+        try {
+            const salt = await bcrypt.genSalt(10);
+            const hashedPassword = await bcrypt.hash(this.password, salt);
+
+            const checkQuery = 'CALL ObtenerUsuarioId(?)';
+            const [checkResult] = await connection.promise().query(checkQuery, [this.id_documento]);
+            if (checkResult[0].length === 0) {
+                throw new Error(`Usuario no encontrado con id: ${this.id_documento}`);
+            }
+
+            const query = 'UPDATE usuario SET contraseña = ? WHERE id_documento = ?';
+            const [result] = await connection.promise().query(query, [hashedPassword, this.id_documento]);
+            if (result.length === 0) {
+                throw new Error("Error al actualizar el usuario");
+            }
+
+            return result;
+        } catch (error) {
+            console.error("Error en actualizar el usuario", error);
+            throw error;
+        }
+    }
  
     async crearUsuarios() {
         try {
@@ -82,7 +122,7 @@ class user {
 
             return result;
         } catch (error) {
-            console.error("Error en crear el usuario:", error);
+            console.error("Error al crear el usuario:", error);
             throw error;
         }
         

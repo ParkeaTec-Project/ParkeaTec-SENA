@@ -1,5 +1,6 @@
 import User from '../models/user.js';
 import jwt from 'jsonwebtoken';
+import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -62,6 +63,111 @@ const verificarAutenticacion = async (req, res) => {
     });
 };
 
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'juanandres78.jg@gmail.com',
+        pass: 'uptr zuar fjll xkeh'
+    }
+});
+
+const forgotPassword = async (req, res) => {
+    const { email } = req.body;
+    const user = await User.findOne(email);
+
+    if (!user) {
+        return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+
+    const token = jwt.sign({ id: user[0].id_documento }, process.env.JWT_SECRET, { expiresIn: '15m' });
+
+    const resetLink = `http://localhost:3000/reset-password?token=${token}`;
+
+    //Configuracion de correo
+    const mailOptions = {
+        from: "Parkeatec <juanandres78.jg@gmail.com>",
+        to: email,
+        subject: 'Recuperacion de contraseña',
+        html: `
+            <p>Hola,</p>
+            <p>Hemos recibido una solicitud para restablecer tu contraseña.</p>
+            <p>Por favor, haz clic en el siguiente enlace para continuar:</p>
+            <a href="${resetLink}">Restablecer contraseña</a>
+            <p>Este enlace expirara en 15 minutos.</p>
+            <p>Si no solicitaste este cambio, ignora este mensaje.</p>
+        `
+    };
+    await transporter.sendMail(mailOptions);
+    
+    console.log(`Enviar este enlace por correo: ${resetLink}`);
+
+    res.status(200).json({ message: 'Correo enviado con instrucciones' });
+};
+
+const resetPassword = async (req, res) => {
+    //const token = req.cookies.resetToken;
+    const { token } = req.query;
+
+    if (!token) {
+        return res.status(401).json({
+            message: 'Token no encontrado'
+        });
+    }
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        
+        //Establecer cookie solo si el token es valido
+        res.cookie('resetToken', token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'Strict',
+            maxAge: 15 * 60 * 1000
+        });
+
+        res.stauts(200).json({ message: 'Token valido', userId: decoded.id_documento })
+    } catch (error) {
+        res.status(400).json({ message: 'Token invalido o expirado' });
+    }
+};
+
+const resetPasswordUpdate = async (req, res) => {
+    const token = req.cookies.resetToken;
+    const { password } = req.body;
+
+    if (!token) {
+        return res.status(401).json({
+            message: 'No autorizado'
+        })
+    }
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const updateUser = new User({
+            id_documento: decoded.id,
+            password: password
+        });
+
+        const result = await updateUser.findById();
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({
+                message: "Usuario no encontrado"
+            })
+        }
+
+        res.clearCookie('resetToken');
+
+        res.status(200).json({
+            message: "Contraseña actualizada correctamente", result,
+            affectedRows: result.affectedRows
+        });
+    } catch (error) {
+        console.error("Error al actualizar el usuario", error);
+        res.status(500).json({ message: error.message })
+    }
+}
+
 const cerrarSesion = async (req, res) => {
     res.clearCookie('authToken', {
         httpOnly: true,
@@ -78,13 +184,14 @@ const crearUsuarios = async(req, res) => {
     const { id_documento, nombre, apellido, telefono, direccion, correo, password, centro_formacion, ficha_aprendiz,
         firma_usuario, foto_documento, foto_carnet, id_tipo_documento, rol_id } = req.body;
 
-    if (!req.file) {
+        const foto_usuario = req.file?.filename
+
+    if (!foto_usuario) {
         return res.status(400).json({ message: "No puede estar vacio, carga una imagen" });
     }
 
-    const fotoUsuarioPath = `uploads/${req.file.filename}`;
 
-    const crearUsuario = new User({ id_documento: id_documento, nombre: nombre, apellido: apellido, telefono: telefono, direccion: direccion, correo: correo, password: password, foto_usuario: fotoUsuarioPath, centro_formacion: centro_formacion, ficha_aprendiz: ficha_aprendiz, firma_usuario: firma_usuario, foto_documento: foto_documento, foto_carnet: foto_carnet, id_tipo_documento: id_tipo_documento, rol_id: rol_id });
+    const crearUsuario = new User({ id_documento: id_documento, nombre: nombre, apellido: apellido, telefono: telefono, direccion: direccion, correo: correo, password: password, foto_usuario, centro_formacion: centro_formacion, ficha_aprendiz: ficha_aprendiz, firma_usuario: firma_usuario, foto_documento: foto_documento, foto_carnet: foto_carnet, id_tipo_documento: id_tipo_documento, rol_id: rol_id });
 
     console.log("Usuario creado", crearUsuario);
 
@@ -102,29 +209,34 @@ const registroUsuario = async(req, res) => {
         const { id_documento, nombre, apellido, telefono, direccion, correo, password, centro_formacion, ficha_aprendiz,
             id_tipo_documento, rol_id } = req.body;
 
-        const foto_usuario = req.files?.foto_usuario?.[0]?.filename || null;
-        const firma_usuario = req.files?.firma_usuario?.[0]?.filename || null;
-        const foto_documento = req.files?.foto_documento?.[0]?.filename || null;
-        const foto_carnet = req.files?.foto_carnet?.[0]?.filename || null;
-    
-        console.log("datos", req.body);
+        const { foto_usuario, firma_usuario, foto_documento, foto_carnet } = req.files;
 
         if (!foto_usuario || !firma_usuario || !foto_documento || !foto_carnet) {
             return res.status(400).json({ message: "Faltan archivos requeridos." });
         }
 
-        const fotoUsuarioPath = foto_usuario ? `uploads/${foto_usuario}` : null;
-        const firmaUsuarioPath = firma_usuario ? `uploads/${firma_usuario}` : null;
-        const fotoDocumentoPath = foto_documento ? `uploads/${foto_documento}` : null;
-        const fotoCarnetPath = foto_carnet ? `uploads/${foto_carnet}` : null;
+        const processFile = (field) => req.files?.[field]?.[0]?.filename || null;
+
+        console.log("datos body", req.body);
+        console.log("datos file", req.files);
+
 
         const registroUsuario = new User({ 
-            id_documento: id_documento, nombre: nombre, apellido: apellido, 
-            telefono: telefono, direccion: direccion, correo: correo, 
-            password: password, foto_usuario: fotoUsuarioPath, 
-            centro_formacion: centro_formacion, ficha_aprendiz: ficha_aprendiz, 
-            firma_usuario: firmaUsuarioPath, foto_documento: fotoDocumentoPath, 
-            foto_carnet: fotoCarnetPath, id_tipo_documento: id_tipo_documento, rol_id: rol_id 
+            id_documento, 
+            nombre, 
+            apellido, 
+            telefono, 
+            direccion,
+            correo, 
+            password, 
+            foto_usuario: processFile('foto_usuario'), 
+            centro_formacion, 
+            ficha_aprendiz, 
+            firma_usuario: processFile('firma_usuario'), 
+            foto_documento: processFile('foto_documento'), 
+            foto_carnet: processFile('foto_carnet'), 
+            id_tipo_documento, 
+            rol_id 
         });
 
         console.log("registro usuario", registroUsuario);
@@ -133,7 +245,7 @@ const registroUsuario = async(req, res) => {
         
         res.status(201).json({ message: "Registro exitoso", data: result });
     } catch (error) {
-        console.error("Error al hacer el registro:", err);
+        console.error("Error al hacer el registro:", error);
         res.status(500).json({ message: error.message });
     }
 };
@@ -145,7 +257,7 @@ const obtenerUsuarios = async (req, res) => {
         if(Object.keys(usuarios).length === 0) {
             res.status(404).json({ message: "No existen usuarios" });
         }
-        res.status(200).json(usuarios);
+        res.status(200).json({message: "Usuarios obtenidos exitosamente.", usuarios});
     } catch (err) {
         res.status(500).json({ message: "Error al obtener los usuarios" });
     }
@@ -160,14 +272,14 @@ const obtenerUsuarioId = async (req, res) => {
         }
 
         const usuario = await User.obtenerUsuarioId(usuarioId);
-        res.status(200).json({ usuario });
+        res.status(200).json({ message: "Usuario obtenido exitosamente.", usuario });
     } catch (error) {
         if(error.message.includes("Usuario no encontrado")) {
             return res.status(404).json({ message: error.message });
         }
 
         console.error("Error al obtener el usuario por ID:", error);
-        res.status(500).json({ message: "Error interno" });
+        res.status(500).json({ message: "Error interno en el servidor" });
     }
 };
 
@@ -241,5 +353,8 @@ export default {
     borrarUsuarioId,
     cerrarSesion,
     verificarAutenticacion,
-    protectedRoute
+    protectedRoute,
+    forgotPassword,
+    resetPassword,
+    resetPasswordUpdate
 };
