@@ -1,15 +1,29 @@
-import swaggerAutogen from 'swagger-autogen';
+import swaggerJSDoc from 'swagger-jsdoc';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const outputFile = './swagger.json';
-const endPointsFiles = ['./app.js'];
-
-const doc = {
-    info: {
-        title: 'API de Parqueaderos',
-        description: 'Esta API permite gestionar usuarios y parqueaderos'
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const options = {
+    definition: {
+        openapi: "3.0.0",
+        info: {
+            title: 'API de Parqueaderos',
+            description: 'Esta API permite gestionar usuarios y parqueaderos',
+            version: '1.0.0'
+        },
+        servers: [
+            {
+                url: "http://localhost:4000",
+                description: "Servidor de desarrollo",
+            },
+        ],
     },
-    host: 'localhost:4000',
-    scheme: ['http']
-}
+    apis: [path.join(__dirname, "./routes/*.js")],
+};
+//console.log("Swagger cargando archivos desde:", path.resolve("./src/routes/*.js"));
+const swaggerSpec = swaggerJSDoc(options);
 
-swaggerAutogen()(outputFile, endPointsFiles, doc);
+export default swaggerSpec;
+
+
