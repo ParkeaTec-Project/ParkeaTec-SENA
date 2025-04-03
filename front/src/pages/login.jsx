@@ -74,7 +74,7 @@ function Login({ session }) {
                 </Form.Group>
 
                 <div className={`mt-3 ${styles.recuperarContraseña}`}>
-                    <Link to={'/recuperarPassword'}>Olvidaste tu contraseña?</Link>
+                    <Link to={'/forgot-password'}>Olvidaste tu contraseña?</Link>
                 </div>
 
                 <Button variant="success" type="submit">Success</Button>

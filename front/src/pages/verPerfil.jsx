@@ -25,7 +25,7 @@ function VerPerfil() {
         );
 
         const data = await response.json();
-        console.log(data);
+        console.log("dato verificar sesion", data);
         setSesion(data);
       } catch (err) {
         console.error("ocurrio un error al obtener la sesion:", err);
@@ -74,13 +74,13 @@ function VerPerfil() {
           <h1>Perfil</h1>
           <img
             className={styles.img}
-            src={`http://localhost:4000/${userData?.foto_usuario}`}
-            alt={`imagen usuario de ${userData?.nombre}`}
-            aria-label="Foto de perfil"
+            src={`http://localhost:4000/uploads/users/${userData.foto_usuario}`}
+            alt={`imagen usuario de ${userData?.nombre || "usuario"}`}
             onError={(e) => {
-              e.target.onerror = null;
               e.target.src = "http://localhost:4000/uploads/default.avif";
+              console.error('Error cargando la imagen:', e.target.src);
             }}
+            crossOrigin="anonymous"
           />
         </Col>
         <Col>

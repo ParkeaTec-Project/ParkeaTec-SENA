@@ -139,7 +139,7 @@ function CrearUsuario() {
                     </Col>
 
                     <Col md={6} className="mb-3">
-                        <Form.Group className="mb-3" controlId="telefono">
+                        <Form.Group className="mb-3" controlId="direccion">
                         <Form.Label>Direccion</Form.Label>
                         <Form.Control 
                             type="text"

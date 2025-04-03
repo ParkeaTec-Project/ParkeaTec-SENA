@@ -10,12 +10,16 @@ import VerUsuarios from './pages/verUsuarios';
 import ActualizarUsuario from './pages/actualizarUsuario';
 import Registro from './pages/registro';
 import HeaderLogin from './components/HeaderLogin';
+
+import ForgotPassword from './pages/forgotPassword';
 import RecuperarPassword from './pages/recuperarPassword';
+
 import VerPerfil from './pages/verPerfil';
 import RealizarReserva from './pages/RealizarReserva';
 import VerReservas from './pages/VerReservas';
 import GenerarStrike from './pages/GenerarStrike';
 import Formulario from './pages/form';
+import VerVehiculo from './pages/verVehiculo';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -54,12 +58,17 @@ useEffect(() => {
         <Route path='/editarUsuario/:id' element={ <ActualizarUsuario /> } />
         <Route path='/login' element={ <Login session={ session }/> } />
         <Route path='/registro' element={ <Registro /> } />
-        <Route path='/recuperarPassword' element={ <RecuperarPassword /> } />
+
+        <Route path='forgot-password' element={ <ForgotPassword /> } />
+        <Route path='/reset-password' element={ <RecuperarPassword /> } />
+        
         <Route path='/verPerfil' element={ <VerPerfil /> } />
         <Route path='/RealizarReserva' element={ <RealizarReserva /> } />
         <Route path='/VerReservas' element={ <VerReservas /> } />
         <Route path='/GenerarStrike' element={ <GenerarStrike /> } />
         <Route path='/Formulario' element = { <Formulario/> }/>
+
+        <Route path='/MiVehiculo' element = { <VerVehiculo/> }/>
       </Routes>
       <Footer />
     </Router>
