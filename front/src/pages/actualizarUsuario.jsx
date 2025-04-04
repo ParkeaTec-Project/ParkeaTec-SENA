@@ -1,42 +1,21 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Form, Button, Modal } from "react-bootstrap"
 
 function ActualizarUsuario({ usuario, handleUpdate, obtenerUsuario }) {
     console.log("pruebaActualizarUsuario", usuario);
-    const { id } = useParams();
     const [formData, setFormData] = useState({
-        nombre: '',
-        apellido: '',
-        correo_electronico: '',
-        contraseña: '',
-        rol: '',
-        rol_id: '',
+        nombre: usuario.nombre,
+        // apellido: usuario.apellido,
+        email: usuario.correo_electronico,
+        contraseña: usuario.contraseña,
+        // rol: usuario.rol,
+        rol_id: usuario.rol_id,
     });
+    console.log("FormData", formData);
 
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState("");
-
-    useEffect(() => {
-        console.log(id)
-        
-            const fetchUsuario = async () => {
-                try {
-                    const response = await fetch(`http://localhost:4000/api/user/${usuario.id_documento}`);
-                    const data = await response.json();
-                    console.log(data.usuario);
-                    
-                    setFormData(
-                        data.usuario,
-                    );
-                    
-                } catch (error) {
-                    console.error("Error al actualizar el usuario:", error)
-                }
-            };
-            fetchUsuario();
-    }, [id, usuario]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -85,7 +64,7 @@ function ActualizarUsuario({ usuario, handleUpdate, obtenerUsuario }) {
                     />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formApellido">
+                {/* <Form.Group className="mb-3" controlId="formApellido">
                     <Form.Label>Apellido</Form.Label>
                     <Form.Control 
                         type="text"
@@ -93,14 +72,14 @@ function ActualizarUsuario({ usuario, handleUpdate, obtenerUsuario }) {
                         value={ formData.apellido }
                         onChange={ handleChange }
                     />
-                </Form.Group>
+                </Form.Group> */}
 
                 <Form.Group className="mb-3" controlId="formCorreo">
                     <Form.Label>Correo</Form.Label>
                     <Form.Control 
                         type="email"
                         name="correo_electronico"
-                        value={ formData.correo_electronico } 
+                        value={ formData.email } 
                         onChange={ handleChange }
                     />
                 </Form.Group>

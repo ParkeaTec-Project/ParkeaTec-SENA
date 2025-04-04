@@ -56,7 +56,7 @@ const obtenerVehiculoId = async (req, res) => {
         }
 
         const vehiculo = await Vehiculo.obtenerVehiculoId(id);
-        res.status(200).json({ message: vehiculo[0] });
+        res.status(200).json({ message: "vehiculo obtenido", vehiculo: vehiculo[0] });
     } catch (error) {
         if (error.message.includes("vehiculo de usuario no encontrado")) {
             return res.status(404).json({ error: error.message });
@@ -69,18 +69,24 @@ const obtenerVehiculoId = async (req, res) => {
 const actualizarVehiculoId = async (req, res) => {
     try {
         const { color, observacion } = req.body;
-        const foto_vehiculo = req.file?.filename;
+        //const foto_vehiculo = req.file?.filename;
         const id = req.params.id
 
         console.log("req body", req.body);
         console.log("req file", req.file);
+        const vehiculoActual = (await Vehiculo.obtenerVehiculoId(id))[0];
+        const foto_vehiculo = req.file?.filename || vehiculoActual.foto_vehiculo;
 
-        if (!color || !observacion || !foto_vehiculo ) {
-            return res.status(400).json({ message: "Falta informacion requerida" });
+        if (!color && !observacion && !foto_vehiculo ) {
+            return res.status(400).json({ message: "Debe enviar al menos un campo para actualizar" });
         }
 
         //const processFile = (field) => req.files?.[field]?.[0]?.filename;
 
+        const camposActualizar = {};
+        if (color) camposActualizar.color = color;
+        if (observacion) camposActualizar.observacion = observacion;
+        if (foto_vehiculo) camposActualizar.foto_vehiculo = foto_vehiculo;
         //console.log("process file", processFile)
         const updataVehiculo = new Vehiculo({
             color,

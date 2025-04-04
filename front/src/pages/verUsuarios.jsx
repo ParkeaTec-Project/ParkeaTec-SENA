@@ -27,8 +27,8 @@ function VerUsuarios({ actualizarUsuario }) {
 
             if(response.ok) {
                 const data = await response.json();
-                setUsuarios(data)
-                console.log("Usuarios obtenidos:", data)
+                setUsuarios(data.usuarios);
+                console.log("Usuarios obtenidos:", data.usuarios)
             } else if (response.status === 401) {
                 alert("Inicia sesion primero para acceder a esta seccion")
                 window.location.href = "/login"
