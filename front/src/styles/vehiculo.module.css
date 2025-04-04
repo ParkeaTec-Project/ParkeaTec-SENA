@@ -1,0 +1,19 @@
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: calc(100vh - 80px - 72px);
+}
+
+.containerVehiculo {
+    width: 70%;
+    height: 55%;
+    background-color: #d7d7d7;
+    overflow-y: auto;
+}
+
+.imgVehiculo {
+    width: 400px;
+    height: 200px;
+}
