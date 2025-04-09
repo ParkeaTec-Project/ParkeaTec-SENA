@@ -13,7 +13,7 @@ function CrearUsuario() {
         direccion: "",
         correo: "",
         password: "",
-        foto_usuario: "",
+        foto_usuario: "" || null,
         centro_formacion: "",
         ficha_aprendiz: null,
         firma_usuario: null,

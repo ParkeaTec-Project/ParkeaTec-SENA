@@ -6,14 +6,22 @@
     height: calc(100vh - 80px - 72px);
 }
 
-.containerVehiculo {
-    width: 70%;
-    height: 55%;
-    background-color: #d7d7d7;
-    overflow-y: auto;
+.card {
+    width: '100%';
+    max-width: '800px';
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.imgVehiculo {
-    width: 400px;
-    height: 200px;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+    cursor: pointer;   
+}
+
+.card img {
+    transition: transform 0.5s linear;
+}
+
+.card:hover img {
+    transform: scale(1.03);
 }

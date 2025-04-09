@@ -7,8 +7,8 @@ function ActualizarUsuario({ usuario, handleUpdate, obtenerUsuario }) {
     const [formData, setFormData] = useState({
         nombre: usuario.nombre,
         // apellido: usuario.apellido,
-        email: usuario.correo_electronico,
-        contraseña: usuario.contraseña,
+        correo: usuario.correo_electronico,
+        password: usuario.contraseña,
         // rol: usuario.rol,
         rol_id: usuario.rol_id,
     });
@@ -78,18 +78,18 @@ function ActualizarUsuario({ usuario, handleUpdate, obtenerUsuario }) {
                     <Form.Label>Correo</Form.Label>
                     <Form.Control 
                         type="email"
-                        name="correo_electronico"
-                        value={ formData.email } 
+                        name="correo"
+                        value={ formData.correo } 
                         onChange={ handleChange }
                     />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formContraseña">
+                <Form.Group className="mb-3" controlId="formPassword">
                     <Form.Label>Contraseña</Form.Label>
                     <Form.Control 
                         type="password"
-                        name="contraseña"
-                        value={ formData.contraseña } 
+                        name="password"
+                        value={ formData.password } 
                         onChange={ handleChange }
                     />
                 </Form.Group>

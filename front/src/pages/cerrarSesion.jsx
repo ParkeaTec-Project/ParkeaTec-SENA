@@ -43,7 +43,14 @@ function CerrarSesion () {
 
     return (
         <div>
-            <a href="!#" className={`${styles.cerrarSesion}`} onClick={ cerrarSesion }>Cerrar sesion</a>
+            <span 
+                className={`${styles.cerrarSesion}`} 
+                onClick={ cerrarSesion }
+                style={{ cursor: "pointer"}}
+            >
+                Cerrar Sesion
+            </span>
+            {/* <a href="!#" className={`${styles.cerrarSesion}`} onClick={ cerrarSesion }>Cerrar sesion</a> */}
 
             <Modal show={showModal} onHide={handleCloseModal}>
                 <Modal.Header closeButton>

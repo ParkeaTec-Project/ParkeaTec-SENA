@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/vehiculo.module.css";
-import { Modal } from "react-bootstrap";
+import { Modal, Container, Row, Col, Card, Button, Image } from "react-bootstrap";
 import ActualizarVehiculo from "./actualizarVehiculo";
 
 function VerVehiculo({ actualizarVehiculo }) {
@@ -24,6 +24,15 @@ function VerVehiculo({ actualizarVehiculo }) {
     observacion: "",
     id_documento: "",
     id_tipo_vehiculo: "",
+  });
+
+  const fecha = vehicleData.vencimiento_soat;
+
+  // formato de fecha
+  const vencimiento_soat = new Date(fecha).toLocaleDateString('es-ES', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
   });
 
   useEffect(() => {
@@ -99,21 +108,47 @@ function VerVehiculo({ actualizarVehiculo }) {
   // const handleCloseModal = () => setShowModal(false);
 
   return (
-    <section className={styles.section}>
-      <div className={styles.containerVehiculo}>
-        <h2>Tu vehiculo</h2>
-        <div>
-          <h3>Marca: {vehicleData.marca}</h3>
-          <h3>Modelo: {vehicleData.modelo}</h3>
-          <h3>Placa: {vehicleData.placa}</h3>
-        </div>
-        <img
-          className={styles.imgVehiculo}
-          src={`http://localhost:4000/uploads/vehicles/${vehicleData.foto_vehiculo}`}
-          alt="foto vehiculo"
-        />
-        <button onClick={() => handleEdit(vehicleData)}>Actualizar</button>
-      </div>
+    <section className={`py-4 ${styles.section}`}>
+      <Container>
+        <Row className="justify-content-center">
+          <Col md={8} lg={6}>
+            <Card className={`shadow-lg p-4  ${styles.card}`}>
+              <Card.Body>
+                <Row>
+                  <Col md={7}>
+                    <Card.Title className="mb-4">Tu vehiculo</Card.Title>
+                    <div className="mb-3">
+                      <p className="mb-2"><strong>Marca:</strong> { vehicleData.marca || 'N/A' } </p>
+                      <p className="mb-2"><strong>Modelo:</strong> { vehicleData.modelo || 'N/A' } </p>
+                      <p className="mb-2"><strong>Placa:</strong> { vehicleData.placa || 'N/A' } </p>
+                      <p className="mb-2"><strong>Vencimiento SOAT:</strong> { vencimiento_soat || 'N/A' } </p>
+                      <p className="mb-2"><strong>Observaciones:</strong> { vehicleData.observacion || 'N/A' } </p>
+                    </div>
+                    <Button
+                      variant="primary"
+                      onClick={() => handleEdit(vehicleData)}
+                      className="mt-2"
+                    >
+                      Actualizar vehiculo
+                    </Button>
+                  </Col>
+
+                  <Col md={5} className="d-flex align-items-center">
+                    <Image
+                      fluid
+                      rounded
+                      src={`http://localhost:4000/uploads/vehicles/${vehicleData.foto_vehiculo}`}
+                      alt="Foto del vehiculo"
+                    />
+                  </Col>
+                </Row>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+
+      {/* Modal actualizacion */}
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Actualizar vehiculo</Modal.Title>
@@ -131,6 +166,40 @@ function VerVehiculo({ actualizarVehiculo }) {
         </Modal.Body>
       </Modal>
     </section>
+    // <section className={styles.section}>
+    //   <div className={styles.containerVehiculo}>
+    //     <h2>Tu vehiculo</h2>
+    //     <div>
+    //       <p>Marca: {vehicleData.marca}</p>
+    //       <p>Modelo: {vehicleData.modelo}</p>
+    //       <p>Placa: {vehicleData.placa}</p>
+    //       <p>Vencimiento Soat: {vencimiento_soat}</p>
+    //       <p>Observaciones: { vehicleData.observacion }</p>
+    //     </div>
+    //     <img
+    //       className={styles.imgVehiculo}
+    //       src={`http://localhost:4000/uploads/vehicles/${vehicleData.foto_vehiculo}`}
+    //       alt="foto vehiculo"
+    //     />
+    //     <button onClick={() => handleEdit(vehicleData)}>Actualizar</button>
+    //   </div>
+    //   <Modal show={showModal} onHide={() => setShowModal(false)}>
+    //     <Modal.Header closeButton>
+    //       <Modal.Title>Actualizar vehiculo</Modal.Title>
+    //     </Modal.Header>
+    //     <Modal.Body>
+    //       {vehicleData && (
+    //         <div>
+    //           <ActualizarVehiculo
+    //             vehiculo={vehiculoSeleccionado}
+    //             handleUpdate={handleUpdate}
+    //             obtenerVehiculo={obtenerVehiculo}
+    //           />
+    //         </div>
+    //       )}
+    //     </Modal.Body>
+    //   </Modal>
+    // </section>
   );
 }
 

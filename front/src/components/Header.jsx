@@ -7,7 +7,6 @@ import styles from '../styles/header.module.css';
 import logo from '../assets/logo-parkeaTec.svg';
 
 const Header = () => (
-  
   <Navbar className={`justify-content-between ${styles.header} `} variant="dark" expand="lg">
     <Container className={`${styles.container}`}>
     <img src={`${logo}`} className={`${styles.imgLogo}`} alt='logoParqueTec'/>
@@ -16,33 +15,34 @@ const Header = () => (
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto">
             <NavDropdown title='Formulario'>
-                <NavDropdown.Item href='#'>
-                  <Link to= "/Formulario"className={`${styles.linkItemLogin}`} >Llenar Formulario</Link>
-                  </NavDropdown.Item>
-                <NavDropdown.Item href='#' >Revisar Formulario</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to={"/Formulario"}>
+                  Llenar Formulario
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to={""}>
+                  Revisar Formulario
+                </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#">Reportes</Nav.Link>
+            <Nav.Link as={Link} to="/reportes">Reportes</Nav.Link>
             <NavDropdown title='Parqueadero'>
-              <NavDropdown.Item href='#'>Asignar Espacios</NavDropdown.Item>
-              <NavDropdown.Item href='#'>Ver Espacios</NavDropdown.Item>
-              <NavDropdown.Item href='#'>Generar Strikes</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="">Asignar Espacios</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/EspaciosParqueadero">Ver Espacios</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="">Generar Strikes</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title='Perfil'>
-              <NavDropdown.Item href='#'>Generar QR</NavDropdown.Item>
-              <NavDropdown.Item href='#'>
-                <Link to="/verPerfil" className={`${styles.linkItemLogin}`}>Ver Perfil</Link>
+              <NavDropdown.Item as={Link} to="">Generar QR</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/verPerfil" className={`${styles.linkItemLogin}`}>
+                Ver Perfil
               </NavDropdown.Item>
-              <NavDropdown.Item href='#'>Hacer Reserva</NavDropdown.Item>
-              <NavDropdown.Item href='/MiVehiculo'>Mis Vehiculos</NavDropdown.Item>
-              <NavDropdown.Item href='#'>Registrar Usuarios</NavDropdown.Item>
-              <NavDropdown.Item href='#'>Strikes</NavDropdown.Item>
-              <NavDropdown.Item href='#'>Mis Facturas</NavDropdown.Item>
-              <NavDropdown.Item href='#'>Historial</NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link to="/usuarios" className={`${styles.linkItemLogin}`}>Ver usuarios</Link>
+              <NavDropdown.Item as={Link} to="">Hacer Reserva</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/MiVehiculo">Mis Vehiculos</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="">Registrar Usuarios</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="">Strikes</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="">Mis Facturas</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="">Historial</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/usuarios" className={`${styles.linkItemLogin}`}>
+                Ver usuarios
               </NavDropdown.Item>
-              
-              <NavDropdown.Item href='#'><CerrarSesion /></NavDropdown.Item>
+              <NavDropdown.Item href='#'> <CerrarSesion /> </NavDropdown.Item>
             </NavDropdown>
         </Nav>
       </Navbar.Collapse>
