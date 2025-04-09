@@ -2,9 +2,15 @@ import Reserva from "../models/reserva.js";
 
 const crearReserva = async (req, res) => {
     try {
-        const { fecha_creacion, estado, fecha_hora_entrada, 
-            fecha_hora_salida, puesto_asignado, 
-            id_documento, vehiculo_placa } = req.body;
+        const { 
+            fecha_creacion, 
+            estado, 
+            fecha_hora_entrada, 
+            fecha_hora_salida,
+            puesto_asignado, 
+            id_documento, 
+            vehiculo_placa 
+        } = req.body;
         
         if (!fecha_creacion || !estado || !fecha_hora_entrada || !puesto_asignado || !id_documento || !vehiculo_placa) {
             return res.status(400).json({ message: "Todos los campos son obligatorios" });
@@ -27,6 +33,42 @@ const crearReserva = async (req, res) => {
     }
 };
 
+const verificarReserva = async (req, res) => {
+    try {
+        const { id } = req.params;
+        console.log("ID_DOCUMENTO", id);
+        //verificar si el usuario no tiene mas reservas
+        const verificarReserva = await Reserva.verificarReserva(id);
+        console.log("verificarReserva", verificarReserva);
+        if (verificarReserva) {
+            return res.status(400).json({ message: "Ya tienen una reserva activa o pendiente" });
+        } else {
+            return res.status(200).json({ message: "No tienes reservas activas. Puedes reservar" })
+        }
+    } catch (error) {
+        console.error("Error al verificar la reserva: ", error);
+        return res.status(500).json({ message: "Error interno en el servidor" });
+    }
+}
+
+const cancelarReserva = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        if (!id || !/^\d+$/.test(id)) {
+            return res.status(400).json({ message: "Falta id de la reserva" })
+        }
+
+        const cancelarReserva = await Reserva.cancelarReserva(id);
+        res.status(200).json({ message: "Reserva cancelada" });
+    } catch (error) {
+        console.error("Error al cancelar la reserva:", error.message);
+        res.status(500).json({ message: "Error interno" });
+    }
+}
+
 export default {
     crearReserva,
+    verificarReserva,
+    cancelarReserva
 }

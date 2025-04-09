@@ -37,10 +37,12 @@ const login = async (req, res) => {
 
         res.status(200).json({
             message: 'Login exitoso',
-            user: {
+            success: true,
+            data: {
                 id: user.id_documento,
                 nombre: user.nombre,
-                rol
+                rol,
+                session_token: `JWT ${token}`
             }
         });
     } catch(error) {
@@ -84,19 +86,63 @@ const forgotPassword = async (req, res) => {
     const resetLink = `http://localhost:3000/reset-password?token=${token}`;
 
     //Configuracion de correo
+    // const mailOptions = {
+    //     from: "Parkeatec <juanandres78.jg@gmail.com>",
+    //     to: email,
+    //     subject: 'Recuperacion de contraseña',
+    //     html: `
+    //         <p>Hola,</p>
+    //         <p>Hemos recibido una solicitud para restablecer tu contraseña.</p>
+    //         <p>Por favor, haz clic en el siguiente enlace para continuar:</p>
+    //         <a href="${resetLink}">Restablecer contraseña</a>
+    //         <p>Este enlace expirara en 15 minutos.</p>
+    //         <p>Si no solicitaste este cambio, ignora este mensaje.</p>
+    //     `
+    // };
     const mailOptions = {
-        from: "Parkeatec <juanandres78.jg@gmail.com>",
+        from: "ParkeaTec <juanandres78.jg@gmail.com>",
         to: email,
-        subject: 'Recuperacion de contraseña',
+        subject: 'Recuperacion de contraseña - ParkeaTec',
         html: `
-            <p>Hola,</p>
-            <p>Hemos recibido una solicitud para restablecer tu contraseña.</p>
-            <p>Por favor, haz clic en el siguiente enlace para continuar:</p>
-            <a href="${resetLink}">Restablecer contraseña</a>
-            <p>Este enlace expirara en 15 minutos.</p>
-            <p>Si no solicitaste este cambio, ignora este mensaje.</p>
+            <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px;
+            margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden;">
+
+                <div style="background-color: #2563eb; padding: 24px; text-align: center;">
+                    <h1 style="color: white; margin: 0; font-size: 24px;">
+                        ParkeaTec
+                    </h1>
+                </div>
+
+                <div style="padding: 32px 24px; background-color: #f9fafb;">
+                    <h2 style="color: #111827; font-size: 20px; margin-top: 0;">¡Hola!</h2>
+                    <p style="color: 4b5563; line-height: 1.6; margin-bottom: 24px;">
+                        Recibiste este correo porque solicitaste restablecer tu contraseña en ParkeaTec.
+                        Haz clic en el siguiente botón para continuar con el proceso:
+                    </p>
+
+                    <div style="text-align: center; margin: 32px 0;">
+                        <a href="${resetLink}"
+                           style="background-color: #2563eb; color: white; padding: 16px 32px; border-radius: 8px;
+                           text-decoration: none; font-weight: bold; display: inline-block; font-size: 16px;">
+                           Restablecer contraseña
+                        </a>
+                    </div>
+
+                    <p style="color: #6b7280; font-size: 14px; line-height: 1.5;">
+                        <strong>Importante:</strong> Este enlace expirara en <strong>15 minutos</strong>.<br>
+                        Si no solicitaste este cambio, por favor ignora este mensaje.
+                    </p>
+                </div>
+
+                <div style="background-color: #f3f4f6; padding: 16px 24px; text-align: center; font-size: 12px;
+                color: #6b7280;">
+                    <p style="margin: 4px 0;">
+                        © ${new Date().getFullYear()} ParkeaTec. Todos los derechos reservados.
+                    </p>
+                </div>
+            </div>
         `
-    };
+    }
     await transporter.sendMail(mailOptions);
     
     console.log(`Enviar este enlace por correo: ${resetLink}`);
@@ -186,9 +232,9 @@ const crearUsuarios = async(req, res) => {
 
         const foto_usuario = req.file?.filename
 
-    if (!foto_usuario) {
-        return res.status(400).json({ message: "No puede estar vacio, carga una imagen" });
-    }
+    // if (!foto_usuario) {
+    //     return res.status(400).json({ message: "No puede estar vacio, carga una imagen" });
+    // }
 
 
     const crearUsuario = new User({ id_documento: id_documento, nombre: nombre, apellido: apellido, telefono: telefono, direccion: direccion, correo: correo, password: password, foto_usuario, centro_formacion: centro_formacion, ficha_aprendiz: ficha_aprendiz, firma_usuario: firma_usuario, foto_documento: foto_documento, foto_carnet: foto_carnet, id_tipo_documento: id_tipo_documento, rol_id: rol_id });
@@ -197,7 +243,7 @@ const crearUsuarios = async(req, res) => {
 
     try {
         await crearUsuario.crearUsuarios();
-        res.status(200).json({ message: "Usuario creado" });
+        res.status(200).json({ message: "Usuario creado", crearUsuario });
     } catch (err) {
         console.error("Error al crear el usuario:", err.message);
         res.status(500).json({ message: err.message });
@@ -286,20 +332,20 @@ const obtenerUsuarioId = async (req, res) => {
 const actualizarUsuarioId = async (req, res) => {
     try {
         console.log(req.body)
-        const { nombre, email, contraseña, rol_id } = req.body;
+        const { nombre, correo, password, rol_id } = req.body;
         const usuarioId = req.params.id;
 
         console.log("id usuario:", usuarioId);
         console.log("body:", req.body);
-        console.log("new contraseña:", contraseña);
+        console.log("new contraseña:", password);
 
-        if(!nombre || !email || !contraseña || !rol_id) {
+        if(!nombre || !correo || !password || !rol_id) {
             return res.status(400).json({ message: "Falta informacion requerida" })
         }
 
         const updateUsuario = new User({ 
             id_documento: usuarioId, nombre: nombre, 
-            correo: email, password: contraseña, 
+            correo: correo, password: password, 
             rol_id: rol_id 
         });
         const result = await updateUsuario.actualizarUsuarioId();
@@ -309,7 +355,12 @@ const actualizarUsuarioId = async (req, res) => {
         }
 
         res.status(200).json({ 
-            message: "Usuario actualiazado correctamente", result,
+            message: "Usuario actualiazado correctamente", 
+            nombre,
+            correo,
+            password,
+            rol_id,
+            result,
             affectedRows: result.affectedRows
         });
         

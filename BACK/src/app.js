@@ -26,7 +26,7 @@ const port = 4000;
 
 // Configuracion CORS
 const corsOptions = {
-    origin: 'http://localhost:3000', //URL de react
+    origin: ['http://localhost:3000', 'http://192.168.20.16:4000'], //URL de react
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
