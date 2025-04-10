@@ -21,11 +21,11 @@ import RecuperarPassword from "./pages/recuperarPassword";
 
 import VerPerfil from "./pages/verPerfil";
 import RealizarReserva from "./pages/RealizarReserva";
-import VerReservas from "./pages/VerReservas";
 import GenerarStrike from "./pages/GenerarStrike";
 import Formulario from "./pages/form";
 import VerVehiculo from "./pages/verVehiculo";
 import EspaciosParqueadero from "./pages/espaciosParqueadero";
+import VerReservas from "./pages/reservas";
 import NotFound from "./pages/notFound";
 
 
@@ -76,6 +76,8 @@ function App() {
           <Route path="/MiVehiculo" element={<VerVehiculo />} />
 
           <Route path="/EspaciosParqueadero" element={<EspaciosParqueadero />} />
+        
+          <Route path="/VerReservas" element={<VerReservas/>} />
         </Route>
       
         <Route path='*' element = { <NotFound /> } />

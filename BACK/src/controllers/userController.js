@@ -255,13 +255,14 @@ const registroUsuario = async(req, res) => {
         const { id_documento, nombre, apellido, telefono, direccion, correo, password, centro_formacion, ficha_aprendiz,
             id_tipo_documento, rol_id } = req.body;
 
-        const { foto_usuario, firma_usuario, foto_documento, foto_carnet } = req.files;
+        const foto_usuario = req.file?.filename;
+        console.log("foto_usuario", foto_usuario);
 
-        if (!foto_usuario || !firma_usuario || !foto_documento || !foto_carnet) {
+        if (!foto_usuario) {
             return res.status(400).json({ message: "Faltan archivos requeridos." });
         }
 
-        const processFile = (field) => req.files?.[field]?.[0]?.filename || null;
+        //const processFile = (field) => req.files?.[field]?.[0]?.filename || null;
 
         console.log("datos body", req.body);
         console.log("datos file", req.files);
@@ -275,12 +276,16 @@ const registroUsuario = async(req, res) => {
             direccion,
             correo, 
             password, 
-            foto_usuario: processFile('foto_usuario'), 
+            // foto_usuario: processFile('foto_usuario'), 
+            foto_usuario,
             centro_formacion, 
             ficha_aprendiz, 
-            firma_usuario: processFile('firma_usuario'), 
-            foto_documento: processFile('foto_documento'), 
-            foto_carnet: processFile('foto_carnet'), 
+            // firma_usuario: processFile('firma_usuario'), 
+            firma_usuario: "",
+            // foto_documento: processFile('foto_documento'), 
+            foto_documento: "",
+            // foto_carnet: processFile('foto_carnet'), 
+            foto_carnet: "",
             id_tipo_documento, 
             rol_id 
         });

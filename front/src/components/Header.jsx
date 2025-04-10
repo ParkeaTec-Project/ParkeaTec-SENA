@@ -33,7 +33,7 @@ const Header = () => (
               <NavDropdown.Item as={Link} to="/verPerfil" className={`${styles.linkItemLogin}`}>
                 Ver Perfil
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="">Hacer Reserva</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/VerReservas">Ver Reservas</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/MiVehiculo">Mis Vehiculos</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="">Registrar Usuarios</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="">Strikes</NavDropdown.Item>

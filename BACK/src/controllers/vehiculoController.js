@@ -56,6 +56,10 @@ const obtenerVehiculoId = async (req, res) => {
         }
 
         const vehiculo = await Vehiculo.obtenerVehiculoId(id);
+        if (!vehiculo || vehiculo.length === 0) {
+            throw new Error("Vehiculo de usuario no encontrado");
+        }
+        
         res.status(200).json({ message: "vehiculo obtenido", vehiculo: vehiculo[0] });
     } catch (error) {
         if (error.message.includes("vehiculo de usuario no encontrado")) {

@@ -15,9 +15,9 @@ function Registro() {
     foto_usuario: null, //
     centro_formacion: "", //
     ficha_aprendiz: "", //
-    /*firma_usuario: null, //
-    foto_documento: null, /
-    foto_carnet: null, */
+    firma_usuario: null, 
+    foto_documento: null,
+    foto_carnet: null,
     id_tipo_documento: "", //
     rol_id: "3",
   });
@@ -124,6 +124,8 @@ function Registro() {
             if(!value) error = "Ingrese su numero de ficha";
             else if(!regex.ficha_aprendiz.test(value)) error = 'Numero de ficha invalido';
             break;
+        default:
+          break;
     }
     setErrors((prev) => ({ ...prev, [name]: error }));
     return !error;
@@ -314,9 +316,9 @@ function Registro() {
               required
             >
               <option>Seleccione una opcion</option>
-              <option value="CC">Cedula de ciudadania</option>
-              <option value="CE">Cedula de extranjería</option>
-              <option value="TI">Tarjeta de identidad</option>
+              <option value="1">Cedula de ciudadania</option>
+              <option value="2">Cedula de extranjería</option>
+              <option value="3">Tarjeta de identidad</option>
             </Form.Select>
             <Form.Text className="text-muted" />
             {errors.id_tipo_documento && (

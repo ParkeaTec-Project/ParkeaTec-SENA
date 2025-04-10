@@ -10,16 +10,16 @@ function ActualizarVehiculo({ vehiculo, handleUpdate, obtenerVehiculo }) {
     });
     console.log("formData", formData);
 
-    const [filePreview, setFilePreview] = useState(vehiculo.foto_vehiculo);
+    //const [filePreview, setFilePreview] = useState(vehiculo.foto_vehiculo);
     const [selectedFile, setSelectedFile] = useState(null);
 
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            setSelectedFile(file);
-            setFilePreview(URL.createObjectURL(file));
-        }
-    };
+    // const handleFileChange = (e) => {
+    //     const file = e.target.files[0];
+    //     if (file) {
+    //         setSelectedFile(file);
+    //         setFilePreview(URL.createObjectURL(file));
+    //     }
+    // };
 
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState("");

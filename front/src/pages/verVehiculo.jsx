@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styles from "../styles/vehiculo.module.css";
 import { Modal, Container, Row, Col, Card, Button, Image } from "react-bootstrap";
 import ActualizarVehiculo from "./actualizarVehiculo";
@@ -56,8 +56,10 @@ function VerVehiculo({ actualizarVehiculo }) {
     obtenerSesion();
   }, []);
 
-  const obtenerVehiculo = async () => {
-    if (!sesion?.user?.id) return;
+  const obtenerVehiculo = useCallback(async () => {
+    const id = sesion?.user?.id;
+    if (!id) return;
+    
     console.log("prueba sesion vehiculo", sesion.user.id);
     try {
       // ruta obtener vehiculo
@@ -76,15 +78,15 @@ function VerVehiculo({ actualizarVehiculo }) {
       const data = await response.json();
       console.log("dato Vehiculo", data);
       setVehicleData(data.vehiculo);
-      console.log(vehicleData);
+      // console.log(vehicleData);
     } catch (err) {
       console.error("Error:", err);
     }
-  };
+  }, [sesion]);
 
   useEffect(() => {
     obtenerVehiculo();
-  }, [sesion]);
+  }, [obtenerVehiculo]);
 
   useEffect(() => {
     console.log("vehiculo seleccionado cambio:", vehiculoSeleccionado);

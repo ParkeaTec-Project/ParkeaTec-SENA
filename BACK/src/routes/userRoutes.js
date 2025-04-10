@@ -453,7 +453,7 @@ router.post("/user", upload("usuarioSingle"), userController.crearUsuarios);
  *                   type: string
  *                   example: "Error al crear el registro de usuario"
  */
-router.post("/registro", upload("usuario"), userController.registroUsuario);
+router.post("/registro", upload("usuarioSingle"), userController.registroUsuario);
 
 /**
  * @swagger

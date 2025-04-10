@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
-import styles from "../styles/header.module.css";
+// import styles from "../styles/header.module.css";
 
 function Formulario() {
   const [sesion, setSesion] = useState("");

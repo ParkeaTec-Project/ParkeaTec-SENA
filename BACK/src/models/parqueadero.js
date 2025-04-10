@@ -18,6 +18,18 @@ class parqueadero {
             throw err;
         }
     }
+
+    static async actualizarDisponibilidad(estado, id_parqueadero) {
+        const query = `UPDATE parqueadero SET disponibilidad = ? WHERE id_parqueadero = ?`;
+        
+        try {
+            const [result] = await connection.promise().query(query, [estado, id_parqueadero]);
+            return result;
+        } catch (err) {
+            console.error("Error al actualizar la disponibilidad", err);
+            throw err;
+        }
+    }
 }
 
 export default parqueadero;
