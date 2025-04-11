@@ -147,7 +147,23 @@ class user {
             console.error("Error al crear el registro de usuario", error);
             throw error;
         }
-    }  
+    } 
+    
+    static async actualizarFotos(usuarioId, firma_usuario, foto_documento, foto_carnet) {
+        try {
+            const query = 'UPDATE usuario SET firma_usuario = ?, foto_documento = ?, foto_carnet = ? WHERE id_documento = ?';
+            const [result] = await connection.promise().query(query, [firma_usuario, foto_documento, foto_carnet, usuarioId]);
+
+            if (result.affectedRows === 0) {
+                throw new Error("No se encontro el usuario para actualizar las fotos");
+            }
+
+            return result;
+        } catch (error) {
+            console.error("Error al actualizar las fotos del usuario", error);
+            throw error;
+        }
+    }
 
     static async obtenerUsuarios() {
         const query = 'SELECT * FROM obtenerusuario';
@@ -222,6 +238,11 @@ class user {
                 throw new Error(`Usuario no encontrado con id ${id}`);
             }
 
+            //Eliminar el vehiculo asociado al usuario
+            const deleteVehicle = 'DELETE FROM vehiculo WHERE id_documento = ?';
+            await connection.promise().query(deleteVehicle, [id]);
+
+            //Eliminar el usuario
             const query = 'CALL BorrarUsuario(?)';
             const [result] = await connection.promise().query(query, [id]);
 

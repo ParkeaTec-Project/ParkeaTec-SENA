@@ -19,6 +19,11 @@ export const uploadConfigs = {
             { name: 'foto_tarjeta_propiedad', maxCount: 1 },
             { name: 'foto_soat', maxCount: 1 },
             { name: 'foto_tecnomecanica', maxCount: 1 },
+
+            //Usuario
+            { name: 'firma_usuario', maxCount: 1 },
+            { name: 'foto_documento', maxCount: 1 },
+            { name: 'foto_carnet', maxCount: 1 },
         ],
         folder: 'vehicles'
     }, 

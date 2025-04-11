@@ -14,9 +14,87 @@ function Formulario() {
     id_documento: "",
     telefono: "",
     direccion: "",
+    placa: "",
+    tipo_vehiculo: "",
+    modelo: "",
+    marca: "",
+    color: "",
+    vencimiento_soat: "" || null,
+    observacion: "",
+    id_tipo_vehiculo: "",
+    firma_usuario: "",
+    foto_documento: "",
+    foto_carnet: "",
+    foto_placa_vehiculo: "" || null,
+    foto_serial: "" || null,
+    foto_vehiculo: "",
+    foto_licencia_conducir: "" || null,
+    foto_tarjeta_propiedad: "" || null,
+    foto_soat: "" || null,
+    foto_tecnomecanica: "" || null,
   });
   const [selectedOption, setSelectedOption] = useState("");
 
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+
+    const newValue = files && files.length > 0 ? files[0] : value;
+
+    console.log("📸 Cambiado:", name, "| Valor:", newValue);
+
+    setUserData((prev) => ({
+      ...prev,
+      [name]: newValue,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("prueba form vehiculo", userData);
+    console.log("🔎 Estado userData antes de FormData:", userData);
+
+    const data = new FormData();
+    console.log("🔎 Estado userData antes de FormData:", userData);
+
+    Object.keys(userData).forEach((field) => {
+      data.append(field, userData[field]);
+    });
+    console.log("✅ FormData contenido:");
+    for (let pair of data.entries()) {
+      console.log(pair[0] + ":", pair[1]);
+    }
+
+    try {
+      console.log(data);
+      console.log("✅ FormData antes del fetch:");
+      for (let [key, value] of data.entries()) {
+        console.log(`${key}:`, value instanceof File ? value.name : value);
+      }
+      const response = await fetch(
+        "http://localhost:4000/api/registroVehiculo",
+        {
+          method: "POST",
+          body: data,
+          credentials: "include",
+        }
+      );
+
+      const result = await response.json();
+      console.log("resultado", result);
+
+      if (response.ok) {
+        alert("registro de vehiculo exitoso");
+        console.log("vehiculo registrado", result);
+      } else {
+        alert("no se pudo hacer el registro");
+      }
+    } catch (error) {
+      console.log("Error al conectar con el servidor", error);
+      alert("Error al conectar con el servidor");
+    }
+  };
+
+  console.log("Selecte option", selectedOption);
   useEffect(() => {
     const obtenerSesion = async () => {
       try {
@@ -70,7 +148,7 @@ function Formulario() {
   return (
     <Container className="mt-4 mb-5">
       <h2>Formulario solicitud parqueadero</h2>
-      <Form className="mb-5">
+      <Form className="mb-5" onSubmit={handleSubmit}>
         <Row>
           <Col>
             <Form.Label>Nombre Completo</Form.Label>
@@ -112,7 +190,7 @@ function Formulario() {
           </Col>
         </Row>
         <Row>
-          <Col>
+          {/* <Col>
             <Form.Label className="mt-2">Tipo de persona </Form.Label>
             <Form.Select className="mt-2">
               <option>Seleccione una opcion</option>
@@ -120,7 +198,7 @@ function Formulario() {
               <option value="2">Contratista</option>
               <option value="3">Aprendiz</option>
             </Form.Select>
-          </Col>
+          </Col> */}
           <Col>
             <Form.Label className="mt-2">Ficha Aprendiz</Form.Label>
             <Form.Control
@@ -131,7 +209,7 @@ function Formulario() {
             ></Form.Control>
           </Col>
         </Row>
-        <Row>
+        {/* <Row>
           <Col>
             <Form.Label className="mt-2">Fecha inicio vinculacion </Form.Label>
             <Form.Control className="mt-2" type="date"></Form.Control>
@@ -140,7 +218,7 @@ function Formulario() {
             <Form.Label className="mt-2">Fecha fin vinculacion</Form.Label>
             <Form.Control className="mt-2" type="date"></Form.Control>
           </Col>
-        </Row>
+        </Row> */}
         <Row>
           <Col>
             <Form.Label className="mt-2">Direccion </Form.Label>
@@ -171,69 +249,292 @@ function Formulario() {
               value={userData.correo_electronico}
             ></Form.Control>
           </Col>
+        </Row>
+
+        <Row>
+          <Col>
+            <Form.Group>
+              <Form.Label className="mt-2">Foto Firma Usuario</Form.Label>
+              <Form.Control
+                className="mt-2"
+                type="file"
+                required
+                name="firma_usuario"
+                onChange={handleChange}
+              ></Form.Control>
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group>
+              <Form.Label className="mt-2">Foto Documento</Form.Label>
+              <Form.Control
+                className="mt-2"
+                type="file"
+                required
+                name="foto_documento"
+                onChange={handleChange}
+              ></Form.Control>
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group>
+              <Form.Label className="mt-2">Foto Carnet</Form.Label>
+              <Form.Control
+                className="mt-2"
+                type="file"
+                required
+                name="foto_carnet"
+                onChange={handleChange}
+              ></Form.Control>
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
           <Col>
             <Form.Label className="mt-2">Tipo de vehiculo</Form.Label>
             <Form.Select
               className="mt-2"
               value={selectedOption}
-              onChange={(e) => setSelectedOption(e.target.value)}
+              name="id_tipo_vehiculo"
+              // onChange={handleChange}
+              onChange={(e) => {
+                handleChange(e);
+                setSelectedOption(e.target.value);
+                setUserData((prev) => ({
+                  ...prev,
+                  id_tipo_vehiculo: e.target.value,
+                }));
+              }}
             >
               <option value="">Seleccione una opcion</option>
-              <option value="vehiculo">Vehiculo</option>
-              <option value="motocicleta">Motocicleta</option>
-              <option value="bicicleta">Bicicleta</option>
+              <option value="1">Motocicleta</option>
+              <option value="2">Bicicleta</option>
             </Form.Select>
           </Col>
+        </Row>
 
-          {selectedOption === "vehiculo" && (
+        {selectedOption === "1" && (
+          <>
             <Row>
               <Col>
                 <Form.Group className="mt-2">
                   <Form.Label>Placa del vehiculo</Form.Label>
-                  <Form.Control className="mt-2" type="text" />
+                  <Form.Control
+                    className="mt-2"
+                    type="text"
+                    name="placa"
+                    onChange={handleChange}
+                  />
                 </Form.Group>
               </Col>
               <Col>
                 <Form.Group className="mt-2">
                   <Form.Label>Modelo</Form.Label>
-                  <Form.Control className="mt-2" type="text" />
-                </Form.Group>
-              </Col>
-              <Col>
-              <Col>
-              <Form.Group>
-                <Form.Label className="mt-2">Marca</Form.Label>
-                <Form.Control className="mt-2" type="text" required></Form.Control>
-              </Form.Group>
-          </Col>
-              </Col>
-            </Row>
-          )}
-
-          {selectedOption === "motocicleta" && (
-            <Row>
-              <Col>
-                <Form.Group className="mt-2">
-                  <Form.Label className="mt-2">Cilindraje</Form.Label>
-                  <Form.Control className="mt-2" type="tel" required></Form.Control>
+                  <Form.Control
+                    className="mt-2"
+                    type="text"
+                    name="modelo"
+                    onChange={handleChange}
+                  />
                 </Form.Group>
               </Col>
               <Col>
                 <Form.Group>
-                  <Form.Label className="mt-2">Modelo</Form.Label>
-                  <Form.Control className="mt-2" type="tel" required></Form.Control>
+                  <Form.Label className="mt-2">Marca</Form.Label>
+                  <Form.Control
+                    className="mt-2"
+                    type="text"
+                    required
+                    name="marca"
+                    onChange={handleChange}
+                  ></Form.Control>
                 </Form.Group>
               </Col>
             </Row>
-          )}
+            <Row>
+              <Col>
+                <Form.Group className="mt-2">
+                  <Form.Label className="mt-2">Color</Form.Label>
+                  <Form.Control
+                    className="mt-2"
+                    type="tel"
+                    required
+                    name="color"
+                    onChange={handleChange}
+                  ></Form.Control>
+                </Form.Group>
+              </Col>
+              <Col>
+                <Form.Group>
+                  <Form.Label className="mt-2">vencimiento_soat</Form.Label>
+                  <Form.Control
+                    className="mt-2"
+                    type="date"
+                    required
+                    name="vencimiento_soat"
+                    onChange={handleChange}
+                  ></Form.Control>
+                </Form.Group>
+              </Col>
+              <Col>
+                <Form.Group>
+                  <Form.Label className="mt-2">observacion</Form.Label>
+                  <Form.Control
+                    className="mt-2"
+                    type="text"
+                    required
+                    name="observacion"
+                    onChange={handleChange}
+                  ></Form.Control>
+                </Form.Group>
+              </Col>
+            </Row>
 
-          {selectedOption === "bicicleta" && (
+            <Row>
+              <Col>
+                <Form.Group>
+                  <Form.Label className="mt-2">Foto placa</Form.Label>
+                  <Form.Control
+                    className="mt-2"
+                    type="file"
+                    required
+                    name="foto_placa_vehiculo"
+                    onChange={handleChange}
+                  ></Form.Control>
+                </Form.Group>
+              </Col>
+              <Col>
+                <Form.Group>
+                  <Form.Label className="mt-2">foto_vehiculo</Form.Label>
+                  <Form.Control
+                    className="mt-2"
+                    type="file"
+                    required
+                    name="foto_vehiculo"
+                    onChange={handleChange}
+                  ></Form.Control>
+                </Form.Group>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col>
+                <Form.Group>
+                  <Form.Label className="mt-2">
+                    Foto Licencia Conducir
+                  </Form.Label>
+                  <Form.Control
+                    className="mt-2"
+                    type="file"
+                    required
+                    name="foto_licencia_conducir"
+                    onChange={handleChange}
+                  ></Form.Control>
+                </Form.Group>
+              </Col>
+              <Col>
+                <Form.Group>
+                  <Form.Label className="mt-2">
+                    Foto Tarjeta Propiedad
+                  </Form.Label>
+                  <Form.Control
+                    className="mt-2"
+                    type="file"
+                    required
+                    name="foto_tarjeta_propiedad"
+                    onChange={handleChange}
+                  ></Form.Control>
+                </Form.Group>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col>
+                <Form.Group>
+                  <Form.Label className="mt-2">Foto Soat</Form.Label>
+                  <Form.Control
+                    className="mt-2"
+                    type="file"
+                    required
+                    name="foto_soat"
+                    onChange={handleChange}
+                  ></Form.Control>
+                </Form.Group>
+              </Col>
+              <Col>
+                <Form.Group>
+                  <Form.Label className="mt-2">Foto TecnoMecanica</Form.Label>
+                  <Form.Control
+                    className="mt-2"
+                    type="file"
+                    required
+                    name="foto_tecnomecanica"
+                    onChange={handleChange}
+                  ></Form.Control>
+                </Form.Group>
+              </Col>
+            </Row>
+          </>
+        )}
+
+        {selectedOption === "2" && (
+          <>
+            <Row>
+            <Col>
+              <Form.Group className="mt-2">
+                <Form.Label className="mt-2">Nro serial</Form.Label>
+                <Form.Control
+                  className="mt-2"
+                  type="tel"
+                  required
+                  name="placa"
+                  onChange={handleChange}
+                ></Form.Control>
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group className="mt-2">
+                <Form.Label className="mt-2">serial</Form.Label>
+                <Form.Control
+                  className="mt-2"
+                  type="file"
+                  required
+                  name="foto_serial"
+                  onChange={handleChange}
+                ></Form.Control>
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
             <Form.Group className="mt-2">
-              <Form.Label className="mt-2">serial</Form.Label>
-              <Form.Control className="mt-2" type="tel" required></Form.Control>
-            </Form.Group>
-          )}
-        </Row>
+                <Form.Label className="mt-2">Foto Vehiculo</Form.Label>
+                <Form.Control
+                  className="mt-2"
+                  type="file"
+                  required
+                  name="foto_vehiculo"
+                  onChange={handleChange}
+                ></Form.Control>
+              </Form.Group>
+            </Col>
+            <Col>
+            <Form.Group className="mt-2">
+                <Form.Label className="mt-2">Observacion</Form.Label>
+                <Form.Control
+                  className="mt-2"
+                  type="text"
+                  required
+                  name="observacion"
+                  onChange={handleChange}
+                ></Form.Control>
+              </Form.Group>
+            </Col>
+          </Row>
+          </>
+          
+        )}
+
         <Button variant="submit" type="submit">
           Enviar
         </Button>

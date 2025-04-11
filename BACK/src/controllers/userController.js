@@ -394,7 +394,7 @@ const borrarUsuarioId = async (req, res) => {
             return res.status(400).json({ message: error.message });
         }
 
-        console.error("Error al obtener el usuario por ID:", usuarioId, error);
+        console.error("Error al hacer la solicitud de borrar:", error);
         res.status(500).json({ message: "Error interno" });
     }
 }

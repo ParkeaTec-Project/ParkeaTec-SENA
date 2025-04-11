@@ -69,6 +69,9 @@ function VerUsuarios({ actualizarUsuario }) {
         try {
             const response = await fetch(`http://localhost:4000/api/userDelete/${id}`, {
                 method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                }
             });
 
             if(response.ok) {
