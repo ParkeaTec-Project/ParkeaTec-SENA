@@ -8,7 +8,7 @@ function ActualizarUsuario({ usuario, handleUpdate, obtenerUsuario }) {
         nombre: usuario.nombre,
         // apellido: usuario.apellido,
         correo: usuario.correo_electronico,
-        password: usuario.contraseña,
+        password: "",
         // rol: usuario.rol,
         rol_id: usuario.rol_id,
     });
@@ -26,13 +26,25 @@ function ActualizarUsuario({ usuario, handleUpdate, obtenerUsuario }) {
         e.preventDefault();
         console.log(formData);
 
+        const dataToSend = {
+            nombre: formData.nombre,
+            correo: formData.correo,
+            rol_id: formData.rol_id
+        }
+
+        if (formData.password.trim() !== "") {
+            dataToSend.password = formData.password;
+        }
+
+        console.log("Datos a enviar:", dataToSend);
+
         try {
             const response = await fetch(`http://localhost:4000/api/userUpdate/${usuario.id_documento}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(dataToSend),
             });
 
             if(response.ok) {
@@ -40,6 +52,8 @@ function ActualizarUsuario({ usuario, handleUpdate, obtenerUsuario }) {
                 setShowModal(true);
                 obtenerUsuario();
             } else {
+                const errorData = await response.json(); // Para ver el error del backend
+                console.error("Error del backend:", errorData);
                 setModalMessage("Error al actualizar el usuario");
                 setShowModal(false);
             }
@@ -64,16 +78,6 @@ function ActualizarUsuario({ usuario, handleUpdate, obtenerUsuario }) {
                     />
                 </Form.Group>
 
-                {/* <Form.Group className="mb-3" controlId="formApellido">
-                    <Form.Label>Apellido</Form.Label>
-                    <Form.Control 
-                        type="text"
-                        name="apellido"
-                        value={ formData.apellido }
-                        onChange={ handleChange }
-                    />
-                </Form.Group> */}
-
                 <Form.Group className="mb-3" controlId="formCorreo">
                     <Form.Label>Correo</Form.Label>
                     <Form.Control 
@@ -88,8 +92,9 @@ function ActualizarUsuario({ usuario, handleUpdate, obtenerUsuario }) {
                     <Form.Label>Contraseña</Form.Label>
                     <Form.Control 
                         type="password"
+                        placeholder="Nueva contraseña"
                         name="password"
-                        value={ formData.password } 
+                        value={ formData.password }
                         onChange={ handleChange }
                     />
                 </Form.Group>

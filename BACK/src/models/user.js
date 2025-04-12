@@ -196,16 +196,22 @@ class user {
 
     async actualizarUsuarioId() {
         try {
-            const salt = await bcrypt.genSalt(10);
-            const hashedPassword = await bcrypt.hash(this.password, salt);
-
-            console.log("contraseña hasheada", hashedPassword);
-
             const checkQuery = 'CALL ObtenerUsuarioId(?)';
             const [checkResult] = await connection.promise().query(checkQuery, [this.id_documento]);
+            
             console.log("checkResult", checkResult)
             if (checkResult[0].length === 0) {
                 throw new Error(`Usuario no encontrado con id: ${this.id_documento}`);
+            }
+
+            let hashedPassword;
+
+            if (this.password && !this.password.startsWith('$2a$')) {
+                const salt = await bcrypt.genSalt(10);
+                hashedPassword = await bcrypt.hash(this.password, salt);
+                console.log("contraseña hasheada", hashedPassword);
+            } else {
+                hashedPassword = checkResult[0][0].contraseña
             }
 
             //const query = 'UPDATE usuario SET contraseña = ? WHERE id_documento = ?';

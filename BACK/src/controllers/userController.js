@@ -336,7 +336,8 @@ const obtenerUsuarioId = async (req, res) => {
 
 const actualizarUsuarioId = async (req, res) => {
     try {
-        console.log(req.body)
+
+        console.log("Datos recibidos:", req.body);
         const { nombre, correo, password, rol_id } = req.body;
         const usuarioId = req.params.id;
 
@@ -344,15 +345,18 @@ const actualizarUsuarioId = async (req, res) => {
         console.log("body:", req.body);
         console.log("new contraseña:", password);
 
-        if(!nombre || !correo || !password || !rol_id) {
+        if(!nombre || !correo || !rol_id) {
             return res.status(400).json({ message: "Falta informacion requerida" })
         }
 
         const updateUsuario = new User({ 
-            id_documento: usuarioId, nombre: nombre, 
-            correo: correo, password: password, 
-            rol_id: rol_id 
+            id_documento: usuarioId,
+            nombre: nombre, 
+            correo: correo, 
+            rol_id: rol_id,
+            password: password
         });
+        
         const result = await updateUsuario.actualizarUsuarioId();
 
         if (result.affectedRows === 0) {
@@ -363,7 +367,6 @@ const actualizarUsuarioId = async (req, res) => {
             message: "Usuario actualiazado correctamente", 
             nombre,
             correo,
-            password,
             rol_id,
             result,
             affectedRows: result.affectedRows
