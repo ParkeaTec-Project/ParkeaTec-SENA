@@ -1,4 +1,5 @@
-.section {
+.ParkingSection {
+    background-color: #f8f9fa;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,3 +7,98 @@
     height: calc(100vh - 80px - 72px);
 }
 
+.parkingSpot {
+    position: relative;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.parkingSpot:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.disponible {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 2px solid #34d399;
+}
+
+.ocupado {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: 2px solid #f87171;
+    cursor: not-allowed;
+}
+
+.disabledSpot {
+    background-color: #e5e7eb !important;
+    color: #6b7280 !important;
+    border-color: #d1d5db !important;
+    cursor: not-allowed !important;
+}
+
+.occupiedBadge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+.modalParkingSpot {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.parkingSpot:not(.ocupado):hover {
+    animation: pulse 1.5s infinite;
+}
+
+.notification {
+    min-width: 300px;
+    max-width: 100%;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideOut {
+    from { transform: translateX(0); }
+    to { transform: translateX(100%); }
+}
+
+.alert {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: none;
+}
