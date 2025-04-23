@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 
 import MainLayout from "./components/mainLayout";
+import Dashboard from "./pages/Presentation.jsx";
 import Login from "./pages/login";
 import CrearUsuario from "./pages/crearUsuario";
 import VerUsuarios from "./pages/verUsuarios";
@@ -58,6 +59,7 @@ function App() {
       <Routes>
         <Route element = { <MainLayout isAuthenticated={isAuthenticated}/> }>
           <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/Dashboard" element={<Dashboard/>}/>
           <Route path="/crearUsuario" element={<CrearUsuario />} />
           <Route path="/usuarios" element={<VerUsuarios />} />
           <Route path="/editarUsuario/:id" element={<ActualizarUsuario />} />

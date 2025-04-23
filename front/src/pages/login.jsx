@@ -44,7 +44,7 @@ function Login({ session }) {
                 await session();
                 setTimeout(() => {
                     setShowModal(false);
-                    navigate('/crearUsuario');
+                    navigate('/Dashboard');
                 }, 2000)
 
             } else {
