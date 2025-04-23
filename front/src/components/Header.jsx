@@ -19,13 +19,12 @@ const Header = () => (
                 <NavDropdown.Item as={Link} to={"/Formulario"}>
                   Llenar Formulario
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={""}>
+                <NavDropdown.Item as={Link} to={"/RevisarFormulario"}>
                   Revisar Formulario
                 </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link as={Link} to="/reportes">Reportes</Nav.Link>
             <NavDropdown title='Parqueadero'>
-              <NavDropdown.Item as={Link} to="">Asignar Espacios</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/EspaciosParqueadero">Ver Espacios</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/">Generar Strikes</NavDropdown.Item>
             </NavDropdown>
@@ -51,7 +50,6 @@ const Header = () => (
                 <NavDropdown.Item as={Link} to="/StrikesUsuario">Mis Strikes</NavDropdown.Item>
               </MostrarRol>
              
-              <NavDropdown.Item as={Link} to="">Historial</NavDropdown.Item>
               <MostrarRol rolesPermitidos={["admin"]}>
                 <NavDropdown.Item as={Link} to="/usuarios" className={`${styles.linkItemLogin}`}>Ver usuarios</NavDropdown.Item>
               </MostrarRol>

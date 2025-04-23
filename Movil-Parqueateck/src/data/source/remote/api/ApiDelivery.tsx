@@ -1,14 +1,14 @@
 import axios from "axios";
 
 const ApiDelivery2 = axios.create({
-    baseURL: 'http://192.168.80.18:3001/api',
+    baseURL: 'http://10.1.193.237:3001/api',
     headers: {
         'Content-Type': 'application/json'
     }
 });
 
 const ApiDelivery = axios.create({
-    baseURL: 'http://192.168.20.195:4000/api',
+    baseURL: 'http://10.1.193.237:4000/api',
     headers: {
         'Content-Type': 'application/json'
     }

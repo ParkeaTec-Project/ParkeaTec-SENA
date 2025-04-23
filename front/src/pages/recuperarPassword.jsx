@@ -95,7 +95,7 @@ const RecuperarPassword = () => {
           text: data.message || "Contraseña actualizada correctamente",
           type: "success",
         });
-        setTimeout(() => navigate("./login.jsx"), 2000);
+        setTimeout(() => navigate("/login.jsx"), 2000);
       } else {
         setMessage({
           text: data.message || "Error al actualizar la contraseña",

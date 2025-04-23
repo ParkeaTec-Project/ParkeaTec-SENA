@@ -29,7 +29,7 @@ usersRoutes(app);
 productsRoutes(app);
 // Iniciando el servidor
 // Direction ip V4 de la maquina consultar ipconfig
-server.listen(3001, '192.168.20.195' || 'localhost',
+server.listen(3001, '10.1.193.237' || 'localhost',
     function () {
         console.log('Aplicacion de NodeJS ' + process.pid + ' ejecutando en ' +
             server.address().address + ' : ' + server.address().port
