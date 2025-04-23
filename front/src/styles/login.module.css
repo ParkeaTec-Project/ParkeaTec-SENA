@@ -27,3 +27,12 @@
 .recuperarContraseña a {
     text-decoration: none;
 }
+
+.alert {
+    border-left: 4px solid #dc3545;
+}
+
+.is-invalid {
+    border-color: #dc3545;
+    background-image: none; /* Elimina el icono por defecto */
+  }

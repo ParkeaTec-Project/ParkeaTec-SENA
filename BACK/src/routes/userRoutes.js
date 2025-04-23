@@ -3,6 +3,7 @@ import userController from "../controllers/userController.js";
 // import autenticacionUser from "../middleware/autenticacionUser.js";
 // import autenticacion from "../middleware/autenticacion.js";
 import authenticateToken from "../middleware/authMiddleware.js";
+import authorizeRoles from "../middleware/authorizeRoles.js";
 import upload from "../middleware/upload.js";
 
 const router = express.Router();
@@ -142,7 +143,7 @@ router.get("/auth", authenticateToken, userController.protectedRoute);
  *                   type: string
  *                   example: "Error al obtener los usuarios"
  */
-router.get("/users", authenticateToken, userController.obtenerUsuarios); //
+router.get("/users", authenticateToken, authorizeRoles("admin"), userController.obtenerUsuarios); //
 
 /**
  * @swagger
@@ -234,7 +235,7 @@ router.get("/users", authenticateToken, userController.obtenerUsuarios); //
  *                   type: string
  *                   example: "Error interno en el servidor"
  */
-router.get("/user/:id", userController.obtenerUsuarioId);
+router.get("/user/:id", authenticateToken, userController.obtenerUsuarioId);
 
 /**
  * @swagger

@@ -196,10 +196,10 @@ function VerReservas() {
               </h5>
             </Card.Header>
             <Card.Body>
-              {reserva.filter((r) => r.estado.toLowerCase() === "pendiente")
+              {reserva.filter((r) => r.estado.toLowerCase() === "pendiente" && "aceptada")
                 .length > 0 ? (
                 reserva
-                  .filter((r) => r.estado.toLowerCase() === "pendiente")
+                  .filter((r) => r.estado.toLowerCase() === "pendiente" && "aceptada")
                   .map((reserva) => (
                     <ReservaCard
                       key={reserva.id_reserva}
@@ -271,38 +271,6 @@ function VerReservas() {
         </Col>
       </Row>
     </Container>
-    //         <div>
-    //   <h2>Reservas</h2>
-
-    //   {reserva.length === 0 ? (
-    //     <p>No hay reservas</p>
-    //   ) : (
-    //     reserva.map((reserva) => (
-    //       <div
-    //         key={reserva.id_reserva}
-    //         className="border m-3 p-3 rounded shadow-sm"
-    //       >
-    //         <p><strong>Id reserva:</strong> {reserva.id_reserva}</p>
-    //         <p><strong>Espacio:</strong> {reserva.numero_espacio}</p>
-    //         <p><strong>Fecha creación:</strong> {reserva.fecha_creacion}</p>
-    //         <p><strong>Estado:</strong> {reserva.estado}</p>
-    //         <p><strong>Fecha hora entrada:</strong> {reserva.fecha_hora_entrada}</p>
-    //         <p><strong>Fecha hora salida:</strong> {reserva.fecha_hora_salida}</p>
-    //         <p><strong>Documento usuario:</strong> {reserva.id_documento}</p>
-    //         <p><strong>Vehículo:</strong> {reserva.vehiculo_placa}</p>
-
-    //         <button
-    //           onClick={() => cancelarReserva(reserva.id_reserva)}
-    //           disabled={reserva.estado.toLowerCase() === "cancelada"}
-    //           className={`btn ${reserva.estado.toLowerCase() === "cancelada" ? "btn-secondary" : "btn-danger"} mt-2`}
-    //         >
-    //           Cancelar reserva
-    //         </button>
-    //       </div>
-    //     ))
-    //   )}
-    //   <ToastContainer position="top-right" autoClose={3000}></ToastContainer>
-    // </div>
   );
 }
 

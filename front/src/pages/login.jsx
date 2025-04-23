@@ -7,6 +7,9 @@ function Login({ session }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+
     //Modal
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState("");
@@ -17,6 +20,8 @@ function Login({ session }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setEmailError('');
+        setPasswordError('');
 
         const userData = {
             email,
@@ -48,8 +53,14 @@ function Login({ session }) {
                 }, 2000)
 
             } else {
+                if (data.message === 'Usuario no encontrado') {
+                    setEmailError('El correo ingresado no está registrado.');
+                } else if (data.message === 'Contraseña incorrecta') {
+                    setPasswordError('La contraseña ingresada es incorrecta.');
+                }
                 console.error("Error en el login:", data.message);
                 setModalMessage("Error:" + data.message);
+                //setShowModal(true);
             }
         } catch (error) {
             console.error("Error al conectar con el servidor", error);
@@ -65,12 +76,14 @@ function Login({ session }) {
             <Form onSubmit={ handleSubmit } className={`${styles.form}`}>
                 <Form.Group className={`mb-3 ${styles.input}`} controlId="email">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" value={ email } onChange={ (e) => setEmail(e.target.value) } placeholder="name@example.com"/>
+                    <Form.Control type="email" value={ email } onChange={ (e) => setEmail(e.target.value) } placeholder="name@example.com" isInvalid={!!emailError}/>
+                    <Form.Text className="text-danger">{emailError}</Form.Text>
                 </Form.Group>
 
                 <Form.Group className={`mb-3 ${styles.input}`} controlId="password">
                     <Form.Label>Contraseña</Form.Label>
-                    <Form.Control type="password" value={ password } onChange={ handleChangePassword } />
+                    <Form.Control type="password" value={ password } onChange={ handleChangePassword } isInvalid={!!passwordError}/>
+                    <Form.Text className="text-danger">{passwordError}</Form.Text>
                 </Form.Group>
 
                 <div className={`mt-3 ${styles.recuperarContraseña}`}>

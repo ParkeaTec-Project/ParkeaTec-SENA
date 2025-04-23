@@ -15,7 +15,11 @@ function EspaciosParqueadero() {
   const navigate = useNavigate();
   const [sesion, setSesion] = useState(null);
   const [vehiculo, setVehiculo] = useState(null);
+  const [reservaActiva, setReservaActiva] = useState([]);
+  const [showAceptarModal, setShowAceptarModal] = useState(false);
+  const [showFinalizarModal, setShowFinalizarModal] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showDetalleModal, setShowDetalleModal] = useState(false);
   const [showReservaModal, setShowReservaModal] = useState(false);
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [showErrorAlert, setShowErrorAlert] = useState(false);
@@ -108,22 +112,20 @@ function EspaciosParqueadero() {
     obtenerEspacios();
   }, []);
 
-  // const infoEspacio = (espacio) => {
-  //     console.log("Espacio Seleccionado:", espacio)
-  //     console.log("Espacio disponibilidad", espacio.disponibilidad);
-  //     setEspacioSeleccionado(espacio);
-  // };
-
-  // const colorEstado = {
-  //   ocupado: "bg-danger",
-  //   libre: "bg-success",
-  //   reservado: "bg-warning",
-  // };
-
   //const obtenerColor = (estado) => colorEstado[estado] || "bg-secondary";
 
+  // const obtenerColor = (estado) => {
+  //   return estado === "libre" ? styles.disponible : styles.ocupado;
+  // };
+
   const obtenerColor = (estado) => {
-    return estado === "libre" ? styles.disponible : styles.ocupado;
+    const clases = {
+      libre: styles.libre,
+      reservado: styles.reservado,
+      ocupado: styles.ocupado,
+      no_disponible: styles.noDisponible
+    };
+    return clases[estado] || styles.libre;
   };
 
   const realizarReserva = async () => {
@@ -173,6 +175,93 @@ function EspaciosParqueadero() {
     }
   };
 
+  const obtenerReservaActiva = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:4000/api/obtenerReservaActiva/${id}`);
+      if (!response.ok) throw new Error("Error al obtener reserva activa");
+      const data = await response.json();
+      console.log("reserva activa-", data);
+      setReservaActiva(data.data || []); // Guardamos en el estado
+      return data.data; // También lo retornamos para usarlo en el onClick
+    } catch (err) {
+      console.error("Error al cargar la reserva activa", err);
+      setReservaActiva([]);
+      return [];
+    }
+  };
+
+  const aceptarReserva = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:4000/api/aceptarReserva/${id}`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            fecha_hora_entrada: new Date().toISOString()
+          })
+        }
+      )
+
+      if (!response.ok) throw new Error("Error al aceptar la reserva");
+      return await response.json();
+    } catch (error) {
+      console.error("Error", error);
+      throw error;
+    }
+  };
+
+  const finalizarReserva = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:4000/api/finalizarReserva/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fecha_hora_salida: new Date().toISOString()
+        })
+      });
+
+      if (!response.ok) throw new Error("Error al finalizar la reserva");
+      return await response.json();
+    } catch (error) {
+      console.error("Error", error);
+      throw error;
+    }
+  };
+
+  const calcularTiempo = (fechaEntrada) => {
+    if (!fechaEntrada) return "No registrado";
+    const entrada = new Date(fechaEntrada);
+    const ahora = new Date();
+    const diff = Math.floor((ahora - entrada) / 1000 / 60);
+
+    if (diff < 60) return `${diff} minutos`;
+    const horas = Math.floor(diff / 60);
+    const minutos = diff % 60;
+    return `${horas}h ${minutos}m`;
+  };
+
+  const obtenerReservasPorEspacio = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:4000/api/obtenerReservaEspacio/${id}`);
+      if (!response.ok) throw new Error('Error al obtener reservas');
+      const data = await response.json();
+      return data.data || [];
+    } catch (error) {
+      console.error("Error", error);
+      return [];
+    }
+  };
+
+  useEffect(() => {
+    if (sesion?.user?.id) {
+      obtenerReservaActiva(sesion.user.id);
+    }
+  }, [sesion?.user?.id]);
+
   const NotificationAlert = ({ show, variant, message, onClose }) => (
     <div
       className={`position-fixed top-0 end-0 m-4 ${styles.notification}`}
@@ -195,6 +284,23 @@ function EspaciosParqueadero() {
     </div>
   );
 
+  const reserva = reservaActiva?.[0];
+  console.log("datos usuario novedad", reservaActiva[0]);
+  console.log("espacio seleccionado-", espacioSeleccionado?.numero_espacio);
+  console.log("espacio-", espacios);
+
+  const vistaNovedad = () => {
+    const datos = {
+      id_usuario: reservaActiva[0]?.id_documento,
+      id_vehiculo: reservaActiva[0]?.vehiculo_placa,
+      id_reserva: reservaActiva[0]?.id_reserva,
+    };
+    console.log("datos enviados novedad", datos);
+
+    navigate('/registroNovedad', { state: datos });
+  };
+  
+
   return (
     <section className={`py-5 ${styles.ParkingSection}`}>
       <Container>
@@ -202,7 +308,10 @@ function EspaciosParqueadero() {
 
         <div className="d-flex justify-content-center gap-4 mb-4">
           <Badge bg="success" className="px-3 py-2">
-            <i className="bi bi-square-fill me-2"></i>Disponible
+            <i className="bi bi-square-fill me-2"></i>Libre
+          </Badge>
+          <Badge bg="warning" className="px-3 py-2">
+            <i className="bi bi-square-fill me-2"></i>Reservado
           </Badge>
           <Badge bg="danger" className="px-3 py-2">
             <i className="bi bi-square-fill me-2"></i>Ocupado
@@ -221,11 +330,34 @@ function EspaciosParqueadero() {
                   className={`${styles.parkingSpot} ${obtenerColor(
                     espacio.disponibilidad
                   )} ${!vehiculo?.placa && styles.disabledSpot}`}
-                  onClick={() => {
+                  onClick={async () => {
                     if (vehiculo?.placa && estaDisponible) {
+                      // Caso 1: Espacio libre + usuario con vehículo → Reservar
                       setEspacioSeleccionado(espacio);
                       setShowReservaModal(true);
-                    } else if (!vehiculo?.placa) {
+                    } 
+                    else if (!estaDisponible) {
+                      if (sesion.user.rol === 'vigilante') {
+                        const reservas = await obtenerReservasPorEspacio(espacio.id_parqueadero);
+                        console.log("prueba espacio", espacio.id_parqueadero);
+                        console.log("log reservas", reservas);
+                        if (reservas.length > 0) {
+                          setReservaActiva(reservas);
+
+                          if (espacio.disponibilidad === 'reservado') {
+                            setShowAceptarModal(true);
+                          } else if (espacio.disponibilidad === 'ocupado') {
+                            setShowFinalizarModal(true);
+                          }
+                        } else {
+                          alert("No se encontro informacion de reserva para este espacio");
+                        }
+                      } else {
+                        alert("Solo el vigilante puede gestionar espacios ocupados");
+                      }
+                    } 
+                    else if (!vehiculo?.placa) {
+                      // Caso 3: Usuario sin vehículo → Mostrar advertencia
                       setShowModal(true);
                     }
                   }}
@@ -293,6 +425,74 @@ function EspaciosParqueadero() {
             <i className="bi bi-check-circle-fill me-2"></i>
             Confirmar Reserva
           </Button>
+        </Modal.Body>
+      </Modal>
+
+      <Modal show={showAceptarModal} onHide={() => setShowAceptarModal(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Aceptar Reserva</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="text-center mb-4">
+            {/* <div className={`${styles.modalParkingSpot} ${styles.reservado} mx-auto`}>
+            {espacioSeleccionado?.numero_espacio}
+            </div> */}
+          </div>
+          <div className="mb-4">
+            <h5>Detalles Reserva</h5>
+            <p><strong>Vehiculo:</strong>{reservaActiva[0]?.vehiculo_placa}</p>
+            <p><strong>Hora de reserva:</strong>{new Date(reservaActiva[0]?.fecha_creacion).toLocaleString()}</p>
+          </div>
+
+          <Button
+            variant="warning"
+            className="w-100 mb-2"
+            onClick={async () => {
+              await aceptarReserva(reservaActiva[0]?.id_reserva);
+              setShowAceptarModal(false);
+              //actualizarEspacios();
+            }}
+          >
+            <i className="bi bi-check-circle me-2"></i>
+            Registrar Ingreso
+          </Button>
+        </Modal.Body>
+      </Modal>
+
+      <Modal show={showFinalizarModal} onHide={() => setShowFinalizarModal(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Finalizar Reserva - Espacio {espacioSeleccionado?.numero_espacio}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {reservaActiva.length > 0 && (
+            <>
+              <div className="mb-3">
+                <p><strong>Vehiculo:</strong>{reservaActiva[0]?.vehiculo_placa}</p>
+                <p><strong>Hora de entrada:</strong>{new Date(reservaActiva[0]?.fecha_hora_entrada).toLocaleString()}</p>
+                <p><strong>Tiempo transcurrido:</strong>{calcularTiempo(reservaActiva[0]?.fecha_hora_entrada)}</p>
+              </div>
+
+              <Button
+                variant="danger"
+                className="w-100"
+                onClick={async () => {
+                  await finalizarReserva(reservaActiva[0].id_reserva);
+                  setShowFinalizarModal(false);
+                  //actualizarEspacios();
+                }}
+              >
+                <i className="bi bi-flag-fill me-2"></i>
+                Finalizar Reserva
+              </Button>
+
+              <Button 
+                className="w-100 mt-2"
+                onClick={vistaNovedad}  
+              >
+                Registrar Novedad
+              </Button>
+            </>
+          )}
         </Modal.Body>
       </Modal>
 

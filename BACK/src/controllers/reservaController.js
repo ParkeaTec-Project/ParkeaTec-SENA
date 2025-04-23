@@ -25,8 +25,11 @@ const crearReserva = async (req, res) => {
 
         const reservaActiva = await Reserva.obtenerReserva(vehiculo_placa);
         if (reservaActiva) {
-            return res.status(400).json({ message: "El vehiculo ya tiene una reserva activa o pendiente" });
+            return res.status(400).json({ message: "El vehiculo ya tiene una reserva activa, pendiente o aceptada" });
         }
+
+        //falta validacion de si el usuario ya esta usando el parqueadero no permitir hacer 
+        //la reserva si no hasta que finalize su reserva o cuando salga del parqueadero
 
         //Crear la reserva
         const crearReserva = new Reserva({ fecha_creacion: fecha_creacion, estado: estado, fecha_hora_entrada: fecha_hora_entrada, fecha_hora_salida: fecha_hora_salida, puesto_asignado: puesto_asignado, id_documento: id_documento, vehiculo_placa: vehiculo_placa });
@@ -76,6 +79,24 @@ const obtenerReservas = async (req, res) => {
     }
 }
 
+const obtenerReservaActiva = async (req, res) => {
+    try {
+        const { id } = req.params;
+        console.log("id reserva activa", id);
+        const obtenerReservaActiva = await Reserva.obtenerReservaActiva(id);
+        console.log("reserva activa", obtenerReservaActiva);
+
+        if (obtenerReservaActiva.length === 0) {
+            return res.status(400).json({ message: "No tienes reserva activas" });
+        } else {
+            return res.status(200).json({ message: "Reserva activa obtenida", data: obtenerReservaActiva });
+        }
+    } catch (error) {
+        console.error("Error al obtener la reserva:", error);
+        return res.status(500).json({ message: "Error interno en el servidor" })
+    }
+}
+
 const cancelarReserva = async (req, res) => {
     try {
         const { id } = req.params;
@@ -96,8 +117,90 @@ const cancelarReserva = async (req, res) => {
     } catch (error) {
         console.error("Error al cancelar la reserva:", error.message);
         
-        if (error.message.includes("No se encontro la reserva")) {
+        if (error.message.includes("No se encontro una reserva")) {
             return res.status(404).json({ message: error.message })
+        }
+
+        res.status(500).json({ message: "Error interno" });
+    }
+}
+
+const aceptarReserva = async (req, res) => {
+    try {
+        const { id } = req.params;
+        console.log("id reserva", id);
+
+        if (!id || !/^\d+$/.test(id)) {
+            return res.status(400).json({ message: "Falta id de la reserva" })
+        }
+
+        const aceptarReserva = await Reserva.aceptarReserva(id);
+        console.log("aceptarReserva", aceptarReserva);
+
+        res.status(200).json({
+            message: "Reserva aceptada",
+            data: {
+                id_reserva: aceptarReserva.result,
+                id_parqueadero: aceptarReserva.resultEspacio
+            }
+        });
+    } catch (error) {
+        console.error("Error al aceptar la reserva:", error.message);
+
+        if (error.message.includes("No se encontro ninguna reserva")) {
+            return res.status(404).json({ message: error.message })
+        }
+
+        res.status(500).json({ message: "Error interno" });
+    }
+}
+
+const finalizarReserva = async (req, res) => {
+    try {
+        const { id } = req.params;
+        console.log("id reserva", id);
+
+        if (!id || !/^\d+$/.test(id)) {
+            return res.status(400).json({ message: "Fata id de la reserva" });
+        }
+
+        const finalizarReserva = await Reserva.finalizarReserva(id);
+        console.log("finalizar reserva", finalizarReserva);
+
+        res.status(200).json({
+            message: "Reserva finalizada",
+            data: {
+                id_reserva: finalizarReserva.result,
+                id_parqueadero: finalizarReserva.resultEspacio
+            }
+        });
+    } catch (error) {
+        console.error("Error al aceptar la reserva:", error.message);
+
+        if (error.message.includes("No se encontro una reserva")) {
+            return res.status(404).json({ message: error.message });
+        }
+
+        res.status(500).json({ message: "Error interno" });
+    }
+}
+
+const obtenerReservaEspacio = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const obtenerReservaEspacio = await Reserva.obtenerReservaEspacio(id);
+        console.log("obtener reserva del espacio", obtenerReservaEspacio);
+
+        res.status(200).json({
+            message: "reserva de espacio obtenida",
+            data: obtenerReservaEspacio,
+        });
+    } catch (error) {
+        console.error("Error al obtener la reserva del espacio", error.message);
+
+        if (error.message.includes("No se encontro una reserva")) {
+            return res.status(404).json({ message: error.message });
         }
 
         res.status(500).json({ message: "Error interno" });
@@ -108,5 +211,9 @@ export default {
     crearReserva,
     verificarReserva,
     obtenerReservas,
-    cancelarReserva
+    obtenerReservaActiva,
+    cancelarReserva,
+    aceptarReserva,
+    finalizarReserva,
+    obtenerReservaEspacio,
 }

@@ -1,6 +1,7 @@
 import User from '../models/user.js';
 import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer';
+import QRCode from 'qrcode'
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -171,7 +172,7 @@ const resetPassword = async (req, res) => {
             maxAge: 15 * 60 * 1000
         });
 
-        res.stauts(200).json({ message: 'Token valido', userId: decoded.id_documento })
+        res.status(200).json({ message: 'Token valido', userId: decoded.id_documento })
     } catch (error) {
         res.status(400).json({ message: 'Token invalido o expirado' });
     }
@@ -323,7 +324,19 @@ const obtenerUsuarioId = async (req, res) => {
         }
 
         const usuario = await User.obtenerUsuarioId(usuarioId);
-        res.status(200).json({ message: "Usuario obtenido exitosamente.", usuario });
+
+        const datosUsuario = usuario[0];
+
+        //Generar QR
+        const qrData = JSON.stringify({ documento: datosUsuario.id_documento });
+        const qrCodeImage = await QRCode.toDataURL(qrData);
+
+
+        res.status(200).json({ 
+            message: "Usuario obtenido exitosamente.", 
+            usuario,
+            qrCode: qrCodeImage
+        });
     } catch (error) {
         if(error.message.includes("Usuario no encontrado")) {
             return res.status(404).json({ message: error.message });

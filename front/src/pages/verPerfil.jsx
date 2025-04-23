@@ -5,6 +5,7 @@ import styles from "../styles/verPerfil.module.css"
 
 function VerPerfil() {
   const [sesion, setSesion] = useState(null);
+  const [qrCode, setQrCode] = useState(null);
   const [userData, setUserData] = useState({
     nombre: "",
     correo_electronico: "",
@@ -12,6 +13,7 @@ function VerPerfil() {
     id_documento: "",
     rol: "",
     foto_usuario: "",
+    qrCode: "",
   });
 
   useEffect(() => {
@@ -58,6 +60,7 @@ function VerPerfil() {
         console.log("datos usuario:", data);
         console.log("prueba usuario:", data.usuario[0]);
         setUserData(data.usuario[0]);
+        setQrCode(data.qrCode);
       } catch (err) {
         console.error("Error:", err);
       }
@@ -122,79 +125,23 @@ function VerPerfil() {
                     ))}
                   </Row>
                 </Form>
+                <Image 
+                  src={qrCode}
+                  alt="Codigo QR del usuario"
+                  width={200}
+                  height={200}
+                  fluid
+                  rounded
+                />
               </Card.Body>
             </Card>
           </Col>
         </Row>
+
+        
+       
       </Container>
     </section>
-  //   <section className={styles.section}>
-  //   <Container className={`mt-4 mb-5 `}>
-  //   <Row>
-  //     <Col>
-  //       <h1>Perfil</h1>
-  //       <img
-  //         // className={styles.img}
-  //         src={`http://localhost:4000/uploads/users/${userData.foto_usuario}`}
-  //         alt={`imagen usuario de ${userData?.nombre || "usuario"}`}
-  //         onError={(e) => {
-  //           e.target.src = "http://localhost:4000/uploads/default.avif";
-  //           console.error('Error cargando la imagen:', e.target.src);
-  //         }}
-  //         crossOrigin="anonymous"
-  //       />
-  //     </Col>
-  //     <Col>
-  //       <Form className="mt-3 mb-7">
-  //         <Form.Label>Nombre Completo</Form.Label>
-  //         <Form.Control
-  //           className="mt-2"
-  //           type="text"
-  //           disabled
-  //           placeholder=""
-  //           value={userData?.nombre || ""}
-  //         ></Form.Control>
-  //         <Form.Label className="mt-2">Tipo Documento</Form.Label>
-  //         <Form.Control
-  //           className="mt-2"
-  //           type="text"
-  //           disabled
-  //           placeholder=""
-  //           value={userData?.nombre_documento || ""}
-  //         ></Form.Control>
-
-  //         <Form.Label className="mt-2">Numero Documento</Form.Label>
-  //         <Form.Control
-  //           className="mt-2"
-  //           type="number"
-  //           disabled
-  //           placeholder=""
-  //           value={userData?.id_documento || ""}
-  //         ></Form.Control>
-
-  //         <Form.Label className="mt-2">Correo electronico</Form.Label>
-  //         <Form.Control
-  //           className="mt-2"
-  //           type="email"
-  //           disabled
-  //           placeholder=""
-  //           value={userData?.correo_electronico || ""}
-  //         ></Form.Control>
-
-  //         <Form.Label className="mt-2">Rol</Form.Label>
-  //         <Form.Control
-  //           className="mt-2 "
-  //           type="Text"
-  //           disabled
-  //           placeholder=""
-  //           value={userData?.rol || ""}
-  //         ></Form.Control>
-  //       </Form>
-  //     </Col>
-  //   </Row>
-  // </Container>
-  //   </section>
-    
   );
 }
 

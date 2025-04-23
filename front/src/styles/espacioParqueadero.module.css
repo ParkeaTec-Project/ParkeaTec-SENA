@@ -26,10 +26,16 @@
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
-.disponible {
+.libre {
     background-color: #d1fae5;
     color: #065f46;
     border: 2px solid #34d399;
+}
+
+.reservado {
+    background-color: #fef3c7;
+    color: #92400e;
+    border: 2px solid #f59e0b;
 }
 
 .ocupado {
@@ -39,7 +45,7 @@
     cursor: not-allowed;
 }
 
-.disabledSpot {
+.noDisponible {
     background-color: #e5e7eb !important;
     color: #6b7280 !important;
     border-color: #d1d5db !important;

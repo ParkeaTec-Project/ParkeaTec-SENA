@@ -45,7 +45,7 @@ class Reserva {
 
     static async obtenerReserva(placa) {
         console.log("Verificando reservas activas para placa:", placa);
-        const query = `SELECT COUNT(*) AS count FROM reserva WHERE vehiculo_placa = ? AND estado IN ('activa', 'pendiente');`
+        const query = `SELECT COUNT(*) AS count FROM reserva WHERE vehiculo_placa = ? AND estado IN ('activa', 'pendiente', 'aceptada');`
 
         try {
             const [rows] = await connection.promise().query(query, [placa]);
@@ -68,6 +68,20 @@ class Reserva {
         } catch (err) {
             console.error("Error al obtener las reservas del usuario", err);
             throw err; 
+        }
+    }
+
+    static async obtenerReservaActiva(id) {
+        const query = `SELECT r.id_reserva, p.numero_espacio, r.fecha_creacion, r.estado, r.fecha_hora_entrada, r.fecha_hora_salida, r.id_documento, r.vehiculo_placa FROM reserva r
+                       INNER JOIN parqueadero p ON r.puesto_asignado = p.id_parqueadero
+                       WHERE id_documento = ? AND r.estado in ('activa', 'pendiente');`
+        
+        try {
+            const [result] = await connection.promise().query(query, [id]);
+            return result;
+        } catch (err) {
+            console.error("Error al obtener la reserva activa del usuario", err);
+            throw err;
         }
     }
 
@@ -98,7 +112,89 @@ class Reserva {
             const [resultEspacio] = await connection.promise().query(espacio, [id_espacio]);
             return result, resultEspacio;
         } catch (error) {
-            console.log("Error en la transaccion la cancelacion", error);
+            console.log("Error en la cancelacion", error);
+            throw error;
+        }
+    }
+
+    static async aceptarReserva(id) {
+        try {
+            const queryCheck = `SELECT puesto_asignado FROM reserva
+                                WHERE id_reserva = ? AND estado IN ('pendiente');`;
+            const [reserva] = await connection.promise().query(queryCheck, [id]);
+            console.log("aceptar reserva", reserva);
+
+            if (reserva.length === 0) {
+                throw new Error("No se encontro una reserva activa");
+            }
+
+            const id_espacio = reserva[0].puesto_asignado;
+
+            const query = `UPDATE reserva SET estado = 'aceptada', fecha_hora_entrada = NOW() WHERE id_reserva = ? AND estado IN ('pendiente')`;
+            const [result] = await connection.promise().query(query, [id]);
+
+            if (result.affectedRows === 0) {
+                throw new Error("No se encontro ninguna reserva");
+            }
+
+            const espacio = `UPDATE parqueadero SET disponibilidad = 'ocupado' WHERE id_parqueadero = ?`;
+            const [resultEspacio] = await connection.promise().query(espacio, [id_espacio]);
+            return result, resultEspacio;
+        } catch (error) {
+            console.log("Error en la aceptacion de reserva", error);
+            throw error;
+        }
+    }
+
+    static async finalizarReserva(id) {
+        try {
+            const queryCheck = `SELECT puesto_asignado FROM reserva 
+                                WHERE id_reserva = ? AND estado IN ('aceptada')`;
+            const [reserva] = await connection.promise().query(queryCheck, [id]);
+            console.log("finalizar reserva", reserva);
+
+            if (reserva.length === 0) {
+                throw new Error("No se encontro una reserva aceptada");
+            }
+
+            const id_espacio = reserva[0].puesto_asignado;
+
+            const query = `UPDATE reserva SET estado = 'finalizada', fecha_hora_salida = NOW() WHERE id_reserva = ? AND estado IN ('aceptada')`;
+            const [result] = await connection.promise().query(query, [id]);
+
+            if (result.affectedRows === 0) {
+                throw new Error("No se encontro ninguna reserva");
+            }
+
+            const espacio = `UPDATE parqueadero SET disponibilidad = 'libre' WHERE id_parqueadero = ?`;
+            const [resultEspacio] = await connection.promise().query(espacio, [id_espacio]);
+            return result, resultEspacio
+        } catch (error) {
+            console.log("Error en la aceptacion de reserva", error);
+            throw error;
+        }
+    }
+
+    static async obtenerReservaEspacio(id) {
+        try {
+            const query = `SELECT r.*, p.tipo_parqueadero
+            FROM reserva r
+            JOIN parqueadero p ON r.puesto_asignado = p.id_parqueadero
+            WHERE r.puesto_asignado = ?
+            AND r.estado IN ('aceptada', 'ocupada', 'pendiente')
+            ORDER BY r.fecha_creacion DESC
+            LIMIT 1;`
+            
+            const [result] = await connection.promise().query(query, [id]);
+            console.log("reservas del espacio", result);
+
+            if (result.length === 0) {
+                throw new Error("No se encontro una reserva para el espacio");
+            }
+
+            return result;
+        } catch (error) {
+            console.log("Error en obtener la reserva del espacio", error);
             throw error;
         }
     }

@@ -5,6 +5,7 @@ import CerrarSesion from '../pages/cerrarSesion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from '../styles/header.module.css';
 import logo from '../assets/logo-parkeaTec.svg';
+import MostrarRol from './MostrarRol';
 
 const Header = () => (
   <Navbar className={`justify-content-between ${styles.header} `} variant="dark" expand="lg">
@@ -26,22 +27,35 @@ const Header = () => (
             <NavDropdown title='Parqueadero'>
               <NavDropdown.Item as={Link} to="">Asignar Espacios</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/EspaciosParqueadero">Ver Espacios</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="">Generar Strikes</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/">Generar Strikes</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title='Perfil'>
-              <NavDropdown.Item as={Link} to="">Generar QR</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/verPerfil" className={`${styles.linkItemLogin}`}>
                 Ver Perfil
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/VerReservas">Ver Reservas</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/MiVehiculo">Mis Vehiculos</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="">Registrar Usuarios</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="">Strikes</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="">Mis Facturas</NavDropdown.Item>
+              <MostrarRol rolesPermitidos={["admin"]}>
+                <NavDropdown.Item as={Link} to="">Registrar Usuarios</NavDropdown.Item>
+              </MostrarRol>
+              
+              <MostrarRol rolesPermitidos={["vigilante"]}>
+                <NavDropdown.Item as={Link} to="/ListaNovedades">Ver novedades</NavDropdown.Item>
+              </MostrarRol>
+
+              <MostrarRol rolesPermitidos={["admin"]}>
+                <NavDropdown.Item as={Link} to="/ListaNovedadesAdmin">Strikes</NavDropdown.Item>
+              </MostrarRol>
+              
+              <MostrarRol rolesPermitidos={["usuario"]}>
+                <NavDropdown.Item as={Link} to="/StrikesUsuario">Mis Strikes</NavDropdown.Item>
+              </MostrarRol>
+             
               <NavDropdown.Item as={Link} to="">Historial</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/usuarios" className={`${styles.linkItemLogin}`}>
-                Ver usuarios
-              </NavDropdown.Item>
+              <MostrarRol rolesPermitidos={["admin"]}>
+                <NavDropdown.Item as={Link} to="/usuarios" className={`${styles.linkItemLogin}`}>Ver usuarios</NavDropdown.Item>
+              </MostrarRol>
+             
               <NavDropdown.Item href='#'> <CerrarSesion /> </NavDropdown.Item>
             </NavDropdown>
         </Nav>

@@ -9,6 +9,7 @@ import userRoutes from './routes/userRoutes.js';
 import parqueaderoRoutes from './routes/parqueaderoRoutes.js';
 import reservaRoutes from './routes/reservaRoutes.js';
 import vehiculoRoutes from './routes/vehiculoRoutes.js'
+import strikesRoutes from './routes/strikesRoutes.js';
 import notFoundHandler from './middleware/notFoundHandler.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -58,6 +59,7 @@ app.use('/api', userRoutes);
 app.use('/api', parqueaderoRoutes);
 app.use('/api', reservaRoutes);
 app.use('/api', vehiculoRoutes);
+app.use('/api', strikesRoutes);
 
 // Middleware para rutas no encontradas 
 app.use(notFoundHandler);

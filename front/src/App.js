@@ -26,6 +26,10 @@ import Formulario from "./pages/form";
 import VerVehiculo from "./pages/verVehiculo";
 import EspaciosParqueadero from "./pages/espaciosParqueadero";
 import VerReservas from "./pages/reservas";
+import RegistroNovedad from "./pages/registarNovedad";
+import ListaNovedades from "./pages/listaNovedades";
+import ListaNovedadesAdmin from "./pages/listaNovedadesAdmin";
+import VerStrikesUsuario from "./pages/strikesUsuario";
 import NotFound from "./pages/notFound";
 
 
@@ -78,6 +82,14 @@ function App() {
           <Route path="/EspaciosParqueadero" element={<EspaciosParqueadero />} />
         
           <Route path="/VerReservas" element={<VerReservas/>} />
+
+          <Route path="/RegistroNovedad" element={<RegistroNovedad />}/>
+
+          <Route path="/ListaNovedades" element={<ListaNovedades />}/>
+
+          <Route path="/ListaNovedadesAdmin" element={<ListaNovedadesAdmin />}/>
+
+          <Route path="/StrikesUsuario" element={<VerStrikesUsuario />}/>
         </Route>
       
         <Route path='*' element = { <NotFound /> } />
