@@ -9,6 +9,12 @@ const profileStyles = StyleSheet.create({
     form: {
         height: '40%',
     },
+    buttonGenerateQR: {
+        backgroundColor: '#4CAF50',
+        padding: 10,
+        margin: 5,
+        borderRadius: 5,
+    },
     title: {
         fontSize: 24,
         fontWeight: 'bold',

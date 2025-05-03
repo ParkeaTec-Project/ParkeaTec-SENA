@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, Table } from 'react-bootstrap';
+import styles from "../styles/listaNovedadesAdmin.module.css";
 
 function ListaNovedadesAdmin() {
     const [novedades, setNovedades] = useState([]);
@@ -88,7 +89,8 @@ function ListaNovedadesAdmin() {
     if (cargando) return <p>Cargando novedades...</p>;
 
     return (
-        <div className="container mt-4">
+        <section className={`${styles.section}`}>
+            <div className="container mt-4">
             <h3>Lista de novedades</h3>
             <Table striped bordered hover responsive>
                 <thead>
@@ -131,6 +133,8 @@ function ListaNovedadesAdmin() {
                 </tbody>
             </Table>
         </div>
+        </section>
+        
     );
 }
 

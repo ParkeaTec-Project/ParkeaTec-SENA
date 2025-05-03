@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import styles from "../styles/listaNovedades.module.css";
 
 function ListaNovedades() {
     const [novedades, setNovedades] = useState([]);
@@ -21,7 +22,8 @@ function ListaNovedades() {
     }, []);
 
     return (
-        <div className="container mt-4">
+        <section className={`${styles.section}`}>
+            <div className="container mt-4">
             <h2>Mis novedades</h2>
             {novedades.length === 0 ? (
                 <p>No has registrado novedades</p>
@@ -50,6 +52,8 @@ function ListaNovedades() {
                 </table>
             )} 
         </div>
+        </section>
+        
     );
 }
 

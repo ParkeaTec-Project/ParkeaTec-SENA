@@ -83,6 +83,21 @@ export const ProfileInfoScreen = ({ navigation, route }: Props) => {
                                 <TouchableOpacity style={styles.buttonDelete} onPress={() => handleDeleteProduct(item.id_documento)}>
                                     <Text style={styles.buttonText}>Eliminar</Text>
                                 </TouchableOpacity>
+                                <TouchableOpacity
+                                    style={styles.buttonGenerateQR}
+                                    onPress={() => {
+                                        // Mapear el producto a la estructura esperada para GenerateQRScreen
+                                        const product = {
+                                        id: item.id_documento,  // Cambia el nombre de la propiedad según corresponda
+                                        name: item.nombre,      // Cambia el nombre de la propiedad según corresponda
+                                        price: item.price       // Cambia el nombre de la propiedad según corresponda
+                                        };
+
+                                        navigation.navigate('GenerateQRScreen', { product });
+                                    }}
+                                    >
+                                    <Text style={styles.buttonText}>Generar QR</Text>
+                                    </TouchableOpacity>
 
                             </View>
                         </View>
@@ -192,6 +207,8 @@ export const ProfileInfoScreen = ({ navigation, route }: Props) => {
                     <TouchableOpacity onPress={toggleModal} style={styles.closeButton}>
                         <Text style={styles.closeButtonText}>Cerrar</Text>
                     </TouchableOpacity>
+                    
+                    
                 </View>
             </Modal>
         </View>

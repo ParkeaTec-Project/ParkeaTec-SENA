@@ -1,26 +1,5 @@
-// import React from "react";
-// import { Container, Form, Button } from "react-bootstrap";
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import styles from '../styles/login.module.css';
-
-// function RecuperarPassword(){
-//     return(
-//         <Container className={`mt-4 mb-7 ${styles.containerRecuperar}`}>
-//             <h1 className="text-center">Recuperar Contraseña</h1>
-//             <Form className={`mt-4 mb-7 ${styles.form}`}>
-//                 <Form.Label className="mt-3">Correo electronico</Form.Label>
-//                 <Form.Control className="mt-3" type="email"></Form.Control>
-//                 <div>
-//                     <Button className='mt-3 justify-content-center' variant="success" type='submit'>Enviar</Button>
-//                 </div>
-//             </Form>
-//         </Container>
-//     );
-// }
-
-// export default RecuperarPassword;
-
 import React, { useState, useEffect } from "react";
+import { Container, Form, FormGroup, Row, Col, Button, Alert } from "react-bootstrap";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
 const RecuperarPassword = () => {
@@ -92,10 +71,12 @@ const RecuperarPassword = () => {
 
       if (response.ok) {
         setMessage({
-          text: data.message || "Contraseña actualizada correctamente",
-          type: "success",
+          alert : data.message || "Contraseña actualizada correctamente",
+          type: "success"
+          //text: data.message || "Contraseña actualizada correctamente",
+          //type: "success",
         });
-        setTimeout(() => navigate("/login.jsx"), 2000);
+        setTimeout(() => navigate("/login"), 2000);
       } else {
         setMessage({
           text: data.message || "Error al actualizar la contraseña",
@@ -123,38 +104,39 @@ const RecuperarPassword = () => {
   }
 
   return (
+      <Container>
+        <Form className="mb-5" onSubmit={handleSubmit}>
     <div className="password-reset-container">
       <h2>Restablecer Contraseña</h2>
       {message.text && (
         <p className={`message ${message.type}`}>{message.text}</p>
       )}
 
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Nueva Contraseña:</label>
-          <input
+
+            <Form.Label>Nueva Contraseña</Form.Label>
+            <Form.Control
+            className="mt-2"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-          />
-        </div>
-
-        <div className="form-group">
-            <label>Confirmar Contraseña:</label>
-            <input 
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                required
+            />            
+            <Form.Label className="mt-3">Confirmar contraseña</Form.Label>
+            <Form.Control
+            className="mt-2"
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
             />
-        </div>
 
-        <button type="submit" disabled={isLoading}>
-            { isLoading ? "Procesando..." : "Actualizar Contraseña" }
-        </button>
-      </form>
+            <Button
+            type="submit" disabled={isLoading}>
+              { isLoading ? "Procesando..." : "Actualizar Contraseña"}
+            </Button>
     </div>
+        </Form>
+      </Container>
   );
 };
 
