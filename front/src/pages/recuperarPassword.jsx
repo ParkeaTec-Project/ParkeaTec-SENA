@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Container, Form, FormGroup, Row, Col, Button, Alert } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 import { useSearchParams, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import styles from "../styles/recuperarPassword.module.css";
 
 const RecuperarPassword = () => {
   const [password, setPassword] = useState("");
@@ -27,10 +29,7 @@ const RecuperarPassword = () => {
         if (response.ok) {
           setIsValidToken(true);
         } else {
-          setMessage({
-            text: data.message || "Token invalido o expirado",
-            type: "error",
-          });
+          toast.error("Token invalido o expirado");
         }
       } catch (error) {
         setMessage({ text: "Error al verificar el token", type: "error" });
@@ -48,7 +47,8 @@ const RecuperarPassword = () => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      setMessage({ text: "Las contraseñas no coinciden", type: "error" });
+      // setMessage({ text: "Las contraseñas no coinciden", type: "error" });
+      toast.error("Las contraseñas no coinciden")
       return;
     }
 
@@ -70,18 +70,11 @@ const RecuperarPassword = () => {
       const data = await response.json();
 
       if (response.ok) {
-        setMessage({
-          alert : data.message || "Contraseña actualizada correctamente",
-          type: "success"
-          //text: data.message || "Contraseña actualizada correctamente",
-          //type: "success",
-        });
-        setTimeout(() => navigate("/login"), 2000);
+        toast.success("Contraseña actualizada correctamente");
+        
+        setTimeout(() => navigate("/login"), 2500);
       } else {
-        setMessage({
-          text: data.message || "Error al actualizar la contraseña",
-          type: "error",
-        });
+        toast.error("Error al actualizar la contraseña");
       }
     } catch (error) {
       setMessage({ text: "Error de conexion", type: "error" });
@@ -89,7 +82,7 @@ const RecuperarPassword = () => {
       setIsLoading(false);
     }
   };
-  console.log("valid toke", isValidToken)
+  console.log("valid toke", isValidToken);
 
   if (!isValidToken && message.text) {
     return (
@@ -104,39 +97,40 @@ const RecuperarPassword = () => {
   }
 
   return (
+    <section className={`${styles.section}`}>
       <Container>
         <Form className="mb-5" onSubmit={handleSubmit}>
-    <div className="password-reset-container">
-      <h2>Restablecer Contraseña</h2>
-      {message.text && (
-        <p className={`message ${message.type}`}>{message.text}</p>
-      )}
-
+          <div className="password-reset-container">
+            <h2>Restablecer Contraseña</h2>
+            {/* {message.text && (
+              <p className={`message ${message.type}`}>{message.text}</p>
+            )} */}
 
             <Form.Label>Nueva Contraseña</Form.Label>
             <Form.Control
-            className="mt-2"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            />            
+              className="mt-2"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
             <Form.Label className="mt-3">Confirmar contraseña</Form.Label>
             <Form.Control
-            className="mt-2"
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
+              className="mt-2"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
             />
 
-            <Button
-            type="submit" disabled={isLoading}>
-              { isLoading ? "Procesando..." : "Actualizar Contraseña"}
+            <Button className="mt-3" type="submit" disabled={isLoading}>
+              {isLoading ? "Procesando..." : "Actualizar Contraseña"}
             </Button>
-    </div>
+          </div>
         </Form>
       </Container>
+      <ToastContainer />
+    </section>
   );
 };
 
