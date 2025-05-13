@@ -35,7 +35,7 @@ const Header = () => (
               <NavDropdown.Item as={Link} to="/VerReservas">Ver Reservas</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/MiVehiculo">Mis Vehiculos</NavDropdown.Item>
               <MostrarRol rolesPermitidos={["admin"]}>
-                <NavDropdown.Item as={Link} to="">Registrar Usuarios</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/crearUsuario">Registrar Usuarios</NavDropdown.Item>
               </MostrarRol>
               
               <MostrarRol rolesPermitidos={["vigilante"]}>

@@ -86,20 +86,6 @@ const forgotPassword = async (req, res) => {
 
     const resetLink = `http://localhost:3000/reset-password?token=${token}`;
 
-    //Configuracion de correo
-    // const mailOptions = {
-    //     from: "Parkeatec <juanandres78.jg@gmail.com>",
-    //     to: email,
-    //     subject: 'Recuperacion de contraseña',
-    //     html: `
-    //         <p>Hola,</p>
-    //         <p>Hemos recibido una solicitud para restablecer tu contraseña.</p>
-    //         <p>Por favor, haz clic en el siguiente enlace para continuar:</p>
-    //         <a href="${resetLink}">Restablecer contraseña</a>
-    //         <p>Este enlace expirara en 15 minutos.</p>
-    //         <p>Si no solicitaste este cambio, ignora este mensaje.</p>
-    //     `
-    // };
     const mailOptions = {
         from: "ParkeaTec <juanandres78.jg@gmail.com>",
         to: email,

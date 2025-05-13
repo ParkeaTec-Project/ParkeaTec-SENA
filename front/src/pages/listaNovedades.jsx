@@ -12,7 +12,8 @@ function ListaNovedades() {
                 });
 
                 const data = await response.json();
-                setNovedades(data.data);
+                setNovedades(Array.isArray(data.data) ? data.data : []);
+                //setNovedades(data.data);
             } catch (error) {
                 console.error("Error al obtener las novedades:", error);
             }
@@ -26,7 +27,7 @@ function ListaNovedades() {
             <div className="container mt-4">
             <h2>Mis novedades</h2>
             {novedades.length === 0 ? (
-                <p>No has registrado novedades</p>
+                <p>No hay novedades registradas</p>
             ) : (
                 <table className="table table-bordered">
                     <thead>
