@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  Modal,
-  Button,
-  Badge,
-  Container,
-  Row,
-  Col,
-  Alert,
-} from "react-bootstrap";
+import { Modal, Button, Badge, Container, Row, Col, Alert } from "react-bootstrap";
 import styles from "../styles/espacioParqueadero.module.css";
 
 function EspaciosParqueadero() {
@@ -19,7 +11,7 @@ function EspaciosParqueadero() {
   const [showAceptarModal, setShowAceptarModal] = useState(false);
   const [showFinalizarModal, setShowFinalizarModal] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [showDetalleModal, setShowDetalleModal] = useState(false);
+  //const [showDetalleModal, setShowDetalleModal] = useState(false);
   const [showReservaModal, setShowReservaModal] = useState(false);
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [showErrorAlert, setShowErrorAlert] = useState(false);
@@ -27,7 +19,8 @@ function EspaciosParqueadero() {
   const [espacios, setEspacios] = useState([]);
   const [espacioSeleccionado, setEspacioSeleccionado] = useState(null);
   console.log("espacio seleccionado set", espacioSeleccionado);
-  //console.log("espacio seleccionado set2", espacioSeleccionado.numero_espacio)
+
+  // Obtener la sesion del usuario
   useEffect(() => {
     const obtenerSesion = async () => {
       try {
@@ -49,6 +42,7 @@ function EspaciosParqueadero() {
   }, []);
   console.log("sesion parqueader", sesion);
 
+  // Obtener el vehiculo del usuario para hacer validaciones y uso del parqueadero
   useEffect(() => {
     const obtenerVehiculo = async () => {
       try {
@@ -88,6 +82,7 @@ function EspaciosParqueadero() {
     }
   }, [sesion]);
 
+  // Consulta y trae todos los espacios del parqueadero
   const obtenerEspacios = async () => {
     try {
       const response = await fetch("http://localhost:4000/api/espacios", {
@@ -143,6 +138,7 @@ function EspaciosParqueadero() {
       id_documento: sesion.user.id,
       vehiculo_placa: vehiculo.placa,
     };
+    
     try {
       const response = await fetch("http://localhost:4000/api/crearReserva", {
         method: "POST",
@@ -204,7 +200,12 @@ function EspaciosParqueadero() {
         }
       )
 
-      if (!response.ok) throw new Error("Error al aceptar la reserva");
+      if (!response.ok) {
+        throw new Error("Error al aceptar la reserva");
+      } else {
+        obtenerEspacios();
+      }
+
       return await response.json();
     } catch (error) {
       console.error("Error", error);
@@ -224,7 +225,11 @@ function EspaciosParqueadero() {
         })
       });
 
-      if (!response.ok) throw new Error("Error al finalizar la reserva");
+      if (!response.ok) {
+        throw new Error("Error al finalizar la reserva");
+      } else {
+        obtenerEspacios();
+      }
       return await response.json();
     } catch (error) {
       console.error("Error", error);
@@ -482,7 +487,7 @@ function EspaciosParqueadero() {
                 }}
               >
                 <i className="bi bi-flag-fill me-2"></i>
-                Finalizar Reserva
+                Registrar salida
               </Button>
 
               <Button 
@@ -533,61 +538,6 @@ function EspaciosParqueadero() {
         message={alertMessage}
         onClose={() => setShowErrorAlert(false)}
       />
-      {/* <div>
-        {espacios.map((espacio) => (
-          <button
-            key={espacio.id_parqueadero}
-            className={`text-white fw-bold text-center rounded shadow ${obtenerColor(
-              espacio.disponibilidad
-            )}`}
-            onClick={() => {
-                if (vehiculo?.placa) {
-                    setEspacioSeleccionado(espacio)
-                } else {
-                    setShowModal(true);
-                }
-            }}
-            style={{
-                backgroundColor: vehiculo?.placa ? "" : "gray",
-                opacity: vehiculo?.placa ? 1 : 0.5,
-                cursor: vehiculo?.placa ? "pointer": "not-allowed"
-            }}
-          >
-            {espacio.numero_espacio}
-          </button>
-        ))}
-      </div>
-
-      {espacioSeleccionado && (
-        <div className="mt-4 p-4 border rounded shadow">
-          <h2 className="text-lg font-semibold mb-2">
-            Reservar espacio {espacioSeleccionado.numero_espacio}
-          </h2>
-          <button
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-            onClick={realizarReserva}
-          >
-            Confirmar Reserva
-          </button>
-        </div>
-      )}
-
-      <Modal show={showModal} onHide={() => setShowModal(false)} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Registro requerido</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>
-            Debes registrar un vehiculo antes de poder hacer una reserva de
-            parqueadero
-          </p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={() => navigate("/Formulario")}>
-            Registrar vehiculo
-          </Button>
-        </Modal.Footer>
-      </Modal> */}
     </section>
   );
 }
