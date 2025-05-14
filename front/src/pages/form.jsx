@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Form, Row, Col, Button } from "react-bootstrap";
+import { Container, Form, Row, Col, Button, Modal } from "react-bootstrap";
 // import styles from "../styles/header.module.css";
 
 function Formulario() {
@@ -34,6 +34,9 @@ function Formulario() {
     foto_tecnomecanica: "" || null,
   });
   const [selectedOption, setSelectedOption] = useState("");
+
+  // Modal
+  const [showModal, setShowModal] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -83,16 +86,25 @@ function Formulario() {
       console.log("resultado", result);
 
       if (response.ok) {
-        alert("registro de vehiculo exitoso");
-        console.log("vehiculo registrado", result);
+        setShowModal(true);
       } else {
-        alert("no se pudo hacer el registro");
+        setShowModal(false);
+        alert("no se pudo hacer el registro")
       }
+
+      // if (response.ok) {
+      //   alert("registro de vehiculo exitoso");
+      //   console.log("vehiculo registrado", result);
+      // } else {
+      //   alert("no se pudo hacer el registro");
+      // }
     } catch (error) {
       console.log("Error al conectar con el servidor", error);
       alert("Error al conectar con el servidor");
     }
   };
+
+  const handleCloseModal = () => setShowModal(false);
 
   console.log("Selecte option", selectedOption);
   useEffect(() => {
@@ -516,10 +528,20 @@ function Formulario() {
           
         )}
 
-        <Button variant="submit" type="submit">
+        <Button className="mt-3" variant="success" type="submit">
           Enviar
         </Button>
       </Form>
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Vehiculo registrado</Modal.Title>
+        </Modal.Header>
+        <Modal.Footer>
+          <Button variant="danger" onClick={handleCloseModal}>
+            Cerrar
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 }
