@@ -190,15 +190,6 @@ function Formulario() {
           </Col>
         </Row>
         <Row>
-          {/* <Col>
-            <Form.Label className="mt-2">Tipo de persona </Form.Label>
-            <Form.Select className="mt-2">
-              <option>Seleccione una opcion</option>
-              <option value="1">Funcionario</option>
-              <option value="2">Contratista</option>
-              <option value="3">Aprendiz</option>
-            </Form.Select>
-          </Col> */}
           <Col>
             <Form.Label className="mt-2">Ficha Aprendiz</Form.Label>
             <Form.Control
@@ -209,16 +200,6 @@ function Formulario() {
             ></Form.Control>
           </Col>
         </Row>
-        {/* <Row>
-          <Col>
-            <Form.Label className="mt-2">Fecha inicio vinculacion </Form.Label>
-            <Form.Control className="mt-2" type="date"></Form.Control>
-          </Col>
-          <Col>
-            <Form.Label className="mt-2">Fecha fin vinculacion</Form.Label>
-            <Form.Control className="mt-2" type="date"></Form.Control>
-          </Col>
-        </Row> */}
         <Row>
           <Col>
             <Form.Label className="mt-2">Direccion </Form.Label>

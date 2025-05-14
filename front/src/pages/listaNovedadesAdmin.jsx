@@ -14,8 +14,9 @@ function ListaNovedadesAdmin() {
                 });
 
                 const data = await response.json();
-                console.log("datos novedad admin", data.data);
-                setNovedades(data.data);
+                setNovedades(Array.isArray(data.data) ? data.data : []);
+                // console.log("datos novedad admin", data.data);
+                // setNovedades(data.data);
                 setCargando(false);
             } catch (error) {
                 console.error("Error al cargar las novedades", error);
@@ -92,7 +93,10 @@ function ListaNovedadesAdmin() {
         <section className={`${styles.section}`}>
             <div className="container mt-4">
             <h3>Lista de novedades</h3>
-            <Table striped bordered hover responsive>
+            { novedades.length === 0 ? (
+                <p>No hay novedades registradas por parte de los vigilantes</p>
+            ) : (
+                <Table striped bordered hover responsive>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -132,6 +136,7 @@ function ListaNovedadesAdmin() {
                     ))}
                 </tbody>
             </Table>
+            )}
         </div>
         </section>
         
