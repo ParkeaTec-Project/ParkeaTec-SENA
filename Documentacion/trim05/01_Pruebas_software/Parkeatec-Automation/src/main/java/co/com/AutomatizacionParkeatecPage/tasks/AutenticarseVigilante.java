@@ -9,16 +9,16 @@ import net.serenitybdd.screenplay.actions.Enter;
 
 import java.util.List;
 
-import static co.com.AutomatizacionParkeatecPage.userinterfaces.Autenticacion.*;
+import static co.com.AutomatizacionParkeatecPage.userinterfaces.AutenticacionUsuario.*;
 
-public class Autenticarse implements Task {
+public class AutenticarseVigilante implements Task {
 
     private List<CredencialesInicioSesion> credenciales;
 
-    public Autenticarse(List<CredencialesInicioSesion> credenciales) { this.credenciales = credenciales; }
+    public AutenticarseVigilante(List<CredencialesInicioSesion> credenciales) { this.credenciales = credenciales; }
 
-    public static Autenticarse aute(List<CredencialesInicioSesion> credenciales) {
-        return Instrumented.instanceOf(Autenticarse.class).withProperties(credenciales);
+    public static AutenticarseVigilante aute(List<CredencialesInicioSesion> credenciales) {
+        return Instrumented.instanceOf(AutenticarseVigilante.class).withProperties(credenciales);
     }
 
     @Override
