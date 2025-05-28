@@ -7,10 +7,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/login_parkeatec.feature",
+        features = "src/test/resources/features/loginUsuario_parkeatec.feature",
         glue = {"co.com.AutomatizacionParkeatecPage.stepsdefinitions", "co.com.AutomatizacionParkeatecPage.utils.hooks"},
         snippets = SnippetType.CAMELCASE
 )
 
-public class AutenticacionParkeatecRunner {
+public class AutenticacionUsuarioParkeatecRunner {
 }

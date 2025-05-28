@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cacec2f-773e-4603-b644-70582b6fbe63" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../01_desarrollo_codificacion_de_software/texto.txt" beforeDir="false" />
-    </list>
+    <list default="true" id="4cacec2f-773e-4603-b644-70582b6fbe63" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,7 +47,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/User/Documents/ParkeaTec-SENA/Documentacion/trim05/01_Pruebas_software/Parkeatec-Automation"
+    "last_opened_file_path": "C:/ejercicio-QA/AutomatizacionOrange"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -57,7 +55,7 @@
       <recent name="C:\Users\diego.garzon\Music\Parkeatec-Automation\Parkeatec-Automation\src\test\resources\driver" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AutenticacionParkeatecRunner (1)">
+  <component name="RunManager" selected="Gradle.AutenticacionVigilanteParkeatecRunner">
     <configuration name="AutenticacionParkeatecRunner (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -72,6 +70,29 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;co.com.AutomatizacionParkeatecPage.runners.AutenticacionParkeatecRunner&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="AutenticacionVigilanteParkeatecRunner" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;co.com.AutomatizacionParkeatecPage.runners.AutenticacionVigilanteParkeatecRunner&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -106,6 +127,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.AutenticacionVigilanteParkeatecRunner" />
         <item itemvalue="Gradle.AutenticacionParkeatecRunner (1)" />
         <item itemvalue="Gradle.RegistroParkeatecRunner" />
       </list>
