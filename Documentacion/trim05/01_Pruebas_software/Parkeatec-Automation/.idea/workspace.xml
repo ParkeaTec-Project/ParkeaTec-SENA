@@ -47,7 +47,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/ejercicio-QA/AutomatizacionOrange"
+    "last_opened_file_path": "C:/Users/User/Documents/ParkeaTec-SENA/Documentacion/trim05/01_Pruebas_software/Parkeatec-Automation"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -55,7 +55,7 @@
       <recent name="C:\Users\diego.garzon\Music\Parkeatec-Automation\Parkeatec-Automation\src\test\resources\driver" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AutenticacionVigilanteParkeatecRunner">
+  <component name="RunManager" selected="Gradle.RegistroParkeatecRunner">
     <configuration name="AutenticacionParkeatecRunner (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -127,9 +127,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.RegistroParkeatecRunner" />
         <item itemvalue="Gradle.AutenticacionVigilanteParkeatecRunner" />
         <item itemvalue="Gradle.AutenticacionParkeatecRunner (1)" />
-        <item itemvalue="Gradle.RegistroParkeatecRunner" />
       </list>
     </recent_temporary>
   </component>
