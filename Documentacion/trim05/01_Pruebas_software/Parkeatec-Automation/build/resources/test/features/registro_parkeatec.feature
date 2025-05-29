@@ -8,9 +8,13 @@ Característica: registro en la pagina de Parkeatec
 
   @registro
 
-  Escenario: registrar de manera exitosa la informacion en la pagina de Parkeatec
+  Esquema del escenario: registrar de manera exitosa la informacion en la pagina de Parkeatec
     Dado que el usuario se encuentra en la pagina de registro de Parkeatec
-    Cuando ingrese la informacion correcta (usuario y contrasena)
-      | nombre | apellido | correo_eletronico | contresena | telefono | direccion   | tipo_documento       | numero_documento | foto_usuario | centro_formacion | ficha_aprendiz |
-      | juan   | perez    | juan@gmail.com    | 123        | 12345776 | carrera 103 | cedula de ciudadania | 346547865        |              | ceet             | 2919581        |
+    Cuando ingrese la informacion del formulario correctamente
+      | nombre   | apellido   | correo_electronico   | contrasena   | telefono   | direccion   | numero_documento   | foto_usuario   | ficha_aprendiz   |
+      | <nombre> | <apellido> | <correo_electronico> | <contrasena> | <telefono> | <direccion> | <numero_documento> | <foto_usuario> | <ficha_aprendiz> |
     Entonces se debe verificar que la informacion del usuario haya sido registrada correctamente y redirigido a su pagina de inicio.
+
+    Ejemplos:
+      | nombre | apellido | correo_electronico | contrasena | telefono   | direccion          | numero_documento | foto_usuario                        | ficha_aprendiz |
+      | juan   | perez    | juan@gmail.com     | Juan123#   | 3000000000 | carrera 103 #73-51 | 1000517119       | C:/Users/User/Pictures/download.jpg | 2919581        |
