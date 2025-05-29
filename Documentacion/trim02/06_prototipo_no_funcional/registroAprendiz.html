@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Aprendiz</title>
+    <link rel="stylesheet" href="/Documentacion/trim02/06_prototipo_no_funcional/css/registro.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body class="body"> 
+    <header class="header">
+        <img src="img/logo-parkeaTec.svg" alt="logo">
+        <h1>ParkeaTec</h1>
+        <nav class="nav">
+            <ul class="menu-horizontal">
+                <li>
+                    <a class="item-nav" href="login.html">iniciar sesion</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="container mt-5 mb-5">
+            <form>
+                <center><section><h2>Registro</h2></section></center>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre">
+    
+                        </div>
+                    </div> 
+                    <div class="col-md-6"> 
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="apellidos" class="form-label">Apellidos</label>
+                            <input type="text" class="form-control" id="apellidos">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="contraseña" class="form-label">Constraseña</label>
+                            <input type="password" class="form-control" id="contraseña">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="tipoDocumento" class="form-label">Tipo documento</label>
+                            <select class="form-select">
+                                <option selected>Selecciona una opción</option>
+                                <option value="1">Cédula de ciudadanía</option>
+                                <option value="2">Cédula de extranjería</option>
+                                <option value="3">Tarjeta de identidad</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="contraseña" class="form-label"> Confirmar Constraseña</label>
+                            <input type="password" class="form-control" id="confirmarcontraseña">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="numDocumento" class="form-label">Numero de documento</label>
+                                <input type="number" class="form-control" id="numDocumento" name="numDocumento">
+                            </div>
+                        </div>
+
+               <center><button type="submit" class="btn btn-primary mt-4" href = "/Documentacion/trim02/06_prototipo_no_funcional/form.html">Enviar</button></center>
+            </form>
+        </div>
+        
+    </form> 
+    </main>
+
+    <footer class="footer">
+        <img src="/Documentacion/trim02/06_prototipo_no_funcional/img/logo-parkeaTec.svg">
+    </footer>
+</body>
+</html>

@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="4cacec2f-773e-4603-b644-70582b6fbe63" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../trim02/06_prototipo_no_funcional/css/registro.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../trim02/06_prototipo_no_funcional/registroAprendiz.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../trim02/07_prototipo_no_funcional/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../trim02/07_prototipo_no_funcional/login.html" afterDir="false" />
+    </list>
+=======
     <list default="true" id="4cacec2f-773e-4603-b644-70582b6fbe63" name="Changes" comment="" />
+>>>>>>> 843b217cfd7945ae62f6ddf3c0e13d7f5b1c6951
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,18 +52,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/User/Documents/ParkeaTec-SENA/Documentacion/trim05/01_Pruebas_software/Parkeatec-Automation"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/diego.garzon/Pictures/ParkeaTec-SENA/Documentacion/trim05/01_Pruebas_software/Parkeatec-Automation&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="co.com.AutomatizacionParkeatecPage.tasks" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\diego.garzon\Music\Parkeatec-Automation\Parkeatec-Automation\src\test\resources\driver" />
     </key>
   </component>
+<<<<<<< HEAD
+  <component name="RunManager" selected="Gradle.VerReservasParkeatecRunner">
+=======
   <component name="RunManager" selected="Gradle.RegistroParkeatecRunner">
+>>>>>>> 843b217cfd7945ae62f6ddf3c0e13d7f5b1c6951
     <configuration name="AutenticacionParkeatecRunner (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -125,8 +141,36 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="VerReservasParkeatecRunner" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;co.com.AutomatizacionParkeatecPage.runners.VerReservasParkeatecRunner&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
+        <item itemvalue="Gradle.VerReservasParkeatecRunner" />
+        <item itemvalue="Gradle.AutenticacionParkeatecRunner (1)" />
+=======
+>>>>>>> 843b217cfd7945ae62f6ddf3c0e13d7f5b1c6951
         <item itemvalue="Gradle.RegistroParkeatecRunner" />
         <item itemvalue="Gradle.AutenticacionVigilanteParkeatecRunner" />
         <item itemvalue="Gradle.AutenticacionParkeatecRunner (1)" />

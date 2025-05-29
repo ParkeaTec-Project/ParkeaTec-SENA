@@ -1,1 +1,5 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="registro en la pagina de Parkeatec" skipped="0" tests="1" time="0.55" timestamp="2025-05-29 12:22:27"><testcase name="registrar de manera exitosa la informacion en la pagina de Parkeatec"/></testsuite>
+=======
 <?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="registro en la pagina de Parkeatec" skipped="0" tests="1" time="12.82" timestamp="2025-05-29 03:07:04"><testcase name="registrar de manera exitosa la informacion en la pagina de Parkeatec"/></testsuite>
+>>>>>>> 843b217cfd7945ae62f6ddf3c0e13d7f5b1c6951
