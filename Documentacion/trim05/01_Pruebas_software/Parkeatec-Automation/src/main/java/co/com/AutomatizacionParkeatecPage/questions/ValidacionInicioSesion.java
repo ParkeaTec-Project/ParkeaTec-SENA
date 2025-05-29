@@ -5,7 +5,7 @@ import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.Text;
 import static jxl.biff.FormatRecord.logger;
 
-import static co.com.AutomatizacionParkeatecPage.userinterfaces.Autenticacion.*;
+import static co.com.AutomatizacionParkeatecPage.userinterfaces.AutenticacionUsuario.*;
 
 public class ValidacionInicioSesion implements Question<Boolean> {
 
