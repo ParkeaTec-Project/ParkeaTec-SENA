@@ -1,5 +1,7 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="registro en la pagina de Parkeatec" skipped="0" tests="1" time="0.55" timestamp="2025-05-29 12:22:27"><testcase name="registrar de manera exitosa la informacion en la pagina de Parkeatec"/></testsuite>
-=======
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="registro en la pagina de Parkeatec" skipped="0" tests="1" time="12.82" timestamp="2025-05-29 03:07:04"><testcase name="registrar de manera exitosa la informacion en la pagina de Parkeatec"/></testsuite>
->>>>>>> 843b217cfd7945ae62f6ddf3c0e13d7f5b1c6951
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="0" name="registro en la pagina de Parkeatec" skipped="0" tests="1" time="16.51" timestamp="2025-05-29 06:35:34"><testcase name="registrar de manera exitosa la informacion en la pagina de Parkeatec"><error message="File not found: C:\Users\User\Pictures\download.jpg" type="net.thucydides.core.pages.components.FileToUploadCouldNotBeFoundException">File not found: C:\Users\User\Pictures\download.jpg</error><system-err>File not found: C:\Users\User\Pictures\download.jpg&#13;
+co.com.AutomatizacionParkeatecPage.tasks.RegistroUsuario.performAs(RegistroUsuario.java:38)&#13;
+co.com.AutomatizacionParkeatecPage.stepsdefinitions.RegistroParkeatecStepDefinitions.ingreseLaInformacionDelFormularioCorrectamente(RegistroParkeatecStepDefinitions.java:25)&#13;
+cucumber.runner.Runner.runPickle(Runner.java:80)&#13;
+worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)&#13;
+worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)&#13;
+</system-err></testcase></testsuite>

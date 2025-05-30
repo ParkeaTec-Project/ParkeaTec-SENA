@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">14.644s</div>
+<div class="counter">14.209s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">0%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,81 +61,13 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Failed tests</a>
+<a href="#tab0">Tests</a>
 </li>
 <li>
-<a href="#tab1">Tests</a>
-</li>
-<li>
-<a href="#tab2">Standard error</a>
+<a href="#tab1">Standard error</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="Mostrar la reserva activa y las reservas realizadas por el usuario"></a>
-<h3 class="failures">Mostrar la reserva activa y las reservas realizadas por el usuario</h3>
-<span class="code">
-<pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;a aria-expanded=&quot;false&quot; role=&quot;button&quot; class=&quot;dropdown-toggle nav-link&quot; tabindex=&quot;0&quot; href=&quot;#&quot;&gt;...&lt;/a&gt; is not clickable at point (1107, 18). Other element would receive the click: &lt;div class=&quot;header_container__HaR1N container&quot;&gt;...&lt;/div&gt;
-  (Session info: chrome=136.0.7103.114)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'LBOG0551', ip: '192.168.20.74', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 136.0.7103.114, chrome: {chromedriverVersion: 136.0.7103.94 (fa0be0b33deb..., userDataDir: C:\Users\DIEGO~1.GAR\AppDat...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57156}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: ignore, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 350c7adbde35f527d6e2a764eb8a36a2
-	at java.base@15.0.1/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base@15.0.1/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
-	at java.base@15.0.1/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base@15.0.1/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base@15.0.1/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at app//org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at app//org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at app//org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at app//org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at app//org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at app//org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at app//org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
-	at app//net.serenitybdd.core.pages.WebElementFacadeImpl.click(WebElementFacadeImpl.java:1231)
-	at app//net.serenitybdd.screenplay.actions.ClickOnTarget.performAs(ClickOnTarget.java:13)
-	at app//net.serenitybdd.screenplay.actions.ClickOnTarget$ByteBuddy$YMjHjhpb.performAs$accessor$Eipp5L2b(Unknown Source)
-	at java.base@15.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base@15.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
-	at java.base@15.0.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base@15.0.1/java.lang.reflect.Method.invoke(Method.java:564)
-	at app//net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:488)
-	at app//net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:468)
-	at app//net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:441)
-	at app//net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:197)
-	at app//net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:184)
-	at app//net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:77)
-	at app//net.serenitybdd.screenplay.actions.ClickOnTarget$ByteBuddy$YMjHjhpb.performAs(Unknown Source)
-	at app//net.serenitybdd.screenplay.Actor.performTask(Actor.java:248)
-	at app//net.serenitybdd.screenplay.Actor.perform(Actor.java:229)
-	at app//net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:175)
-	at app//co.com.AutomatizacionParkeatecPage.tasks.MisReservas.performAs(MisReservas.java:22)
-	at app//co.com.AutomatizacionParkeatecPage.tasks.MisReservas$ByteBuddy$Dv6BR8ve.performAs$accessor$MVW5EhiG(Unknown Source)
-	at java.base@15.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base@15.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
-	at java.base@15.0.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base@15.0.1/java.lang.reflect.Method.invoke(Method.java:564)
-	at app//net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:488)
-	at app//net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:468)
-	at app//net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:441)
-	at app//net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:197)
-	at app//net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:184)
-	at app//net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:77)
-	at app//co.com.AutomatizacionParkeatecPage.tasks.MisReservas$ByteBuddy$Dv6BR8ve.performAs(Unknown Source)
-	at app//net.serenitybdd.screenplay.Actor.performTask(Actor.java:248)
-	at app//net.serenitybdd.screenplay.Actor.perform(Actor.java:229)
-	at app//net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:175)
-	at app//co.com.AutomatizacionParkeatecPage.stepsdefinitions.VerReservasParkeatecStepsDefinitions.ingreseAlApartadoDeMisReservas(VerReservasParkeatecStepsDefinitions.java:14)
-	at ✽.ingrese al apartado de mis reservas(src/test/resources/features/verreservas_parkeatec.feature:18)
-</pre>
-</span>
-</div>
-</div>
-<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -146,37 +78,35 @@ Session ID: 350c7adbde35f527d6e2a764eb8a36a2
 </tr>
 </thead>
 <tr>
-<td class="failures">Mostrar la reserva activa y las reservas realizadas por el usuario</td>
-<td class="failures">14.644s</td>
-<td class="failures">failed</td>
+<td class="success">Mostrar la reserva activa y las reservas realizadas por el usuario</td>
+<td class="success">14.209s</td>
+<td class="success">passed</td>
 </tr>
 </table>
 </div>
-<div id="tab2" class="tab">
+<div id="tab1" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>may. 29, 2025 3:03:59 P. M. org.openqa.selenium.remote.DesiredCapabilities chrome
+<pre>may. 30, 2025 12:00:49 P. M. org.openqa.selenium.remote.DesiredCapabilities chrome
 INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
 [Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Instantiating driver
 [Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Driver capabilities: Capabilities {acceptInsecureCerts: false, browserName: chrome, goog:chromeOptions: {args: [], extensions: [], prefs: {behavior: allow}}, loggingPrefs: org.openqa.selenium.logging..., name: proyecto, platform: ANY, unhandledPromptBehavior: ignore, version: }
-Starting ChromeDriver 136.0.7103.94 (fa0be0b33debeb378a8e6ad9c599be34e2dc3b37-refs/branch-heads/7103@{#1842}) on port 29212
+Starting ChromeDriver 136.0.7103.94 (fa0be0b33debeb378a8e6ad9c599be34e2dc3b37-refs/branch-heads/7103@{#1842}) on port 35714
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-ChromeDriver was started successfully on port 29212.
-may. 29, 2025 3:04:01 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
+ChromeDriver was started successfully on port 35714.
+may. 30, 2025 12:00:52 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
-[Test worker] ERROR net.thucydides.core.steps.ConsoleLoggingListener - 
-           __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
-  _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
- (_)_____| |    | | |  _| \___ \ | |   | |_ / _ \  | || |   |  _| | | | |
-  _|_____| |    | | | |___ ___) || |   |  _/ ___ \ | || |___| |___| |_| |
- (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
-          \_\                                                            
+[Test worker] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
+        __    _____ _____ ____ _____   ____   _    ____  ____  _____ ____  
+  _     \ \  |_   _| ____/ ___|_   _| |  _ \ / \  / ___|/ ___|| ____|  _ \ 
+ (_)_____| |   | | |  _| \___ \ | |   | |_) / _ \ \___ \\___ \|  _| | | | |
+  _|_____| |   | | | |___ ___) || |   |  __/ ___ \ ___) |___) | |___| |_| |
+ (_)     | |   |_| |_____|____/ |_|   |_| /_/   \_\____/|____/|_____|____/ 
+        /_/                                                                
 
-TEST FAILED WITH ERROR: Mostrar la reserva activa y las reservas realizadas por el usuario
----------------------------------------------------------------------
-[Test worker] ERROR net.thucydides.core.steps.ConsoleLoggingListener - TEST FAILED AT STEP usuario clicks on click en boton perfil
-[Test worker] ERROR net.thucydides.core.steps.ConsoleLoggingListener - element click intercepted: Element &lt;a aria-expanded=&quot;false&quot; role=&quot;button&quot; class=&quot;dropdown-toggle nav-link&quot; tabindex=&quot;0&quot; href=&quot;#&quot;&gt;...&lt;/a&gt; is not clickable at point (1107, 18). Other element would receive the click: &lt;div class=&quot;header_container__HaR1N container&quot;&gt;...&lt;/div&gt;
+TEST PASSED: Mostrar la reserva activa y las reservas realizadas por el usuario
+----------------------------------------------------------------------------
 </pre>
 </span>
 </div>
@@ -188,7 +118,7 @@ TEST FAILED WITH ERROR: Mostrar la reserva activa y las reservas realizadas por 
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.4</a> at 29/05/2025, 3:04:15 p. m.</p>
+<a href="http://www.gradle.org">Gradle 7.4</a> at 30/05/2025, 12:01:06 p. m.</p>
 </div>
 </div>
 </body>

@@ -8,7 +8,7 @@ Característica: Ver las reservas que el usuario tiene activas o ha realizado
 
   Antecedentes:
     Dado que el usuario se encuentra en la pagina de inicio de sesion de Parkeatec
-    Cuando ingrese las credenciales correctas (usuario y contrasena)
+    Cuando ingrese las credenciales de usuario correctas (usuario y contrasena)
       | usuario                   | clave |
       | juanandres78.jg@gmail.com | 123   |
     Entonces se debe verificar que el usuario haya sido autenticado correctamente y redirigido a su pagina de inicio.
