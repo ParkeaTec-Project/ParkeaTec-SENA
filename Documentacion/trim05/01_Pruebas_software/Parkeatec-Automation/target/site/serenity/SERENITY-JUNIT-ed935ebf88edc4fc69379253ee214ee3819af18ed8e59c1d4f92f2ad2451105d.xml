@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Autenticacion en la pagina de Parkeatec" skipped="0" tests="1" time="8.25" timestamp="2025-05-29 01:41:01"><testcase name="Verificar la autenticacion exitosa en la pagina de Parkeatec"/></testsuite>
-=======
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Autenticacion en la pagina de Parkeatec" skipped="0" tests="1" time="5.52" timestamp="2025-05-28 04:26:26"><testcase name="Verificar la autenticacion exitosa en la pagina de Parkeatec"/></testsuite>
->>>>>>> 843b217cfd7945ae62f6ddf3c0e13d7f5b1c6951
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Autenticacion en la pagina de Parkeatec" skipped="0" tests="1" time="6.79" timestamp="2025-05-29 08:05:43"><testcase name="Verificar la autenticacion exitosa en la pagina de Parkeatec"/></testsuite>
