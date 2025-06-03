@@ -14,7 +14,9 @@ public class AutenticacionUsuario extends PageObject {
 
     public static Target CERRAR_MODAL = Target.the("Click btn cerrar").located(By.xpath("/html/body/div[3]/div/div/div[1]/button"));
 
-    public static Target MENSAJE_BIENVENIDA = Target.the("lista de trabajo").locatedBy("//a[text()='Perfil']");
+    public static Target DASH = Target.the("Click btn cerrar").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[1]/a"));
+
+    public static Target MENSAJE_BIENVENIDA = Target.the("lista de trabajo").locatedBy("//*[@id=\"basic-navbar-nav\"]/div/div[3]/a");
 
 
 }
