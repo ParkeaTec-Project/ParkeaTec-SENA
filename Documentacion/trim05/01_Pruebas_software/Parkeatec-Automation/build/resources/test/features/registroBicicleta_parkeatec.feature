@@ -16,10 +16,10 @@ Característica: registro de vehiculo en la pagina de Parkeatec
 
   Esquema del escenario: registrar de manera exitosa la informacion en la pagina de Parkeatec
     Cuando ingrese al apartado de formulario y seleccione llenar formulario
-      | firma_usuario   | foto_documento   | foto_carnet   | nro_serial   | foto_serial   | foto_vehiculo   | observacion   |
-      | <firma_usuario> | <foto_documento> | <foto_carnet> | <nro_serial> | <foto_serial> | <foto_vehiculo> | <observacion> |
+      | nro_serial   | observacion   |
+      | <nro_serial> | <observacion> |
     Entonces se debe registrar la informacion y verificar que la informacion del vehiculo haya sido registrada correctamente y visualizar en los vehiculos.
 
     Ejemplos:
-      | firma_usuario                       | foto_documento                      | foto_carnet                         | nro_serial | foto_serial                         | foto_vehiculo                       | observacion |
-      | C:/Users/User/Pictures/download.jpg | C:/Users/User/Pictures/download.jpg | C:/Users/User/Pictures/download.jpg | 123456ABC  | C:/Users/User/Pictures/download.jpg | C:/Users/User/Pictures/download.jpg | ninguna     |
+      | nro_serial | observacion |
+      | 123456ABC  | ninguna     |

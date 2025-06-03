@@ -1,1 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="registro de vehiculo en la pagina de Parkeatec" skipped="0" tests="1" time="7.02" timestamp="2025-05-29 08:06:59"><testcase name="registrar de manera exitosa la informacion en la pagina de Parkeatec"/></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="0" name="registro de vehiculo en la pagina de Parkeatec" skipped="0" tests="1" time="28.25" timestamp="2025-05-30 08:06:06"><testcase name="registrar de manera exitosa la informacion en la pagina de Parkeatec"><error message="The following error occurred: java.net.ConnectException: Failed to connect to localhost/[0:0:0:0:0:0:0:1]:44806&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'COMPUGHOST-D4K7', ip: '192.168.20.16', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.1'&#10;Driver info: driver.version: RemoteWebDriver" type="org.openqa.selenium.WebDriverException">The following error occurred: java.net.ConnectException: Failed to connect to localhost/[0:0:0:0:0:0:0:1]:44806
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'COMPUGHOST-D4K7', ip: '192.168.20.16', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.1'
+Driver info: driver.version: RemoteWebDriver</error><system-err>The following error occurred: java.net.ConnectException: Failed to connect to localhost/[0:0:0:0:0:0:0:1]:44806
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'COMPUGHOST-D4K7', ip: '192.168.20.16', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.1'
+Driver info: driver.version: RemoteWebDriver&#13;
+co.com.AutomatizacionParkeatecPage.tasks.RegistroBicicleta.performAs(RegistroBicicleta.java:37)&#13;
+co.com.AutomatizacionParkeatecPage.stepsdefinitions.RegistroBicicletaParkeatecStepDefinitions.ingreseAlApartadoDeFormularioYSeleccioneLlenarFormulario(RegistroBicicletaParkeatecStepDefinitions.java:16)&#13;
+cucumber.runner.Runner.runPickle(Runner.java:80)&#13;
+worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)&#13;
+worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)&#13;
+</system-err></testcase></testsuite>

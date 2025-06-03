@@ -148,7 +148,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 29-05-2025 20:06</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 30-05-2025 20:06</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -185,9 +185,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon fa-2x' title='ERROR'></i></a></span>
                             <span class="test-case-title">
-                                <span class="success-color">
+                                <span class="error-color">
                                     registrar de manera exitosa la informacion en la pagina de Parkeatec
                                         <span class="related-issue-title"></span>
                                 </span>
@@ -249,7 +249,7 @@
         <div class="story-title">
             <h3 class="story-header">Scenario Outline</h3>
 
-            <div class="scenario">Cuando ingrese al apartado de formulario y seleccione llenar formulario<br><table class='embedded'><thead><th>firma_usuario</th><th>foto_documento</th><th>foto_carnet</th><th>nro_serial</th><th>foto_serial</th><th>foto_vehiculo</th><th>observacion</th></thead><tbody><tr><td>&lt;firma_usuario&gt;</td><td>&lt;foto_documento&gt;</td><td>&lt;foto_carnet&gt;</td><td>&lt;nro_serial&gt;</td><td>&lt;foto_serial&gt;</td><td>&lt;foto_vehiculo&gt;</td><td>&lt;observacion&gt;</td></tr></tbody></table><br>Entonces se debe registrar la informacion y verificar que la informacion del vehiculo haya sido registrada correctamente y visualizar en los vehiculos.</div>
+            <div class="scenario">Cuando ingrese al apartado de formulario y seleccione llenar formulario<br><table class='embedded'><thead><th>nro_serial</th><th>observacion</th></thead><tbody><tr><td>&lt;nro_serial&gt;</td><td>&lt;observacion&gt;</td></tr></tbody></table><br>Entonces se debe registrar la informacion y verificar que la informacion del vehiculo haya sido registrada correctamente y visualizar en los vehiculos.</div>
 
         </div>
 
@@ -267,37 +267,17 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                            <th>Firma Usuario</th>
-                            <th>Foto Documento</th>
-                            <th>Foto Carnet</th>
                             <th>Nro Serial</th>
-                            <th>Foto Serial</th>
-                            <th>Foto Vehiculo</th>
                             <th>Observacion</th>
                     </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="test-SUCCESS"><a href="#0">1</a></td>
-                                <td class="test-SUCCESS"><a
-                                            href="#0">C:/Users/User/Pictures/download.jpg</a>
-                                </td>
-                                <td class="test-SUCCESS"><a
-                                            href="#0">C:/Users/User/Pictures/download.jpg</a>
-                                </td>
-                                <td class="test-SUCCESS"><a
-                                            href="#0">C:/Users/User/Pictures/download.jpg</a>
-                                </td>
-                                <td class="test-SUCCESS"><a
+                            <td class="test-ERROR"><a href="#0">1</a></td>
+                                <td class="test-ERROR"><a
                                             href="#0">123456ABC</a>
                                 </td>
-                                <td class="test-SUCCESS"><a
-                                            href="#0">C:/Users/User/Pictures/download.jpg</a>
-                                </td>
-                                <td class="test-SUCCESS"><a
-                                            href="#0">C:/Users/User/Pictures/download.jpg</a>
-                                </td>
-                                <td class="test-SUCCESS"><a
+                                <td class="test-ERROR"><a
                                             href="#0">ninguna</a>
                                 </td>
                         </tr>
@@ -323,13 +303,13 @@
                     <td colspan="5"></td>
                 </tr>
 
-                    <tr class="test-SUCCESS">
+                    <tr class="test-ERROR">
 
                         <td width="50" class="step-icon">
                             <a name="0"></a>
                                 <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0')"
                                    style="display:block">
-                                    <i class="fa fa-plus-square-o imgstepSection0 success-icon"
+                                    <i class="fa fa-plus-square-o imgstepSection0 error-icon"
                                        style="margin-left: 20px; float:left; padding-right:5px"></i>
                                 </a>
                         </td>
@@ -339,7 +319,7 @@
                                 <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0')"
                                    style="display:block;">
                                     <span class="top-level-step">
-                                                Example: {firma_usuario=C:/Users/User/Pictures/download.jpg, foto_documento=C:/Users/User/Pictures/download.jpg, foto_carnet=C:/Users/User/Pictures/download.jpg, nro_serial=123456ABC, foto_serial=C:/Users/User/Pictures/download.jpg, foto_vehiculo=C:/Users/User/Pictures/download.jpg, observacion=ninguna}
+                                                Example: {nro_serial=123456ABC, observacion=ninguna}
                                         </span>
                                 </a>
                                 <span class="evidence">
@@ -347,7 +327,7 @@
                             </div>
                         </td>
 
-                            <td width="160" class="SUCCESS-text">
+                            <td width="160" class="ERROR-text">
                                     <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=0">
                                         <img src="d8489815d31247ef7070d7080be2fd25f092abbe66fd1e9d78403f75dfa80b9b.png"
                                              href="d8489815d31247ef7070d7080be2fd25f092abbe66fd1e9d78403f75dfa80b9b.png"
@@ -356,15 +336,15 @@
                                     </a>
                                     <i class="fas fa-arrow-right"></i>
 
-                                    <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=22">
-                                        <img src="e1d5c9dde4a6ac5cbd8c42ce9eaeccec701423c544376fd59895c7d031951838.png"
-                                             href="e1d5c9dde4a6ac5cbd8c42ce9eaeccec701423c544376fd59895c7d031951838.png"
+                                    <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=24">
+                                        <img src="11a7796e84c67d75df1825d181e9b35cc1bd9030e3de5b86abfbc4e1914babf1.png"
+                                             href="11a7796e84c67d75df1825d181e9b35cc1bd9030e3de5b86abfbc4e1914babf1.png"
                                              class="screenshot"
                                              width="48" height="48"/>
                                     </a>
                             </td>
-                        <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                        <td width="100"><span class="top-level-step">6.2s</span></td>
+                        <td width="130"><span class="top-level-step">ERROR</span></td>
+                        <td width="100"><span class="top-level-step">28.25s</span></td>
                     </tr>
                         <tr>
                             <td colspan="5">
@@ -404,7 +384,7 @@
                                     </a>
                             </td>
                         <td width="130"><span class="nested-step">SUCCESS</span></td>
-                        <td width="100"><span class="nested-step">3.87s</span></td>
+                        <td width="100"><span class="nested-step">3.66s</span></td>
                     </tr>
                         <tr>
                             <td colspan="5">
@@ -444,7 +424,7 @@
                                     </a>
                             </td>
                         <td width="130"><span class="nested-step">SUCCESS</span></td>
-                        <td width="100"><span class="nested-step">3.47s</span></td>
+                        <td width="100"><span class="nested-step">3.3s</span></td>
                     </tr>
                         <tr>
                             <td colspan="5">
@@ -479,7 +459,7 @@
                                     </a>
                             </td>
                         <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                        <td width="100"><span class="nested-group-step">3.45s</span></td>
+                        <td width="100"><span class="nested-group-step">3.28s</span></td>
                     </tr>
 
                                 </table>
@@ -515,22 +495,22 @@
 
                             <td width="160" class="SUCCESS-text">
                                     <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=6">
-                                        <img src="cf2c8d3c636e522dde56fa434ef0986697d6c09268e9f3e43cff75ac6f9dae3e.png"
-                                             href="cf2c8d3c636e522dde56fa434ef0986697d6c09268e9f3e43cff75ac6f9dae3e.png"
+                                        <img src="5b7448be76e32712995a560aa0cefc3d268774df268156e3e8d0aba3680ba3ef.png"
+                                             href="5b7448be76e32712995a560aa0cefc3d268774df268156e3e8d0aba3680ba3ef.png"
                                              class="screenshot"
                                              width="48" height="48"/>
                                     </a>
                                     <i class="fas fa-arrow-right"></i>
 
                                     <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=15">
-                                        <img src="db8653205ed67732e7b820bd42c05e44e532bef0b8e1fa5ed7c7939a482b68ff.png"
-                                             href="db8653205ed67732e7b820bd42c05e44e532bef0b8e1fa5ed7c7939a482b68ff.png"
+                                        <img src="f9cf0476ecd20cc2a3a99c0c0ef7fffa39dba901b8ee50756e6380d70ade2f6e.png"
+                                             href="f9cf0476ecd20cc2a3a99c0c0ef7fffa39dba901b8ee50756e6380d70ade2f6e.png"
                                              class="screenshot"
                                              width="48" height="48"/>
                                     </a>
                             </td>
                         <td width="130"><span class="nested-step">SUCCESS</span></td>
-                        <td width="100"><span class="nested-step">1.92s</span></td>
+                        <td width="100"><span class="nested-step">1.88s</span></td>
                     </tr>
                         <tr>
                             <td colspan="5">
@@ -562,22 +542,22 @@
 
                             <td width="160" class="SUCCESS-text">
                                     <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=7">
-                                        <img src="cf2c8d3c636e522dde56fa434ef0986697d6c09268e9f3e43cff75ac6f9dae3e.png"
-                                             href="cf2c8d3c636e522dde56fa434ef0986697d6c09268e9f3e43cff75ac6f9dae3e.png"
+                                        <img src="5b7448be76e32712995a560aa0cefc3d268774df268156e3e8d0aba3680ba3ef.png"
+                                             href="5b7448be76e32712995a560aa0cefc3d268774df268156e3e8d0aba3680ba3ef.png"
                                              class="screenshot"
                                              width="48" height="48"/>
                                     </a>
                                     <i class="fas fa-arrow-right"></i>
 
                                     <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=14">
-                                        <img src="db8653205ed67732e7b820bd42c05e44e532bef0b8e1fa5ed7c7939a482b68ff.png"
-                                             href="db8653205ed67732e7b820bd42c05e44e532bef0b8e1fa5ed7c7939a482b68ff.png"
+                                        <img src="f9cf0476ecd20cc2a3a99c0c0ef7fffa39dba901b8ee50756e6380d70ade2f6e.png"
+                                             href="f9cf0476ecd20cc2a3a99c0c0ef7fffa39dba901b8ee50756e6380d70ade2f6e.png"
                                              class="screenshot"
                                              width="48" height="48"/>
                                     </a>
                             </td>
                         <td width="130"><span class="nested-step">SUCCESS</span></td>
-                        <td width="100"><span class="nested-step">1.89s</span></td>
+                        <td width="100"><span class="nested-step">1.86s</span></td>
                     </tr>
                         <tr>
                             <td colspan="5">
@@ -605,14 +585,14 @@
                             <td width="160" class="SUCCESS-text">
 
                                     <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=8">
-                                        <img src="cf2c8d3c636e522dde56fa434ef0986697d6c09268e9f3e43cff75ac6f9dae3e.png"
-                                             href="cf2c8d3c636e522dde56fa434ef0986697d6c09268e9f3e43cff75ac6f9dae3e.png"
+                                        <img src="5b7448be76e32712995a560aa0cefc3d268774df268156e3e8d0aba3680ba3ef.png"
+                                             href="5b7448be76e32712995a560aa0cefc3d268774df268156e3e8d0aba3680ba3ef.png"
                                              class="screenshot"
                                              width="48" height="48"/>
                                     </a>
                             </td>
                         <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                        <td width="100"><span class="nested-group-step">0.32s</span></td>
+                        <td width="100"><span class="nested-group-step">0.3s</span></td>
                     </tr>
                     <tr class="test-SUCCESS">
 
@@ -643,7 +623,7 @@
                                     </a>
                             </td>
                         <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                        <td width="100"><span class="nested-group-step">0.4s</span></td>
+                        <td width="100"><span class="nested-group-step">0.34s</span></td>
                     </tr>
                     <tr class="test-SUCCESS">
 
@@ -667,14 +647,14 @@
                             <td width="160" class="SUCCESS-text">
 
                                     <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=10">
-                                        <img src="43972cd5f3b46d9b204b14a10123886402d5c4d897828160bba2eec9a88a8ea8.png"
-                                             href="43972cd5f3b46d9b204b14a10123886402d5c4d897828160bba2eec9a88a8ea8.png"
+                                        <img src="2578e94809e95b079e4dbc197eb24151b5a3960f5a0bafaaeceb0c1203bdd61f.png"
+                                             href="2578e94809e95b079e4dbc197eb24151b5a3960f5a0bafaaeceb0c1203bdd61f.png"
                                              class="screenshot"
                                              width="48" height="48"/>
                                     </a>
                             </td>
                         <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                        <td width="100"><span class="nested-group-step">0.26s</span></td>
+                        <td width="100"><span class="nested-group-step">0.25s</span></td>
                     </tr>
                     <tr class="test-SUCCESS">
 
@@ -705,7 +685,7 @@
                                     </a>
                             </td>
                         <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                        <td width="100"><span class="nested-group-step">0.31s</span></td>
+                        <td width="100"><span class="nested-group-step">0.27s</span></td>
                     </tr>
                     <tr class="test-SUCCESS">
 
@@ -729,14 +709,14 @@
                             <td width="160" class="SUCCESS-text">
 
                                     <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=12">
-                                        <img src="f9866f37f19fa84a8c58fc20f3f0b6d15cd140af7237f5e82586f86d2a2963b4.png"
-                                             href="f9866f37f19fa84a8c58fc20f3f0b6d15cd140af7237f5e82586f86d2a2963b4.png"
+                                        <img src="48e27022929e36fca4bd6394ace6f9c2fc09adb88fe7271f1622ba557a16c63a.png"
+                                             href="48e27022929e36fca4bd6394ace6f9c2fc09adb88fe7271f1622ba557a16c63a.png"
                                              class="screenshot"
                                              width="48" height="48"/>
                                     </a>
                             </td>
                         <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                        <td width="100"><span class="nested-group-step">0.24s</span></td>
+                        <td width="100"><span class="nested-group-step">0.26s</span></td>
                     </tr>
                     <tr class="test-SUCCESS">
 
@@ -760,14 +740,14 @@
                             <td width="160" class="SUCCESS-text">
 
                                     <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=13">
-                                        <img src="db8653205ed67732e7b820bd42c05e44e532bef0b8e1fa5ed7c7939a482b68ff.png"
-                                             href="db8653205ed67732e7b820bd42c05e44e532bef0b8e1fa5ed7c7939a482b68ff.png"
+                                        <img src="f9cf0476ecd20cc2a3a99c0c0ef7fffa39dba901b8ee50756e6380d70ade2f6e.png"
+                                             href="f9cf0476ecd20cc2a3a99c0c0ef7fffa39dba901b8ee50756e6380d70ade2f6e.png"
                                              class="screenshot"
                                              width="48" height="48"/>
                                     </a>
                             </td>
                         <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                        <td width="100"><span class="nested-group-step">0.26s</span></td>
+                        <td width="100"><span class="nested-group-step">0.29s</span></td>
                     </tr>
 
                                 </table>
@@ -777,13 +757,13 @@
                                 </table>
                             </td>
                         </tr>
-                    <tr class="test-SUCCESS">
+                    <tr class="test-ERROR">
 
                         <td width="70" class="step-icon">
                             <a name="0-2"></a>
                                 <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-2')"
                                    style="display:block">
-                                    <i class="fa fa-plus-square-o imgstepSection0-2 success-icon"
+                                    <i class="fa fa-plus-square-o imgstepSection0-2 error-icon"
                                        style="margin-left: 40px; float:left; padding-right:5px"></i>
                                 </a>
                         </td>
@@ -793,7 +773,7 @@
                                 <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-2')"
                                    style="display:block;">
                                     <span class="nested-step">
-                                                Cuando ingrese al apartado de formulario y seleccione llenar formulario<br><table class='embedded'><thead><th>firma_usuario</th><th>foto_documento</th><th>foto_carnet</th><th>nro_serial</th><th>foto_serial</th><th>foto_vehiculo</th><th>observacion</th></thead><tbody><tr><td>C:/Users/User/Pictures/download.jpg</td><td>C:/Users/User/Pictures/download.jpg</td><td>C:/Users/User/Pictures/download.jpg</td><td>123456ABC</td><td>C:/Users/User/Pictures/download.jpg</td><td>C:/Users/User/Pictures/download.jpg</td><td>ninguna</td></tr></tbody></table>
+                                                Cuando ingrese al apartado de formulario y seleccione llenar formulario<br><table class='embedded'><thead><th>nro_serial</th><th>observacion</th></thead><tbody><tr><td>123456ABC</td><td>ninguna</td></tr></tbody></table>
                                         </span>
                                 </a>
                                 <span class="evidence">
@@ -801,29 +781,36 @@
                             </div>
                         </td>
 
-                            <td width="160" class="SUCCESS-text">
+                            <td width="160" class="ERROR-text">
+                                    <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=16">
+                                        <img src="4afb94fa69303aaaeaa57e81ce68ae29390e990a16a51109f82638241e83f5f7.png"
+                                             href="4afb94fa69303aaaeaa57e81ce68ae29390e990a16a51109f82638241e83f5f7.png"
+                                             class="screenshot"
+                                             width="48" height="48"/>
+                                    </a>
+                                    <i class="fas fa-arrow-right"></i>
 
-                                    <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=20">
-                                        <img src="e1d5c9dde4a6ac5cbd8c42ce9eaeccec701423c544376fd59895c7d031951838.png"
-                                             href="e1d5c9dde4a6ac5cbd8c42ce9eaeccec701423c544376fd59895c7d031951838.png"
+                                    <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=24">
+                                        <img src="11a7796e84c67d75df1825d181e9b35cc1bd9030e3de5b86abfbc4e1914babf1.png"
+                                             href="11a7796e84c67d75df1825d181e9b35cc1bd9030e3de5b86abfbc4e1914babf1.png"
                                              class="screenshot"
                                              width="48" height="48"/>
                                     </a>
                             </td>
-                        <td width="130"><span class="nested-step">SUCCESS</span></td>
-                        <td width="100"><span class="nested-step">0.32s</span></td>
+                        <td width="130"><span class="nested-step">ERROR</span></td>
+                        <td width="100"><span class="nested-step">22.65s</span></td>
                     </tr>
                         <tr>
                             <td colspan="5">
                                 <table id="stepSection0-2" class="step-table-nested" style="display:none;">
 
-                    <tr class="test-SUCCESS">
+                    <tr class="test-ERROR">
 
                         <td width="90" class="step-icon">
                             <a name="0-2-0"></a>
                                 <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0-2-0')"
                                    style="display:block">
-                                    <i class="fa fa-plus-square-o imgstepSection0-2-0 success-icon"
+                                    <i class="fa fa-plus-square-o imgstepSection0-2-0 error-icon"
                                        style="margin-left: 60px; float:left; padding-right:5px"></i>
                                 </a>
                         </td>
@@ -841,17 +828,24 @@
                             </div>
                         </td>
 
-                            <td width="160" class="SUCCESS-text">
+                            <td width="160" class="ERROR-text">
+                                    <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=17">
+                                        <img src="4afb94fa69303aaaeaa57e81ce68ae29390e990a16a51109f82638241e83f5f7.png"
+                                             href="4afb94fa69303aaaeaa57e81ce68ae29390e990a16a51109f82638241e83f5f7.png"
+                                             class="screenshot"
+                                             width="48" height="48"/>
+                                    </a>
+                                    <i class="fas fa-arrow-right"></i>
 
-                                    <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=19">
-                                        <img src="e1d5c9dde4a6ac5cbd8c42ce9eaeccec701423c544376fd59895c7d031951838.png"
-                                             href="e1d5c9dde4a6ac5cbd8c42ce9eaeccec701423c544376fd59895c7d031951838.png"
+                                    <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=24">
+                                        <img src="11a7796e84c67d75df1825d181e9b35cc1bd9030e3de5b86abfbc4e1914babf1.png"
+                                             href="11a7796e84c67d75df1825d181e9b35cc1bd9030e3de5b86abfbc4e1914babf1.png"
                                              class="screenshot"
                                              width="48" height="48"/>
                                     </a>
                             </td>
-                        <td width="130"><span class="nested-step">SUCCESS</span></td>
-                        <td width="100"><span class="nested-step">0.31s</span></td>
+                        <td width="130"><span class="nested-step">ERROR</span></td>
+                        <td width="100"><span class="nested-step">22.64s</span></td>
                     </tr>
                         <tr>
                             <td colspan="5">
@@ -879,28 +873,20 @@
                             <td width="160" class="SUCCESS-text">
 
                                     <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=18">
-                                        <img src="e1d5c9dde4a6ac5cbd8c42ce9eaeccec701423c544376fd59895c7d031951838.png"
-                                             href="e1d5c9dde4a6ac5cbd8c42ce9eaeccec701423c544376fd59895c7d031951838.png"
+                                        <img src="4afb94fa69303aaaeaa57e81ce68ae29390e990a16a51109f82638241e83f5f7.png"
+                                             href="4afb94fa69303aaaeaa57e81ce68ae29390e990a16a51109f82638241e83f5f7.png"
                                              class="screenshot"
                                              width="48" height="48"/>
                                     </a>
                             </td>
                         <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                        <td width="100"><span class="nested-group-step">0.3s</span></td>
+                        <td width="100"><span class="nested-group-step">0.25s</span></td>
                     </tr>
-
-                                </table>
-                            </td>
-                        </tr>
-
-                                </table>
-                            </td>
-                        </tr>
                     <tr class="test-SUCCESS">
 
-                        <td width="70" class="step-icon">
-                            <a name="0-3"></a>
-                                <span style="margin-left: 40px;"
+                        <td width="110" class="step-icon">
+                            <a name="0-2-0-1"></a>
+                                <span style="margin-left: 80px;"
                                       class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
                                 </span>
                         </td>
@@ -908,7 +894,69 @@
                         <td class="step-description-column">
                             <div class="step-description">
                                     <span class="nested-group-step">
-                                                Entonces se debe registrar la informacion y verificar que la informacion del vehiculo haya sido registrada correctamente y visualizar en los vehiculos.
+                                                usuario clicks on Click enlace llenar formulario
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                            <td width="160" class="SUCCESS-text">
+
+                                    <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=19">
+                                        <img src="8f73b44f2f9f207f44bbd99864fe583b481fd1cb9f7f9322d6f979e3a406855d.png"
+                                             href="8f73b44f2f9f207f44bbd99864fe583b481fd1cb9f7f9322d6f979e3a406855d.png"
+                                             class="screenshot"
+                                             width="48" height="48"/>
+                                    </a>
+                            </td>
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step">0.25s</span></td>
+                    </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="0-2-0-2"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                usuario enters 'C:\Users\User\Documents\ParkeaTec-SENA\Documentacion\trim05\01_Pruebas_software\Parkeatec-Automation\src\test\resources\dataDriven\FIRMA_DIGITAL_2.png' into Ingreso foto firma
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                            <td width="160" class="SUCCESS-text">
+
+                                    <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=20">
+                                        <img src="55938fef5d180d96abb665240c5d912993bca71bd7cd5b184afd29c987031c33.png"
+                                             href="55938fef5d180d96abb665240c5d912993bca71bd7cd5b184afd29c987031c33.png"
+                                             class="screenshot"
+                                             width="48" height="48"/>
+                                    </a>
+                            </td>
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step">0.12s</span></td>
+                    </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="0-2-0-3"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                usuario enters 'C:\Users\User\Documents\ParkeaTec-SENA\Documentacion\trim05\01_Pruebas_software\Parkeatec-Automation\src\test\resources\dataDriven\documento.jpg' into Ingreso foto documento
                                         </span>
                                 <span class="evidence">
                                 </span>
@@ -918,23 +966,194 @@
                             <td width="160" class="SUCCESS-text">
 
                                     <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=21">
-                                        <img src="e1d5c9dde4a6ac5cbd8c42ce9eaeccec701423c544376fd59895c7d031951838.png"
-                                             href="e1d5c9dde4a6ac5cbd8c42ce9eaeccec701423c544376fd59895c7d031951838.png"
+                                        <img src="55938fef5d180d96abb665240c5d912993bca71bd7cd5b184afd29c987031c33.png"
+                                             href="55938fef5d180d96abb665240c5d912993bca71bd7cd5b184afd29c987031c33.png"
                                              class="screenshot"
                                              width="48" height="48"/>
                                     </a>
                             </td>
                         <td width="130"><span class="nested-group-step">SUCCESS</span></td>
-                        <td width="100"><span class="nested-group-step">0.01s</span></td>
+                        <td width="100"><span class="nested-group-step">0.04s</span></td>
                     </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="0-2-0-4"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                usuario enters 'C:\Users\User\Documents\ParkeaTec-SENA\Documentacion\trim05\01_Pruebas_software\Parkeatec-Automation\src\test\resources\dataDriven\carnet.jpg' into Ingreso foto carnet
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                            <td width="160" class="SUCCESS-text">
+
+                                    <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=22">
+                                        <img src="4655ae392ee7303499d642fe73c6c93e3984f0dbd46dc7a3e78c93396f89a512.png"
+                                             href="4655ae392ee7303499d642fe73c6c93e3984f0dbd46dc7a3e78c93396f89a512.png"
+                                             class="screenshot"
+                                             width="48" height="48"/>
+                                    </a>
+                            </td>
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step">0.13s</span></td>
+                    </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="0-2-0-5"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                usuario select Bicicleta on Seleccion tipo de vehiculo
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                            <td width="160" class="SUCCESS-text">
+
+                                    <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=23">
+                                        <img src="3cf6b07de6275bae3b0273b4acfbf79d3723d934f8b4bb450dacb06293047ca6.png"
+                                             href="3cf6b07de6275bae3b0273b4acfbf79d3723d934f8b4bb450dacb06293047ca6.png"
+                                             class="screenshot"
+                                             width="48" height="48"/>
+                                    </a>
+                            </td>
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step">0.34s</span></td>
+                    </tr>
+                    <tr class="test-SUCCESS">
+
+                        <td width="110" class="step-icon">
+                            <a name="0-2-0-6"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                usuario clicks on Ingreso numero de serial del vehiculo
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                            <td width="160" class="SUCCESS-text">
+
+                                    <a href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb_screenshots.html#screenshots?screenshot=24">
+                                        <img src="11a7796e84c67d75df1825d181e9b35cc1bd9030e3de5b86abfbc4e1914babf1.png"
+                                             href="11a7796e84c67d75df1825d181e9b35cc1bd9030e3de5b86abfbc4e1914babf1.png"
+                                             class="screenshot"
+                                             width="48" height="48"/>
+                                    </a>
+                            </td>
+                        <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                        <td width="100"><span class="nested-group-step">0.23s</span></td>
+                    </tr>
+                    <tr class="test-ERROR">
+
+                        <td width="110" class="step-icon">
+                            <a name="0-2-0-7"></a>
+                                <span style="margin-left: 80px;"
+                                      class="nested-group-icon"><a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
+                                </span>
+                        </td>
+
+                        <td class="step-description-column">
+                            <div class="step-description">
+                                    <span class="nested-group-step">
+                                                usuario enters '123456ABC' into Ingreso numero de serial del vehiculo
+                                        </span>
+                                <span class="evidence">
+                                </span>
+                            </div>
+                        </td>
+
+                            <td width="160" class="ERROR-text">
+
+                            </td>
+                        <td width="130"><span class="nested-group-step">ERROR</span></td>
+                        <td width="100"><span class="nested-group-step">21.07s</span></td>
+                    </tr>
+                        <tr class="test-ERROR">
+                            <td width="40">&nbsp</td>
+                            <td width="%" colspan="4" class="error-message-cell">
+
+
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">org.openqa.selenium.WebDriverException: The following error occurred: java.net.ConnectException: Failed to connect to localhost/[0:0:0:0:0:0:0:1]:44806<br>Build info: version: &#39;3.141.59&#39;, revision: &#39;e82be7d358&#39;, time: &#39;2018-11-14T08:17:03&#39;<br>System info: host: &#39;COMPUGHOST-D4K7&#39;, ip: &#39;192.168.20.16&#39;, os.name: &#39;Windows 10&#39;, os.arch: &#39;amd64&#39;, os.version: &#39;10.0&#39;, java.version: &#39;15.0.1&#39;<br>Driver info: driver.version: RemoteWebDriver</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-22""
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="far fa-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-22">
+            <div class="card">
+                <div class="card-header">
+                    <h4>org.openqa.selenium.WebDriverException </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>co.com.AutomatizacionParkeatecPage.tasks.RegistroBicicleta.performAs(RegistroBicicleta.java:37)<br />co.com.AutomatizacionParkeatecPage.stepsdefinitions.RegistroBicicletaParkeatecStepDefinitions.ingreseAlApartadoDeFormularioYSeleccioneLlenarFormulario(RegistroBicicletaParkeatecStepDefinitions.java:16)<br />cucumber.runner.Runner.runPickle(Runner.java:80)<br />worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)<br />worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)<br /></pre>
+                    </div>
+
+                    <h4>
+                        Caused by: java.net.ConnectException
+                    </h4>
+                    <div>
+                            <pre>Failed to connect to localhost/[0:0:0:0:0:0:0:1]:44806</pre>
+                        <pre>okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.java :247)<br />okhttp3.internal.connection.RealConnection.connect(RealConnection.java :165)<br />okhttp3.internal.connection.StreamAllocation.findConnection(StreamAllocation.java :257)<br />okhttp3.internal.connection.StreamAllocation.findHealthyConnection(StreamAllocation.java :135)<br />okhttp3.internal.connection.StreamAllocation.newStream(StreamAllocation.java :114)<br />okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.java :42)<br />okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java :147)<br />okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java :121)<br />okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.java :93)<br />okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java :147)<br />okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java :121)<br />okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.java :93)<br />okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java :147)<br />okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.java :126)<br />okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java :147)<br />okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java :121)<br />okhttp3.RealCall.getResponseWithInterceptorChain(RealCall.java :200)<br />okhttp3.RealCall.execute(RealCall.java :77)<br />co.com.AutomatizacionParkeatecPage.tasks.RegistroBicicleta.performAs(RegistroBicicleta.java :37)<br />co.com.AutomatizacionParkeatecPage.stepsdefinitions.RegistroBicicletaParkeatecStepDefinitions.ingreseAlApartadoDeFormularioYSeleccioneLlenarFormulario(RegistroBicicletaParkeatecStepDefinitions.java :16)<br />cucumber.runner.Runner.runPickle(Runner.java :80)<br />worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java :69)<br />worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java :74)<br /></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                            </td>
+                        </tr>
 
                                 </table>
                             </td>
                         </tr>
-                <tr class="test-SUCCESS">
+
+                                </table>
+                            </td>
+                        </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                <tr class="test-ERROR">
                         <td colspan="3"></td>
-                    <td width="130"><span class="top-level-step"><em>SUCCESS</em></span></td>
-                    <td width="100"><span class="top-level-step"><em>7.02s</em></span></td>
+                    <td width="130"><span class="top-level-step"><em>ERROR</em></span></td>
+                    <td width="100"><span class="top-level-step"><em>28.25s</em></span></td>
                 </tr>
 
             </table>
