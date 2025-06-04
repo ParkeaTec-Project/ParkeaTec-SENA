@@ -154,7 +154,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 29-05-2025 20:06</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 04-06-2025 16:28</span>
     <br style="clear:left"/>
 </div>
 
@@ -197,9 +197,9 @@ Para poder hacer uso del parqueadero
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon fa-2x' title='ERROR'></i></a></span>
                             <span class="test-case-title">
-                                <span class="success-color">registrar de manera exitosa la informacion en la pagina de Parkeatec
+                                <span class="error-color">registrar de manera exitosa la informacion en la pagina de Parkeatec
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -215,44 +215,90 @@ Para poder hacer uso del parqueadero
 
     <div class="story-title">
         <h3>Scenario:</h3>
-        <div class="scenario">Cuando ingrese al apartado de formulario y seleccione llenar formulario<br><table class='embedded'><thead><th>firma_usuario</th><th>foto_documento</th><th>foto_carnet</th><th>nro_serial</th><th>foto_serial</th><th>foto_vehiculo</th><th>observacion</th></thead><tbody><tr><td>&lt;firma_usuario&gt;</td><td>&lt;foto_documento&gt;</td><td>&lt;foto_carnet&gt;</td><td>&lt;nro_serial&gt;</td><td>&lt;foto_serial&gt;</td><td>&lt;foto_vehiculo&gt;</td><td>&lt;observacion&gt;</td></tr></tbody></table><br>Entonces se debe registrar la informacion y verificar que la informacion del vehiculo haya sido registrada correctamente y visualizar en los vehiculos.</div>
+        <div class="scenario">Cuando ingrese al apartado de formulario y seleccione llenar formulario<br><table class='embedded'><thead><th>nro_serial</th><th>observacion</th></thead><tbody><tr><td>&lt;nro_serial&gt;</td><td>&lt;observacion&gt;</td></tr></tbody></table><br>Entonces se debe registrar la informacion y verificar que la informacion del vehiculo haya sido registrada correctamente y visualizar en los vehiculos.</div>
     </div>
 
     <div id="beforetable"></div>
     <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">Element click intercepted exception: element click intercepted: Element is not clickable at point (1107, -112)</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall""
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="far fa-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-overall">
+            <div class="card">
+                <div class="card-header">
+                    <h4>org.openqa.selenium.ElementClickInterceptedException </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>co.com.AutomatizacionParkeatecPage.tasks.RegistroBicicleta.performAs(RegistroBicicleta.java:41)<br />co.com.AutomatizacionParkeatecPage.stepsdefinitions.RegistroBicicletaParkeatecStepDefinitions.ingreseAlApartadoDeFormularioYSeleccioneLlenarFormulario(RegistroBicicletaParkeatecStepDefinitions.java:17)<br />cucumber.runner.Runner.runPickle(Runner.java:80)<br />worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)<br />worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                <div class="panel-body">
+                    <a href="pagesource4712778373398949126.html.txt" target="_blank" class="btn btn-info">HTML Source</a>
+                </div>
+            </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
-                <img src="d8489815d31247ef7070d7080be2fd25f092abbe66fd1e9d78403f75dfa80b9b.png" title=" Example: {firma_usuario=C:/Users/User/Pictures/download.jpg, foto_documento=C:/Users/User/Pictures/download.jpg, foto_carnet=C:/Users/User/Pictures/download.jpg, nro_serial=123456ABC, foto_serial=C:/Users/User/Pictures/download.jpg, foto_vehiculo=C:/Users/User/Pictures/download.jpg, observacion=ninguna}" width="1684"/>
-                <img src="d8489815d31247ef7070d7080be2fd25f092abbe66fd1e9d78403f75dfa80b9b.png" title=" Dado que el usuario se encuentra en la pagina de inicio de sesion de Parkeatec" width="1684"/>
-                <img src="d8489815d31247ef7070d7080be2fd25f092abbe66fd1e9d78403f75dfa80b9b.png" title=" Usuario abrir pagina" width="1684"/>
-                <img src="d8489815d31247ef7070d7080be2fd25f092abbe66fd1e9d78403f75dfa80b9b.png" title=" usuario opens the Inicio parkeatec" width="1684"/>
-                <img src="d8489815d31247ef7070d7080be2fd25f092abbe66fd1e9d78403f75dfa80b9b.png" title=" Usuario abrir pagina (completed)" width="1684"/>
-                <img src="d8489815d31247ef7070d7080be2fd25f092abbe66fd1e9d78403f75dfa80b9b.png" title=" Dado que el usuario se encuentra en la pagina de inicio de sesion de Parkeatec (completed)" width="1684"/>
-                <img src="cf2c8d3c636e522dde56fa434ef0986697d6c09268e9f3e43cff75ac6f9dae3e.png" title=" Cuando ingrese las credenciales de usuario correctas (usuario y contrasena)
+                <img src="dcb4edb451215862a99c69b08fd52a256ce045830a57e080788b2aae5d3d554e.png" title=" Example: {nro_serial=123456ABC, observacion=ninguna}" width="1925"/>
+                <img src="dcb4edb451215862a99c69b08fd52a256ce045830a57e080788b2aae5d3d554e.png" title=" Dado que el usuario se encuentra en la pagina de inicio de sesion de Parkeatec" width="1925"/>
+                <img src="dcb4edb451215862a99c69b08fd52a256ce045830a57e080788b2aae5d3d554e.png" title=" Usuario abrir pagina" width="1925"/>
+                <img src="dcb4edb451215862a99c69b08fd52a256ce045830a57e080788b2aae5d3d554e.png" title=" usuario opens the Inicio parkeatec" width="1925"/>
+                <img src="dcb4edb451215862a99c69b08fd52a256ce045830a57e080788b2aae5d3d554e.png" title=" Usuario abrir pagina (completed)" width="1925"/>
+                <img src="dcb4edb451215862a99c69b08fd52a256ce045830a57e080788b2aae5d3d554e.png" title=" Dado que el usuario se encuentra en la pagina de inicio de sesion de Parkeatec (completed)" width="1925"/>
+                <img src="493b983bbedb52d589686736e4132b52cf87288df820c087218225253703fd49.png" title=" Cuando ingrese las credenciales de usuario correctas (usuario y contrasena)
 | usuario | clave |
-| juanandres78.jg@gmail.com | 123 |" width="1684"/>
-                <img src="cf2c8d3c636e522dde56fa434ef0986697d6c09268e9f3e43cff75ac6f9dae3e.png" title=" Usuario autenticarse usuario" width="1684"/>
-                <img src="cf2c8d3c636e522dde56fa434ef0986697d6c09268e9f3e43cff75ac6f9dae3e.png" title=" usuario clicks on Ingreso del usuario" width="1684"/>
-                <img src="3918854f50b251d6039b22ed244c7890edfe6b764e7aafba1a5963809b78e46c.png" title=" usuario enters 'juanandres78.jg@gmail.com' into Ingreso del usuario" width="1684"/>
-                <img src="43972cd5f3b46d9b204b14a10123886402d5c4d897828160bba2eec9a88a8ea8.png" title=" usuario clicks on Ingreso del password" width="1684"/>
-                <img src="29f7bf8e11027dbf027c80e92f27916ccdfc60bc6b42488dc9290ddbf2c4125d.png" title=" usuario enters '123' into Ingreso del password" width="1684"/>
-                <img src="f9866f37f19fa84a8c58fc20f3f0b6d15cd140af7237f5e82586f86d2a2963b4.png" title=" usuario clicks on Click btn success" width="1684"/>
-                <img src="db8653205ed67732e7b820bd42c05e44e532bef0b8e1fa5ed7c7939a482b68ff.png" title=" usuario clicks on Click btn cerrar" width="1684"/>
-                <img src="db8653205ed67732e7b820bd42c05e44e532bef0b8e1fa5ed7c7939a482b68ff.png" title=" Usuario autenticarse usuario (completed)" width="1684"/>
-                <img src="db8653205ed67732e7b820bd42c05e44e532bef0b8e1fa5ed7c7939a482b68ff.png" title=" Cuando ingrese las credenciales de usuario correctas (usuario y contrasena)
+| juanandres78.jg@gmail.com | 123 |" width="1925"/>
+                <img src="493b983bbedb52d589686736e4132b52cf87288df820c087218225253703fd49.png" title=" Usuario autenticarse usuario" width="1925"/>
+                <img src="493b983bbedb52d589686736e4132b52cf87288df820c087218225253703fd49.png" title=" usuario clicks on Ingreso del usuario" width="1925"/>
+                <img src="ad3acd1fdf71aa86a6d6302ad34055a9ebf8f53354e2f1aa6c72dce1de79270d.png" title=" usuario enters 'juanandres78.jg@gmail.com' into Ingreso del usuario" width="1925"/>
+                <img src="2bf539c8e4e42089bbe03e74875762f33a498b9ec9875999dcdbb993e6509668.png" title=" usuario clicks on Ingreso del password" width="1925"/>
+                <img src="219f6fa5fb55cb27e84ee000f3ffde04097c25114360bffd5dd2fdd72c67892a.png" title=" usuario enters '123' into Ingreso del password" width="1925"/>
+                <img src="b064b128edadc951590002a3c5dbb18f6735c6d08b67c7e8d3c1483a6e0621fe.png" title=" usuario clicks on Click btn success" width="1925"/>
+                <img src="91417864335fdf7a50041a821d3097b9a512cd98d7516593650e53a15162b0ed.png" title=" usuario clicks on Click btn cerrar" width="1925"/>
+                <img src="91417864335fdf7a50041a821d3097b9a512cd98d7516593650e53a15162b0ed.png" title=" Usuario autenticarse usuario (completed)" width="1925"/>
+                <img src="91417864335fdf7a50041a821d3097b9a512cd98d7516593650e53a15162b0ed.png" title=" Cuando ingrese las credenciales de usuario correctas (usuario y contrasena)
 | usuario | clave |
-| juanandres78.jg@gmail.com | 123 | (completed)" width="1684"/>
-                <img src="e1d5c9dde4a6ac5cbd8c42ce9eaeccec701423c544376fd59895c7d031951838.png" title=" Cuando ingrese al apartado de formulario y seleccione llenar formulario
-| firma_usuario | foto_documento | foto_carnet | nro_serial | foto_serial | foto_vehiculo | observacion |
-| C:/Users/User/Pictures/download.jpg | C:/Users/User/Pictures/download.jpg | C:/Users/User/Pictures/download.jpg | 123456ABC | C:/Users/User/Pictures/download.jpg | C:/Users/User/Pictures/download.jpg | ninguna |" width="1684"/>
-                <img src="e1d5c9dde4a6ac5cbd8c42ce9eaeccec701423c544376fd59895c7d031951838.png" title=" Usuario registro bicicleta" width="1684"/>
-                <img src="e1d5c9dde4a6ac5cbd8c42ce9eaeccec701423c544376fd59895c7d031951838.png" title=" usuario clicks on Click enlace formulario" width="1684"/>
-                <img src="e1d5c9dde4a6ac5cbd8c42ce9eaeccec701423c544376fd59895c7d031951838.png" title=" Usuario registro bicicleta (completed)" width="1684"/>
-                <img src="e1d5c9dde4a6ac5cbd8c42ce9eaeccec701423c544376fd59895c7d031951838.png" title=" Cuando ingrese al apartado de formulario y seleccione llenar formulario
-| firma_usuario | foto_documento | foto_carnet | nro_serial | foto_serial | foto_vehiculo | observacion |
-| C:/Users/User/Pictures/download.jpg | C:/Users/User/Pictures/download.jpg | C:/Users/User/Pictures/download.jpg | 123456ABC | C:/Users/User/Pictures/download.jpg | C:/Users/User/Pictures/download.jpg | ninguna | (completed)" width="1684"/>
-                <img src="e1d5c9dde4a6ac5cbd8c42ce9eaeccec701423c544376fd59895c7d031951838.png" title=" Entonces se debe registrar la informacion y verificar que la informacion del vehiculo haya sido registrada correctamente y visualizar en los vehiculos." width="1684"/>
-                <img src="e1d5c9dde4a6ac5cbd8c42ce9eaeccec701423c544376fd59895c7d031951838.png" title=" Example: {firma_usuario=C:/Users/User/Pictures/download.jpg, foto_documento=C:/Users/User/Pictures/download.jpg, foto_carnet=C:/Users/User/Pictures/download.jpg, nro_serial=123456ABC, foto_serial=C:/Users/User/Pictures/download.jpg, foto_vehiculo=C:/Users/User/Pictures/download.jpg, observacion=ninguna} (completed): <span class='success-color'>SUCCESS</span>" width="1684"/>
+| juanandres78.jg@gmail.com | 123 | (completed)" width="1925"/>
+                <img src="6d408b6115eba961e643b719bef8933f351714317fcc02ec3ef1d758fe5e67c0.png" title=" Cuando ingrese al apartado de formulario y seleccione llenar formulario
+| nro_serial | observacion |
+| 123456ABC | ninguna |" width="1925"/>
+                <img src="6d408b6115eba961e643b719bef8933f351714317fcc02ec3ef1d758fe5e67c0.png" title=" Usuario registro bicicleta" width="1925"/>
+                <img src="6d408b6115eba961e643b719bef8933f351714317fcc02ec3ef1d758fe5e67c0.png" title=" usuario clicks on Click enlace formulario" width="1925"/>
+                <img src="c21f9e2d1e1bb6bf750ef5bb4a5b661df0c4c59b19df580951d57f904205f194.png" title=" usuario clicks on Click enlace llenar formulario" width="1925"/>
+                <img src="fb323bee0abc4300d7a11ed86fd4a77eb6c01ebb3246a648da196ec5127f7eda.png" title=" usuario enters 'C:\Users\diego.garzon\Pictures\ParkeaTec-SENA\Documentacion\trim05\01_Pruebas_software\Parkeatec-Automation\src\test\resources\dataDriven\FIRMA_DIGITAL_2.png' into Ingreso foto firma" width="1925"/>
+                <img src="2c148a64eadd81c29c444be746ecee9ee99c47fc6d86575c8d2e710302533d35.png" title=" usuario enters 'C:\Users\diego.garzon\Pictures\ParkeaTec-SENA\Documentacion\trim05\01_Pruebas_software\Parkeatec-Automation\src\test\resources\dataDriven\documento.jpg' into Ingreso foto documento" width="1925"/>
+                <img src="ba84f7a1e62572538d3e02f8441db093fc8bf50ad5de31ecfea96fda54600f59.png" title=" usuario enters 'C:\Users\diego.garzon\Pictures\ParkeaTec-SENA\Documentacion\trim05\01_Pruebas_software\Parkeatec-Automation\src\test\resources\dataDriven\carnet.jpg' into Ingreso foto carnet" width="1925"/>
+                <img src="7e4bd9b67bebbf80d1e185a24c73131933d51e7ef679da474844a77a117d75fb.png" title=" usuario select Bicicleta on Seleccion tipo de vehiculo" width="1925"/>
+                <img src="995af34a17184e448f785d5b94b56c64f971cf10067d59fcf75bc7c6e76aca82.png" title=" usuario clicks on Ingreso numero de serial del vehiculo" width="1925"/>
+                <img src="6b698767d29853341c164ac82be94b79c1ffd63dc7c469e24e9892ccd29256fd.png" title=" usuario enters '123456ABC' into Ingreso numero de serial del vehiculo" width="1925"/>
+                <img src="eeda2ed054b5f955b58393d9f321ddd866dc05b40feeae461e282687c6ef18d4.png" title=" usuario enters 'C:\Users\diego.garzon\Pictures\ParkeaTec-SENA\Documentacion\trim05\01_Pruebas_software\Parkeatec-Automation\src\test\resources\dataDriven\serial.jpg' into Ingreso numero de serial del vehiculo" width="1925"/>
+                <img src="fd306ee80f82f689911470e7626f86e7c466f4f079c53684f2715718a0f56238.png" title=" usuario enters 'C:\Users\diego.garzon\Pictures\ParkeaTec-SENA\Documentacion\trim05\01_Pruebas_software\Parkeatec-Automation\src\test\resources\dataDriven\bicicleta.jpg' into Ingreso foto del vehiculo" width="1925"/>
+                <img src="5744a535aa006b8e004c4b37aecb36bff69392f2a5929be81420524eaa39f4c9.png" title=" usuario clicks on Ingreso observacion del vehiculo" width="1925"/>
+                <img src="58069cb0d49924a72dde44116febc1650543bb6e6bb6468d462f043a4aef1c69.png" title=" usuario enters 'ninguna' into Ingreso observacion del vehiculo" width="1925"/>
+                <img src="1c69da5f32949cd84fe2baa6d523283669fa1f5cb834b663588e79640eb3fdd2.png" title=" usuario clicks on Click boton enviar" width="1925"/>
+                <img src="457159c579a7042da4534f98c524ca7c3f276892230958bdfccb4cff4ab6b8f4.png" title=" usuario clicks on Scroll vista formulario: <span class='error-color'>ERROR</span>" width="1925"/>
             </div>
         </div>
 

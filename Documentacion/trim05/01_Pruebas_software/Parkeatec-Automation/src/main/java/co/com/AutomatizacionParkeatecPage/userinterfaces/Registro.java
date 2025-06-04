@@ -6,6 +6,8 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class Registro extends PageObject {
 
+    public static Target FORM = Target.the("formulario").located(By.xpath("//*[@id=\"root\"]/div"));
+
     public static Target REGISTRO = Target.the("Click enlace registro").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/a[1]"));
 
     public static Target INPUT_NOMBRE = Target.the("Ingreso nombre usuario").located(By.xpath("//*[@id=\"root\"]/div/form/div[1]/div[1]/input"));
@@ -32,7 +34,12 @@ public class Registro extends PageObject {
 
     public static Target BTN_REGISTRO = Target.the("Click boton de registro").located(By.xpath("//*[@id=\"root\"]/div/form/button"));
 
-    public static Target FORM = Target.the("Click boton de registro").located(By.xpath("//*[@id=\"root\"]/div"));
+
+    public static Target CERRAR_MODAL_REGISTRO = Target.the("Click boton cerrar modal").located(By.xpath("/html/body/div[3]/div/div/div[1]/button"));
+
+    public static Target SCROLL_NAV = Target.the("Scroll nav").located(By.xpath("//*[@id=\"root\"]"));
+
+    public static Target LOGIN = Target.the("Click enlace login").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/a[2]"));
 
 
 }

@@ -6,6 +6,8 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class Bicicleta extends PageObject {
 
+    public static Target DASHBOARD = Target.the("Scroll vista formulario").located(By.xpath("//*[@id=\"root\"]/div"));
+
 
     public static Target VISTA = Target.the("Scroll vista formulario").located(By.xpath("//*[@id=\"root\"]"));
 
@@ -30,6 +32,17 @@ public class Bicicleta extends PageObject {
     public static Target INPUT_OBSERVACION = Target.the("Ingreso observacion del vehiculo").located(By.xpath("//*[@id=\"root\"]/div/form/div[9]/div[2]/div/input"));
 
     public static Target BTN_ENVIAR = Target.the("Click boton enviar").located(By.xpath("//*[@id=\"root\"]/div/form/button"));
+
+    public static Target PERFIL = Target.the("Scroll vista formulario").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[3]/a"));
+
+    public static Target VEHICULO = Target.the("Link vehiculos").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[3]/div/a[3]"));
+
+    public static Target PLACA = Target.the("Link vehiculos").located(By.xpath("//*[@id=\"root\"]/section/div/div/div/div/div/div/div[1]/div[2]/p[3]"));
+
+    public static Target OBSERVACION = Target.the("Link vehiculos").located(By.xpath("//*[@id=\"root\"]/section/div/div/div/div/div/div/div[1]/div[2]/p[5]"));
+
+
+
 
 
 }

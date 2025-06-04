@@ -43,4 +43,6 @@ public class Moto extends PageObject {
     public static Target INPUT_FOTOTECNO = Target.the("Seleccionar foto tecnomecanica").located(By.xpath("//*[@id=\"root\"]/div/form/div[12]/div[2]/div/input"));
 
     public static Target BTN_ENVIAR = Target.the("Click boton enviar").located(By.xpath("//*[@id=\"root\"]/div/form/button"));
+
+    public static Target MSG_REGISTRO = Target.the("Mensaje de registro de vehiculo").locatedBy("//div[text()='Vehiculo registrado']");
 }

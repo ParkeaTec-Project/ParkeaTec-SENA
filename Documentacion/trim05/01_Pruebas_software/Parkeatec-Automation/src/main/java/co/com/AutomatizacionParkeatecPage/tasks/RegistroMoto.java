@@ -6,9 +6,7 @@ import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import co.com.AutomatizacionParkeatecPage.utils.hooks.Constantes.*;
-import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.Hit;
-import net.serenitybdd.screenplay.actions.SendKeys;
+import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.waits.Wait;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.Keys;
@@ -19,9 +17,11 @@ import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.List;
 
+import static co.com.AutomatizacionParkeatecPage.userinterfaces.Bicicleta.INPUT_SERIAL;
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.Moto.*;
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.Registro.INPUT_FOTO;
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.VerReservas.CLICK_PERFIL;
+import static co.com.AutomatizacionParkeatecPage.utils.hooks.Constantes.rutaFotoSoat;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isCurrentlyEnabled;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
@@ -44,17 +44,41 @@ public class RegistroMoto implements Task {
         String rutaFotoPlacaMoto = new File(Constantes.rutaFotoPlacaMoto).getAbsolutePath();
         String rutaLicencia = new File(Constantes.rutaLicencia).getAbsolutePath();
         String rutaTarjetaProp = new File(Constantes.rutaTarjetaProp).getAbsolutePath();
+        String rutaFotoSoat = new File(Constantes.rutaFotoSoat).getAbsolutePath();
         String rutaFotoTecno = new File(Constantes.rutaFotoTecno).getAbsolutePath();
         actor.attemptsTo(
                 WaitUntil.the(FORMULARIO, isCurrentlyEnabled()).forNoMoreThan(5).seconds(),
                 Click.on(FORMULARIO),
                 Click.on(LLENAR_FORMULARIO),
+                Scroll.to(BTN_ENVIAR),
                 SendKeys.of(rutaFotoFirmaMoto).into(INPUT_FIRMA),
                 SendKeys.of(rutaFotoDocumentoMoto).into(INPUT_DOCUMENTO),
                 SendKeys.of(rutaFotoCarnetMoto).into(INPUT_CARNET),
                 Click.on(SELECT_VEHICULO),
-                Hit.the(Keys.ARROW_DOWN).into(SELECT_VEHICULO)
-
+                Hit.the(Keys.ARROW_DOWN).into(SELECT_VEHICULO),
+                Click.on(SELECT_VEHICULO),
+                Scroll.to(INPUT_PLACA),
+                Click.on(INPUT_PLACA),
+                Enter.theValue(formularioMoto.get(0).getPlaca_vehiculo()).into(INPUT_PLACA),
+                Click.on(INPUT_MODELO),
+                Enter.theValue(formularioMoto.get(0).getModelo()).into(INPUT_MODELO),
+                Click.on(INPUT_MARCA),
+                Enter.theValue(formularioMoto.get(0).getMarca()).into(INPUT_MARCA),
+                Click.on(INPUT_COLOR),
+                Enter.theValue(formularioMoto.get(0).getColor()).into(INPUT_COLOR),
+                Scroll.to(INPUT_SOAT),
+                Click.on(INPUT_SOAT),
+                Enter.theValue(formularioMoto.get(0).getVencimiento_soat()).into(INPUT_SOAT),
+                Click.on(INPUT_OBSERVACION),
+                Enter.theValue(formularioMoto.get(0).getObservacion()).into(INPUT_OBSERVACION),
+                Scroll.to(INPUT_LICENCIA),
+                SendKeys.of(rutaFotoPlacaMoto).into(INPUT_FOTOPLACA),
+                SendKeys.of(rutaFotoMoto).into(INPUT_FOTOVEHICULO),
+                SendKeys.of(rutaLicencia).into(INPUT_LICENCIA),
+                SendKeys.of(rutaTarjetaProp).into(INPUT_TARPROP),
+                SendKeys.of(rutaFotoSoat).into(INPUT_FOTOSOAT),
+                SendKeys.of(rutaFotoTecno).into(INPUT_FOTOTECNO),
+                Click.on(BTN_ENVIAR)
 
         );
     }

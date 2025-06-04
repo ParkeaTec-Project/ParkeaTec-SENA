@@ -9,8 +9,8 @@ Característica: Llenar el formulario de registro de vehiculo moto
   Antecedentes:
     Dado que el usuario se encuentra en la pagina de inicio de sesion de Parkeatec
     Cuando ingrese las credenciales de usuario correctas (usuario y contrasena)
-      | usuario                   | clave |
-      | juanandres78.jg@gmail.com | 123   |
+      | usuario            | clave |
+      | diego123@gmail.com | 123   |
     Entonces se debe verificar que el usuario haya sido autenticado correctamente y redirigido a su pagina de inicio.
 
     @registromoto
@@ -22,4 +22,4 @@ Característica: Llenar el formulario de registro de vehiculo moto
 
       Ejemplos:
         | placa_vehiculo | modelo | marca | color | vencimiento_soat | observacion |
-        | CBI23H         | Apache | TVS   | Gris  | 14072025         | Ninguna     |
+        | CBI23H         | Apache | TVS   | Gris  | 14082025         | Ninguna     |

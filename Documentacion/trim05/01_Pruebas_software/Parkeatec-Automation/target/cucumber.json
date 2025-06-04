@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 5145046200,
+              "duration": 4808020600,
               "status": "passed"
             },
             "line": 10,
@@ -23,7 +23,7 @@
           },
           {
             "result": {
-              "duration": 2943537100,
+              "duration": 2911054200,
               "status": "passed"
             },
             "line": 11,
@@ -40,7 +40,7 @@
               },
               {
                 "cells": [
-                  "juanandres78.jg@gmail.com",
+                  "diego123@gmail.com",
                   "123"
                 ]
               }
@@ -49,7 +49,7 @@
           },
           {
             "result": {
-              "duration": 553714300,
+              "duration": 503704400,
               "status": "passed"
             },
             "line": 14,
@@ -65,7 +65,7 @@
         "before": [
           {
             "result": {
-              "duration": 97545700,
+              "duration": 60179200,
               "status": "passed"
             },
             "match": {
@@ -82,9 +82,8 @@
         "steps": [
           {
             "result": {
-              "error_message": "org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (634, 721)\n  (Session info: chrome\u003d136.0.7103.114)\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027LBOG0551\u0027, ip: \u0027192.168.20.74\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002715.0.1\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 136.0.7103.114, chrome: {chromedriverVersion: 136.0.7103.94 (fa0be0b33deb..., userDataDir: C:\\Users\\DIEGO~1.GAR\\AppDat...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55148}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: ignore, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}\nSession ID: 97e69caf070227ebfb3ccdaee6d45aa9\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)\r\n\tat net.serenitybdd.core.pages.WebElementFacadeImpl.click(WebElementFacadeImpl.java:1231)\r\n\tat net.serenitybdd.screenplay.actions.ClickOnTarget.performAs(ClickOnTarget.java:13)\r\n\tat net.serenitybdd.screenplay.actions.ClickOnTarget$ByteBuddy$ZBrEWRiN.performAs$accessor$nyEwhCn1(Unknown Source)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:564)\r\n\tat net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:488)\r\n\tat net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:468)\r\n\tat net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:441)\r\n\tat net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:197)\r\n\tat net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:184)\r\n\tat net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:77)\r\n\tat net.serenitybdd.screenplay.actions.ClickOnTarget$ByteBuddy$ZBrEWRiN.performAs(Unknown Source)\r\n\tat net.serenitybdd.screenplay.Actor.performTask(Actor.java:248)\r\n\tat net.serenitybdd.screenplay.Actor.perform(Actor.java:229)\r\n\tat net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:175)\r\n\tat co.com.AutomatizacionParkeatecPage.tasks.RegistroMoto.performAs(RegistroMoto.java:48)\r\n\tat co.com.AutomatizacionParkeatecPage.tasks.RegistroMoto$ByteBuddy$QVQmKdm2.performAs$accessor$H7zV1e0W(Unknown Source)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:564)\r\n\tat net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:488)\r\n\tat net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:468)\r\n\tat net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:441)\r\n\tat net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:197)\r\n\tat net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:184)\r\n\tat net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:77)\r\n\tat co.com.AutomatizacionParkeatecPage.tasks.RegistroMoto$ByteBuddy$QVQmKdm2.performAs(Unknown Source)\r\n\tat net.serenitybdd.screenplay.Actor.performTask(Actor.java:248)\r\n\tat net.serenitybdd.screenplay.Actor.perform(Actor.java:229)\r\n\tat net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:175)\r\n\tat co.com.AutomatizacionParkeatecPage.stepsdefinitions.RegistroMotoParkeatecStepDefinition.ingreseLaInformacionSolicitadaEnElFormulario(RegistroMotoParkeatecStepDefinition.java:16)\r\n\tat ✽.ingrese la informacion solicitada en el formulario(src/test/resources/features/registrovehiculomoto_parkeatec.feature:18)\r\n",
-              "duration": 4029038300,
-              "status": "failed"
+              "duration": 13230059300,
+              "status": "passed"
             },
             "line": 18,
             "name": "ingrese la informacion solicitada en el formulario",
@@ -108,12 +107,24 @@
                   "Apache",
                   "TVS",
                   "Gris",
-                  "14072025",
+                  "14082025",
                   "Ninguna"
                 ]
               }
             ],
             "keyword": "Cuando "
+          },
+          {
+            "result": {
+              "duration": 330855200,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "se debe verificar que el vehiculo haya sido registrado",
+            "match": {
+              "location": "RegistroMotoParkeatecStepDefinition.seDebeVerificarQueElVehiculoHayaSidoRegistrado()"
+            },
+            "keyword": "Entonces "
           }
         ],
         "tags": [
