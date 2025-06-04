@@ -2,6 +2,7 @@ package co.com.AutomatizacionParkeatecPage.tasks;
 
 import co.com.AutomatizacionParkeatecPage.models.InfoRegistro;
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.Registro.*;
+import co.com.AutomatizacionParkeatecPage.utils.hooks.Constantes;
 
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
@@ -29,12 +30,8 @@ public class RegistroUsuario implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        String rutaFoto = info.get(0).getFoto_usuario();
-        Path pathFoto = Paths.get(rutaFoto).toAbsolutePath();
-        //System.out.println("Ruta usada: " + rutaAbsoluta);
-        System.out.println("prueba ruta feature" + info.get(0).getFoto_usuario());
-        //File uploadFile = new File("C:/Users/User/Pictures/download.jpg");
 
+        String rutaAbsoluta = new File(Constantes.ruta_foto).getAbsolutePath();
         actor.attemptsTo(
                 Click.on(REGISTRO),
                 Click.on(INPUT_NOMBRE),
@@ -54,7 +51,9 @@ public class RegistroUsuario implements Task {
                 Click.on(INPUT_NUMERO_DOCUMENTO),
                 Enter.theValue(info.get(0).getNumero_documento()).into(INPUT_NUMERO_DOCUMENTO),
                 Scroll.to(FORM),
-                Upload.theFile(Paths.get(pathFoto.toString())).to(INPUT_FOTO),
+                SendKeys.of(rutaAbsoluta).into(INPUT_FOTO),
+                //Upload.theFile(Paths.get(pathFoto.toString())).to(INPUT_FOTO),
+
                 Click.on(SELECT_CENTRO),
                 SelectFromOptions.byVisibleText("CEET").from(SELECT_CENTRO),
                 Click.on(INPUT_FICHA),

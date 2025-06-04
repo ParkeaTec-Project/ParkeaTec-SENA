@@ -12,6 +12,8 @@ public class AutenticacionUsuario extends PageObject {
 
     public static Target BTN_SUCCESS = Target.the("Click btn success").located(By.xpath("//*[@id=\"root\"]/div/form/button"));
 
+    public static Target CERRAR_MODAL = Target.the("Click btn cerrar").located(By.xpath("/html/body/div[3]/div/div/div[1]/button"));
+
     public static Target MENSAJE_BIENVENIDA = Target.the("lista de trabajo").locatedBy("//a[text()='Perfil']");
 
 

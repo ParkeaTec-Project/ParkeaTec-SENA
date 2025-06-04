@@ -28,7 +28,8 @@ public class AutenticarseUsuario implements Task {
                 Enter.theValue(credenciales.get(0).getUsuario()).into(INPUT_USUARIO),
                 Click.on(INPUT_CLAVE),
                 Enter.theValue(credenciales.get(0).getClave()).into(INPUT_CLAVE),
-                Click.on(BTN_SUCCESS)
+                Click.on(BTN_SUCCESS),
+                Click.on(CERRAR_MODAL)
         );
     }
 }
