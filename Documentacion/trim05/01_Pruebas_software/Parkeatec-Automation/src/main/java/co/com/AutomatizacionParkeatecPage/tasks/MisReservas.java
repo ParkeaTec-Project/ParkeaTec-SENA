@@ -20,7 +20,7 @@ public class MisReservas implements Task {
     @Override
     public <T extends Actor> void performAs(T actor){
         actor.attemptsTo(
-                WaitUntil.the(CLICK_PERFIL, isVisible()).forNoMoreThan(5).seconds(),
+                WaitUntil.the(CLICK_PERFIL, isVisible()).forNoMoreThan(8).seconds(),
                 Click.on(CLICK_PERFIL),
                 Click.on(CLICK_VERRESERVAS)
         );

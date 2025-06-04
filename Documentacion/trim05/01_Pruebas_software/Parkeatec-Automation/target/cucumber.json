@@ -1,0 +1,144 @@
+[
+  {
+    "line": 4,
+    "elements": [
+      {
+        "line": 9,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Antecedentes",
+        "steps": [
+          {
+            "result": {
+              "duration": 4808020600,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "que el usuario se encuentra en la pagina de inicio de sesion de Parkeatec",
+            "match": {
+              "location": "AutenticacionUsuarioParkeatecStepDefinitions.queElUsuarioSeEncuentraEnLaPaginaDeInicioDeSesionDeParkeatec()"
+            },
+            "keyword": "Dado "
+          },
+          {
+            "result": {
+              "duration": 2911054200,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "ingrese las credenciales de usuario correctas (usuario y contrasena)",
+            "match": {
+              "location": "AutenticacionUsuarioParkeatecStepDefinitions.ingreseLasCredencialesDeUsuarioCorrectasUsuarioYContrasena(CredencialesInicioSesion\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "usuario",
+                  "clave"
+                ]
+              },
+              {
+                "cells": [
+                  "diego123@gmail.com",
+                  "123"
+                ]
+              }
+            ],
+            "keyword": "Cuando "
+          },
+          {
+            "result": {
+              "duration": 503704400,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "se debe verificar que el usuario haya sido autenticado correctamente y redirigido a su pagina de inicio.",
+            "match": {
+              "location": "AutenticacionUsuarioParkeatecStepDefinitions.seDebeVerificarQueElUsuarioHayaSidoAutenticadoCorrectamenteYRedirigidoASuPaginaDeInicio()"
+            },
+            "keyword": "Entonces "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 60179200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "PreparacionEscenario.sepUp()"
+            }
+          }
+        ],
+        "line": 25,
+        "name": "llenar formulario de registro moto",
+        "description": "",
+        "id": "llenar-el-formulario-de-registro-de-vehiculo-moto;llenar-formulario-de-registro-moto;;2",
+        "type": "scenario",
+        "keyword": "Esquema del escenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 13230059300,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "ingrese la informacion solicitada en el formulario",
+            "match": {
+              "location": "RegistroMotoParkeatecStepDefinition.ingreseLaInformacionSolicitadaEnElFormulario(FormularioMoto\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "placa_vehiculo",
+                  "modelo",
+                  "marca",
+                  "color",
+                  "vencimiento_soat",
+                  "observacion"
+                ]
+              },
+              {
+                "cells": [
+                  "CBI23H",
+                  "Apache",
+                  "TVS",
+                  "Gris",
+                  "14082025",
+                  "Ninguna"
+                ]
+              }
+            ],
+            "keyword": "Cuando "
+          },
+          {
+            "result": {
+              "duration": 330855200,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "se debe verificar que el vehiculo haya sido registrado",
+            "match": {
+              "location": "RegistroMotoParkeatecStepDefinition.seDebeVerificarQueElVehiculoHayaSidoRegistrado()"
+            },
+            "keyword": "Entonces "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@registromoto"
+          }
+        ]
+      }
+    ],
+    "name": "Llenar el formulario de registro de vehiculo moto",
+    "description": "  Como usuario\n  Quiero llenar el formulario de registro de vehiculo moto\n  Para que mi moto pueda ser autorizada para el uso del parqueadero",
+    "id": "llenar-el-formulario-de-registro-de-vehiculo-moto",
+    "keyword": "Característica",
+    "uri": "src/test/resources/features/registrovehiculomoto_parkeatec.feature",
+    "tags": []
+  }
+]
