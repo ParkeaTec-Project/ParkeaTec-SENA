@@ -50,7 +50,7 @@ public class RegistroBicicleta implements Task {
                 Scroll.to(BTN_ENVIAR),
                 Click.on(INPUT_SERIAL),
                 Enter.theValue(info.get(0).getNro_serial()).into(INPUT_SERIAL),
-                SendKeys.of(rutaSerial).into(INPUT_SERIAL),
+                SendKeys.of(rutaSerial).into(INPUT_FOTO_SERIAL),
                 SendKeys.of(rutaVehiculo).into(INPUT_VEHICULO),
                 Click.on(INPUT_OBSERVACION),
                 Enter.theValue(info.get(0).getObservacion()).into(INPUT_OBSERVACION),

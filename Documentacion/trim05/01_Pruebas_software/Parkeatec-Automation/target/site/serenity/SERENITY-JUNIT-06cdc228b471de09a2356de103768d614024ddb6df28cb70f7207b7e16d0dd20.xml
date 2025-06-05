@@ -1,1 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Llenar el formulario de registro de vehiculo moto" skipped="0" tests="1" time="23.16" timestamp="2025-06-04 04:33:49"><testcase name="llenar formulario de registro moto"/></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Llenar el formulario de registro de vehiculo moto" skipped="0" tests="1" time="37.11" timestamp="2025-06-05 02:22:12"><testcase name="llenar formulario de registro moto"><failure message="Expected validacion registro moto&#13;&#10;Expected: is &lt;true&gt;&#13;&#10;     but: was &lt;false&gt;" type="java.lang.AssertionError">Expected validacion registro moto&#13;
+Expected: is &lt;true&gt;&#13;
+     but: was &lt;false&gt;</failure><system-err>Expected validacion registro moto&#13;
+Expected: is &lt;true&gt;&#13;
+     but: was &lt;false&gt;&#13;
+co.com.AutomatizacionParkeatecPage.stepsdefinitions.RegistroMotoParkeatecStepDefinition.seDebeVerificarQueElVehiculoHayaSidoRegistrado(RegistroMotoParkeatecStepDefinition.java:24)&#13;
+✽.se debe verificar que el vehiculo haya sido registrado(src/test/resources/features/registrovehiculomoto_parkeatec.feature:21)&#13;
+</system-err></testcase></testsuite>
