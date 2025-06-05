@@ -1,4 +1,4 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
 "Autenticacion en la pagina de Parkeatec","Verificar la autenticacion exitosa en la pagina de Parkeatec","FAILURE","2025-06-03T12:31:11.6184323-05:00[America/Bogota]","0.0","8.36"
-"registro de vehiculo en la pagina de Parkeatec","registrar de manera exitosa la informacion en la pagina de Parkeatec","ERROR","2025-06-04T16:28:46.1668131-05:00[America/Bogota]","0.0","19.5"
+"registro de vehiculo en la pagina de Parkeatec","registrar de manera exitosa la informacion en la pagina de Parkeatec","ERROR","2025-06-05T15:38:47.9878331-05:00[America/Bogota]","0.0","12.49"
 "ver los espacios de parqueadero en la pagina de Parkeatec","visualizar exitosamente los espacios del parqueadero","FAILURE","2025-06-03T12:33:08.7512694-05:00[America/Bogota]","0.0","8.66"

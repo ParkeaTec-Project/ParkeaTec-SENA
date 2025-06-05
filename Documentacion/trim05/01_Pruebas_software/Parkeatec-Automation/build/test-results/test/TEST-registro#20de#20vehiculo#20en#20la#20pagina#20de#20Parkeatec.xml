@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="registro de vehiculo en la pagina de Parkeatec" tests="1" skipped="1" failures="0" errors="0" timestamp="2025-06-05T20:38:48" hostname="COMPUGHOST-D4K7" time="15.571">
+  <properties/>
+  <testcase name="registrar de manera exitosa la informacion en la pagina de Parkeatec" classname="registro de vehiculo en la pagina de Parkeatec" time="15.571">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[    ?[32mDado ?[0m?[32mque el usuario se encuentra en la pagina de inicio de sesion de Parkeatec?[0m ?[90m# AutenticacionUsuarioParkeatecStepDefinitions.queElUsuarioSeEncuentraEnLaPaginaDeInicioDeSesionDeParkeatec()?[0m
+    ?[32mCuando ?[0m?[32mingrese las credenciales de usuario correctas (usuario y contrasena)?[0m    ?[90m# AutenticacionUsuarioParkeatecStepDefinitions.ingreseLasCredencialesDeUsuarioCorrectasUsuarioYContrasena(CredencialesInicioSesion>)?[0m
+
+  @registroBicicleta
+  Esquema del escenario: registrar de manera exitosa la informacion en la pagina de Parkeatec                                                               ?[90m# src/test/resources/features/registroBicicleta_parkeatec.feature:25?[0m
+    ?[31mCuando ?[0m?[31mingrese al apartado de formulario y seleccione llenar formulario?[0m                                                                                 ?[90m# RegistroBicicletaParkeatecStepDefinitions.ingreseAlApartadoDeFormularioYSeleccioneLlenarFormulario(InfoBicicleta>)?[0m
+      ?[31morg.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (1288, -28)
+  (Session info: chrome=137.0.7151.56)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'COMPUGHOST-D4K7', ip: '192.168.20.16', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.56, chrome: {chromedriverVersion: 136.0.7103.94 (fa0be0b33deb..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62473}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: ignore, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: d0351a4708ead5fe2d76a4e78e855d8e
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at net.serenitybdd.core.pages.WebElementFacadeImpl.click(WebElementFacadeImpl.java:1231)
+	at net.serenitybdd.screenplay.actions.ClickOnTarget.performAs(ClickOnTarget.java:13)
+	at net.serenitybdd.screenplay.actions.ClickOnTarget$ByteBuddy$dQGyVDnk.performAs$accessor$0wBOJtYd(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:488)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:468)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:441)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:197)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:184)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:77)
+	at net.serenitybdd.screenplay.actions.ClickOnTarget$ByteBuddy$dQGyVDnk.performAs(Unknown Source)
+	at net.serenitybdd.screenplay.Actor.performTask(Actor.java:248)
+	at net.serenitybdd.screenplay.Actor.perform(Actor.java:229)
+	at net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:175)
+	at co.com.AutomatizacionParkeatecPage.tasks.RegistroBicicleta.performAs(RegistroBicicleta.java:42)
+	at co.com.AutomatizacionParkeatecPage.tasks.RegistroBicicleta$ByteBuddy$SStgELkf.performAs$accessor$VyFPX31K(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:488)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:468)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:441)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:197)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:184)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:77)
+	at co.com.AutomatizacionParkeatecPage.tasks.RegistroBicicleta$ByteBuddy$SStgELkf.performAs(Unknown Source)
+	at net.serenitybdd.screenplay.Actor.performTask(Actor.java:248)
+	at net.serenitybdd.screenplay.Actor.perform(Actor.java:229)
+	at net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:175)
+	at co.com.AutomatizacionParkeatecPage.stepsdefinitions.RegistroBicicletaParkeatecStepDefinitions.ingreseAlApartadoDeFormularioYSeleccioneLlenarFormulario(RegistroBicicletaParkeatecStepDefinitions.java:17)
+	at ?.ingrese al apartado de formulario y seleccione llenar formulario(src/test/resources/features/registroBicicleta_parkeatec.feature:18)
+?[0m
+]]></system-out>
+  <system-err><![CDATA[jun. 05, 2025 3:38:48 P. M. org.openqa.selenium.remote.DesiredCapabilities chrome
+INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+[Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Instantiating driver
+[Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Driver capabilities: Capabilities {acceptInsecureCerts: false, browserName: chrome, goog:chromeOptions: {args: [], extensions: [], prefs: {behavior: allow}}, loggingPrefs: org.openqa.selenium.logging..., name: proyecto, platform: ANY, unhandledPromptBehavior: ignore, version: }
+Starting ChromeDriver 136.0.7103.94 (fa0be0b33debeb378a8e6ad9c599be34e2dc3b37-refs/branch-heads/7103@{#1842}) on port 28766
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully on port 28766.
+[1749155930.869][WARNING]: This version of ChromeDriver has not been tested with Chrome version 137.
+jun. 05, 2025 3:38:50 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+</testsuite>

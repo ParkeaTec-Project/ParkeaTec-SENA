@@ -8,8 +8,7 @@ public class Bicicleta extends PageObject {
 
     public static Target DASHBOARD = Target.the("Scroll vista formulario").located(By.xpath("//*[@id=\"root\"]/div"));
 
-
-    public static Target VISTA = Target.the("Scroll vista formulario").located(By.xpath("//*[@id=\"root\"]"));
+    public static Target TITLE_DASH = Target.the("titulo principal").located(By.xpath("//*[@id=\"root\"]/div/div/div[1]"));
 
     public static Target FORMULARIO = Target.the("Click enlace formulario").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[1]/a"));
 
@@ -33,16 +32,22 @@ public class Bicicleta extends PageObject {
 
     public static Target BTN_ENVIAR = Target.the("Click boton enviar").located(By.xpath("//*[@id=\"root\"]/div/form/button"));
 
-    public static Target PERFIL = Target.the("Scroll vista formulario").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[3]/a"));
-
     public static Target VEHICULO = Target.the("Link vehiculos").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[3]/div/a[3]"));
 
-    public static Target PLACA = Target.the("Link vehiculos").located(By.xpath("//*[@id=\"root\"]/section/div/div/div/div/div/div/div[1]/div[2]/p[3]"));
+    public static Target CERRAR_MODAL = Target.the("Cerrar modal").located(By.xpath("/html/body/div[3]/div/div/div[2]/button"));
 
-    public static Target OBSERVACION = Target.the("Link vehiculos").located(By.xpath("//*[@id=\"root\"]/section/div/div/div/div/div/div/div[1]/div[2]/p[5]"));
+    public static Target MENU = Target.the("Scroll vista formulario").located(By.xpath("//*[@id=\"root\"]/nav/div"));
 
+    public static Target PRUEBA = Target.the("prueba").located(By.xpath("//*[@id=\"root\"]/nav/div/a"));
 
+    public static Target PERFIL = Target.the("Scroll vista formulario").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[3]/a"));
 
+    //public static Target TEXT_SERIAL = Target.the("informacion de placa").located(By.xpath("//*[@id=\"root\"]/section/div/div/div/div/div/div/div[1]/div[2]/p[3]"));
 
+    //public static Target TEXT_SERIAL = Target.the("mensaje de login").locatedBy("//p[text()='123456ABC']");
+
+    public static Target TEXT_SERIAL = Target.the("informacion de placa").located(By.xpath("//p[strong[text()='Placa:']]/text()"));
+
+    public static Target TEXT_OBSERVACION = Target.the("informacion de observacion").located(By.xpath("//*[@id=\"root\"]/section/div/div/div/div/div/div/div[1]/div[2]/p[5]"));
 
 }
