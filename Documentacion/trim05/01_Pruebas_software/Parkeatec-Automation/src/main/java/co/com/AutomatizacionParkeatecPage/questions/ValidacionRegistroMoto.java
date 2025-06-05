@@ -3,9 +3,9 @@ package co.com.AutomatizacionParkeatecPage.questions;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.Text;
-import static jxl.biff.FormatRecord.logger;
 
-import static co.com.AutomatizacionParkeatecPage.userinterfaces.Moto.MSG_REGISTRO;
+import static co.com.AutomatizacionParkeatecPage.userinterfaces.Moto.*;
+import static jxl.biff.FormatRecord.logger;
 
 
 public class ValidacionRegistroMoto implements Question<Boolean> {
@@ -17,8 +17,9 @@ public class ValidacionRegistroMoto implements Question<Boolean> {
     @Override
     public Boolean answeredBy (Actor actor){
         try{
-            String registroMoto = Text.of(MSG_REGISTRO).viewedBy(actor).asString();
-            return "Vehiculo registrado".equals(registroMoto);
+            String VLDPLACA = Text.of(VALIDAR_PLACA).viewedBy(actor).asString();
+            String VLDMARCA = Text.of(VALIDAR_MARCA).viewedBy(actor).asString();
+            return "Placa:".equals(VLDPLACA) && "Marca:".equals(VLDMARCA);
         }
         catch (Exception e){
             logger.info("Ha ocurrido algo inesperado");

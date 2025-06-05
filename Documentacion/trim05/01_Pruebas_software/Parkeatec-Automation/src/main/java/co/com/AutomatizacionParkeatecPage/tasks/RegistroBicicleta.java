@@ -1,10 +1,7 @@
 package co.com.AutomatizacionParkeatecPage.tasks;
 
-//<<<<<<< HEAD
-//=======
 import co.com.AutomatizacionParkeatecPage.models.InfoBicicleta;
 import co.com.AutomatizacionParkeatecPage.utils.hooks.Constantes;
-//>>>>>>> a02c9469057b330380e22f0b9e513b72cc73679a
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;

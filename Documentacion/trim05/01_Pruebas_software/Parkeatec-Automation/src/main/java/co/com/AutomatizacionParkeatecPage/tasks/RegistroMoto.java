@@ -1,6 +1,7 @@
 package co.com.AutomatizacionParkeatecPage.tasks;
 
 import co.com.AutomatizacionParkeatecPage.models.FormularioMoto;
+import co.com.AutomatizacionParkeatecPage.userinterfaces.VerReservas;
 import co.com.AutomatizacionParkeatecPage.utils.hooks.Constantes;
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
@@ -47,7 +48,7 @@ public class RegistroMoto implements Task {
         String rutaFotoSoat = new File(Constantes.rutaFotoSoat).getAbsolutePath();
         String rutaFotoTecno = new File(Constantes.rutaFotoTecno).getAbsolutePath();
         actor.attemptsTo(
-                WaitUntil.the(FORMULARIO, isCurrentlyEnabled()).forNoMoreThan(5).seconds(),
+                WaitUntil.the(BEGIN, isCurrentlyEnabled()).forNoMoreThan(5).seconds(),
                 Click.on(FORMULARIO),
                 Click.on(LLENAR_FORMULARIO),
                 Scroll.to(BTN_ENVIAR),
@@ -78,8 +79,12 @@ public class RegistroMoto implements Task {
                 SendKeys.of(rutaTarjetaProp).into(INPUT_TARPROP),
                 SendKeys.of(rutaFotoSoat).into(INPUT_FOTOSOAT),
                 SendKeys.of(rutaFotoTecno).into(INPUT_FOTOTECNO),
-                Click.on(BTN_ENVIAR)
-
+                Click.on(BTN_ENVIAR),
+                Click.on(BTN_CERRAR),
+                Scroll.to(SCL_NAV),
+                WaitUntil.the(BTN_PERFIL, isVisible()).forNoMoreThan(5).seconds(),
+                Click.on(BTN_PERFIL),
+                Click.on(BTN_VEHICULOS)
         );
     }
 }

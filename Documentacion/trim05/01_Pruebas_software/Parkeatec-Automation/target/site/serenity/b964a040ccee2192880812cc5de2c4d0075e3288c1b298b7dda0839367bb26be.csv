@@ -1,4 +1,9 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
 "Autenticacion en la pagina de Parkeatec","Verificar la autenticacion exitosa en la pagina de Parkeatec","FAILURE","2025-06-03T12:31:11.6184323-05:00[America/Bogota]","0.0","8.36"
+<<<<<<< HEAD
 "registro de vehiculo en la pagina de Parkeatec","registrar de manera exitosa la informacion en la pagina de Parkeatec","ERROR","2025-06-05T15:38:47.9878331-05:00[America/Bogota]","0.0","12.49"
+=======
+"registro de vehiculo en la pagina de Parkeatec","registrar de manera exitosa la informacion en la pagina de Parkeatec","ERROR","2025-06-04T19:30:59.1082309-05:00[America/Bogota]","0.0","22.44"
+"Llenar el formulario de registro de vehiculo moto","llenar formulario de registro moto","FAILURE","2025-06-05T14:22:12.6318055-05:00[America/Bogota]","0.0","37.11"
+>>>>>>> e899a4f7fbd1aac07a7be38528795eac4a0de9f0
 "ver los espacios de parqueadero en la pagina de Parkeatec","visualizar exitosamente los espacios del parqueadero","FAILURE","2025-06-03T12:33:08.7512694-05:00[America/Bogota]","0.0","8.66"
