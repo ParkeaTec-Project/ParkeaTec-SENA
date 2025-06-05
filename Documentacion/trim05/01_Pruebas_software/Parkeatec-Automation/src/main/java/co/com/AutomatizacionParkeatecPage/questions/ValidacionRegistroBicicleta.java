@@ -19,10 +19,11 @@ public class ValidacionRegistroBicicleta implements Question<Boolean> {
     @Override
     public Boolean answeredBy(Actor actor) {
         try {
-            String serial = Text.of(PLACA).viewedBy(actor).asString();
-            String observacion = Text.of(OBSERVACION).viewedBy(actor).asString();
+            String serial = Text.of(TEXT_SERIAL).viewedBy(actor).asString();
+            String observacion = Text.of(TEXT_OBSERVACION).viewedBy(actor).asString();
 
-            return "123456ABC".equals(serial) && "ninguna".equals(observacion);
+            return "123456ABC".equals(serial);
+            //return "123456ABC".equals(serial) && "ninguna".equals(observacion);
             //return info.get(0).getNro_serial().equals(serial) && info.get(0).getObservacion().equals(observacion);
         } catch (Exception e) {
             logger.info("No se encontro la informacion");

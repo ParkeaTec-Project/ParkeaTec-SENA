@@ -11,7 +11,11 @@
         "steps": [
           {
             "result": {
+<<<<<<< HEAD
+              "duration": 4148909900,
+=======
               "duration": 6051012200,
+>>>>>>> e899a4f7fbd1aac07a7be38528795eac4a0de9f0
               "status": "passed"
             },
             "line": 10,
@@ -23,7 +27,11 @@
           },
           {
             "result": {
+<<<<<<< HEAD
+              "duration": 1846806400,
+=======
               "duration": 4971423400,
+>>>>>>> e899a4f7fbd1aac07a7be38528795eac4a0de9f0
               "status": "passed"
             },
             "line": 11,
@@ -40,12 +48,14 @@
               },
               {
                 "cells": [
-                  "diego123@gmail.com",
+                  "juanandres78.jg@gmail.com",
                   "123"
                 ]
               }
             ],
             "keyword": "Cuando "
+<<<<<<< HEAD
+=======
           },
           {
             "result": {
@@ -58,6 +68,7 @@
               "location": "AutenticacionUsuarioParkeatecStepDefinitions.seDebeVerificarQueElUsuarioHayaSidoAutenticadoCorrectamenteYRedirigidoASuPaginaDeInicio()"
             },
             "keyword": "Entonces "
+>>>>>>> e899a4f7fbd1aac07a7be38528795eac4a0de9f0
           }
         ]
       },
@@ -65,7 +76,11 @@
         "before": [
           {
             "result": {
+<<<<<<< HEAD
+              "duration": 45915499,
+=======
               "duration": 84394200,
+>>>>>>> e899a4f7fbd1aac07a7be38528795eac4a0de9f0
               "status": "passed"
             },
             "match": {
@@ -74,45 +89,45 @@
           }
         ],
         "line": 25,
-        "name": "llenar formulario de registro moto",
+        "name": "registrar de manera exitosa la informacion en la pagina de Parkeatec",
         "description": "",
-        "id": "llenar-el-formulario-de-registro-de-vehiculo-moto;llenar-formulario-de-registro-moto;;2",
+        "id": "registro-de-vehiculo-en-la-pagina-de-parkeatec;registrar-de-manera-exitosa-la-informacion-en-la-pagina-de-parkeatec;;2",
         "type": "scenario",
         "keyword": "Esquema del escenario",
         "steps": [
           {
             "result": {
+<<<<<<< HEAD
+              "error_message": "org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (1288, -28)\n  (Session info: chrome\u003d137.0.7151.56)\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027COMPUGHOST-D4K7\u0027, ip: \u0027192.168.20.16\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002715.0.1\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.56, chrome: {chromedriverVersion: 136.0.7103.94 (fa0be0b33deb..., userDataDir: C:\\Users\\User\\AppData\\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62473}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: ignore, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}\nSession ID: d0351a4708ead5fe2d76a4e78e855d8e\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)\r\n\tat net.serenitybdd.core.pages.WebElementFacadeImpl.click(WebElementFacadeImpl.java:1231)\r\n\tat net.serenitybdd.screenplay.actions.ClickOnTarget.performAs(ClickOnTarget.java:13)\r\n\tat net.serenitybdd.screenplay.actions.ClickOnTarget$ByteBuddy$dQGyVDnk.performAs$accessor$0wBOJtYd(Unknown Source)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:564)\r\n\tat net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:488)\r\n\tat net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:468)\r\n\tat net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:441)\r\n\tat net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:197)\r\n\tat net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:184)\r\n\tat net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:77)\r\n\tat net.serenitybdd.screenplay.actions.ClickOnTarget$ByteBuddy$dQGyVDnk.performAs(Unknown Source)\r\n\tat net.serenitybdd.screenplay.Actor.performTask(Actor.java:248)\r\n\tat net.serenitybdd.screenplay.Actor.perform(Actor.java:229)\r\n\tat net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:175)\r\n\tat co.com.AutomatizacionParkeatecPage.tasks.RegistroBicicleta.performAs(RegistroBicicleta.java:42)\r\n\tat co.com.AutomatizacionParkeatecPage.tasks.RegistroBicicleta$ByteBuddy$SStgELkf.performAs$accessor$VyFPX31K(Unknown Source)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:564)\r\n\tat net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:488)\r\n\tat net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:468)\r\n\tat net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:441)\r\n\tat net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:197)\r\n\tat net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:184)\r\n\tat net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:77)\r\n\tat co.com.AutomatizacionParkeatecPage.tasks.RegistroBicicleta$ByteBuddy$SStgELkf.performAs(Unknown Source)\r\n\tat net.serenitybdd.screenplay.Actor.performTask(Actor.java:248)\r\n\tat net.serenitybdd.screenplay.Actor.perform(Actor.java:229)\r\n\tat net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:175)\r\n\tat co.com.AutomatizacionParkeatecPage.stepsdefinitions.RegistroBicicletaParkeatecStepDefinitions.ingreseAlApartadoDeFormularioYSeleccioneLlenarFormulario(RegistroBicicletaParkeatecStepDefinitions.java:17)\r\n\tat ✽.ingrese al apartado de formulario y seleccione llenar formulario(src/test/resources/features/registroBicicleta_parkeatec.feature:18)\r\n",
+              "duration": 6425794400,
+              "status": "failed"
+=======
               "duration": 22641277000,
               "status": "passed"
+>>>>>>> e899a4f7fbd1aac07a7be38528795eac4a0de9f0
             },
             "line": 18,
-            "name": "ingrese la informacion solicitada en el formulario",
+            "name": "ingrese al apartado de formulario y seleccione llenar formulario",
             "match": {
-              "location": "RegistroMotoParkeatecStepDefinition.ingreseLaInformacionSolicitadaEnElFormulario(FormularioMoto\u003e)"
+              "location": "RegistroBicicletaParkeatecStepDefinitions.ingreseAlApartadoDeFormularioYSeleccioneLlenarFormulario(InfoBicicleta\u003e)"
             },
             "rows": [
               {
                 "cells": [
-                  "placa_vehiculo",
-                  "modelo",
-                  "marca",
-                  "color",
-                  "vencimiento_soat",
+                  "nro_serial",
                   "observacion"
                 ]
               },
               {
                 "cells": [
-                  "CBI23H",
-                  "Apache",
-                  "TVS",
-                  "Gris",
-                  "14082025",
-                  "Ninguna"
+                  "123456ABCs",
+                  "ninguna"
                 ]
               }
             ],
             "keyword": "Cuando "
+<<<<<<< HEAD
+=======
           },
           {
             "result": {
@@ -126,20 +141,21 @@
               "location": "RegistroMotoParkeatecStepDefinition.seDebeVerificarQueElVehiculoHayaSidoRegistrado()"
             },
             "keyword": "Entonces "
+>>>>>>> e899a4f7fbd1aac07a7be38528795eac4a0de9f0
           }
         ],
         "tags": [
           {
-            "name": "@registromoto"
+            "name": "@registroBicicleta"
           }
         ]
       }
     ],
-    "name": "Llenar el formulario de registro de vehiculo moto",
-    "description": "  Como usuario\n  Quiero llenar el formulario de registro de vehiculo moto\n  Para que mi moto pueda ser autorizada para el uso del parqueadero",
-    "id": "llenar-el-formulario-de-registro-de-vehiculo-moto",
+    "name": "registro de vehiculo en la pagina de Parkeatec",
+    "description": "  Como usuario de Parkeatec\n  Quiero registrarme la informacion de mi vehiculo\n  Para poder hacer uso del parqueadero",
+    "id": "registro-de-vehiculo-en-la-pagina-de-parkeatec",
     "keyword": "Característica",
-    "uri": "src/test/resources/features/registrovehiculomoto_parkeatec.feature",
+    "uri": "src/test/resources/features/registroBicicleta_parkeatec.feature",
     "tags": []
   }
 ]

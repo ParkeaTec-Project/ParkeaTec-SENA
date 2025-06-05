@@ -2,7 +2,6 @@ package co.com.AutomatizacionParkeatecPage.userinterfaces;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
-import org.apache.poi.ss.formula.functions.T;
 import org.openqa.selenium.By;
 
 public class Moto extends PageObject {

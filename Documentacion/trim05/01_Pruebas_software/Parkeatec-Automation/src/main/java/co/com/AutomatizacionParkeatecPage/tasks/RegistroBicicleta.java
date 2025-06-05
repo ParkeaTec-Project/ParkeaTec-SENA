@@ -1,15 +1,14 @@
 package co.com.AutomatizacionParkeatecPage.tasks;
 
-//<<<<<<< HEAD
-import  co.com.AutomatizacionParkeatecPage.models.InfoBicicleta;
-//=======
 import co.com.AutomatizacionParkeatecPage.models.InfoBicicleta;
 import co.com.AutomatizacionParkeatecPage.utils.hooks.Constantes;
-//>>>>>>> a02c9469057b330380e22f0b9e513b72cc73679a
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
+import net.serenitybdd.screenplay.ensure.Ensure;
+import net.serenitybdd.screenplay.matchers.WebElementStateMatchers;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import java.util.List;
@@ -29,20 +28,20 @@ public class RegistroBicicleta implements Task {
         return Instrumented.instanceOf(RegistroBicicleta.class).withProperties(info);
     }
 
+    String rutaFirma = new File(Constantes.ruta_firma).getAbsolutePath();
+    String rutaDocumento = new File(Constantes.ruta_documento).getAbsolutePath();
+    String rutaCarnet = new File(Constantes.ruta_carnet).getAbsolutePath();
+    String rutaSerial = new File(Constantes.ruta_serial).getAbsolutePath();
+    String rutaVehiculo = new File(Constantes.ruta_bicicleta).getAbsolutePath();
+
     @Override
     public <T extends Actor> void performAs(T actor) {
-
-        String rutaFirma = new File(Constantes.ruta_firma).getAbsolutePath();
-        String rutaDocumento = new File(Constantes.ruta_documento).getAbsolutePath();
-        String rutaCarnet = new File(Constantes.ruta_carnet).getAbsolutePath();
-        String rutaSerial = new File(Constantes.ruta_serial).getAbsolutePath();
-        String rutaVehiculo = new File(Constantes.ruta_bicicleta).getAbsolutePath();
-
         actor.attemptsTo(
-                WaitUntil.the(FORMULARIO, isCurrentlyEnabled()).forNoMoreThan(5).seconds(),
+                WaitUntil.the(TITLE_DASH, isCurrentlyEnabled()).forNoMoreThan(5).seconds(),
+                //Ensure.that(TITLE_DASH).isDisplayed(),
                 Click.on(FORMULARIO),
                 Click.on(LLENAR_FORMULARIO),
-                Scroll.to(VISTA),
+                Scroll.to(BTN_ENVIAR),
                 SendKeys.of(rutaFirma).into(INPUT_FIRMA),
                 SendKeys.of(rutaDocumento).into(INPUT_DOCUMENTO),
                 SendKeys.of(rutaCarnet).into(INPUT_CARNET),
@@ -55,7 +54,10 @@ public class RegistroBicicleta implements Task {
                 Click.on(INPUT_OBSERVACION),
                 Enter.theValue(info.get(0).getObservacion()).into(INPUT_OBSERVACION),
                 Click.on(BTN_ENVIAR),
-                Scroll.to(PERFIL),
+                Click.on(CERRAR_MODAL),
+                Scroll.to(MENU).andAlignToTop(),
+                Scroll.to(MENU),
+                WaitUntil.the(PRUEBA, isCurrentlyEnabled()).forNoMoreThan(5).seconds(),
                 Click.on(PERFIL),
                 Click.on(VEHICULO)
         );
