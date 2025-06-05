@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 4808020600,
+              "duration": 6051012200,
               "status": "passed"
             },
             "line": 10,
@@ -23,7 +23,7 @@
           },
           {
             "result": {
-              "duration": 2911054200,
+              "duration": 4971423400,
               "status": "passed"
             },
             "line": 11,
@@ -49,7 +49,7 @@
           },
           {
             "result": {
-              "duration": 503704400,
+              "duration": 636839800,
               "status": "passed"
             },
             "line": 14,
@@ -65,7 +65,7 @@
         "before": [
           {
             "result": {
-              "duration": 60179200,
+              "duration": 84394200,
               "status": "passed"
             },
             "match": {
@@ -82,7 +82,7 @@
         "steps": [
           {
             "result": {
-              "duration": 13230059300,
+              "duration": 22641277000,
               "status": "passed"
             },
             "line": 18,
@@ -116,8 +116,9 @@
           },
           {
             "result": {
-              "duration": 330855200,
-              "status": "passed"
+              "error_message": "java.lang.AssertionError: Expected validacion registro moto\r\nExpected: is \u003ctrue\u003e\r\n     but: was \u003cfalse\u003e\r\n\tat net.serenitybdd.screenplay.ErrorTally.throwSummaryExceptionFrom(ErrorTally.java:36)\r\n\tat net.serenitybdd.screenplay.ErrorTally.reportAnyErrors(ErrorTally.java:30)\r\n\tat net.serenitybdd.screenplay.Actor.should(Actor.java:316)\r\n\tat co.com.AutomatizacionParkeatecPage.stepsdefinitions.RegistroMotoParkeatecStepDefinition.seDebeVerificarQueElVehiculoHayaSidoRegistrado(RegistroMotoParkeatecStepDefinition.java:24)\r\n\tat ✽.se debe verificar que el vehiculo haya sido registrado(src/test/resources/features/registrovehiculomoto_parkeatec.feature:21)\r\n",
+              "duration": 1032339000,
+              "status": "failed"
             },
             "line": 21,
             "name": "se debe verificar que el vehiculo haya sido registrado",

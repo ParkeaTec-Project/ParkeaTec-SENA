@@ -2,10 +2,12 @@ package co.com.AutomatizacionParkeatecPage.userinterfaces;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
+import org.apache.poi.ss.formula.functions.T;
 import org.openqa.selenium.By;
 
 public class Moto extends PageObject {
 
+    public static Target BEGIN = Target.the("Título del dashboard").located(By.xpath("//*[@id=\"root\"]/div/div/div[1]/h2"));
     public static Target FORMULARIO = Target.the("Click en el boton formulario").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[1]/a"));
 
     public static Target LLENAR_FORMULARIO = Target.the("Click en llenar formulario").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[1]/div/a[1]"));
@@ -44,5 +46,16 @@ public class Moto extends PageObject {
 
     public static Target BTN_ENVIAR = Target.the("Click boton enviar").located(By.xpath("//*[@id=\"root\"]/div/form/button"));
 
-    public static Target MSG_REGISTRO = Target.the("Mensaje de registro de vehiculo").locatedBy("//div[text()='Vehiculo registrado']");
+    public static Target BTN_CERRAR = Target.the("Cerrar modal").located(By.xpath("/html/body/div[3]/div/div/div[2]/button"));
+
+    public static Target SCL_NAV = Target.the("Scroll to navbar").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div"));
+
+    public static Target BTN_PERFIL = Target.the("Desplegar opciones perfil").located(By.xpath("//a[text()='Perfil']"));
+
+    public static Target BTN_VEHICULOS = Target.the("Ingresar a ver mi vehiculo").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[3]/div/a[3]"));
+
+    public static Target VALIDAR_PLACA = Target.the("Ver placa del vehiculo registrado").locatedBy("//p[strong[text()='Marca:']]");
+
+    public static Target VALIDAR_MARCA = Target.the("Ver soat del vehiculo registrado").locatedBy("//p[strong[text()='Placa:']]");
+
 }

@@ -15,9 +15,21 @@
 
   Antecedentes:                                                                                                       ?[90m# src/test/resources/features/registrovehiculomoto_parkeatec.feature:9?[0m
 
-1 Scenarios (?[32m1 passed?[0m)
-5 Steps (?[32m5 passed?[0m)
-0m23,485s
+?[31mFailed scenarios:?[0m
+?[31msrc/test/resources/features/registrovehiculomoto_parkeatec.feature:25 ?[0m# llenar formulario de registro moto
+
+1 Scenarios (?[31m1 failed?[0m)
+5 Steps (?[31m1 failed?[0m, ?[32m4 passed?[0m)
+0m37,694s
+
+java.lang.AssertionError: Expected validacion registro moto
+Expected: is <true>
+     but: was <false>
+	at net.serenitybdd.screenplay.ErrorTally.throwSummaryExceptionFrom(ErrorTally.java:36)
+	at net.serenitybdd.screenplay.ErrorTally.reportAnyErrors(ErrorTally.java:30)
+	at net.serenitybdd.screenplay.Actor.should(Actor.java:316)
+	at co.com.AutomatizacionParkeatecPage.stepsdefinitions.RegistroMotoParkeatecStepDefinition.seDebeVerificarQueElVehiculoHayaSidoRegistrado(RegistroMotoParkeatecStepDefinition.java:24)
+	at ?.se debe verificar que el vehiculo haya sido registrado(src/test/resources/features/registrovehiculomoto_parkeatec.feature:21)
 
 ]]></system-out>
   <system-err><![CDATA[[Test worker] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
