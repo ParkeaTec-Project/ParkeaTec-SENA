@@ -148,7 +148,7 @@
             $("#requirements-tabs").tabs();
             $("#test-tabs").tabs();
 
-            var requirementsTree = [{"text":"registro en la pagina de Parkeatec","type":"feature","href":"5c135ad7c082eb75cceda13fab98f7425a069c3e4efd622fe808cd401c2bec85.html","nodes":[],"selectable":false,"tags":["","\u003cspan class\u003d\u0027feature-count\u0027\u003e1 scenario\u003c/span\u003e"]}];
+            var requirementsTree = [{"text":"registro en la pagina de Parkeatec","type":"feature","href":"5c135ad7c082eb75cceda13fab98f7425a069c3e4efd622fe808cd401c2bec85.html","nodes":[],"selectable":false,"tags":["","\u003cspan class\u003d\u0027feature-count\u0027\u003e2 scenarios\u003c/span\u003e"]}];
 
             $('#tree').treeview({
                 data: requirementsTree,
@@ -316,6 +316,35 @@ Para tener una cuenta verificada y poder acceder a la pagina
                                                                 </table>
                                                             </td>
                                                         </tr>
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#13a107db002e5b7857b773e6fc4147fa42a289891c31eaf8b7ff45ae1806e7b7" title="View scenario details" >Registrar de manera exitosa la informacion en la pagina de parkeatec</a>
+                                                                     (1 example)
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="44971f5316c3a9ad81e28e655fe15cb9bddbdf8cc3f5274d37b5c3688190b5f0.html"
+                                                                               title="View test results">
+                                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                                            </a>
+
+                                                                        
+                                                                        </td>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="44971f5316c3a9ad81e28e655fe15cb9bddbdf8cc3f5274d37b5c3688190b5f0.html"
+                                                                               title="View test results">
+                                                                                <i class="fas fa-search-plus"></i>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
                                                 </table>
 
                                             </div>
@@ -361,6 +390,47 @@ Para tener una cuenta verificada y poder acceder a la pagina
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <div class="scenario-docs card" id="13a107db002e5b7857b773e6fc4147fa42a289891c31eaf8b7ff45ae1806e7b7">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="44971f5316c3a9ad81e28e655fe15cb9bddbdf8cc3f5274d37b5c3688190b5f0.html" title="View test results">registrar de manera exitosa la informacion en la pagina de Parkeatec</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p>Dado que el usuario se encuentra en la pagina de registro de Parkeatec</p>
+                                                            <p><p>Cuando ingrese la informacion del formulario correctamente</p>
+<table>
+<thead>
+<tr><th>nombre</th><th>apellido</th><th>correo_electronico</th><th>contrasena</th><th>telefono</th><th>direccion</th><th>numero_documento</th><th>ficha_aprendiz</th></tr>
+</thead>
+<tbody>
+<tr><td>{nombre}</td><td>{apellido}</td><td>{correo_electronico}</td><td>{contrasena}</td><td>{telefono}</td><td>{direccion}</td><td>{numero_documento}</td><td>{ficha_aprendiz}</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p>Entonces se debe verificar que la informacion del usuario haya sido registrada correctamente y redirigido a su pagina de inicio.</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>nombre</th><th>apellido</th><th>correo_electronico</th><th>contrasena</th><th>telefono</th><th>direccion</th><th>numero_documento</th><th>ficha_aprendiz</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>juan</td><td>perez</td><td>juan@gmail.com</td><td>Juan123#</td><td>3000000000</td><td>carrera 103 #73-51</td><td>1000517119</td><td>2919581</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                         </div>
                                     </div>
                                 </div>
@@ -376,10 +446,10 @@ Para tener una cuenta verificada y poder acceder a la pagina
                                             </div>
                                             <script>
 
-                                                var labels = [' ', ' ', '100%', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+                                                var labels = ['50%', ' ', '50%', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
                                                 // Our series array that contains series objects or in this case series data arrays
 
-                                                var series = [{meta: 'Passing tests (automated)', value: 0}, {meta: 'Passing tests (manual)', value: 0}, {meta: 'Pending tests (automated)', value: 1}, {meta: 'Pending tests (manual)', value: 0}, {meta: 'Ignored tests (automated)', value: 0}, {meta: 'Ignored tests (manual)', value: 0}, {meta: 'Skipped tests (automated)', value: 0}, {meta: 'Skipped tests (manual)', value: 0}, {meta: 'Failing tests (automated)', value: 0}, {meta: 'Failing tests (manual)', value: 0}, {meta: 'Broken tests (automated)', value: 0}, {meta: 'Broken tests (manual)', value: 0}, {meta: 'Compromised tests (automated)', value: 0}, {meta: 'Compromised tests (manual)', value: 0}];
+                                                var series = [{meta: 'Passing tests (automated)', value: 1}, {meta: 'Passing tests (manual)', value: 0}, {meta: 'Pending tests (automated)', value: 1}, {meta: 'Pending tests (manual)', value: 0}, {meta: 'Ignored tests (automated)', value: 0}, {meta: 'Ignored tests (manual)', value: 0}, {meta: 'Skipped tests (automated)', value: 0}, {meta: 'Skipped tests (manual)', value: 0}, {meta: 'Failing tests (automated)', value: 0}, {meta: 'Failing tests (manual)', value: 0}, {meta: 'Broken tests (automated)', value: 0}, {meta: 'Broken tests (manual)', value: 0}, {meta: 'Compromised tests (automated)', value: 0}, {meta: 'Compromised tests (manual)', value: 0}];
 
                                                 // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
                                                 // as you saw in the previous example
@@ -416,11 +486,12 @@ Para tener una cuenta verificada y poder acceder a la pagina
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                                    <td class="aggregate-result-count"><i
-                                                                            class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing
+                                                                    <td class="aggregate-result-count">
+                                                                        <a href="85e3ba9f85047c49632928a11a6f74bda340b1c26bdd28d888368176049efeaa.html"><i
+                                                                                class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing</a>
                                                                     </td>
-                                                <td class="automated-stats">0</td>
-                                                <td class="automated-stats"> </td>
+                                                <td class="automated-stats">1</td>
+                                                <td class="automated-stats">50%</td>
                                             </tr>
                                             <tr>
                                                                     <td class="aggregate-result-count">
@@ -428,7 +499,7 @@ Para tener una cuenta verificada y poder acceder a la pagina
                                                                                 class='fa fa-stop-circle-o pending-icon'></i>&nbsp;Pending</a>
                                                                     </td>
                                                 <td class="automated-stats">1</td>
-                                                <td class="automated-stats">100%</td>
+                                                <td class="automated-stats">50%</td>
                                             </tr>
                                             <tr>
                                                                 <td class="aggregate-result-count"><i
@@ -475,7 +546,7 @@ Para tener una cuenta verificada y poder acceder a la pagina
                                             </tr>
                                             <tr class="summary-stats">
                                                 <td class="aggregate-result-count">Total</td>
-                                                <td class="automated-stats">1</td>
+                                                <td class="automated-stats">2</td>
                                                 <td class="automated-stats"></td>
                                             </tr>
                                             </tbody>
@@ -497,11 +568,11 @@ Para tener una cuenta verificada y poder acceder a la pagina
                                                     </thead>
                                                     <tbody>
                                                     <tr>
-                                                        <td>6s</td>
-                                                        <td>6ms</td>
+                                                        <td>33s</td>
+                                                        <td>8d  2h  59m 57s</td>
                                                         <td>5s</td>
-                                                        <td>5s</td>
-                                                        <td>6s</td>
+                                                        <td>26s</td>
+                                                        <td>16s</td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -535,6 +606,19 @@ Para tener una cuenta verificada y poder acceder a la pagina
                                                     <td>
                                                             <a href='##beforetable'><i class='far fa-stop-circle pending-icon ' title='PENDING'></i></a> <span
                                                                 style="display:none">PENDING</span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="44971f5316c3a9ad81e28e655fe15cb9bddbdf8cc3f5274d37b5c3688190b5f0.html">registrar de manera exitosa la informacion en la pagina de Parkeatec</a>
+                                                               (1 example)
+                                                    </td>
+                                                    <td>3</td>
+                                                    <td>20:55:03</td>
+                                                    <td>27s 620ms</td>
+                                                    <td>
+                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a> <span
+                                                                style="display:none">SUCCESS</span>
                                                     </td>
                                                 </tr>
                                                 </tbody>

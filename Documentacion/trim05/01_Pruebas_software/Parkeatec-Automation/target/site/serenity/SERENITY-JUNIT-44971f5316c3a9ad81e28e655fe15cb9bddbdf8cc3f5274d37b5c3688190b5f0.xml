@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="registro en la pagina de Parkeatec" skipped="0" tests="1" time="18.96" timestamp="2025-05-30 08:21:43"><testcase name="registrar de manera exitosa la informacion en la pagina de Parkeatec"/></testsuite>
-=======
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="registro en la pagina de Parkeatec" skipped="0" tests="1" time="12.48" timestamp="2025-05-30 06:24:01"><testcase name="registrar de manera exitosa la informacion en la pagina de Parkeatec"/></testsuite>
->>>>>>> a02c9469057b330380e22f0b9e513b72cc73679a
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="registro en la pagina de Parkeatec" skipped="0" tests="1" time="27.62" timestamp="2025-06-05 08:55:03"><testcase name="registrar de manera exitosa la informacion en la pagina de Parkeatec"/></testsuite>

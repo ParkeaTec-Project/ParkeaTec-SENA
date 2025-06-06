@@ -22,9 +22,7 @@ public class ValidacionRegistroBicicleta implements Question<Boolean> {
             String serial = Text.of(TEXT_SERIAL).viewedBy(actor).asString();
             String observacion = Text.of(TEXT_OBSERVACION).viewedBy(actor).asString();
 
-            return "123456ABC".equals(serial);
-            //return "123456ABC".equals(serial) && "ninguna".equals(observacion);
-            //return info.get(0).getNro_serial().equals(serial) && info.get(0).getObservacion().equals(observacion);
+            return "Placa: 123456ABC".equals(serial) && "Observaciones: Rayon".equals(observacion);
         } catch (Exception e) {
             logger.info("No se encontro la informacion");
             return false;

@@ -22,4 +22,4 @@ Característica: registro de vehiculo en la pagina de Parkeatec
 
     Ejemplos:
       | nro_serial | observacion |
-      | 123456ABCs | ninguna     |
+      | 123456ABC  | Rayon       |

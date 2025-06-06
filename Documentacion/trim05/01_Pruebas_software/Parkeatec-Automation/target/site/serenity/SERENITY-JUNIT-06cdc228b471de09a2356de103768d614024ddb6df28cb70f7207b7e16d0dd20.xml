@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Llenar el formulario de registro de vehiculo moto" skipped="0" tests="1" time="37.11" timestamp="2025-06-05 02:22:12"><testcase name="llenar formulario de registro moto"><failure message="Expected validacion registro moto&#13;&#10;Expected: is &lt;true&gt;&#13;&#10;     but: was &lt;false&gt;" type="java.lang.AssertionError">Expected validacion registro moto&#13;
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Llenar el formulario de registro de vehiculo moto" skipped="0" tests="1" time="24.13" timestamp="2025-06-05 07:40:05"><testcase name="llenar formulario de registro moto"><failure message="Expected validacion registro moto&#13;&#10;Expected: is &lt;true&gt;&#13;&#10;     but: was &lt;false&gt;" type="java.lang.AssertionError">Expected validacion registro moto&#13;
 Expected: is &lt;true&gt;&#13;
      but: was &lt;false&gt;</failure><system-err>Expected validacion registro moto&#13;
 Expected: is &lt;true&gt;&#13;

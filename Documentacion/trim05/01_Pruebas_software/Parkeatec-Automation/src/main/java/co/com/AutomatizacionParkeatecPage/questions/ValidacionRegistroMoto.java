@@ -19,7 +19,7 @@ public class ValidacionRegistroMoto implements Question<Boolean> {
         try{
             String VLDPLACA = Text.of(VALIDAR_PLACA).viewedBy(actor).asString();
             String VLDMARCA = Text.of(VALIDAR_MARCA).viewedBy(actor).asString();
-            return "Placa:".equals(VLDPLACA) && "Marca:".equals(VLDMARCA);
+            return "Placa: CBI23H".equals(VLDPLACA) && "Marca: TVS".equals(VLDMARCA);
         }
         catch (Exception e){
             logger.info("Ha ocurrido algo inesperado");

@@ -47,14 +47,15 @@ public class Moto extends PageObject {
 
     public static Target BTN_CERRAR = Target.the("Cerrar modal").located(By.xpath("/html/body/div[3]/div/div/div[2]/button"));
 
-    public static Target SCL_NAV = Target.the("Scroll to navbar").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div"));
+    public static Target SCL_NAV = Target.the("Scroll to navbar").located(By.xpath("//*[@id=\"root\"]/nav/div/a"));
 
-    public static Target BTN_PERFIL = Target.the("Desplegar opciones perfil").located(By.xpath("//a[text()='Perfil']"));
+    public static Target BTN_PERFIL = Target.the("Desplegar opciones perfil").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[3]/a"));
 
     public static Target BTN_VEHICULOS = Target.the("Ingresar a ver mi vehiculo").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[3]/div/a[3]"));
 
-    public static Target VALIDAR_PLACA = Target.the("Ver placa del vehiculo registrado").locatedBy("//p[strong[text()='Marca:']]");
+    public static Target VALIDAR_PLACA = Target.the("Ver placa del vehiculo registrado").locatedBy("//p[text()='CBI23H']");
 
-    public static Target VALIDAR_MARCA = Target.the("Ver soat del vehiculo registrado").locatedBy("//p[strong[text()='Placa:']]");
+    public static Target VALIDAR_MARCA = Target.the("Ver soat del vehiculo registrado").located(By.xpath("//*[@id=\"root\"]/section/div/div/div/div/div/div/div[1]/div[2]/p[1]"));
+    //        WebElement pPlaca = driver.findElement(By.xpath("//p[strong[text()='Placa:']]"));
 
 }

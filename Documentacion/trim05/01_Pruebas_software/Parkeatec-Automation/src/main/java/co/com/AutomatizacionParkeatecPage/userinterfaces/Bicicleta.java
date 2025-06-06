@@ -46,7 +46,7 @@ public class Bicicleta extends PageObject {
 
     //public static Target TEXT_SERIAL = Target.the("mensaje de login").locatedBy("//p[text()='123456ABC']");
 
-    public static Target TEXT_SERIAL = Target.the("informacion de placa").located(By.xpath("//p[strong[text()='Placa:']]/text()"));
+    public static Target TEXT_SERIAL = Target.the("informacion de placa").locatedBy("//p[text()='123456ABC']");
 
     public static Target TEXT_OBSERVACION = Target.the("informacion de observacion").located(By.xpath("//*[@id=\"root\"]/section/div/div/div/div/div/div/div[1]/div[2]/p[5]"));
 

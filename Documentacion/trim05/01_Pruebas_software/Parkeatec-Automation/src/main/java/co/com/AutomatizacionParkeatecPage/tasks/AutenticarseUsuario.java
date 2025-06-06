@@ -34,10 +34,7 @@ public class AutenticarseUsuario implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        WebDriverWait wait;
         actor.attemptsTo(
-                //the(DASH, isVisible()),
-                //WaitUntil.the(INPUT_USUARIO, isVisible()).forNoMoreThan(60).seconds(),
                 Click.on(INPUT_USUARIO),
                 Enter.theValue(credenciales.get(0).getUsuario()).into(INPUT_USUARIO),
                 Click.on(INPUT_CLAVE),

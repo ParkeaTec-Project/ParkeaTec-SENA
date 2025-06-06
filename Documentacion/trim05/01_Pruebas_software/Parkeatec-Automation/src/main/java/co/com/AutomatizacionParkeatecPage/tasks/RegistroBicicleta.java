@@ -37,7 +37,7 @@ public class RegistroBicicleta implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(TITLE_DASH, isCurrentlyEnabled()).forNoMoreThan(5).seconds(),
+                WaitUntil.the(TITLE_DASH, isVisible()).forNoMoreThan(5).seconds(),
                 //Ensure.that(TITLE_DASH).isDisplayed(),
                 Click.on(FORMULARIO),
                 Click.on(LLENAR_FORMULARIO),

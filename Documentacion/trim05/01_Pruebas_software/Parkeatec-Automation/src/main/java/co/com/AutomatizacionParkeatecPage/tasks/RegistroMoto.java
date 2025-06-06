@@ -8,6 +8,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import co.com.AutomatizacionParkeatecPage.utils.hooks.Constantes.*;
 import net.serenitybdd.screenplay.actions.*;
+import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.waits.Wait;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.Keys;
@@ -19,12 +20,12 @@ import java.time.Duration;
 import java.util.List;
 
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.Bicicleta.INPUT_SERIAL;
+import static co.com.AutomatizacionParkeatecPage.userinterfaces.Bicicleta.PERFIL;
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.Moto.*;
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.Registro.INPUT_FOTO;
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.VerReservas.CLICK_PERFIL;
 import static co.com.AutomatizacionParkeatecPage.utils.hooks.Constantes.rutaFotoSoat;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isCurrentlyEnabled;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
 public class RegistroMoto implements Task {
 
@@ -82,7 +83,8 @@ public class RegistroMoto implements Task {
                 Click.on(BTN_ENVIAR),
                 Click.on(BTN_CERRAR),
                 Scroll.to(SCL_NAV),
-                WaitUntil.the(BTN_PERFIL, isVisible()).forNoMoreThan(5).seconds(),
+                Scroll.to(BTN_PERFIL),
+                WaitUntil.the(BTN_PERFIL, isVisible()).forNoMoreThan(7).seconds(),
                 Click.on(BTN_PERFIL),
                 Click.on(BTN_VEHICULOS)
         );

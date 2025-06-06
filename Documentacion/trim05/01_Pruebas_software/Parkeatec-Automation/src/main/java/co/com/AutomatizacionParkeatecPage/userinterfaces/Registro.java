@@ -41,5 +41,7 @@ public class Registro extends PageObject {
 
     public static Target LOGIN = Target.the("Click enlace login").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/a[2]"));
 
+    public static Target VER_PERFIL = Target.the("Click enlace ver perfil").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[3]/div/a[1]"));
+
 
 }

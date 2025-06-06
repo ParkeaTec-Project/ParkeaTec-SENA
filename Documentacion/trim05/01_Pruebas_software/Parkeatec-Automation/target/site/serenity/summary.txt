@@ -1,14 +1,10 @@
-<<<<<<< HEAD
-Serenity report generated 05-06-2025 15:39
-=======
-Serenity report generated 05-06-2025 14:22
->>>>>>> e899a4f7fbd1aac07a7be38528795eac4a0de9f0
-7 test scenarios (7 tests in all, including 3 rows of test data)
+Serenity report generated 05-06-2025 20:55
+8 test scenarios (8 tests in all, including 4 rows of test data)
 
-Passed:             1
+Passed:             3
 Pending             2
 Failed:             3
-Failed with errors: 1
+Failed with errors: 0
 Compromised:        0
 Pending:            2
 Ignored:            0
