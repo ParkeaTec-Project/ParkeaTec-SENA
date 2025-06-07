@@ -37,11 +37,21 @@ public class Registro extends PageObject {
 
     public static Target CERRAR_MODAL_REGISTRO = Target.the("Click boton cerrar modal").located(By.xpath("/html/body/div[3]/div/div/div[1]/button"));
 
-    public static Target SCROLL_NAV = Target.the("Scroll nav").located(By.xpath("//*[@id=\"root\"]"));
+    //public static Target SCROLL_NAV = Target.the("Scroll nav").located(By.xpath("//*[@id=\"root\"]"));
 
     public static Target LOGIN = Target.the("Click enlace login").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/a[2]"));
 
     public static Target VER_PERFIL = Target.the("Click enlace ver perfil").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[3]/div/a[1]"));
+
+    public static Target INFO_NOMBRE = Target.the("Informacion del nombre del usuario").located(By.xpath("//*[@id=\"Nombre completo\"]"));
+
+    public static Target INFO_DOCUMENTO = Target.the("Informacion del nombre del usuario").located(By.xpath("//*[@id=\"Numero documento\"]"));
+
+
+    public static Target INFO_CORREO = Target.the("Informacion del nombre del usuario").located(By.xpath("//*[@id=\"Correo Electronico\"]"));
+
+
+
 
 
 }

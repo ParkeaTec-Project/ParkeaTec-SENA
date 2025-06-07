@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="registro en la pagina de Parkeatec" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-06-06T01:55:03" hostname="LBOG0551" time="27.544">
+<testsuite name="registro en la pagina de Parkeatec" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-06-07T01:19:41" hostname="COMPUGHOST-D4K7" time="17.016">
   <properties/>
-  <testcase name="registrar de manera exitosa la informacion en la pagina de Parkeatec" classname="registro en la pagina de Parkeatec" time="27.544"/>
+  <testcase name="registrar de manera exitosa la informacion en la pagina de Parkeatec" classname="registro en la pagina de Parkeatec" time="17.016"/>
   <system-out><![CDATA[    ?[32mDado ?[0m?[32mque el usuario se encuentra en la pagina de registro de Parkeatec?[0m                                                           ?[90m# RegistroParkeatecStepDefinitions.queElUsuarioSeEncuentraEnLaPaginaDeRegistroDeParkeatec()?[0m
+juankV@gmail.com
+prueba dominiojuankV@gmail.com
     ?[32mCuando ?[0m?[32mingrese la informacion del formulario correctamente?[0m                                                                       ?[90m# RegistroParkeatecStepDefinitions.ingreseLaInformacionDelFormularioCorrectamente(InfoRegistro>)?[0m
     ?[32mEntonces ?[0m?[32mse debe verificar que la informacion del usuario haya sido registrada correctamente y redirigido a su pagina de inicio.?[0m ?[90m# RegistroParkeatecStepDefinitions.seDebeVerificarQueLaInformacionDelUsuarioHayaSidoRegistradaCorrectamenteYRedirigidoASuPaginaDeInicio()?[0m
 ]]></system-out>
-  <system-err><![CDATA[jun. 05, 2025 8:55:04 P. M. org.openqa.selenium.remote.DesiredCapabilities chrome
+  <system-err><![CDATA[jun. 06, 2025 8:19:41 P. M. org.openqa.selenium.remote.DesiredCapabilities chrome
 INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
 [Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Instantiating driver
 [Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Driver capabilities: Capabilities {acceptInsecureCerts: false, browserName: chrome, goog:chromeOptions: {args: [], extensions: [], prefs: {behavior: allow}}, loggingPrefs: org.openqa.selenium.logging..., name: proyecto, platform: ANY, unhandledPromptBehavior: ignore, version: }
-Starting ChromeDriver 136.0.7103.94 (fa0be0b33debeb378a8e6ad9c599be34e2dc3b37-refs/branch-heads/7103@{#1842}) on port 27049
+Starting ChromeDriver 136.0.7103.94 (fa0be0b33debeb378a8e6ad9c599be34e2dc3b37-refs/branch-heads/7103@{#1842}) on port 18417
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-ChromeDriver was started successfully on port 27049.
-[1749174907.207][WARNING]: This version of ChromeDriver has not been tested with Chrome version 137.
-jun. 05, 2025 8:55:07 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
+ChromeDriver was started successfully on port 18417.
+[1749259183.735][WARNING]: This version of ChromeDriver has not been tested with Chrome version 137.
+jun. 06, 2025 8:19:43 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
 [Test worker] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
         __    _____ _____ ____ _____   ____   _    ____  ____  _____ ____  

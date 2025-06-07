@@ -244,6 +244,14 @@ class user {
                 throw new Error(`Usuario no encontrado con id ${id}`);
             }
 
+            //Eliminar el strike asociado al usuario
+            const deleteStrike = 'DELETE FROM strikes WHERE id_usuario = ?';
+            await connection.promise().query(deleteStrike, [id]);
+
+            //Eliminar las reservas asociadas al usuario
+            const deleteReservas = 'DELETE FROM reserva WHERE id_documento = ?';
+            await connection.promise().query(deleteReservas, [id]);
+
             //Eliminar el vehiculo asociado al usuario
             const deleteVehicle = 'DELETE FROM vehiculo WHERE id_documento = ?';
             await connection.promise().query(deleteVehicle, [id]);

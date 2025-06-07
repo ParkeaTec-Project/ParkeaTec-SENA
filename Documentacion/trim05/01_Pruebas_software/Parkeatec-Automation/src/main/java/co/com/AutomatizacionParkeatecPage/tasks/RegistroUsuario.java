@@ -6,15 +6,18 @@ import static co.com.AutomatizacionParkeatecPage.userinterfaces.AutenticacionUsu
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.Registro.*;
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.AutenticacionUsuario.*;
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.Bicicleta.*;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 import co.com.AutomatizacionParkeatecPage.utils.hooks.Constantes;
 
+import co.com.AutomatizacionParkeatecPage.utils.hooks.SesionVariable;
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.List;
 
@@ -32,9 +35,15 @@ public class RegistroUsuario implements Task {
         return Instrumented.instanceOf(RegistroUsuario.class).withProperties(info);
     }
 
+    String correo = RandomStringUtils.random(2, true, false);
+    String gmail = "@gmail.com";
+    String documento = RandomStringUtils.random(2, false, true);
+
     @Override
     public <T extends Actor> void performAs(T actor) {
-
+        System.out.println(info.get(0).getCorreo_electronico() + correo + gmail);
+        String dominio = info.get(0).getCorreo_electronico() + correo + gmail;
+        System.out.println("prueba dominio" + dominio);
         String rutaAbsoluta = new File(Constantes.ruta_foto).getAbsolutePath();
         actor.attemptsTo(
                 Click.on(REGISTRO),
@@ -43,7 +52,7 @@ public class RegistroUsuario implements Task {
                 Click.on(INPUT_APELLIDO),
                 Enter.theValue(info.get(0).getApellido()).into(INPUT_APELLIDO),
                 Click.on(INPUT_CORREO),
-                Enter.theValue(info.get(0).getCorreo_electronico()).into(INPUT_CORREO),
+                Enter.theValue(dominio).into(INPUT_CORREO),
                 Click.on(INPUT_PASSWORD),
                 Enter.theValue(info.get(0).getContrasena()).into(INPUT_PASSWORD),
                 Click.on(INPUT_TELEFONO),
@@ -53,7 +62,7 @@ public class RegistroUsuario implements Task {
                 Click.on(SELECT_TIPO_DOCUMENTO),
                 SelectFromOptions.byVisibleText("Cedula de ciudadania").from(SELECT_TIPO_DOCUMENTO),
                 Click.on(INPUT_NUMERO_DOCUMENTO),
-                Enter.theValue(info.get(0).getNumero_documento()).into(INPUT_NUMERO_DOCUMENTO),
+                Enter.theValue(info.get(0).getNumero_documento() + documento).into(INPUT_NUMERO_DOCUMENTO),
                 SendKeys.of(rutaAbsoluta).into(INPUT_FOTO),
                 Scroll.to(BTN_SUCCESS),
                 Click.on(SELECT_CENTRO),
@@ -62,10 +71,12 @@ public class RegistroUsuario implements Task {
                 Enter.theValue(info.get(0).getFicha_aprendiz()).into(INPUT_FICHA),
                 Click.on(BTN_REGISTRO),
                 Click.on(CERRAR_MODAL_REGISTRO),
-                Scroll.to(SCROLL_NAV),
+                Scroll.to(MENU),
+                Scroll.to(LOGIN),
+                WaitUntil.the(LOGIN, isVisible()).forNoMoreThan(5).seconds(),
                 Click.on(LOGIN),
                 Click.on(INPUT_USUARIO),
-                Enter.theValue(info.get(0).getCorreo_electronico()).into(INPUT_USUARIO),
+                Enter.theValue(dominio).into(INPUT_USUARIO),
                 Click.on(INPUT_CLAVE),
                 Enter.theValue(info.get(0).getContrasena()).into(INPUT_CLAVE),
                 Click.on(BTN_SUCCESS),
@@ -74,5 +85,10 @@ public class RegistroUsuario implements Task {
                 Click.on(PERFIL),
                 Click.on(VER_PERFIL)
         );
+
+
+        theActorInTheSpotlight().remember(SesionVariable.nombre.toString(), info.get(0).getNombre());
+        theActorInTheSpotlight().remember(SesionVariable.documento.toString(), info.get(0).getNumero_documento() + documento);
+        theActorInTheSpotlight().remember(SesionVariable.correo.toString(), dominio);
     }
 }

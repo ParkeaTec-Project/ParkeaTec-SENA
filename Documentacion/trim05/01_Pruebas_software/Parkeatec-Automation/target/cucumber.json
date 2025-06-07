@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 110105700,
+              "duration": 52614900,
               "status": "passed"
             },
             "match": {
@@ -23,7 +23,7 @@
         "steps": [
           {
             "result": {
-              "duration": 5326829700,
+              "duration": 4078801100,
               "status": "passed"
             },
             "line": 12,
@@ -35,7 +35,7 @@
           },
           {
             "result": {
-              "duration": 20348258100,
+              "duration": 11863753500,
               "status": "passed"
             },
             "line": 13,
@@ -60,11 +60,11 @@
                 "cells": [
                   "juan",
                   "perez",
-                  "juan@gmail.com",
+                  "juan",
                   "Juan123#",
                   "3000000000",
                   "carrera 103 #73-51",
-                  "1000517119",
+                  "10005171",
                   "2919581"
                 ]
               }
@@ -73,7 +73,7 @@
           },
           {
             "result": {
-              "duration": 548793100,
+              "duration": 243542800,
               "status": "passed"
             },
             "line": 16,

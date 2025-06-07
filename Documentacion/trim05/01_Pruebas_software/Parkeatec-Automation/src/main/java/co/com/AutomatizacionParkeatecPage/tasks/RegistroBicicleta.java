@@ -55,9 +55,9 @@ public class RegistroBicicleta implements Task {
                 Enter.theValue(info.get(0).getObservacion()).into(INPUT_OBSERVACION),
                 Click.on(BTN_ENVIAR),
                 Click.on(CERRAR_MODAL),
-                Scroll.to(MENU).andAlignToTop(),
                 Scroll.to(MENU),
-                WaitUntil.the(PRUEBA, isCurrentlyEnabled()).forNoMoreThan(5).seconds(),
+                Scroll.to(PERFIL),
+                WaitUntil.the(PRUEBA, isVisible()).forNoMoreThan(5).seconds(),
                 Click.on(PERFIL),
                 Click.on(VEHICULO)
         );

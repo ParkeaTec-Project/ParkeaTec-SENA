@@ -78,6 +78,33 @@ class Vehiculo {
             throw error;
         }
     }
+
+    static async borrarVehiculoId(id) {
+        if (!id) {
+            throw new Error("ID de vehiculo invalido");
+        }
+
+        try {
+            const checkQuery = 'SELECT * FROM vehiculo WHERE placa = ?';
+            const [checkResult] = await connection.promise().query(checkQuery, [id]);
+
+            if (checkResult[0].length === 0) {
+                throw new Error(`Vehiculo no encontrado con placa ${id}`);
+            }
+
+            const query = 'DELETE FROM vehiculo WHERE placa = ?';
+            const [result] = await connection.promise().query(query, [id]);
+
+            if (result.affectedRows === 0) {
+                throw new Error(`No se pudo eliminar el vehiculo con placa ${id}`);
+            }
+
+            return result;
+        } catch (error) {
+            console.error(`Error al borrar el vehiculo con placa ${id}`);
+            throw error;
+        }
+    }
 }
 
 export default Vehiculo;
