@@ -3,6 +3,7 @@ package co.com.AutomatizacionParkeatecPage.questions;
 import co.com.AutomatizacionParkeatecPage.utils.hooks.SesionVariable;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
+import net.serenitybdd.screenplay.questions.Attribute;
 import net.serenitybdd.screenplay.questions.Text;
 import static jxl.biff.FormatRecord.logger;
 
@@ -18,10 +19,11 @@ public class ValidacionRegistro implements Question<Boolean> {
         String usuario = theActorInTheSpotlight().recall(SesionVariable.nombre.toString());
         String nroDocumento = theActorInTheSpotlight().recall(SesionVariable.documento.toString());
         String email = theActorInTheSpotlight().recall(SesionVariable.correo.toString());
+
         try {
-            String nombre = Text.of(INFO_NOMBRE).viewedBy(actor).asString();
-            String documento = Text.of(INFO_DOCUMENTO).viewedBy(actor).asString();
-            String correo = Text.of(INFO_CORREO).viewedBy(actor).asString();
+            String nombre = Attribute.of(INFO_NOMBRE).named("value").viewedBy(actor).asString();
+            String documento = Attribute.of(INFO_DOCUMENTO).named("value").viewedBy(actor).asString();
+            String correo = Attribute.of(INFO_CORREO).named("value").viewedBy(actor).asString();
 
             return usuario.equals(nombre) && nroDocumento.equals(documento) && email.equals(correo);
         } catch (Exception e) {

@@ -2,6 +2,7 @@ package co.com.AutomatizacionParkeatecPage.stepsdefinitions;
 
 import co.com.AutomatizacionParkeatecPage.models.InfoRegistro;
 import co.com.AutomatizacionParkeatecPage.questions.ValidacionInicioSesion;
+import co.com.AutomatizacionParkeatecPage.questions.ValidacionRegistro;
 import co.com.AutomatizacionParkeatecPage.tasks.AbrirPagina;
 import co.com.AutomatizacionParkeatecPage.tasks.RegistroUsuario;
 import cucumber.api.DataTable;
@@ -29,6 +30,6 @@ public class RegistroParkeatecStepDefinitions {
 
     @Entonces("^se debe verificar que la informacion del usuario haya sido registrada correctamente y redirigido a su pagina de inicio\\.$")
     public void seDebeVerificarQueLaInformacionDelUsuarioHayaSidoRegistradaCorrectamenteYRedirigidoASuPaginaDeInicio() {
-        theActorInTheSpotlight().should(seeThat(ValidacionInicioSesion.validacionInicioSesion()));
+        theActorInTheSpotlight().should(seeThat(ValidacionRegistro.validacionRegistro()));
     }
 }
