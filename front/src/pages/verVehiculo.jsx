@@ -7,6 +7,9 @@ function VerVehiculo({ actualizarVehiculo }) {
   const [showModal, setShowModal] = useState(false);
   const [vehiculoSeleccionado, setVehiculoSeleccionado] = useState(null);
   const [sesion, setSesion] = useState(null);
+  const [showModalDelete, setShowModalDelete] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+
   const [vehicleData, setVehicleData] = useState({
     placa: "",
     tipo_vehiculo: "",
@@ -79,10 +82,38 @@ function VerVehiculo({ actualizarVehiculo }) {
       console.log("dato Vehiculo", data);
       setVehicleData(data.vehiculo);
       // console.log(vehicleData);
+
+      obtenerVehiculo();
     } catch (err) {
       console.error("Error:", err);
     }
   }, [sesion]);
+
+
+  const handleDelete = async (id) => {
+    console.log(`Borrar usuario con ID: ${id}`);
+
+    try {
+      const response = await fetch(`http://localhost:4000/api/borrarVehiculo/${vehicleData.placa}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        }
+      });
+
+      if (response.ok) {
+        setModalMessage("Vehiculo borrado correctamente");
+        setShowModalDelete(true);
+      } else {
+        setModalMessage("Error al borrar el vehiculo");
+        setShowModalDelete(false);
+      }
+    } catch (err) {
+      console.error("Error al borrar el vehiculo:", err);
+    }
+  };
+
+  const handleCloseModal = () => setShowModalDelete(false);
 
   useEffect(() => {
     obtenerVehiculo();
@@ -106,8 +137,6 @@ function VerVehiculo({ actualizarVehiculo }) {
       console.error("Error al actualizar el vehiculo", error);
     }
   };
-
-  // const handleCloseModal = () => setShowModal(false);
 
   return (
     <section className={`py-4 ${styles.section}`}>
@@ -133,6 +162,13 @@ function VerVehiculo({ actualizarVehiculo }) {
                     >
                       Actualizar vehiculo
                     </Button>
+                    <Button
+                      variant="danger"
+                      onClick={() => handleDelete(vehicleData.placa)}
+                      className="mt-2 ms-2"
+                      >
+                      Borrar vehiculo
+                    </Button>
                   </Col>
 
                   <Col md={5} className="d-flex align-items-center">
@@ -143,6 +179,7 @@ function VerVehiculo({ actualizarVehiculo }) {
                       alt="Foto del vehiculo"
                     />
                   </Col>
+                  
                 </Row>
               </Card.Body>
             </Card>
@@ -167,41 +204,21 @@ function VerVehiculo({ actualizarVehiculo }) {
           )}
         </Modal.Body>
       </Modal>
+
+      {/* Modal borrar */}
+      <Modal show={showModalDelete} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Vehiculo Eliminado</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{ modalMessage }</Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger" onClick={handleCloseModal}>
+            Cerrar
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </section>
-    // <section className={styles.section}>
-    //   <div className={styles.containerVehiculo}>
-    //     <h2>Tu vehiculo</h2>
-    //     <div>
-    //       <p>Marca: {vehicleData.marca}</p>
-    //       <p>Modelo: {vehicleData.modelo}</p>
-    //       <p>Placa: {vehicleData.placa}</p>
-    //       <p>Vencimiento Soat: {vencimiento_soat}</p>
-    //       <p>Observaciones: { vehicleData.observacion }</p>
-    //     </div>
-    //     <img
-    //       className={styles.imgVehiculo}
-    //       src={`http://localhost:4000/uploads/vehicles/${vehicleData.foto_vehiculo}`}
-    //       alt="foto vehiculo"
-    //     />
-    //     <button onClick={() => handleEdit(vehicleData)}>Actualizar</button>
-    //   </div>
-    //   <Modal show={showModal} onHide={() => setShowModal(false)}>
-    //     <Modal.Header closeButton>
-    //       <Modal.Title>Actualizar vehiculo</Modal.Title>
-    //     </Modal.Header>
-    //     <Modal.Body>
-    //       {vehicleData && (
-    //         <div>
-    //           <ActualizarVehiculo
-    //             vehiculo={vehiculoSeleccionado}
-    //             handleUpdate={handleUpdate}
-    //             obtenerVehiculo={obtenerVehiculo}
-    //           />
-    //         </div>
-    //       )}
-    //     </Modal.Body>
-    //   </Modal>
-    // </section>
+    
   );
 }
 

@@ -249,4 +249,6 @@ router.get('/verVehiculo/:id', vehiculoController.obtenerVehiculoId);
  */
 router.put('/updateVehiculo/:id', upload('vehiculoSingle'), vehiculoController.actualizarVehiculoId);
 
+router.delete('/borrarVehiculo/:id', vehiculoController.borrarVehiculoId);
+
 export default router;

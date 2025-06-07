@@ -154,8 +154,31 @@ const actualizarVehiculoId = async (req, res) => {
     }
 };
 
+const borrarVehiculoId = async (req, res) => {
+    try {
+        const vehiculoId = req.params.id;
+        console.log("id vehiculo", vehiculoId);
+
+        const deleteVehiculo = await Vehiculo.borrarVehiculoId(vehiculoId);
+        res.status(200).json({ message: "Vehiculo eliminado", deleteVehiculo })
+
+    } catch (error) {
+        if (error.message.includes("Vehiculo no encontrado")) {
+            return res.status(404).json({ message: error.message });
+        }
+
+        if (error.message.includes("ID de vehiculo invalido")) {
+            return res.status(400).json({ message: error.message });
+        }
+
+        console.error("Error al eliminar el vehiculo:", error);
+        res.status(500).json({ message: "Error interno" });
+    }
+}
+
 export default {
     registroVehiculo,
     obtenerVehiculoId,
-    actualizarVehiculoId
+    actualizarVehiculoId,
+    borrarVehiculoId
 }

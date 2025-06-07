@@ -17,5 +17,5 @@ Característica: registro en la pagina de Parkeatec
 
     Ejemplos:
       | nombre | apellido | correo_electronico | contrasena | telefono   | direccion          | numero_documento | ficha_aprendiz |
-      | juan   | perez    | juan@gmail.com     | Juan123#   | 3000000000 | carrera 103 #73-51 | 1000517119       | 2919581        |
+      | juan   | perez    | juan               | Juan123#   | 3000000000 | carrera 103 #73-51 | 10005171         | 2919581        |
   

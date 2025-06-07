@@ -12,7 +12,6 @@ import java.util.List;
 
 public class ValidacionRegistroBicicleta implements Question<Boolean> {
 
-    private List<InfoBicicleta> info;
 
     public static ValidacionRegistroBicicleta validacionRegistroBicicleta() { return new ValidacionRegistroBicicleta(); }
 

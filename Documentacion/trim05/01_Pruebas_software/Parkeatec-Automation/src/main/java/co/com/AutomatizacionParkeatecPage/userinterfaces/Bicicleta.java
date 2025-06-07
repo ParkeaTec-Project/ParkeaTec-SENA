@@ -36,7 +36,7 @@ public class Bicicleta extends PageObject {
 
     public static Target CERRAR_MODAL = Target.the("Cerrar modal").located(By.xpath("/html/body/div[3]/div/div/div[2]/button"));
 
-    public static Target MENU = Target.the("Scroll vista formulario").located(By.xpath("//*[@id=\"root\"]/nav/div"));
+    public static Target MENU = Target.the("Scroll vista formulario").located(By.xpath("//*[@id=\"root\"]/nav/div/a"));
 
     public static Target PRUEBA = Target.the("prueba").located(By.xpath("//*[@id=\"root\"]/nav/div/a"));
 
