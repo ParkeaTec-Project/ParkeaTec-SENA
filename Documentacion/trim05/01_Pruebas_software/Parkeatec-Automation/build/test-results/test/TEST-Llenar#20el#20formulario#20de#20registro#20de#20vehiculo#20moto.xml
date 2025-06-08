@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Llenar el formulario de registro de vehiculo moto" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-06-08T19:45:42" hostname="LBOG0551" time="34.134">
+  <properties/>
+  <testcase name="llenar formulario de registro moto" classname="Llenar el formulario de registro de vehiculo moto" time="34.134"/>
+  <system-out><![CDATA[    ?[32mDado ?[0m?[32mque el usuario se encuentra en la pagina de inicio de sesion de Parkeatec?[0m                                    ?[90m# AutenticacionUsuarioParkeatecStepDefinitions.queElUsuarioSeEncuentraEnLaPaginaDeInicioDeSesionDeParkeatec()?[0m
+    ?[32mCuando ?[0m?[32mingrese las credenciales de usuario correctas (usuario y contrasena)?[0m                                       ?[90m# AutenticacionUsuarioParkeatecStepDefinitions.ingreseLasCredencialesDeUsuarioCorrectasUsuarioYContrasena(CredencialesInicioSesion>)?[0m
+    ?[32mEntonces ?[0m?[32mse debe verificar que el usuario haya sido autenticado correctamente y redirigido a su pagina de inicio.?[0m ?[90m# AutenticacionUsuarioParkeatecStepDefinitions.seDebeVerificarQueElUsuarioHayaSidoAutenticadoCorrectamenteYRedirigidoASuPaginaDeInicio()?[0m
+
+  @registromoto
+  Esquema del escenario: llenar formulario de registro moto         ?[90m# src/test/resources/features/registrovehiculomoto_parkeatec.feature:25?[0m
+    ?[32mCuando ?[0m?[32mingrese la informacion solicitada en el formulario?[0m       ?[90m# RegistroMotoParkeatecStepDefinition.ingreseLaInformacionSolicitadaEnElFormulario(FormularioMoto>)?[0m
+    ?[32mEntonces ?[0m?[32mse debe verificar que el vehiculo haya sido registrado?[0m ?[90m# RegistroMotoParkeatecStepDefinition.seDebeVerificarQueElVehiculoHayaSidoRegistrado()?[0m
+]]></system-out>
+  <system-err><![CDATA[jun. 08, 2025 2:45:43 P. M. org.openqa.selenium.remote.DesiredCapabilities chrome
+INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+[Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Instantiating driver
+[Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Driver capabilities: Capabilities {acceptInsecureCerts: false, browserName: chrome, goog:chromeOptions: {args: [], extensions: [], prefs: {behavior: allow}}, loggingPrefs: org.openqa.selenium.logging..., name: proyecto, platform: ANY, unhandledPromptBehavior: ignore, version: }
+Starting ChromeDriver 136.0.7103.94 (fa0be0b33debeb378a8e6ad9c599be34e2dc3b37-refs/branch-heads/7103@{#1842}) on port 21947
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully on port 21947.
+[1749411946.947][WARNING]: This version of ChromeDriver has not been tested with Chrome version 137.
+jun. 08, 2025 2:45:46 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+[Test worker] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
+        __    _____ _____ ____ _____   ____   _    ____  ____  _____ ____  
+  _     \ \  |_   _| ____/ ___|_   _| |  _ \ / \  / ___|/ ___|| ____|  _ \ 
+ (_)_____| |   | | |  _| \___ \ | |   | |_) / _ \ \___ \\___ \|  _| | | | |
+  _|_____| |   | | | |___ ___) || |   |  __/ ___ \ ___) |___) | |___| |_| |
+ (_)     | |   |_| |_____|____/ |_|   |_| /_/   \_\____/|____/|_____|____/ 
+        /_/                                                                
+
+TEST PASSED: llenar formulario de registro moto
+----------------------------------------------------------------------------
+]]></system-err>
+</testsuite>

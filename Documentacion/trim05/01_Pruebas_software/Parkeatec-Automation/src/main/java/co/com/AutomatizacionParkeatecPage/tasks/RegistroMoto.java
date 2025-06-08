@@ -3,6 +3,7 @@ package co.com.AutomatizacionParkeatecPage.tasks;
 import co.com.AutomatizacionParkeatecPage.models.FormularioMoto;
 import co.com.AutomatizacionParkeatecPage.userinterfaces.VerReservas;
 import co.com.AutomatizacionParkeatecPage.utils.hooks.Constantes;
+import co.com.AutomatizacionParkeatecPage.utils.hooks.SesionVariable;
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -25,6 +26,7 @@ import static co.com.AutomatizacionParkeatecPage.userinterfaces.Moto.*;
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.Registro.INPUT_FOTO;
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.VerReservas.CLICK_PERFIL;
 import static co.com.AutomatizacionParkeatecPage.utils.hooks.Constantes.rutaFotoSoat;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
 public class RegistroMoto implements Task {
@@ -84,9 +86,11 @@ public class RegistroMoto implements Task {
                 Click.on(BTN_CERRAR),
                 Scroll.to(SCL_NAV),
                 Scroll.to(BTN_PERFIL),
-                WaitUntil.the(BTN_PERFIL, isVisible()).forNoMoreThan(7).seconds(),
+                WaitUntil.the(BTN_PERFIL, isVisible()).forNoMoreThan(20).seconds(),
                 Click.on(BTN_PERFIL),
                 Click.on(BTN_VEHICULOS)
         );
+        theActorInTheSpotlight().remember(SesionVariable.placa.toString(),formularioMoto.get(0).getPlaca_vehiculo());
+        theActorInTheSpotlight().remember(SesionVariable.marca.toString(), formularioMoto.get(0).getMarca());
     }
 }

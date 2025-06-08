@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Autenticacion en la pagina de Parkeatec" skipped="0" tests="1" time="8.36" timestamp="2025-06-03 12:31:11"><testcase name="Verificar la autenticacion exitosa en la pagina de Parkeatec"><failure message="Expected validacion inicio sesion&#13;&#10;Expected: is &lt;true&gt;&#13;&#10;     but: was &lt;false&gt;" type="java.lang.AssertionError">Expected validacion inicio sesion&#13;
-Expected: is &lt;true&gt;&#13;
-     but: was &lt;false&gt;</failure><system-err>Expected validacion inicio sesion&#13;
-Expected: is &lt;true&gt;&#13;
-     but: was &lt;false&gt;&#13;
-co.com.AutomatizacionParkeatecPage.stepsdefinitions.AutenticacionUsuarioParkeatecStepDefinitions.seDebeVerificarQueElUsuarioHayaSidoAutenticadoCorrectamenteYRedirigidoASuPaginaDeInicio(AutenticacionUsuarioParkeatecStepDefinitions.java:30)&#13;
-✽.se debe verificar que el usuario haya sido autenticado correctamente y redirigido a su pagina de inicio.(src/test/resources/features/loginUsuario_parkeatec.feature:16)&#13;
-</system-err></testcase></testsuite>
