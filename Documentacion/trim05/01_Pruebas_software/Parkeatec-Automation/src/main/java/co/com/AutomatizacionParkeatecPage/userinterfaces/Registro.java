@@ -49,8 +49,4 @@ public class Registro extends PageObject {
 
     public static Target INFO_CORREO = Target.the("Informacion del nombre del usuario").located(By.xpath("//*[@id=\"Correo Electronico\"]"));
 
-
-
-
-
 }

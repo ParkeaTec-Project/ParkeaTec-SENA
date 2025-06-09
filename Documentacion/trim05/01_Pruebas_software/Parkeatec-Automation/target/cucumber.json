@@ -3,30 +3,18 @@
     "line": 4,
     "elements": [
       {
-        "before": [
-          {
-            "result": {
-              "duration": 72630200,
-              "status": "passed"
-            },
-            "match": {
-              "location": "PreparacionEscenario.sepUp()"
-            }
-          }
-        ],
-        "line": 11,
-        "name": "Verificar la autenticacion exitosa en la pagina parkeatec",
+        "line": 9,
+        "name": "",
         "description": "",
-        "id": "autenticacion-en-la-pagina-de-parkeatec;verificar-la-autenticacion-exitosa-en-la-pagina-parkeatec",
-        "type": "scenario",
-        "keyword": "Escenario",
+        "type": "background",
+        "keyword": "Antecedentes",
         "steps": [
           {
             "result": {
-              "duration": 5155887700,
+              "duration": 4665942900,
               "status": "passed"
             },
-            "line": 12,
+            "line": 10,
             "name": "que el administrador se encuentre en la pagina de parkeatec",
             "match": {
               "location": "AutenticacionAdminParkeatecStepDefinitions.queElAdministradorSeEncuentreEnLaPaginaDeParkeatec()"
@@ -35,10 +23,10 @@
           },
           {
             "result": {
-              "duration": 3031678700,
+              "duration": 2911616000,
               "status": "passed"
             },
-            "line": 13,
+            "line": 11,
             "name": "ingrese sus credenciales",
             "match": {
               "location": "AutenticacionAdminParkeatecStepDefinitions.ingreseSusCredenciales(CredencialesInicioSesion\u003e)"
@@ -61,29 +49,74 @@
           },
           {
             "result": {
-              "duration": 503526700,
+              "duration": 425133600,
               "status": "passed"
             },
-            "line": 16,
+            "line": 14,
             "name": "se debe validar que el usuario haya iniciado sesion en la pagina exitosamente",
             "match": {
               "location": "AutenticacionAdminParkeatecStepDefinitions.seDebeValidarQueElUsuarioHayaIniciadoSesionEnLaPaginaExitosamente()"
             },
             "keyword": "Entonces "
           }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 79010900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "PreparacionEscenario.sepUp()"
+            }
+          }
+        ],
+        "line": 17,
+        "name": "Mostrar los usuarios activos de parkeatec (usuario, vigilante o admin)",
+        "description": "",
+        "id": "ver-la-lista-de-usuarios-que-se-han-creado-o-registrado;mostrar-los-usuarios-activos-de-parkeatec-(usuario--vigilante-o-admin)",
+        "type": "scenario",
+        "keyword": "Escenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2145901700,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "ingrese al apartado Ver usuarios",
+            "match": {
+              "location": "VerListaUsuariosParkeatecStepDefinitions.ingreseAlApartadoVerUsuarios()"
+            },
+            "keyword": "Cuando "
+          },
+          {
+            "result": {
+              "duration": 3080300,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "se debe verificar los usuarios con nombre completo, correo y rol",
+            "match": {
+              "location": "VerListaUsuariosParkeatecStepDefinitions.seDebeVerificarLosUsuariosConNombreCompletoCorreoYRol()"
+            },
+            "keyword": "Entonces "
+          }
         ],
         "tags": [
           {
-            "name": "@autenticacion"
+            "name": "@verListadoUsuarios"
           }
         ]
       }
     ],
-    "name": "Autenticacion en la pagina de Parkeatec",
-    "description": "    Como administrador de Parkeatec\n    Quiero autenticarme en la pagina de Parkeatec\n    Para poder acceder al contenido y funcionalidades disponibles.",
-    "id": "autenticacion-en-la-pagina-de-parkeatec",
+    "name": "Ver la lista de usuarios que se han creado o registrado",
+    "description": "    Como administrador de parkeatec\n    Quiero ver el listado de usuarios registrados y/o creados\n    Para gestionarlos mediante una sola unica vista",
+    "id": "ver-la-lista-de-usuarios-que-se-han-creado-o-registrado",
     "keyword": "Característica",
-    "uri": "src/test/resources/features/loginAdmin_parkeatec.feature",
+    "uri": "src/test/resources/features/verListaUsuarios_parkeatec.feature",
     "tags": []
   }
 ]

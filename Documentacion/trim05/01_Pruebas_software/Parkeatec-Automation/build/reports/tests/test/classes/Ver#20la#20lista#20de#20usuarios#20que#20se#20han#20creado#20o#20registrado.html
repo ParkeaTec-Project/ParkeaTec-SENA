@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - Class Autenticacion en la pagina de Parkeatec</title>
+<title>Test results - Class Ver la lista de usuarios que se han creado o registrado</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>Class Autenticacion en la pagina de Parkeatec</h1>
+<h1>Class Ver la lista de usuarios que se han creado o registrado</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/default-package.html">default-package</a> &gt; Autenticacion en la pagina de Parkeatec</div>
+<a href="../packages/default-package.html">default-package</a> &gt; Ver la lista de usuarios que se han creado o registrado</div>
 <div id="summary">
 <table>
 <tr>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">9.762s</div>
+<div class="counter">11.318s</div>
 <p>duration</p>
 </div>
 </td>
@@ -81,8 +81,8 @@
 </tr>
 </thead>
 <tr>
-<td class="success">Verificar la autenticacion exitosa en la pagina parkeatec</td>
-<td class="success">9.762s</td>
+<td class="success">Mostrar los usuarios activos de parkeatec (usuario, vigilante o admin)</td>
+<td class="success">11.318s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -93,22 +93,27 @@
 <pre>    ?[32mDado ?[0m?[32mque el administrador se encuentre en la pagina de parkeatec?[0m                       ?[90m# AutenticacionAdminParkeatecStepDefinitions.queElAdministradorSeEncuentreEnLaPaginaDeParkeatec()?[0m
     ?[32mCuando ?[0m?[32mingrese sus credenciales?[0m                                                        ?[90m# AutenticacionAdminParkeatecStepDefinitions.ingreseSusCredenciales(CredencialesInicioSesion&gt;)?[0m
     ?[32mEntonces ?[0m?[32mse debe validar que el usuario haya iniciado sesion en la pagina exitosamente?[0m ?[90m# AutenticacionAdminParkeatecStepDefinitions.seDebeValidarQueElUsuarioHayaIniciadoSesionEnLaPaginaExitosamente()?[0m
+
+  @verListadoUsuarios
+  Escenario: Mostrar los usuarios activos de parkeatec (usuario, vigilante o admin) ?[90m# src/test/resources/features/verListaUsuarios_parkeatec.feature:17?[0m
+    ?[32mCuando ?[0m?[32mingrese al apartado Ver usuarios?[0m                                         ?[90m# VerListaUsuariosParkeatecStepDefinitions.ingreseAlApartadoVerUsuarios()?[0m
+    ?[32mEntonces ?[0m?[32mse debe verificar los usuarios con nombre completo, correo y rol?[0m       ?[90m# VerListaUsuariosParkeatecStepDefinitions.seDebeVerificarLosUsuariosConNombreCompletoCorreoYRol()?[0m
 </pre>
 </span>
 </div>
 <div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>jun. 08, 2025 11:07:48 P. M. org.openqa.selenium.remote.DesiredCapabilities chrome
+<pre>jun. 09, 2025 1:31:28 A. M. org.openqa.selenium.remote.DesiredCapabilities chrome
 INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
 [Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Instantiating driver
 [Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Driver capabilities: Capabilities {acceptInsecureCerts: false, browserName: chrome, goog:chromeOptions: {args: [], extensions: [], prefs: {behavior: allow}}, loggingPrefs: org.openqa.selenium.logging..., name: proyecto, platform: ANY, unhandledPromptBehavior: ignore, version: }
-Starting ChromeDriver 136.0.7103.94 (fa0be0b33debeb378a8e6ad9c599be34e2dc3b37-refs/branch-heads/7103@{#1842}) on port 38207
+Starting ChromeDriver 136.0.7103.94 (fa0be0b33debeb378a8e6ad9c599be34e2dc3b37-refs/branch-heads/7103@{#1842}) on port 38990
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-ChromeDriver was started successfully on port 38207.
-[1749442071.291][WARNING]: This version of ChromeDriver has not been tested with Chrome version 137.
-jun. 08, 2025 11:07:51 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
+ChromeDriver was started successfully on port 38990.
+[1749450691.072][WARNING]: This version of ChromeDriver has not been tested with Chrome version 137.
+jun. 09, 2025 1:31:31 A. M. org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
 [Test worker] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
         __    _____ _____ ____ _____   ____   _    ____  ____  _____ ____  
@@ -118,7 +123,7 @@ INFO: Detected dialect: W3C
  (_)     | |   |_| |_____|____/ |_|   |_| /_/   \_\____/|____/|_____|____/ 
         /_/                                                                
 
-TEST PASSED: Verificar la autenticacion exitosa en la pagina parkeatec
+TEST PASSED: Mostrar los usuarios activos de parkeatec (usuario, vigilante o admin)
 ----------------------------------------------------------------------------
 </pre>
 </span>
@@ -131,7 +136,7 @@ TEST PASSED: Verificar la autenticacion exitosa en la pagina parkeatec
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.4</a> at 8/06/2025, 11:08:00 p. m.</p>
+<a href="http://www.gradle.org">Gradle 7.4</a> at 9/06/2025, 1:31:42 a. m.</p>
 </div>
 </div>
 </body>

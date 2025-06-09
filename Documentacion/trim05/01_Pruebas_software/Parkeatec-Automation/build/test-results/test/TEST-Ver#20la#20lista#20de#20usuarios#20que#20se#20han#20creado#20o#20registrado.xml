@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Autenticacion en la pagina de Parkeatec" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-06-09T04:07:48" hostname="LBOG0551" time="9.762">
+<testsuite name="Ver la lista de usuarios que se han creado o registrado" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-06-09T06:31:28" hostname="LBOG0551" time="11.318">
   <properties/>
-  <testcase name="Verificar la autenticacion exitosa en la pagina parkeatec" classname="Autenticacion en la pagina de Parkeatec" time="9.762"/>
+  <testcase name="Mostrar los usuarios activos de parkeatec (usuario, vigilante o admin)" classname="Ver la lista de usuarios que se han creado o registrado" time="11.318"/>
   <system-out><![CDATA[    ?[32mDado ?[0m?[32mque el administrador se encuentre en la pagina de parkeatec?[0m                       ?[90m# AutenticacionAdminParkeatecStepDefinitions.queElAdministradorSeEncuentreEnLaPaginaDeParkeatec()?[0m
     ?[32mCuando ?[0m?[32mingrese sus credenciales?[0m                                                        ?[90m# AutenticacionAdminParkeatecStepDefinitions.ingreseSusCredenciales(CredencialesInicioSesion>)?[0m
     ?[32mEntonces ?[0m?[32mse debe validar que el usuario haya iniciado sesion en la pagina exitosamente?[0m ?[90m# AutenticacionAdminParkeatecStepDefinitions.seDebeValidarQueElUsuarioHayaIniciadoSesionEnLaPaginaExitosamente()?[0m
+
+  @verListadoUsuarios
+  Escenario: Mostrar los usuarios activos de parkeatec (usuario, vigilante o admin) ?[90m# src/test/resources/features/verListaUsuarios_parkeatec.feature:17?[0m
+    ?[32mCuando ?[0m?[32mingrese al apartado Ver usuarios?[0m                                         ?[90m# VerListaUsuariosParkeatecStepDefinitions.ingreseAlApartadoVerUsuarios()?[0m
+    ?[32mEntonces ?[0m?[32mse debe verificar los usuarios con nombre completo, correo y rol?[0m       ?[90m# VerListaUsuariosParkeatecStepDefinitions.seDebeVerificarLosUsuariosConNombreCompletoCorreoYRol()?[0m
 ]]></system-out>
-  <system-err><![CDATA[jun. 08, 2025 11:07:48 P. M. org.openqa.selenium.remote.DesiredCapabilities chrome
+  <system-err><![CDATA[jun. 09, 2025 1:31:28 A. M. org.openqa.selenium.remote.DesiredCapabilities chrome
 INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
 [Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Instantiating driver
 [Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Driver capabilities: Capabilities {acceptInsecureCerts: false, browserName: chrome, goog:chromeOptions: {args: [], extensions: [], prefs: {behavior: allow}}, loggingPrefs: org.openqa.selenium.logging..., name: proyecto, platform: ANY, unhandledPromptBehavior: ignore, version: }
-Starting ChromeDriver 136.0.7103.94 (fa0be0b33debeb378a8e6ad9c599be34e2dc3b37-refs/branch-heads/7103@{#1842}) on port 38207
+Starting ChromeDriver 136.0.7103.94 (fa0be0b33debeb378a8e6ad9c599be34e2dc3b37-refs/branch-heads/7103@{#1842}) on port 38990
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-ChromeDriver was started successfully on port 38207.
-[1749442071.291][WARNING]: This version of ChromeDriver has not been tested with Chrome version 137.
-jun. 08, 2025 11:07:51 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
+ChromeDriver was started successfully on port 38990.
+[1749450691.072][WARNING]: This version of ChromeDriver has not been tested with Chrome version 137.
+jun. 09, 2025 1:31:31 A. M. org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
 [Test worker] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
         __    _____ _____ ____ _____   ____   _    ____  ____  _____ ____  
@@ -25,7 +30,7 @@ INFO: Detected dialect: W3C
  (_)     | |   |_| |_____|____/ |_|   |_| /_/   \_\____/|____/|_____|____/ 
         /_/                                                                
 
-TEST PASSED: Verificar la autenticacion exitosa en la pagina parkeatec
+TEST PASSED: Mostrar los usuarios activos de parkeatec (usuario, vigilante o admin)
 ----------------------------------------------------------------------------
 ]]></system-err>
 </testsuite>
