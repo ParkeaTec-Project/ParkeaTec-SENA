@@ -83,7 +83,7 @@ function VerVehiculo({ actualizarVehiculo }) {
       setVehicleData(data.vehiculo);
       // console.log(vehicleData);
 
-      obtenerVehiculo();
+      //obtenerVehiculo();
     } catch (err) {
       console.error("Error:", err);
     }
