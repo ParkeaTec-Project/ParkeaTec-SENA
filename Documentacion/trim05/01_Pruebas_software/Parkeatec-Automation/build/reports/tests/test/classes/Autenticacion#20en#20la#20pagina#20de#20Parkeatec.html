@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - Class Llenar el formulario de registro de vehiculo moto</title>
+<title>Test results - Class Autenticacion en la pagina de Parkeatec</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>Class Llenar el formulario de registro de vehiculo moto</h1>
+<h1>Class Autenticacion en la pagina de Parkeatec</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/default-package.html">default-package</a> &gt; Llenar el formulario de registro de vehiculo moto</div>
+<a href="../packages/default-package.html">default-package</a> &gt; Autenticacion en la pagina de Parkeatec</div>
 <div id="summary">
 <table>
 <tr>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">34.134s</div>
+<div class="counter">9.762s</div>
 <p>duration</p>
 </div>
 </td>
@@ -81,8 +81,8 @@
 </tr>
 </thead>
 <tr>
-<td class="success">llenar formulario de registro moto</td>
-<td class="success">34.134s</td>
+<td class="success">Verificar la autenticacion exitosa en la pagina parkeatec</td>
+<td class="success">9.762s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -90,30 +90,25 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>    ?[32mDado ?[0m?[32mque el usuario se encuentra en la pagina de inicio de sesion de Parkeatec?[0m                                    ?[90m# AutenticacionUsuarioParkeatecStepDefinitions.queElUsuarioSeEncuentraEnLaPaginaDeInicioDeSesionDeParkeatec()?[0m
-    ?[32mCuando ?[0m?[32mingrese las credenciales de usuario correctas (usuario y contrasena)?[0m                                       ?[90m# AutenticacionUsuarioParkeatecStepDefinitions.ingreseLasCredencialesDeUsuarioCorrectasUsuarioYContrasena(CredencialesInicioSesion&gt;)?[0m
-    ?[32mEntonces ?[0m?[32mse debe verificar que el usuario haya sido autenticado correctamente y redirigido a su pagina de inicio.?[0m ?[90m# AutenticacionUsuarioParkeatecStepDefinitions.seDebeVerificarQueElUsuarioHayaSidoAutenticadoCorrectamenteYRedirigidoASuPaginaDeInicio()?[0m
-
-  @registromoto
-  Esquema del escenario: llenar formulario de registro moto         ?[90m# src/test/resources/features/registrovehiculomoto_parkeatec.feature:25?[0m
-    ?[32mCuando ?[0m?[32mingrese la informacion solicitada en el formulario?[0m       ?[90m# RegistroMotoParkeatecStepDefinition.ingreseLaInformacionSolicitadaEnElFormulario(FormularioMoto&gt;)?[0m
-    ?[32mEntonces ?[0m?[32mse debe verificar que el vehiculo haya sido registrado?[0m ?[90m# RegistroMotoParkeatecStepDefinition.seDebeVerificarQueElVehiculoHayaSidoRegistrado()?[0m
+<pre>    ?[32mDado ?[0m?[32mque el administrador se encuentre en la pagina de parkeatec?[0m                       ?[90m# AutenticacionAdminParkeatecStepDefinitions.queElAdministradorSeEncuentreEnLaPaginaDeParkeatec()?[0m
+    ?[32mCuando ?[0m?[32mingrese sus credenciales?[0m                                                        ?[90m# AutenticacionAdminParkeatecStepDefinitions.ingreseSusCredenciales(CredencialesInicioSesion&gt;)?[0m
+    ?[32mEntonces ?[0m?[32mse debe validar que el usuario haya iniciado sesion en la pagina exitosamente?[0m ?[90m# AutenticacionAdminParkeatecStepDefinitions.seDebeValidarQueElUsuarioHayaIniciadoSesionEnLaPaginaExitosamente()?[0m
 </pre>
 </span>
 </div>
 <div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>jun. 08, 2025 2:45:43 P. M. org.openqa.selenium.remote.DesiredCapabilities chrome
+<pre>jun. 08, 2025 11:07:48 P. M. org.openqa.selenium.remote.DesiredCapabilities chrome
 INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
 [Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Instantiating driver
 [Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Driver capabilities: Capabilities {acceptInsecureCerts: false, browserName: chrome, goog:chromeOptions: {args: [], extensions: [], prefs: {behavior: allow}}, loggingPrefs: org.openqa.selenium.logging..., name: proyecto, platform: ANY, unhandledPromptBehavior: ignore, version: }
-Starting ChromeDriver 136.0.7103.94 (fa0be0b33debeb378a8e6ad9c599be34e2dc3b37-refs/branch-heads/7103@{#1842}) on port 21947
+Starting ChromeDriver 136.0.7103.94 (fa0be0b33debeb378a8e6ad9c599be34e2dc3b37-refs/branch-heads/7103@{#1842}) on port 38207
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-ChromeDriver was started successfully on port 21947.
-[1749411946.947][WARNING]: This version of ChromeDriver has not been tested with Chrome version 137.
-jun. 08, 2025 2:45:46 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
+ChromeDriver was started successfully on port 38207.
+[1749442071.291][WARNING]: This version of ChromeDriver has not been tested with Chrome version 137.
+jun. 08, 2025 11:07:51 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
 [Test worker] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
         __    _____ _____ ____ _____   ____   _    ____  ____  _____ ____  
@@ -123,7 +118,7 @@ INFO: Detected dialect: W3C
  (_)     | |   |_| |_____|____/ |_|   |_| /_/   \_\____/|____/|_____|____/ 
         /_/                                                                
 
-TEST PASSED: llenar formulario de registro moto
+TEST PASSED: Verificar la autenticacion exitosa en la pagina parkeatec
 ----------------------------------------------------------------------------
 </pre>
 </span>
@@ -136,7 +131,7 @@ TEST PASSED: llenar formulario de registro moto
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.4</a> at 8/06/2025, 2:46:22 p. m.</p>
+<a href="http://www.gradle.org">Gradle 7.4</a> at 8/06/2025, 11:08:00 p. m.</p>
 </div>
 </div>
 </body>

@@ -3,33 +3,45 @@
     "line": 4,
     "elements": [
       {
-        "line": 9,
-        "name": "",
+        "before": [
+          {
+            "result": {
+              "duration": 72630200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "PreparacionEscenario.sepUp()"
+            }
+          }
+        ],
+        "line": 11,
+        "name": "Verificar la autenticacion exitosa en la pagina parkeatec",
         "description": "",
-        "type": "background",
-        "keyword": "Antecedentes",
+        "id": "autenticacion-en-la-pagina-de-parkeatec;verificar-la-autenticacion-exitosa-en-la-pagina-parkeatec",
+        "type": "scenario",
+        "keyword": "Escenario",
         "steps": [
           {
             "result": {
-              "duration": 6521044200,
+              "duration": 5155887700,
               "status": "passed"
             },
-            "line": 10,
-            "name": "que el usuario se encuentra en la pagina de inicio de sesion de Parkeatec",
+            "line": 12,
+            "name": "que el administrador se encuentre en la pagina de parkeatec",
             "match": {
-              "location": "AutenticacionUsuarioParkeatecStepDefinitions.queElUsuarioSeEncuentraEnLaPaginaDeInicioDeSesionDeParkeatec()"
+              "location": "AutenticacionAdminParkeatecStepDefinitions.queElAdministradorSeEncuentreEnLaPaginaDeParkeatec()"
             },
             "keyword": "Dado "
           },
           {
             "result": {
-              "duration": 3862650700,
+              "duration": 3031678700,
               "status": "passed"
             },
-            "line": 11,
-            "name": "ingrese las credenciales de usuario correctas (usuario y contrasena)",
+            "line": 13,
+            "name": "ingrese sus credenciales",
             "match": {
-              "location": "AutenticacionUsuarioParkeatecStepDefinitions.ingreseLasCredencialesDeUsuarioCorrectasUsuarioYContrasena(CredencialesInicioSesion\u003e)"
+              "location": "AutenticacionAdminParkeatecStepDefinitions.ingreseSusCredenciales(CredencialesInicioSesion\u003e)"
             },
             "rows": [
               {
@@ -40,7 +52,7 @@
               },
               {
                 "cells": [
-                  "diego123@gmail.com",
+                  "k@gmail.com",
                   "123"
                 ]
               }
@@ -49,96 +61,29 @@
           },
           {
             "result": {
-              "duration": 840268700,
+              "duration": 503526700,
               "status": "passed"
             },
-            "line": 14,
-            "name": "se debe verificar que el usuario haya sido autenticado correctamente y redirigido a su pagina de inicio.",
+            "line": 16,
+            "name": "se debe validar que el usuario haya iniciado sesion en la pagina exitosamente",
             "match": {
-              "location": "AutenticacionUsuarioParkeatecStepDefinitions.seDebeVerificarQueElUsuarioHayaSidoAutenticadoCorrectamenteYRedirigidoASuPaginaDeInicio()"
-            },
-            "keyword": "Entonces "
-          }
-        ]
-      },
-      {
-        "before": [
-          {
-            "result": {
-              "duration": 139820200,
-              "status": "passed"
-            },
-            "match": {
-              "location": "PreparacionEscenario.sepUp()"
-            }
-          }
-        ],
-        "line": 25,
-        "name": "llenar formulario de registro moto",
-        "description": "",
-        "id": "llenar-el-formulario-de-registro-de-vehiculo-moto;llenar-formulario-de-registro-moto;;2",
-        "type": "scenario",
-        "keyword": "Esquema del escenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 20337856000,
-              "status": "passed"
-            },
-            "line": 18,
-            "name": "ingrese la informacion solicitada en el formulario",
-            "match": {
-              "location": "RegistroMotoParkeatecStepDefinition.ingreseLaInformacionSolicitadaEnElFormulario(FormularioMoto\u003e)"
-            },
-            "rows": [
-              {
-                "cells": [
-                  "placa_vehiculo",
-                  "modelo",
-                  "marca",
-                  "color",
-                  "vencimiento_soat",
-                  "observacion"
-                ]
-              },
-              {
-                "cells": [
-                  "CBI23H",
-                  "Apache",
-                  "TVS",
-                  "Gris",
-                  "14082025",
-                  "Ninguna"
-                ]
-              }
-            ],
-            "keyword": "Cuando "
-          },
-          {
-            "result": {
-              "duration": 623576800,
-              "status": "passed"
-            },
-            "line": 21,
-            "name": "se debe verificar que el vehiculo haya sido registrado",
-            "match": {
-              "location": "RegistroMotoParkeatecStepDefinition.seDebeVerificarQueElVehiculoHayaSidoRegistrado()"
+              "location": "AutenticacionAdminParkeatecStepDefinitions.seDebeValidarQueElUsuarioHayaIniciadoSesionEnLaPaginaExitosamente()"
             },
             "keyword": "Entonces "
           }
         ],
         "tags": [
           {
-            "name": "@registromoto"
+            "name": "@autenticacion"
           }
         ]
       }
     ],
-    "name": "Llenar el formulario de registro de vehiculo moto",
-    "description": "  Como usuario\n  Quiero llenar el formulario de registro de vehiculo moto\n  Para que mi moto pueda ser autorizada para el uso del parqueadero",
-    "id": "llenar-el-formulario-de-registro-de-vehiculo-moto",
+    "name": "Autenticacion en la pagina de Parkeatec",
+    "description": "    Como administrador de Parkeatec\n    Quiero autenticarme en la pagina de Parkeatec\n    Para poder acceder al contenido y funcionalidades disponibles.",
+    "id": "autenticacion-en-la-pagina-de-parkeatec",
     "keyword": "Característica",
-    "uri": "src/test/resources/features/registrovehiculomoto_parkeatec.feature",
+    "uri": "src/test/resources/features/loginAdmin_parkeatec.feature",
     "tags": []
   }
 ]
