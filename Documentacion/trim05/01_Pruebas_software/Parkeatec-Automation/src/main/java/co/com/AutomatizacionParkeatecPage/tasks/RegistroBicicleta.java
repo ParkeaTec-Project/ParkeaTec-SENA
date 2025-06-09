@@ -2,6 +2,7 @@ package co.com.AutomatizacionParkeatecPage.tasks;
 
 import co.com.AutomatizacionParkeatecPage.models.InfoBicicleta;
 import co.com.AutomatizacionParkeatecPage.utils.hooks.Constantes;
+import co.com.AutomatizacionParkeatecPage.utils.hooks.SesionVariable;
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.io.File;
 
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.Bicicleta.*;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isCurrentlyEnabled;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
@@ -61,5 +63,8 @@ public class RegistroBicicleta implements Task {
                 Click.on(PERFIL),
                 Click.on(VEHICULO)
         );
+
+        theActorInTheSpotlight().remember(SesionVariable.nroSerial.toString(), info.get(0).getNro_serial());
+        theActorInTheSpotlight().remember(SesionVariable.nota.toString(), info.get(0).getObservacion());
     }
 }

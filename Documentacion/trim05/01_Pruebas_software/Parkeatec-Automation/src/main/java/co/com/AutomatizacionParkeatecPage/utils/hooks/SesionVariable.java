@@ -5,5 +5,7 @@ public enum SesionVariable {
     nombre,
     documento,
     correo,
+    nroSerial,
+    nota
 
 }

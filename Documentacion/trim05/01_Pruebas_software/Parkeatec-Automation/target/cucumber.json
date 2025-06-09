@@ -3,10 +3,57 @@
     "line": 4,
     "elements": [
       {
+        "line": 9,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Antecedentes",
+        "steps": [
+          {
+            "result": {
+              "duration": 6349844200,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "que el usuario se encuentra en la pagina de inicio de sesion de Parkeatec",
+            "match": {
+              "location": "AutenticacionUsuarioParkeatecStepDefinitions.queElUsuarioSeEncuentraEnLaPaginaDeInicioDeSesionDeParkeatec()"
+            },
+            "keyword": "Dado "
+          },
+          {
+            "result": {
+              "duration": 1732350200,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "ingrese las credenciales de usuario correctas (usuario y contrasena)",
+            "match": {
+              "location": "AutenticacionUsuarioParkeatecStepDefinitions.ingreseLasCredencialesDeUsuarioCorrectasUsuarioYContrasena(CredencialesInicioSesion\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "usuario",
+                  "clave"
+                ]
+              },
+              {
+                "cells": [
+                  "juanandres78.jg@gmail.com",
+                  "123"
+                ]
+              }
+            ],
+            "keyword": "Cuando "
+          }
+        ]
+      },
+      {
         "before": [
           {
             "result": {
-              "duration": 48298400,
+              "duration": 47896200,
               "status": "passed"
             },
             "match": {
@@ -14,58 +61,34 @@
             }
           }
         ],
-        "line": 20,
+        "line": 25,
         "name": "registrar de manera exitosa la informacion en la pagina de Parkeatec",
         "description": "",
-        "id": "registro-en-la-pagina-de-parkeatec;registrar-de-manera-exitosa-la-informacion-en-la-pagina-de-parkeatec;;2",
+        "id": "registro-de-vehiculo-en-la-pagina-de-parkeatec;registrar-de-manera-exitosa-la-informacion-en-la-pagina-de-parkeatec;;2",
         "type": "scenario",
         "keyword": "Esquema del escenario",
         "steps": [
           {
             "result": {
-              "duration": 3752402300,
+              "duration": 5241316500,
               "status": "passed"
             },
-            "line": 12,
-            "name": "que el usuario se encuentra en la pagina de registro de Parkeatec",
+            "line": 18,
+            "name": "ingrese al apartado de formulario y seleccione llenar formulario",
             "match": {
-              "location": "RegistroParkeatecStepDefinitions.queElUsuarioSeEncuentraEnLaPaginaDeRegistroDeParkeatec()"
-            },
-            "keyword": "Dado "
-          },
-          {
-            "result": {
-              "duration": 10617124200,
-              "status": "passed"
-            },
-            "line": 13,
-            "name": "ingrese la informacion del formulario correctamente",
-            "match": {
-              "location": "RegistroParkeatecStepDefinitions.ingreseLaInformacionDelFormularioCorrectamente(InfoRegistro\u003e)"
+              "location": "RegistroBicicletaParkeatecStepDefinitions.ingreseAlApartadoDeFormularioYSeleccioneLlenarFormulario(InfoBicicleta\u003e)"
             },
             "rows": [
               {
                 "cells": [
-                  "nombre",
-                  "apellido",
-                  "correo_electronico",
-                  "contrasena",
-                  "telefono",
-                  "direccion",
-                  "numero_documento",
-                  "ficha_aprendiz"
+                  "nro_serial",
+                  "observacion"
                 ]
               },
               {
                 "cells": [
-                  "juan",
-                  "perez",
-                  "juan",
-                  "Juan123#",
-                  "3000000000",
-                  "carrera 103 #73-51",
-                  "10005171",
-                  "2919581"
+                  "123456ABC",
+                  "Rayon"
                 ]
               }
             ],
@@ -73,29 +96,29 @@
           },
           {
             "result": {
-              "duration": 215155400,
+              "duration": 412007200,
               "status": "passed"
             },
-            "line": 16,
-            "name": "se debe verificar que la informacion del usuario haya sido registrada correctamente y redirigido a su pagina de inicio.",
+            "line": 21,
+            "name": "se debe registrar la informacion y verificar que la informacion del vehiculo haya sido registrada correctamente y visualizar en los vehiculos.",
             "match": {
-              "location": "RegistroParkeatecStepDefinitions.seDebeVerificarQueLaInformacionDelUsuarioHayaSidoRegistradaCorrectamenteYRedirigidoASuPaginaDeInicio()"
+              "location": "RegistroBicicletaParkeatecStepDefinitions.seDebeRegistrarLaInformacionYVerificarQueLaInformacionDelVehiculoHayaSidoRegistradaCorrectamenteYVisualizarEnLosVehiculos()"
             },
             "keyword": "Entonces "
           }
         ],
         "tags": [
           {
-            "name": "@registro"
+            "name": "@registroBicicleta"
           }
         ]
       }
     ],
-    "name": "registro en la pagina de Parkeatec",
-    "description": "  Como usuario de Parkeatec\n  Quiero registrarme en la pagina de Parkeatec\n  Para tener una cuenta verificada y poder acceder a la pagina",
-    "id": "registro-en-la-pagina-de-parkeatec",
+    "name": "registro de vehiculo en la pagina de Parkeatec",
+    "description": "  Como usuario de Parkeatec\n  Quiero registrarme la informacion de mi vehiculo\n  Para poder hacer uso del parqueadero",
+    "id": "registro-de-vehiculo-en-la-pagina-de-parkeatec",
     "keyword": "Característica",
-    "uri": "src/test/resources/features/registro_parkeatec.feature",
+    "uri": "src/test/resources/features/registroBicicleta_parkeatec.feature",
     "tags": []
   }
 ]
