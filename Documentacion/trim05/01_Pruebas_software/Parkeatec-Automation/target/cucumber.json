@@ -5,6 +5,7 @@
       {
         "line": 9,
         "name": "",
+<<<<<<< HEAD
         "description": "",
         "type": "background",
         "keyword": "Antecedentes",
@@ -77,18 +78,55 @@
             "name": "ingrese al apartado de formulario y seleccione llenar formulario",
             "match": {
               "location": "RegistroBicicletaParkeatecStepDefinitions.ingreseAlApartadoDeFormularioYSeleccioneLlenarFormulario(InfoBicicleta\u003e)"
+=======
+        "description": "",
+        "type": "background",
+        "keyword": "Antecedentes",
+        "steps": [
+          {
+            "result": {
+              "duration": 4665942900,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "que el administrador se encuentre en la pagina de parkeatec",
+            "match": {
+              "location": "AutenticacionAdminParkeatecStepDefinitions.queElAdministradorSeEncuentreEnLaPaginaDeParkeatec()"
+            },
+            "keyword": "Dado "
+          },
+          {
+            "result": {
+              "duration": 2911616000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "ingrese sus credenciales",
+            "match": {
+              "location": "AutenticacionAdminParkeatecStepDefinitions.ingreseSusCredenciales(CredencialesInicioSesion\u003e)"
+>>>>>>> 973af703a24c2b571e79b60da1fd063013015773
             },
             "rows": [
               {
                 "cells": [
+<<<<<<< HEAD
                   "nro_serial",
                   "observacion"
+=======
+                  "usuario",
+                  "clave"
+>>>>>>> 973af703a24c2b571e79b60da1fd063013015773
                 ]
               },
               {
                 "cells": [
+<<<<<<< HEAD
                   "123456ABC",
                   "Rayon"
+=======
+                  "k@gmail.com",
+                  "123"
+>>>>>>> 973af703a24c2b571e79b60da1fd063013015773
                 ]
               }
             ],
@@ -96,6 +134,7 @@
           },
           {
             "result": {
+<<<<<<< HEAD
               "duration": 412007200,
               "status": "passed"
             },
@@ -103,22 +142,88 @@
             "name": "se debe registrar la informacion y verificar que la informacion del vehiculo haya sido registrada correctamente y visualizar en los vehiculos.",
             "match": {
               "location": "RegistroBicicletaParkeatecStepDefinitions.seDebeRegistrarLaInformacionYVerificarQueLaInformacionDelVehiculoHayaSidoRegistradaCorrectamenteYVisualizarEnLosVehiculos()"
+=======
+              "duration": 425133600,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "se debe validar que el usuario haya iniciado sesion en la pagina exitosamente",
+            "match": {
+              "location": "AutenticacionAdminParkeatecStepDefinitions.seDebeValidarQueElUsuarioHayaIniciadoSesionEnLaPaginaExitosamente()"
+            },
+            "keyword": "Entonces "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 79010900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "PreparacionEscenario.sepUp()"
+            }
+          }
+        ],
+        "line": 17,
+        "name": "Mostrar los usuarios activos de parkeatec (usuario, vigilante o admin)",
+        "description": "",
+        "id": "ver-la-lista-de-usuarios-que-se-han-creado-o-registrado;mostrar-los-usuarios-activos-de-parkeatec-(usuario--vigilante-o-admin)",
+        "type": "scenario",
+        "keyword": "Escenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2145901700,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "ingrese al apartado Ver usuarios",
+            "match": {
+              "location": "VerListaUsuariosParkeatecStepDefinitions.ingreseAlApartadoVerUsuarios()"
+            },
+            "keyword": "Cuando "
+          },
+          {
+            "result": {
+              "duration": 3080300,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "se debe verificar los usuarios con nombre completo, correo y rol",
+            "match": {
+              "location": "VerListaUsuariosParkeatecStepDefinitions.seDebeVerificarLosUsuariosConNombreCompletoCorreoYRol()"
+>>>>>>> 973af703a24c2b571e79b60da1fd063013015773
             },
             "keyword": "Entonces "
           }
         ],
         "tags": [
           {
+<<<<<<< HEAD
             "name": "@registroBicicleta"
+=======
+            "name": "@verListadoUsuarios"
+>>>>>>> 973af703a24c2b571e79b60da1fd063013015773
           }
         ]
       }
     ],
+<<<<<<< HEAD
     "name": "registro de vehiculo en la pagina de Parkeatec",
     "description": "  Como usuario de Parkeatec\n  Quiero registrarme la informacion de mi vehiculo\n  Para poder hacer uso del parqueadero",
     "id": "registro-de-vehiculo-en-la-pagina-de-parkeatec",
     "keyword": "Característica",
     "uri": "src/test/resources/features/registroBicicleta_parkeatec.feature",
+=======
+    "name": "Ver la lista de usuarios que se han creado o registrado",
+    "description": "    Como administrador de parkeatec\n    Quiero ver el listado de usuarios registrados y/o creados\n    Para gestionarlos mediante una sola unica vista",
+    "id": "ver-la-lista-de-usuarios-que-se-han-creado-o-registrado",
+    "keyword": "Característica",
+    "uri": "src/test/resources/features/verListaUsuarios_parkeatec.feature",
+>>>>>>> 973af703a24c2b571e79b60da1fd063013015773
     "tags": []
   }
 ]

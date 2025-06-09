@@ -6,6 +6,10 @@ public enum SesionVariable {
     documento,
     correo,
     nroSerial,
-    nota
+    nota,
+
+    placa,
+
+    marca
 
 }
