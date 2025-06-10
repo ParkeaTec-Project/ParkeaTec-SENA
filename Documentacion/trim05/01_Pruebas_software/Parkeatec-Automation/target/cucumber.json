@@ -3,34 +3,33 @@
     "line": 4,
     "elements": [
       {
-        "line": 9,
+        "line": 8,
         "name": "",
-<<<<<<< HEAD
         "description": "",
         "type": "background",
         "keyword": "Antecedentes",
         "steps": [
           {
             "result": {
-              "duration": 6349844200,
+              "duration": 8070390300,
               "status": "passed"
             },
             "line": 10,
-            "name": "que el usuario se encuentra en la pagina de inicio de sesion de Parkeatec",
+            "name": "que el vigilante se encuentra en la pagina de inicio de sesion de Parkeatec",
             "match": {
-              "location": "AutenticacionUsuarioParkeatecStepDefinitions.queElUsuarioSeEncuentraEnLaPaginaDeInicioDeSesionDeParkeatec()"
+              "location": "AutenticacionVigilanteParkeatecStepDefinitions.queElVigilanteSeEncuentraEnLaPaginaDeInicioDeSesionDeParkeatec()"
             },
             "keyword": "Dado "
           },
           {
             "result": {
-              "duration": 1732350200,
+              "duration": 4037962200,
               "status": "passed"
             },
             "line": 11,
-            "name": "ingrese las credenciales de usuario correctas (usuario y contrasena)",
+            "name": "ingrese las credenciales de vigilante correctas (usuario y contrasena)",
             "match": {
-              "location": "AutenticacionUsuarioParkeatecStepDefinitions.ingreseLasCredencialesDeUsuarioCorrectasUsuarioYContrasena(CredencialesInicioSesion\u003e)"
+              "location": "AutenticacionVigilanteParkeatecStepDefinitions.ingreseLasCredencialesDeVigilanteCorrectasUsuarioYContrasena(CredencialesInicioSesion\u003e)"
             },
             "rows": [
               {
@@ -41,7 +40,7 @@
               },
               {
                 "cells": [
-                  "juanandres78.jg@gmail.com",
+                  "julianP@gmail.com",
                   "123"
                 ]
               }
@@ -54,7 +53,7 @@
         "before": [
           {
             "result": {
-              "duration": 47896200,
+              "duration": 130301300,
               "status": "passed"
             },
             "match": {
@@ -63,70 +62,31 @@
           }
         ],
         "line": 25,
-        "name": "registrar de manera exitosa la informacion en la pagina de Parkeatec",
+        "name": "Registrar una novedad",
         "description": "",
-        "id": "registro-de-vehiculo-en-la-pagina-de-parkeatec;registrar-de-manera-exitosa-la-informacion-en-la-pagina-de-parkeatec;;2",
+        "id": "selecccionar-un-espacio-de-parqueo-ocupado;registrar-una-novedad;;2",
         "type": "scenario",
         "keyword": "Esquema del escenario",
         "steps": [
           {
             "result": {
-              "duration": 5241316500,
+              "duration": 8736898800,
               "status": "passed"
             },
             "line": 18,
-            "name": "ingrese al apartado de formulario y seleccione llenar formulario",
+            "name": "se encuentre en el apartado de espacios de parqueo este regisrte una novedad",
             "match": {
-              "location": "RegistroBicicletaParkeatecStepDefinitions.ingreseAlApartadoDeFormularioYSeleccioneLlenarFormulario(InfoBicicleta\u003e)"
-=======
-        "description": "",
-        "type": "background",
-        "keyword": "Antecedentes",
-        "steps": [
-          {
-            "result": {
-              "duration": 4665942900,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "que el administrador se encuentre en la pagina de parkeatec",
-            "match": {
-              "location": "AutenticacionAdminParkeatecStepDefinitions.queElAdministradorSeEncuentreEnLaPaginaDeParkeatec()"
-            },
-            "keyword": "Dado "
-          },
-          {
-            "result": {
-              "duration": 2911616000,
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "ingrese sus credenciales",
-            "match": {
-              "location": "AutenticacionAdminParkeatecStepDefinitions.ingreseSusCredenciales(CredencialesInicioSesion\u003e)"
->>>>>>> 973af703a24c2b571e79b60da1fd063013015773
+              "location": "GenerarstrikeDefinitions.seEncuentreEnElApartadoDeEspaciosDeParqueoEsteRegisrteUnaNovedad(Observacion\u003e)"
             },
             "rows": [
               {
                 "cells": [
-<<<<<<< HEAD
-                  "nro_serial",
-                  "observacion"
-=======
-                  "usuario",
-                  "clave"
->>>>>>> 973af703a24c2b571e79b60da1fd063013015773
+                  "El usuario dejo el vehiculo parqueado fuera del horario de uso del parqueadero"
                 ]
               },
               {
                 "cells": [
-<<<<<<< HEAD
-                  "123456ABC",
-                  "Rayon"
-=======
-                  "k@gmail.com",
-                  "123"
->>>>>>> 973af703a24c2b571e79b60da1fd063013015773
+                  "Mensaje"
                 ]
               }
             ],
@@ -134,96 +94,29 @@
           },
           {
             "result": {
-<<<<<<< HEAD
-              "duration": 412007200,
+              "duration": 519598300,
               "status": "passed"
             },
             "line": 21,
-            "name": "se debe registrar la informacion y verificar que la informacion del vehiculo haya sido registrada correctamente y visualizar en los vehiculos.",
+            "name": "este se vera reflejado en el apartado Ver novedades",
             "match": {
-              "location": "RegistroBicicletaParkeatecStepDefinitions.seDebeRegistrarLaInformacionYVerificarQueLaInformacionDelVehiculoHayaSidoRegistradaCorrectamenteYVisualizarEnLosVehiculos()"
-=======
-              "duration": 425133600,
-              "status": "passed"
-            },
-            "line": 14,
-            "name": "se debe validar que el usuario haya iniciado sesion en la pagina exitosamente",
-            "match": {
-              "location": "AutenticacionAdminParkeatecStepDefinitions.seDebeValidarQueElUsuarioHayaIniciadoSesionEnLaPaginaExitosamente()"
-            },
-            "keyword": "Entonces "
-          }
-        ]
-      },
-      {
-        "before": [
-          {
-            "result": {
-              "duration": 79010900,
-              "status": "passed"
-            },
-            "match": {
-              "location": "PreparacionEscenario.sepUp()"
-            }
-          }
-        ],
-        "line": 17,
-        "name": "Mostrar los usuarios activos de parkeatec (usuario, vigilante o admin)",
-        "description": "",
-        "id": "ver-la-lista-de-usuarios-que-se-han-creado-o-registrado;mostrar-los-usuarios-activos-de-parkeatec-(usuario--vigilante-o-admin)",
-        "type": "scenario",
-        "keyword": "Escenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 2145901700,
-              "status": "passed"
-            },
-            "line": 18,
-            "name": "ingrese al apartado Ver usuarios",
-            "match": {
-              "location": "VerListaUsuariosParkeatecStepDefinitions.ingreseAlApartadoVerUsuarios()"
-            },
-            "keyword": "Cuando "
-          },
-          {
-            "result": {
-              "duration": 3080300,
-              "status": "passed"
-            },
-            "line": 19,
-            "name": "se debe verificar los usuarios con nombre completo, correo y rol",
-            "match": {
-              "location": "VerListaUsuariosParkeatecStepDefinitions.seDebeVerificarLosUsuariosConNombreCompletoCorreoYRol()"
->>>>>>> 973af703a24c2b571e79b60da1fd063013015773
+              "location": "GenerarstrikeDefinitions.esteSeVeraReflejadoEnElApartadoVerNovedades()"
             },
             "keyword": "Entonces "
           }
         ],
         "tags": [
           {
-<<<<<<< HEAD
-            "name": "@registroBicicleta"
-=======
-            "name": "@verListadoUsuarios"
->>>>>>> 973af703a24c2b571e79b60da1fd063013015773
+            "name": "@RegistrarNovedad"
           }
         ]
       }
     ],
-<<<<<<< HEAD
-    "name": "registro de vehiculo en la pagina de Parkeatec",
-    "description": "  Como usuario de Parkeatec\n  Quiero registrarme la informacion de mi vehiculo\n  Para poder hacer uso del parqueadero",
-    "id": "registro-de-vehiculo-en-la-pagina-de-parkeatec",
+    "name": "Selecccionar un espacio de parqueo ocupado",
+    "description": "  como usuario con rol de vigilante de Parkeatec quiero registrar una novedad del espacio de parqueo.\n  para reportar el mal uso de este.",
+    "id": "selecccionar-un-espacio-de-parqueo-ocupado",
     "keyword": "Característica",
-    "uri": "src/test/resources/features/registroBicicleta_parkeatec.feature",
-=======
-    "name": "Ver la lista de usuarios que se han creado o registrado",
-    "description": "    Como administrador de parkeatec\n    Quiero ver el listado de usuarios registrados y/o creados\n    Para gestionarlos mediante una sola unica vista",
-    "id": "ver-la-lista-de-usuarios-que-se-han-creado-o-registrado",
-    "keyword": "Característica",
-    "uri": "src/test/resources/features/verListaUsuarios_parkeatec.feature",
->>>>>>> 973af703a24c2b571e79b60da1fd063013015773
+    "uri": "src/test/resources/features/Registrarstrike.feature",
     "tags": []
   }
 ]

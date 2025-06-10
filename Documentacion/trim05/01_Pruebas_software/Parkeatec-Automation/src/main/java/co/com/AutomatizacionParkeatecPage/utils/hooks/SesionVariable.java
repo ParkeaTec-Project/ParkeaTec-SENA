@@ -10,6 +10,8 @@ public enum SesionVariable {
 
     placa,
 
-    marca
+    marca,
+
+    mensaje
 
 }
