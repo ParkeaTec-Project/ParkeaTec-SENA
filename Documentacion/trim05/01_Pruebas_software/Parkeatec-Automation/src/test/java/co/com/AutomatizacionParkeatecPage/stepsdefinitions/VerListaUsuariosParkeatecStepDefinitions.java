@@ -1,9 +1,11 @@
 package co.com.AutomatizacionParkeatecPage.stepsdefinitions;
 
+import co.com.AutomatizacionParkeatecPage.questions.ValidacionVerUsuarios;
 import co.com.AutomatizacionParkeatecPage.tasks.ListaUsuarios;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Entonces;
 
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class VerListaUsuariosParkeatecStepDefinitions {
@@ -14,5 +16,6 @@ public class VerListaUsuariosParkeatecStepDefinitions {
 
     @Entonces("^se debe verificar los usuarios con nombre completo, correo y rol$")
     public void seDebeVerificarLosUsuariosConNombreCompletoCorreoYRol() {
+        theActorInTheSpotlight().should(seeThat(ValidacionVerUsuarios.validacionVerUsuarios()));
     }
 }
