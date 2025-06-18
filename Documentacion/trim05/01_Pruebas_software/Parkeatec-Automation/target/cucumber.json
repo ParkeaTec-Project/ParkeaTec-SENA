@@ -3,10 +3,57 @@
     "line": 4,
     "elements": [
       {
+        "line": 9,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Antecedentes",
+        "steps": [
+          {
+            "result": {
+              "duration": 3425203800,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "que el administrador se encuentre en la pagina de parkeatec",
+            "match": {
+              "location": "AutenticacionAdminParkeatecStepDefinitions.queElAdministradorSeEncuentreEnLaPaginaDeParkeatec()"
+            },
+            "keyword": "Dado "
+          },
+          {
+            "result": {
+              "duration": 1766145800,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "ingrese sus credenciales",
+            "match": {
+              "location": "AutenticacionAdminParkeatecStepDefinitions.ingreseSusCredenciales(CredencialesInicioSesion\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "usuario",
+                  "clave"
+                ]
+              },
+              {
+                "cells": [
+                  "k@gmail.com",
+                  "123"
+                ]
+              }
+            ],
+            "keyword": "Cuando "
+          }
+        ]
+      },
+      {
         "before": [
           {
             "result": {
-              "duration": 73851700,
+              "duration": 51168900,
               "status": "passed"
             },
             "match": {
@@ -14,58 +61,47 @@
             }
           }
         ],
-        "line": 20,
-        "name": "registrar de manera exitosa la informacion en la pagina de Parkeatec",
+        "line": 25,
+        "name": "Hacer el registro de nuevos usuarios",
         "description": "",
-        "id": "registro-en-la-pagina-de-parkeatec;registrar-de-manera-exitosa-la-informacion-en-la-pagina-de-parkeatec;;2",
+        "id": "realizar-el-registro-de-un-usuario;hacer-el-registro-de-nuevos-usuarios;;2",
         "type": "scenario",
         "keyword": "Esquema del escenario",
         "steps": [
           {
             "result": {
-              "duration": 5007981500,
-              "status": "passed"
+              "error_message": "java.lang.NullPointerException: Cannot invoke \"Object.getClass()\" because \"target\" is null\r\n\tat net.serenitybdd.core.injectors.EnvironmentDependencyInjector.matchingFieldsIn(EnvironmentDependencyInjector.java:88)\r\n\tat net.serenitybdd.core.injectors.EnvironmentDependencyInjector.injectDependenciesInto(EnvironmentDependencyInjector.java:32)\r\n\tat net.thucydides.core.steps.PageObjectDependencyInjector.injectDependenciesInto(PageObjectDependencyInjector.java:28)\r\n\tat net.thucydides.core.steps.StepFactory.injectOtherDependenciesInto(StepFactory.java:181)\r\n\tat net.thucydides.core.steps.StepFactory.instantiateUniqueStepLibraryFor(StepFactory.java:198)\r\n\tat net.thucydides.core.steps.StepFactory.getUniqueStepLibraryFor(StepFactory.java:130)\r\n\tat net.serenitybdd.core.steps.Instrumented$InstrumentedBuilder.newInstance(Instrumented.java:30)\r\n\tat net.serenitybdd.core.steps.Instrumented$InstrumentedBuilder.withProperties(Instrumented.java:34)\r\n\tat co.com.AutomatizacionParkeatecPage.tasks.AgregarUsuario.aute(AgregarUsuario.java:32)\r\n\tat co.com.AutomatizacionParkeatecPage.stepsdefinitions.AgregarUsuarioParkeatecStepDefinitions.ingreseAlApartdoDeVerUsuariosYLleneElFormularioDeCrearUsuario(AgregarUsuarioParkeatecStepDefinitions.java:19)\r\n\tat ✽.ingrese al apartdo de ver usuarios y llene el formulario de crear usuario(src/test/resources/features/agregarUsuario_parkeatec.feature:18)\r\n",
+              "duration": 16113400,
+              "status": "failed"
             },
-            "line": 12,
-            "name": "que el usuario se encuentra en la pagina de registro de Parkeatec",
+            "line": 18,
+            "name": "ingrese al apartdo de ver usuarios y llene el formulario de crear usuario",
             "match": {
-              "location": "RegistroParkeatecStepDefinitions.queElUsuarioSeEncuentraEnLaPaginaDeRegistroDeParkeatec()"
-            },
-            "keyword": "Dado "
-          },
-          {
-            "result": {
-              "duration": 19003677700,
-              "status": "passed"
-            },
-            "line": 13,
-            "name": "ingrese la informacion del formulario correctamente",
-            "match": {
-              "location": "RegistroParkeatecStepDefinitions.ingreseLaInformacionDelFormularioCorrectamente(InfoRegistro\u003e)"
+              "location": "AgregarUsuarioParkeatecStepDefinitions.ingreseAlApartdoDeVerUsuariosYLleneElFormularioDeCrearUsuario(InfoUsuario\u003e)"
             },
             "rows": [
               {
                 "cells": [
+                  "documento",
                   "nombre",
                   "apellido",
-                  "correo_electronico",
-                  "contrasena",
                   "telefono",
                   "direccion",
-                  "numero_documento",
-                  "ficha_aprendiz"
+                  "correo",
+                  "password",
+                  "centro_formacion"
                 ]
               },
               {
                 "cells": [
-                  "juan",
+                  "89888548",
+                  "andres",
                   "perez",
-                  "juan",
-                  "Juan123#",
                   "3000000000",
                   "carrera 103 #73-51",
-                  "10005171",
-                  "2919581"
+                  "andres",
+                  "Andres123#",
+                  "CEET"
                 ]
               }
             ],
@@ -73,29 +109,28 @@
           },
           {
             "result": {
-              "duration": 461458800,
-              "status": "passed"
+              "status": "skipped"
             },
-            "line": 16,
-            "name": "se debe verificar que la informacion del usuario haya sido registrada correctamente y redirigido a su pagina de inicio.",
+            "line": 21,
+            "name": "se debe registrar la informacion del usuario y visualizarse en la tabla de usuarios",
             "match": {
-              "location": "RegistroParkeatecStepDefinitions.seDebeVerificarQueLaInformacionDelUsuarioHayaSidoRegistradaCorrectamenteYRedirigidoASuPaginaDeInicio()"
+              "location": "AgregarUsuarioParkeatecStepDefinitions.seDebeRegistrarLaInformacionDelUsuarioYVisualizarseEnLaTablaDeUsuarios()"
             },
             "keyword": "Entonces "
           }
         ],
         "tags": [
           {
-            "name": "@registro"
+            "name": "@agregarUsuario"
           }
         ]
       }
     ],
-    "name": "registro en la pagina de Parkeatec",
-    "description": "  Como usuario de Parkeatec\n  Quiero registrarme en la pagina de Parkeatec\n  Para tener una cuenta verificada y poder acceder a la pagina",
-    "id": "registro-en-la-pagina-de-parkeatec",
+    "name": "Realizar el registro de un usuario",
+    "description": "  Como administrador de parkeatec\n  Quiero hacer el registro de varios usuarios\n  Para que puedan hacer diferentes funciones dentro de la pagina",
+    "id": "realizar-el-registro-de-un-usuario",
     "keyword": "Característica",
-    "uri": "src/test/resources/features/registro_parkeatec.feature",
+    "uri": "src/test/resources/features/agregarUsuario_parkeatec.feature",
     "tags": []
   }
 ]

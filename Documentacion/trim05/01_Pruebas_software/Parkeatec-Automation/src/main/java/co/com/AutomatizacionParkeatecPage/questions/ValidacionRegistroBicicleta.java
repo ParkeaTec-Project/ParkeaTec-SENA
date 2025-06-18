@@ -27,10 +27,10 @@ public class ValidacionRegistroBicicleta implements Question<Boolean> {
             String serial = Text.of(TEXT_SERIAL).viewedBy(actor).asString().replace("Placa: ", "").trim();
             String observacion = Text.of(TEXT_OBSERVACION).viewedBy(actor).asString().replace("Observaciones: ", "").trim();
 
-            if (nroSerial.equals(serial) && nota.equals(observacion)) {
+            /*if (nroSerial.equals(serial) && nota.equals(observacion)) {
                 System.out.println("numero seria" + nroSerial);
                 System.out.println("observacion" + nota);
-            }
+            }*/
 
             return nroSerial.equals(serial) && nota.equals(observacion);
         } catch (Exception e) {
