@@ -17,7 +17,7 @@ function VerUsuarios({ actualizarUsuario }) {
 
     const obtenerUsuarios = async () => {
         try {
-            const response = await fetch("http://localhost:4000/api/users", {
+            const response = await fetch("https://hnp5ds36-4000.use2.devtunnels.ms/api/users", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -67,7 +67,7 @@ function VerUsuarios({ actualizarUsuario }) {
         console.log(`Borrar usuario con ID: ${id}`)
 
         try {
-            const response = await fetch(`http://localhost:4000/api/userDelete/${id}`, {
+            const response = await fetch(`https://hnp5ds36-4000.use2.devtunnels.ms/api/userDelete/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",

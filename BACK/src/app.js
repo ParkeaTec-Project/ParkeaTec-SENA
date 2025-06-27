@@ -26,13 +26,26 @@ const app = express();
 const port = 4000;
 
 // Configuracion CORS
+
 const corsOptions = {
+  origin: [
+    'https://hnp5ds36-3000.use2.devtunnels.ms', // frontend
+    'https://hnp5ds36-4000.use2.devtunnels.ms'  // backend si lo necesitas desde otra app
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+};
+
+app.use(cors(corsOptions));
+
+/*const corsOptions = {
     origin: ['http://localhost:3000', 'http://192.168.20.16:4000'], //URL de react
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
 };
-app.use(cors(corsOptions));
+app.use(cors(corsOptions));*/
 
 
 app.use(cookieParser());

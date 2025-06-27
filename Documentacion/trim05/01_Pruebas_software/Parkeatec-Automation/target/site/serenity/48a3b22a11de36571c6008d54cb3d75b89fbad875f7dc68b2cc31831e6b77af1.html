@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
+
+
 <head>
     <meta charset="UTF-8"/>
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Serenity Reports</title>
-
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <title>Features</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
@@ -109,47 +106,68 @@
 
 
 
+    <script>
 
-    <script class="code" type="text/javascript">$(document).ready(function () {
+        $(document).ready(function () {
 
-            $('.scenario-result-table').DataTable({
-                "order": [[0, "asc",], [3, "asc",]],
-                "pageLength": 10,
+            var scenarioTable = $('.scenario-result-table').DataTable({
+
+                "order": [],
                 "language": {
                     searchPlaceholder: "Filter",
                     search: ""
-                },
-                columnDefs: [
-                    { type: 'time-elapsed-dhms', targets: 4 }
-                ]
-            });
-
-            // Results table
-            $('#test-results-table').DataTable({
-                "order": [[0, "asc",], [3, "asc",]],
-                "pageLength": 10,
-                "lengthMenu": [[10, 25, 50, 100, 200, -1], [10, 25, 50, 100, 200, "All"]]
-            });
-
-            $('#evidence-table').DataTable({
-                searching: false,
-                paging: false,
-                info: false
-            });
-
-            $(".feature-coverage-table").DataTable({
-                searching: false,
-                paging: false,
-                info: false
-            });
-
-            $(".feature-coverage-table-with-pagination").DataTable({
-                order: [[0, "asc",]],
-                pageLength: 10,
-                language: {
-                    searchPlaceholder: "Filter",
-                    search: ""
                 }
+            });
+
+            $('.example-table table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('.example-table-in-scenario table').DataTable({
+                searching: false,
+                ordering: false,
+                paging: false,
+                info: false
+            });
+
+            $('#evidence-table').DataTable(
+                    {
+                        searching: false,
+                        ordering: false,
+                        paging: false,
+                        info: false
+                    }
+            );
+
+
+            $(".scenario-docs .card-body table").wrap("<div class='table-responsive'></div>");
+
+            $("#requirements-tabs").tabs();
+            $("#test-tabs").tabs();
+
+            var requirementsTree = [{"text":"Realizar el registro de un usuario","type":"feature","href":"48a3b22a11de36571c6008d54cb3d75b89fbad875f7dc68b2cc31831e6b77af1.html","nodes":[],"selectable":false,"tags":["","\u003cspan class\u003d\u0027feature-count\u0027\u003e1 scenario\u003c/span\u003e"]}];
+
+            $('#tree').treeview({
+                data: requirementsTree,
+                enableLinks: true,
+                showTags: true,
+                expandIcon: "glyphicon glyphicon-folder-close",
+                collapseIcon: "glyphicon glyphicon-folder-open",
+                emptyIcon: "glyphicon glyphicon-book"
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".scenario-docs > div > p").html(function () {
+                var text = $(this).text().trim().split(" ");
+                var first = text.shift();
+                return (text.length > 0 ? "<strong>" + first + "</strong> " : first) + text.join(" ");
             });
         });
     </script>
@@ -168,427 +186,386 @@
     </div>
 </div>
 
+
 <div class="middlecontent">
-
-
     <div id="contenttop">
         <div class="middlebg">
-        <span class="breadcrumbs"><a href="index.html">Home</a>
-                    > Feature 
-                > <span class="truncate-60">
-                    Realizar El Registro De Un Usuario
+            <span class="breadcrumbs">
+            <a href='index.html'>Home</a> > <a href="capabilities.html">Requirements</a>
+
+
+
+                > <span class="truncate-40">Realizar El Registro De Un Usuario</span>
+
             </span>
-        </span>
         </div>
         <div class="rightbg"></div>
     </div>
-
     <div class="clr"></div>
+
     <!--/* starts second table*/-->
+
 <div>
     <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        <li >
+            <a href="index.html"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
         </li>
         <li >
             <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
         </li>
-        <li >
-            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
+        <li class="active">
+            <a href="#"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 18-06-2025 16:01</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 18-06-2025 20:40</span>
     <br style="clear:left"/>
 </div>
+
     <div class="clr"></div>
+
     <div id="beforetable"></div>
     <div id="results-dashboard">
-        <div class="middlb">
-            <div class="table">
+        <div class="table">
+                <div class=row">
+                    <div class="col-sm-12">
+                        <div>
+                            <div clas="table">
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                    <span>
+                                            <h2><i class="fa fa-book"></i> Feature:  Realizar El Registro De Un Usuario</h2>
+                                        </span>
+                                </div>
+                                    <div class="col-sm-4">
+                                        <span class="feature-tags">
+                                                <p class="tag">
+                                                    <span class="badge tag-badge" style="background:default;">
+                                                        <i class="fa fa-tag"></i>&nbsp;<a class="tagLink"
+                                                                                          style="background:default;"
+                                                                                          href="3a34ec48ef7a5f73824a6129db1a57881df85c60e109ed49a08df4c022083155.html">Agregar Usuario
+                                                        (tag)</a>
+                                                    </span>
+                                                </p>
+                                        </span>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="requirementNarrativeTitle">
+                                Como administrador de parkeatec<br />
+Quiero hacer el registro de varios usuarios<br />
+Para que puedan hacer diferentes funciones dentro de la pagina
+                            </div>
 
-                <h2><i class='fa fa-tags'></i> Feature: Realizar El Registro De Un Usuario</h2>
-                <table class='overview'>
-                    <tr>
-                        <td width="375px" valign="top">
-                            <div class="test-count-summary">
-                                <div class="test-count-title">
-                                    1 test scenarios 
-                                        (including 1 rows of test data)
-                                     |
-                                        <a href="48a3b22a11de36571c6008d54cb3d75b89fbad875f7dc68b2cc31831e6b77af1.csv" title="Download CSV"> <i class="fa fa-download"
-                                                                                        title="Download CSV"></i></a>
+                        </div>
+                    </div>
 
 
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <!-- Requirements result tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" href="#specs"><i class="fas fa-comments"></i> Specifications</a>
+                        </li>
+                        <li>
+                            <a data-toggle="tab" href="#results"><i class="fas fa-tachometer-alt"></i> Test Results</a>
+                        </li>
+                    </ul>
+
+                    <!-- Specifications and Results tabs -->
+                    <div class="card border">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div id="specs" class="tab-pane fade in active">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+
+
+                                            <h3>Scenarios</h3>
+
+                                            <div id="toc">
+                                                <table class="table" id="toc-table">
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#eacb2469fa5a66cc5a36f434c3882fbea79d1b29e0191b0be8b2fed1fa432496" title="View scenario details" >Hacer el registro de nuevos usuarios</a>
+                                                                     (1 example)
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="f903dbfa11b8c125afc798934a3eb3156d82177c6fdea9478c11dc8bf945d220.html"
+                                                                               title="View test results">
+                                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                                            </a>
+
+                                                                        
+                                                                        </td>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="f903dbfa11b8c125afc798934a3eb3156d82177c6fdea9478c11dc8bf945d220.html"
+                                                                               title="View test results">
+                                                                                <i class="fas fa-search-plus"></i>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                </table>
+
+                                            </div>
+
+                                            <h3>Scenario details</h3>
+
+                                                <div class="scenario-docs card" id="eacb2469fa5a66cc5a36f434c3882fbea79d1b29e0191b0be8b2fed1fa432496">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="f903dbfa11b8c125afc798934a3eb3156d82177c6fdea9478c11dc8bf945d220.html" title="View test results">Hacer el registro de nuevos usuarios</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>Cuando ingrese al apartdo de ver usuarios y llene el formulario de crear usuario</p>
+<table>
+<thead>
+<tr><th>documento</th><th>nombre</th><th>apellido</th><th>telefono</th><th>direccion</th><th>correo</th><th>password</th><th>centro_formacion</th></tr>
+</thead>
+<tbody>
+<tr><td>{documento}</td><td>{nombre}</td><td>{apellido}</td><td>{telefono}</td><td>{direccion}</td><td>{correo}</td><td>{password}</td><td>{centro_formacion}</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p>Entonces se debe registrar la informacion del usuario y visualizarse en la tabla de usuarios</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>documento</th><th>nombre</th><th>apellido</th><th>telefono</th><th>direccion</th><th>correo</th><th>password</th><th>centro_formacion</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>89888548</td><td>andres</td><td>perez</td><td>3000000000</td><td>carrera 103 #73-51</td><td>andres</td><td>Andres123#</td><td>CEET</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div>
-                                <ul class="nav nav-tabs">
-                                    <li class="active">
-                                        <a data-toggle="tab" href="#summary"><i class="fas fa-home"></i> Summary</a>
-                                    </li>
-                                    <li>
-                                        <a data-toggle="tab" href="#tests"><i class="fas fa-tachometer-alt"></i> Test
-                                            Results</a>
-                                    </li>
-                                </ul>
+                            <div id="results" class="tab-pane fade">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-4">
 
+                                            <div style="width:300px;" class="chart-container automated-and-manual-results">
+                                                <div class="ct-chart ct-square"></div>
+                                            </div>
+                                            <script>
 
-                                <div class="card border">
-                                    <div class="tab-content" id="pills-tabContent">
-                                        <div id="summary" class="tab-pane fade in active">
-                                            <div class="container-fluid">
-                                                <div class="row">
-                                                    <div class="col-sm-4">
-                                                            <div style="width:300px;"
-                                                                 class="chart-container automated-and-manual-results">
-                                                                <div class="ct-chart ct-square"></div>
-                                                            </div>
-                                                            <script>
+                                                var labels = ['100%', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+                                                // Our series array that contains series objects or in this case series data arrays
 
-                                                                var labels = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '100%', ' ', ' ', ' '];
-                                                                // Our series array that contains series objects or in this case series data arrays
+                                                var series = [{meta: 'Passing tests (automated)', value: 1}, {meta: 'Passing tests (manual)', value: 0}, {meta: 'Pending tests (automated)', value: 0}, {meta: 'Pending tests (manual)', value: 0}, {meta: 'Ignored tests (automated)', value: 0}, {meta: 'Ignored tests (manual)', value: 0}, {meta: 'Skipped tests (automated)', value: 0}, {meta: 'Skipped tests (manual)', value: 0}, {meta: 'Failing tests (automated)', value: 0}, {meta: 'Failing tests (manual)', value: 0}, {meta: 'Broken tests (automated)', value: 0}, {meta: 'Broken tests (manual)', value: 0}, {meta: 'Compromised tests (automated)', value: 0}, {meta: 'Compromised tests (manual)', value: 0}];
 
-                                                                var series = [{meta: 'Passing tests (automated)', value: 0}, {meta: 'Passing tests (manual)', value: 0}, {meta: 'Pending tests (automated)', value: 0}, {meta: 'Pending tests (manual)', value: 0}, {meta: 'Ignored tests (automated)', value: 0}, {meta: 'Ignored tests (manual)', value: 0}, {meta: 'Skipped tests (automated)', value: 0}, {meta: 'Skipped tests (manual)', value: 0}, {meta: 'Failing tests (automated)', value: 0}, {meta: 'Failing tests (manual)', value: 0}, {meta: 'Broken tests (automated)', value: 1}, {meta: 'Broken tests (manual)', value: 0}, {meta: 'Compromised tests (automated)', value: 0}, {meta: 'Compromised tests (manual)', value: 0}];
+                                                // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
+                                                // as you saw in the previous example
+                                                var options = {
+                                                    width: 350,
+                                                    height: 300
+                                                };
 
-                                                                // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
-                                                                // as you saw in the previous example
-                                                                var options = {
-                                                                    width: 350,
-                                                                    height: 300
-                                                                };
+                                                $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                                                    new Chartist.Pie('.ct-chart', {
+                                                        series: series,
+                                                        labels: labels,
+                                                    }, {
+                                                        donut: true,
+                                                        donutWidth: 60,
+                                                        donutSolid: true,
+                                                        startAngle: 270,
+                                                        showLabel: true
+                                                    }, options);
+                                                });
 
+                                            </script>
+                                        </div>
+                                        <div class="col-sm-8">
 
-                                                                new Chartist.Pie('.ct-chart', {
-                                                                    series: series,
-                                                                    labels: labels
-                                                                }, {
-                                                                    plugins: [Chartist.plugins.tooltip()],
-                                                                    donut: true,
-                                                                    donutWidth: 60,
-                                                                    donutSolid: true,
-                                                                    startAngle: 270,
-                                                                    showLabel: true
-                                                                }, options);
-
-
-                                                                $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-                                                                    new Chartist.Pie('.ct-chart', {
-                                                                        series: series,
-                                                                        labels: labels
-                                                                    }, {
-                                                                        plugins: [Chartist.plugins.tooltip()],
-                                                                        donut: true,
-                                                                        donutWidth: 60,
-                                                                        donutSolid: true,
-                                                                        startAngle: 270,
-                                                                        showLabel: true
-                                                                    }, options);
-                                                                });
-
-
-                                                            </script>
-                                                    </div>
-                                                    <div class="col-sm-8">
-
-                                                        <table class="table">
-                                                            <thead>
-                                                            <tr>
-                                                                <th scope="col">Scenario Results (including rows of test
-                                                                    data)
-                                                                </th>
-                                                                <th scope="col" colspan="2" class="automated-stats">
-                                                                    Automated
-                                                                </th>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            <tr>
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">Scenario Results (including rows of test data)</th>
+                                                <th scope="col" colspan="2" class="automated-stats">
+                                                    Automated
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                                    <td class="aggregate-result-count">
+                                                                        <a href="55a867b0bdfce17b4f7bf3c476c33392788cc5323b3a093d0e7a116e6abb5aa0.html"><i
+                                                                                class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing</a>
+                                                                    </td>
+                                                <td class="automated-stats">1</td>
+                                                <td class="automated-stats">100%</td>
+                                            </tr>
+                                            <tr>
                                                                     <td class="aggregate-result-count"><i
-                                                                                class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing
+                                                                            class='fa fa-stop-circle-o pending-icon'></i>&nbsp;Pending
                                                                     </td>
-                                                                <td class="automated-stats">0</td>
-                                                                <td class="automated-stats"> </td>
-                                                            </tr>
-                                                            <tr>
-                                                                    <td class="aggregate-result-count"><i
-                                                                                class='fa fa-stop-circle-o pending-icon'></i>&nbsp;Pending
-                                                                    </td>
-                                                                <td class="automated-stats">0</td>
-                                                                <td class="automated-stats"> </td>
-                                                            </tr>
-                                                            <tr>
-                                                                    <td class="aggregate-result-count"><i
-                                                                                class='fa fa-ban ignored-icon'></i>&nbsp;Ignored
-                                                                    </td>
-                                                                <td class="automated-stats">0</td>
-                                                                <td class="automated-stats"> </td>
-                                                            </tr>
-                                                            <tr>
-                                                                    <td class="aggregate-result-count"><i
-                                                                                class='fa fa-fast-forward skip-icon'></i>&nbsp;Skipped
-                                                                    </td>
-                                                                <td class="automated-stats">0</td>
-                                                                <td class="automated-stats"> </td>
-                                                            </tr>
-                                                            <tr>
-                                                                        <td colspan="3"><a
-                                                                                    href="df09d472c0ccb979d9322b34ffe55c14a3da83b06174cdf70169712c68173f5f.html"><i
-                                                                                        class='fa fa-times failure-icon'></i>&nbsp;<em>Unsuccessful</em></a>
-                                                                        </td>
-                                                            </tr>
-                                                            <tr>
-                                                                    <td class="aggregate-result-count indented-error-category">
-                                                                        <i
-                                                                                class='fa fa-times-circle failure-icon'></i>&nbsp;Failed
-                                                                    </td>
-                                                                <td class="automated-stats">0</td>
-                                                                <td class="automated-stats"> </td>
-                                                            <tr>
-                                                                    <td class="aggregate-result-count indented-error-category">
-                                                                        <a href="3fe3c3736f38577c53c85633f8446f0dc801e8e5d22d867878a6f690ad9c491e.html"><i
-                                                                                    class='fa fa-exclamation-triangle error-icon'></i>&nbsp;Broken</a>
-                                                                    </td>
-                                                                <td class="automated-stats">1</td>
-                                                                <td class="automated-stats">100%</td>
-                                                            <tr>
-                                                                    <td class="aggregate-result-count indented-error-category">
-                                                                        <i
-                                                                                class='fa fa-chain-broken compromised-icon'></i>&nbsp;Compromised
-                                                                    </td>
-                                                                <td class="automated-stats">0</td>
-                                                                <td class="automated-stats"> </td>
-                                                            </tr>
-                                                            <tr class="summary-stats">
-                                                                <td class="aggregate-result-count">Total</td>
-                                                                <td class="automated-stats">1</td>
-                                                                <td class="automated-stats"></td>
-                                                            </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                        class='fa fa-ban ignored-icon'></i>&nbsp;Ignored
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr>
+                                                                <td class="aggregate-result-count"><i
+                                                                        class='fa fa-fast-forward skip-icon'></i>&nbsp;Skipped
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr>
+                                                                            <td colspan="3"><i
+                                                                                class='fa fa-times failure-icon'></i>&nbsp;<em>Unsuccessful</em></a>
+                                                                            </td>
 
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <table class="table">
-                                                            <thead>
-                                                            <tr>
-                                                                <th>Execution Time</th>
-                                                                <th>Clock Time</th>
-                                                                <th>Fastest Test</th>
-                                                                <th>Slowest Test</th>
-                                                                <th>Average Execution Time</th>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            <tr>
-                                                                <td>6s</td>
-                                                                <td>6ms</td>
-                                                                <td>5s</td>
-                                                                <td>5s</td>
-                                                                <td>6s</td>
-                                                            </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <h3>Functional Coverage Overview</h3>
+                                            </tr>
 
+                                            <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-times-circle failure-icon'></i>&nbsp;Failed
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-exclamation-triangle error-icon'></i>&nbsp;Broken
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            <tr>
+                                                                <td class="aggregate-result-count indented-error-category">
+                                                                    <i
+                                                                            class='fa fa-chain-broken compromised-icon'></i>&nbsp;Compromised
+                                                                </td>
+                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats"> </td>
+                                            </tr>
+                                            <tr class="summary-stats">
+                                                <td class="aggregate-result-count">Total</td>
+                                                <td class="automated-stats">1</td>
+                                                <td class="automated-stats"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    </div>
 
-                                                                    <h4>Features</h4>
-
-                                                                    <table class="table feature-coverage-table"
-                                                                           id="Feature">
-                                                                        <thead>
-                                                                        <tr>
-                                                                            <th>Feature</th>
-                                                                            <th style="width:7.5em;">Scenarios</th>
-                                                                            <th style="width:7.5em;">% Pass</th>
-                                                                            <th style="width:7.5em;">Result</th>
-                                                                            <th>Coverage</th>
-                                                                        </tr>
-                                                                        </thead>
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td>
-                                                                                        <a href="41bbab2cd3f3d08d6f643e914ae021d98baa7a0961533b95f4e30bddb1238a88.html">Realizar el registro de un usuario</a>
-                                                                                </td>
-                                                                                <td>1</td>
-                                                                                <td>0%</td>
-                                                                                <td>
-                                                                                        <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
-                                                                                </td>
-                                                                                <td>
-                                                                                    <div class="progress">
-                                                                                            <div class="progress-bar"
-                                                                                                 role="progressbar"
-                                                                                                 style="width: 100%; background-color: darkorange"
-                                                                                                 aria-valuenow="1"
-                                                                                                 title="100% error"
-                                                                                                 aria-valuemin="0"
-                                                                                                 aria-valuemax="100">
-                                                                                            </div>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>
-                                                                                        <a href="48a3b22a11de36571c6008d54cb3d75b89fbad875f7dc68b2cc31831e6b77af1.html">Realizar el registro de un usuario</a>
-                                                                                </td>
-                                                                                <td>1</td>
-                                                                                <td>0%</td>
-                                                                                <td>
-                                                                                        <a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a>
-                                                                                </td>
-                                                                                <td>
-                                                                                    <div class="progress">
-                                                                                            <div class="progress-bar"
-                                                                                                 role="progressbar"
-                                                                                                 style="width: 100%; background-color: darkorange"
-                                                                                                 aria-valuenow="1"
-                                                                                                 title="100% error"
-                                                                                                 aria-valuemin="0"
-                                                                                                 aria-valuemax="100">
-                                                                                            </div>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="col-sm-6">
-                                                            <h3>Test Failure Overview</h3>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-sm-6">
-                                                            <h4>Most Frequent Failures</h4>
-                                                            <table class="table">
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td class="error-color top-list-title">
-                                                                            <a href="22a92488e2bf162eb58f3f453b650dde0bab75a2b31234832f024f39b1c5f192.html"><a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> Null pointer exception</a>
-                                                                        </td>
-                                                                        <td><span
-                                                                                    class="badge failure-badge">1</span>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <h4>Most Unstable Features</h4>
-                                                            <table class="table">
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td class="failure-color top-list-title"><a
-                                                                                    href="#">Realizar el registro de un usuario</a>
-                                                                        </td>
-                                                                        <td><span
-                                                                                    class="badge failure-badge">100%</span>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <h3>Tags</h3>
-
-                                                                <div class="card">
-                                                                    <div class="card-body">
-                                                                        <div>
-                                                                                <a href="3a34ec48ef7a5f73824a6129db1a57881df85c60e109ed49a08df4c022083155.html">
-                                                                        <span class="badge"
-                                                                              style="background-color:darkorange; margin:1em;padding:4px;"><i
-                                                                                    class="fa fa-tag"></i> Agregar Usuario&nbsp;&nbsp;&nbsp;1</span>
-                                                                                </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                        </div>
-                                                    </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table class="table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Execution Time</th>
+                                                        <th>Clock Time</th>
+                                                        <th>Fastest Test</th>
+                                                        <th>Slowest Test</th>
+                                                        <th>Average Execution Time</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>9s</td>
+                                                        <td>9ms</td>
+                                                        <td>8s</td>
+                                                        <td>8s</td>
+                                                        <td>9s</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
-                                        <div id="tests" class="tab-pane fade">
-                                            <div class="container-fluid">
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <h3><i class="fas fa-cogs"></i> Automated Tests</h3>
 
-                                                            <table class="scenario-result-table table"
-                                                                   id="scenario-results">
-                                                                <thead>
-                                                                <tr>
-                                                                    <th>feature</th>
-                                                                    <th class="test-name-column">Scenario</th>
-                                                                    <th>Steps</th>
-                                                                    <th>Start Time</th>
-                                                                    <th>Duration</th>
-                                                                    <th>Result</th>
-                                                                </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr class="scenario-result ERROR">
-                                                                        <td>
-                                                                                <a href="41bbab2cd3f3d08d6f643e914ae021d98baa7a0961533b95f4e30bddb1238a88.html">Realizar el registro de un usuario</a>
-                                                                        </td>
-                                                                        <td>
-                                                                            <a href="f903dbfa11b8c125afc798934a3eb3156d82177c6fdea9478c11dc8bf945d220.html">Hacer el registro de nuevos usuarios</a>
-                                                                                (1 example)
-                                                                        </td>
-                                                                        <td>2</td>
-                                                                        <td>16:01:12</td>
-                                                                        <td>6s 414ms</td>
-                                                                        <td><a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></a> <span
-                                                                                    style="display:none">ERROR</span>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
 
-                                                    </div>
-                                                </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3><i class="fas fa-cogs"></i> Automated Tests</h3>
 
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <h3><i class="fas fa-edit"></i> Manual Tests</h3>
+                                            <table class="scenario-result-table table" id="scenario-results">
+                                                <thead>
+                                                <tr>
+                                                    <th class="test-name-column">Scenario</th>
+                                                    <th>Steps</th>
+                                                    <th>Start Time</th>
+                                                    <th>Duration</th>
+                                                    <th>Result</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="f903dbfa11b8c125afc798934a3eb3156d82177c6fdea9478c11dc8bf945d220.html">Hacer el registro de nuevos usuarios</a>
+                                                               (1 example)
+                                                    </td>
+                                                    <td>2</td>
+                                                    <td>20:40:21</td>
+                                                    <td>9s 262ms</td>
+                                                    <td>
+                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
 
-                                                            No manual tests were recorded
+                                            </div>
+                                        </div>
 
-                                                    </div>
-                                                </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3><i class="fas fa-edit"></i> Manual Tests</h3>
+
+                                                No manual tests were recorded
+
                                             </div>
                                         </div>
 
                                     </div>
                                 </div>
                             </div>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<div id="beforefooter"></div>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12">
-            <span class="version">Serenity BDD version 2.1.1</span>
-        </div>
-    </div>
-</div>
-
-
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="version">Serenity BDD version 2.1.1</span>
+                    </div>
+                </div>
+            </div>
 </body>
 </html>

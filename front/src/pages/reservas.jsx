@@ -13,7 +13,7 @@ function VerReservas() {
     const obtenerSesion = async () => {
       try {
         const response = await fetch(
-          "http://localhost:4000/api/verificarSesion",
+          "https://hnp5ds36-4000.use2.devtunnels.ms/api/verificarSesion",
           {
             credentials: "include",
           }
@@ -35,7 +35,7 @@ function VerReservas() {
     const obtenerReserva = async () => {
       try {
         const response = await fetch(
-          `http://localhost:4000/api/obtenerReservas/${sesion.user.id}`,
+          `https://hnp5ds36-4000.use2.devtunnels.ms/api/obtenerReservas/${sesion.user.id}`,
           {
             method: "GET",
             credentials: "include",
@@ -60,7 +60,7 @@ function VerReservas() {
     console.log("id reserva", id);
     try {
       const response = await fetch(
-        `http://localhost:4000/api/cancelarReserva/${id}`,
+        `https://hnp5ds36-4000.use2.devtunnels.ms/api/cancelarReserva/${id}`,
         {
           method: "PUT",
         }

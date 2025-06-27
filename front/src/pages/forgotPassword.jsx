@@ -24,7 +24,7 @@ const ForgotPassword = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:4000/api/forgot-password",
+        "https://hnp5ds36-4000.use2.devtunnels.ms/api/forgot-password",
         {
           method: "POST",
           headers: {

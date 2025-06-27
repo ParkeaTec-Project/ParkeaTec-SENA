@@ -9,7 +9,7 @@ public class GeneraraStrike extends PageObject {
     public static Target PARKING_LOT = Target.the("Titulo inicial").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[2]/a"));
     public static Target SEE_PARKING = Target.the("Titulo inicial").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[2]/div/a[1]"));
     public static Target CLOSE_MODAL = Target.the("Titulo inicial").located(By.xpath("/html/body/div[3]/div/div/div[1]/button"));
-    public static Target SELECT_PARKING = Target.the("Titulo inicial").located(By.xpath("//*[@id=\"root\"]/section/div[1]/div[2]/div[1]/div"));
+    public static Target SELECT_PARKING = Target.the("Titulo inicial").located(By.xpath("//*[@id=\"root\"]/section/div[1]/div[2]/div[9]/div"));
     public static Target REGISTER_NEWS = Target.the("Titulo inicial").located(By.xpath("/html/body/div[3]/div/div/div[2]/button[2]"));
     public static Target INPUT_NEWS = Target.the("Titulo inicial").located(By.xpath("//*[@id=\"root\"]/div/form/div/textarea"));
     public static Target SEND_NEWS = Target.the("Titulo inicial").located(By.xpath("//*[@id=\"root\"]/div/form/button"));

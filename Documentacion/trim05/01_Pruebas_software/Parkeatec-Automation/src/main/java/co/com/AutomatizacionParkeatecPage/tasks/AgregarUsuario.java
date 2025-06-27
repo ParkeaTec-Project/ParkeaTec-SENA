@@ -4,10 +4,11 @@ import co.com.AutomatizacionParkeatecPage.utils.hooks.Constantes;
 
 
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.Bicicleta.TITLE_DASH;
+import static co.com.AutomatizacionParkeatecPage.userinterfaces.Moto.BEGIN;
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.Registro.INPUT_FOTO;
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.Usuario.*;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
 
 import co.com.AutomatizacionParkeatecPage.utils.hooks.VariableUsuario;
@@ -45,7 +46,7 @@ public class AgregarUsuario implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(TITLE, isVisible()).forNoMoreThan(5).seconds(),
+                //WaitUntil.the(BEGIN, isCurrentlyEnabled()).forNoMoreThan(20).seconds()
                 Click.on(CLICK_PERFIL),
                 Click.on(CLICK_USUARIOS),
                 Scroll.to(BTN_CREAR),

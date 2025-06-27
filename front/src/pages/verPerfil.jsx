@@ -21,7 +21,7 @@ function VerPerfil() {
       try {
         //ruta para obtener la sesion
         const response = await fetch(
-          "http://localhost:4000/api/verificarSesion",
+          "https://hnp5ds36-4000.use2.devtunnels.ms/api/verificarSesion",
           {
             credentials: "include",
           }
@@ -45,7 +45,7 @@ function VerPerfil() {
       try {
         //ruta obtener usuarios
         const response = await fetch(
-          `http://localhost:4000/api/user/${sesion.user.id}`,
+          `https://hnp5ds36-4000.use2.devtunnels.ms/api/user/${sesion.user.id}`,
           {
             method: "GET",
             credentials: "include",
@@ -79,13 +79,13 @@ function VerPerfil() {
           <Col md={5} className="d-flex flex-column align-items-center">
             <div className={`position-relative ${styles.avatar}`}>
               <Image
-                src={`http://localhost:4000/uploads/users/${userData.foto_usuario}`}
+                src={`https://hnp5ds36-4000.use2.devtunnels.ms/uploads/users/${userData.foto_usuario}`}
                 alt={`imagen usuario de ${userData?.nombre || "usuario"}`}
                 roundedCircle
                 fluid
                 className={`shadow-sm ${styles.profileImage}`}
                 onError={(e) => {
-                  e.target.src = "http://localhost:4000/uploads/default.avif";
+                  e.target.src = "https://hnp5ds36-4000.use2.devtunnels.ms/uploads/default.avif";
                   console.error('Error cargando la imagen:', e.target.src);
                 }}
               />

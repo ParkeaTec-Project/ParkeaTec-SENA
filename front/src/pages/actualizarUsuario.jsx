@@ -39,7 +39,7 @@ function ActualizarUsuario({ usuario, handleUpdate, obtenerUsuario }) {
         console.log("Datos a enviar:", dataToSend);
 
         try {
-            const response = await fetch(`http://localhost:4000/api/userUpdate/${usuario.id_documento}`, {
+            const response = await fetch(`https://hnp5ds36-4000.use2.devtunnels.ms/api/userUpdate/${usuario.id_documento}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
