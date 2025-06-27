@@ -57,7 +57,7 @@ function CrearUsuario() {
 
 
         try {
-            const response = await fetch("http://localhost:4000/api/user", {
+            const response = await fetch("https://hnp5ds36-4000.use2.devtunnels.ms/api/user", {
                 method: "POST",
                 body: data,
                 credentials: "include"

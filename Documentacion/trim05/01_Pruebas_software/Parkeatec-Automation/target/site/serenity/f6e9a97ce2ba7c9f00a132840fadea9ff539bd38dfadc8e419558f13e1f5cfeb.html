@@ -148,7 +148,7 @@
             $("#requirements-tabs").tabs();
             $("#test-tabs").tabs();
 
-            var requirementsTree = [{"text":"Llenar el formulario de registro de vehiculo moto","type":"feature","href":"f6e9a97ce2ba7c9f00a132840fadea9ff539bd38dfadc8e419558f13e1f5cfeb.html","nodes":[],"selectable":false,"tags":["",""]}];
+            var requirementsTree = [{"text":"Llenar el formulario de registro de vehiculo moto","type":"feature","href":"f6e9a97ce2ba7c9f00a132840fadea9ff539bd38dfadc8e419558f13e1f5cfeb.html","nodes":[],"selectable":false,"tags":["","\u003cspan class\u003d\u0027feature-count\u0027\u003e1 scenario\u003c/span\u003e"]}];
 
             $('#tree').treeview({
                 data: requirementsTree,
@@ -217,7 +217,7 @@
             <a href="#"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated </span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 18-06-2025 21:27</span>
     <br style="clear:left"/>
 </div>
 
@@ -231,11 +231,23 @@
                         <div>
                             <div clas="table">
                                 <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-8">
                                     <span>
                                             <h2><i class="fa fa-book"></i> Feature:  Llenar El Formulario De Registro De Vehiculo Moto</h2>
                                         </span>
                                 </div>
+                                    <div class="col-sm-4">
+                                        <span class="feature-tags">
+                                                <p class="tag">
+                                                    <span class="badge tag-badge" style="background:default;">
+                                                        <i class="fa fa-tag"></i>&nbsp;<a class="tagLink"
+                                                                                          style="background:default;"
+                                                                                          href="b38dcb74e9d869fe8b0fa503292afb9e67b72e57249aeb8d6f85eaf327a2365d.html">Registromoto
+                                                        (tag)</a>
+                                                    </span>
+                                                </p>
+                                        </span>
+                                    </div>
                                 </div>
                                 </div>
                             </div>
@@ -275,11 +287,80 @@ Para que mi moto pueda ser autorizada para el uso del parqueadero
 
                                             <div id="toc">
                                                 <table class="table" id="toc-table">
+                                                        <tr>
+                                                            <td style="width:95%;" class="toc-title">
+                                                                <a href="#f7bece0b30ea635572582b140296a0d6a6df66b1affa7beaadfff5750c6da144" title="View scenario details" >Llenar formulario de registro moto</a>
+                                                                     (1 example)
+
+                                                            </td>
+                                                            <td style="width:5%;">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="06cdc228b471de09a2356de103768d614024ddb6df28cb70f7207b7e16d0dd20.html"
+                                                                               title="View test results">
+                                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                                            </a>
+
+                                                                        
+                                                                        </td>
+                                                                        <td>
+                                                                            <a style="margin-left:0.5em;padding-right: 1.5em;"
+                                                                               href="06cdc228b471de09a2356de103768d614024ddb6df28cb70f7207b7e16d0dd20.html"
+                                                                               title="View test results">
+                                                                                <i class="fas fa-search-plus"></i>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
                                                 </table>
 
                                             </div>
 
                                             <h3>Scenario details</h3>
+
+                                                <div class="scenario-docs card" id="f7bece0b30ea635572582b140296a0d6a6df66b1affa7beaadfff5750c6da144">
+                                                    <div class="scenario-docs card-header success" style="min-height:1.5em;">
+                                                        <div>
+                                                            <span class="scenario-heading">
+                                                                <a href="06cdc228b471de09a2356de103768d614024ddb6df28cb70f7207b7e16d0dd20.html" title="View test results">llenar formulario de registro moto</a>
+                                                            </span>
+                                                            <span class="scenario-result-icon">
+                                                                
+
+                                                                    <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="scenario-docs card-body">
+                                                            <p><p>Cuando ingrese la informacion solicitada en el formulario</p>
+<table>
+<thead>
+<tr><th>placa_vehiculo</th><th>modelo</th><th>marca</th><th>color</th><th>vencimiento_soat</th><th>observacion</th></tr>
+</thead>
+<tbody>
+<tr><td>{placa_vehiculo}</td><td>{modelo}</td><td>{marca}</td><td>{color}</td><td>{vencimiento_soat}</td><td>{observacion}</td></tr>
+</tbody>
+</table>
+</p>
+                                                            <p>Entonces se debe verificar que el vehiculo haya sido registrado</p>
+                                                        <div class="examples">
+                                                            <p><p>Examples:</p>
+<div class='example-table-in-scenario'><table>
+<thead>
+<tr><th>placa_vehiculo</th><th>modelo</th><th>marca</th><th>color</th><th>vencimiento_soat</th><th>observacion</th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>CBI23H</td><td>Apache</td><td>TVS</td><td>Gris</td><td>14082025</td><td>Ninguna</td><td> </td></tr>
+</tbody>
+</table></div>
+</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                         </div>
                                     </div>
                                 </div>
@@ -288,7 +369,41 @@ Para que mi moto pueda ser autorizada para el uso del parqueadero
                             <div id="results" class="tab-pane fade">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-4">
+
+                                            <div style="width:300px;" class="chart-container automated-and-manual-results">
+                                                <div class="ct-chart ct-square"></div>
+                                            </div>
+                                            <script>
+
+                                                var labels = ['100%', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+                                                // Our series array that contains series objects or in this case series data arrays
+
+                                                var series = [{meta: 'Passing tests (automated)', value: 1}, {meta: 'Passing tests (manual)', value: 0}, {meta: 'Pending tests (automated)', value: 0}, {meta: 'Pending tests (manual)', value: 0}, {meta: 'Ignored tests (automated)', value: 0}, {meta: 'Ignored tests (manual)', value: 0}, {meta: 'Skipped tests (automated)', value: 0}, {meta: 'Skipped tests (manual)', value: 0}, {meta: 'Failing tests (automated)', value: 0}, {meta: 'Failing tests (manual)', value: 0}, {meta: 'Broken tests (automated)', value: 0}, {meta: 'Broken tests (manual)', value: 0}, {meta: 'Compromised tests (automated)', value: 0}, {meta: 'Compromised tests (manual)', value: 0}];
+
+                                                // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
+                                                // as you saw in the previous example
+                                                var options = {
+                                                    width: 350,
+                                                    height: 300
+                                                };
+
+                                                $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                                                    new Chartist.Pie('.ct-chart', {
+                                                        series: series,
+                                                        labels: labels,
+                                                    }, {
+                                                        donut: true,
+                                                        donutWidth: 60,
+                                                        donutSolid: true,
+                                                        startAngle: 270,
+                                                        showLabel: true
+                                                    }, options);
+                                                });
+
+                                            </script>
+                                        </div>
+                                        <div class="col-sm-8">
 
                                         <table class="table">
                                             <thead>
@@ -301,11 +416,12 @@ Para que mi moto pueda ser autorizada para el uso del parqueadero
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                                    <td class="aggregate-result-count"><i
-                                                                            class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing
+                                                                    <td class="aggregate-result-count">
+                                                                        <a href="5f7210b639c25164ddd11d37188a40ed64ad710940c538b3dfc778b80e6b0027.html"><i
+                                                                                class='fa fa-check-circle-o success-icon'></i>&nbsp;Passing</a>
                                                                     </td>
-                                                <td class="automated-stats">0</td>
-                                                <td class="automated-stats"> </td>
+                                                <td class="automated-stats">1</td>
+                                                <td class="automated-stats">100%</td>
                                             </tr>
                                             <tr>
                                                                     <td class="aggregate-result-count"><i
@@ -359,7 +475,7 @@ Para que mi moto pueda ser autorizada para el uso del parqueadero
                                             </tr>
                                             <tr class="summary-stats">
                                                 <td class="aggregate-result-count">Total</td>
-                                                <td class="automated-stats">0</td>
+                                                <td class="automated-stats">1</td>
                                                 <td class="automated-stats"></td>
                                             </tr>
                                             </tbody>
@@ -381,11 +497,11 @@ Para que mi moto pueda ser autorizada para el uso del parqueadero
                                                     </thead>
                                                     <tbody>
                                                     <tr>
-                                                        <td>0ms</td>
-                                                        <td>0ms</td>
-                                                        <td>0ms</td>
-                                                        <td>0ms</td>
-                                                        <td>0ms</td>
+                                                        <td>38s</td>
+                                                        <td>38ms</td>
+                                                        <td>36s</td>
+                                                        <td>36s</td>
+                                                        <td>38s</td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -397,7 +513,32 @@ Para que mi moto pueda ser autorizada para el uso del parqueadero
                                             <div class="col-sm-12">
                                                 <h3><i class="fas fa-cogs"></i> Automated Tests</h3>
 
-                                            No automated tests were executed
+                                            <table class="scenario-result-table table" id="scenario-results">
+                                                <thead>
+                                                <tr>
+                                                    <th class="test-name-column">Scenario</th>
+                                                    <th>Steps</th>
+                                                    <th>Start Time</th>
+                                                    <th>Duration</th>
+                                                    <th>Result</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="scenario-result SUCCESS">
+                                                    <td>
+                                                            <a href="06cdc228b471de09a2356de103768d614024ddb6df28cb70f7207b7e16d0dd20.html">llenar formulario de registro moto</a>
+                                                               (1 example)
+                                                    </td>
+                                                    <td>2</td>
+                                                    <td>21:27:44</td>
+                                                    <td>38s 335ms</td>
+                                                    <td>
+                                                            <a href='##beforetable'><i class='fa fa-check-circle-o success-icon ' title='SUCCESS'></i></a> <span
+                                                                style="display:none">SUCCESS</span>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
 
                                             </div>
                                         </div>

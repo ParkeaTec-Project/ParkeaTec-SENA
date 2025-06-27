@@ -9,7 +9,9 @@ import net.serenitybdd.screenplay.waits.Wait;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.Keys;
 
+import static co.com.AutomatizacionParkeatecPage.userinterfaces.Moto.BEGIN;
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.VerReservas.*;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isCurrentlyEnabled;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class MisReservas implements Task {
@@ -20,7 +22,7 @@ public class MisReservas implements Task {
     @Override
     public <T extends Actor> void performAs(T actor){
         actor.attemptsTo(
-                WaitUntil.the(CLICK_PERFIL, isVisible()).forNoMoreThan(8).seconds(),
+                WaitUntil.the(BEGIN, isCurrentlyEnabled()).forNoMoreThan(5).seconds(),
                 Click.on(CLICK_PERFIL),
                 Click.on(CLICK_VERRESERVAS)
         );

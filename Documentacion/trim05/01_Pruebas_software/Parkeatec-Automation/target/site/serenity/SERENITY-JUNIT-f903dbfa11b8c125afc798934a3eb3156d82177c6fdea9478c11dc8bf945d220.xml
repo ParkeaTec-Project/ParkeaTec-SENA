@@ -1,5 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="0" name="Realizar el registro de un usuario" skipped="0" tests="1" time="6.41" timestamp="2025-06-18 04:01:12"><testcase name="Hacer el registro de nuevos usuarios"><error message="Cannot invoke &quot;Object.getClass()&quot; because &quot;target&quot; is null" type="java.lang.NullPointerException">Cannot invoke "Object.getClass()" because "target" is null</error><system-err>Cannot invoke "Object.getClass()" because "target" is null&#13;
-co.com.AutomatizacionParkeatecPage.tasks.AgregarUsuario.aute(AgregarUsuario.java:32)&#13;
-co.com.AutomatizacionParkeatecPage.stepsdefinitions.AgregarUsuarioParkeatecStepDefinitions.ingreseAlApartdoDeVerUsuariosYLleneElFormularioDeCrearUsuario(AgregarUsuarioParkeatecStepDefinitions.java:19)&#13;
-✽.ingrese al apartdo de ver usuarios y llene el formulario de crear usuario(src/test/resources/features/agregarUsuario_parkeatec.feature:18)&#13;
-</system-err></testcase></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Realizar el registro de un usuario" skipped="0" tests="1" time="9.26" timestamp="2025-06-18 08:40:21"><testcase name="Hacer el registro de nuevos usuarios"/></testsuite>

@@ -76,7 +76,7 @@ function Formulario() {
         console.log(`${key}:`, value instanceof File ? value.name : value);
       }
       const response = await fetch(
-        "http://localhost:4000/api/registroVehiculo",
+        "https://hnp5ds36-4000.use2.devtunnels.ms/api/registroVehiculo",
         {
           method: "POST",
           body: data,
@@ -113,7 +113,7 @@ function Formulario() {
     const obtenerSesion = async () => {
       try {
         const response = await fetch(
-          "http://localhost:4000/api/verificarSesion",
+          "https://hnp5ds36-4000.use2.devtunnels.ms/api/verificarSesion",
           {
             credentials: "include",
           }
@@ -134,7 +134,7 @@ function Formulario() {
     const obtenerUsuario = async () => {
       try {
         const response = await fetch(
-          `http://localhost:4000/api/user/${sesion.user.id}`,
+          `https://hnp5ds36-4000.use2.devtunnels.ms/api/user/${sesion.user.id}`,
           {
             method: "GET",
             credentials: "include",
@@ -163,7 +163,7 @@ function Formulario() {
     const obtenerVehiculo = async () => {
       try {
         const response = await fetch(
-          `http://localhost:4000/api/verVehiculo/${sesion.user.id}`,
+          `https://hnp5ds36-4000.use2.devtunnels.ms/api/verVehiculo/${sesion.user.id}`,
           {
             method: "GET",
             credentials: "include",

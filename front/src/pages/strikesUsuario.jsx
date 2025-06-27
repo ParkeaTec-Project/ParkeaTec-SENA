@@ -10,7 +10,7 @@ function VerStrikesUsuario() {
     const obtenerSesion = async () => {
       try {
         const response = await fetch(
-          "http://localhost:4000/api/verificarSesion",
+          "https://hnp5ds36-4000.use2.devtunnels.ms/verificarSesion",
           {
             credentials: "include",
           }
@@ -31,7 +31,7 @@ function VerStrikesUsuario() {
     const obtenerStrikes = async () => {
       try {
         const response = await fetch(
-          `http://localhost:4000/api/strikesUsuario/${sesion.user.id}`,
+          `https://hnp5ds36-4000.use2.devtunnels.ms/api/strikesUsuario/${sesion.user.id}`,
           {
             method: "GET",
             credentials: "include",

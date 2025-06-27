@@ -40,7 +40,7 @@ function App() {
   const session = async () => {
     try {
       const response = await fetch(
-        "http://localhost:4000/api/verificarSesion",
+        "https://hnp5ds36-4000.use2.devtunnels.ms/api/verificarSesion",
         {
           credentials: "include",
         }

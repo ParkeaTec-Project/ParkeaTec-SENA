@@ -42,7 +42,7 @@ function VerVehiculo({ actualizarVehiculo }) {
     const obtenerSesion = async () => {
       try {
         const response = await fetch(
-          "http://localhost:4000/api/verificarSesion",
+          "https://hnp5ds36-4000.use2.devtunnels.ms/api/verificarSesion",
           {
             credentials: "include",
           }
@@ -67,7 +67,7 @@ function VerVehiculo({ actualizarVehiculo }) {
     try {
       // ruta obtener vehiculo
       const response = await fetch(
-        `http://localhost:4000/api/verVehiculo/${sesion.user.id}`,
+        `https://hnp5ds36-4000.use2.devtunnels.ms/api/verVehiculo/${sesion.user.id}`,
         {
           method: "GET",
           credentials: "include",
@@ -94,7 +94,7 @@ function VerVehiculo({ actualizarVehiculo }) {
     console.log(`Borrar usuario con ID: ${id}`);
 
     try {
-      const response = await fetch(`http://localhost:4000/api/borrarVehiculo/${vehicleData.placa}`, {
+      const response = await fetch(`https://hnp5ds36-4000.use2.devtunnels.ms/api/borrarVehiculo/${vehicleData.placa}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -175,7 +175,7 @@ function VerVehiculo({ actualizarVehiculo }) {
                     <Image
                       fluid
                       rounded
-                      src={`http://localhost:4000/uploads/vehicles/${vehicleData.foto_vehiculo}`}
+                      src={`https://hnp5ds36-4000.use2.devtunnels.ms/uploads/vehicles/${vehicleData.foto_vehiculo}`}
                       alt="Foto del vehiculo"
                     />
                   </Col>

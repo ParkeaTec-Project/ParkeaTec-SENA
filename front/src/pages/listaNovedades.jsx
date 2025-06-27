@@ -7,7 +7,7 @@ function ListaNovedades() {
     useEffect(() => {
         const obtenerNovedades = async () => {
             try {
-                const response = await fetch('http://localhost:4000/api/obtenerNovedades', {
+                const response = await fetch('https://hnp5ds36-4000.use2.devtunnels.ms/api/obtenerNovedades', {
                     credentials: "include"
                 });
 

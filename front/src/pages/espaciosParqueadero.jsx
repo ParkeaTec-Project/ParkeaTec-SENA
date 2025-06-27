@@ -25,7 +25,7 @@ function EspaciosParqueadero() {
     const obtenerSesion = async () => {
       try {
         const response = await fetch(
-          "http://localhost:4000/api/verificarSesion",
+          "https://hnp5ds36-4000.use2.devtunnels.ms/api/verificarSesion",
           {
             credentials: "include",
           }
@@ -47,7 +47,7 @@ function EspaciosParqueadero() {
     const obtenerVehiculo = async () => {
       try {
         const response = await fetch(
-          `http://localhost:4000/api/verVehiculo/${sesion.user.id}`,
+          `https://hnp5ds36-4000.use2.devtunnels.ms/api/verVehiculo/${sesion.user.id}`,
           {
             method: "GET",
             credentials: "include",
@@ -85,7 +85,7 @@ function EspaciosParqueadero() {
   // Consulta y trae todos los espacios del parqueadero
   const obtenerEspacios = async () => {
     try {
-      const response = await fetch("http://localhost:4000/api/espacios", {
+      const response = await fetch("https://hnp5ds36-4000.use2.devtunnels.ms/api/espacios", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -140,7 +140,7 @@ function EspaciosParqueadero() {
     };
     
     try {
-      const response = await fetch("http://localhost:4000/api/crearReserva", {
+      const response = await fetch("https://hnp5ds36-4000.use2.devtunnels.ms/api/crearReserva", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -173,7 +173,7 @@ function EspaciosParqueadero() {
 
   const obtenerReservaActiva = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4000/api/obtenerReservaActiva/${id}`);
+      const response = await fetch(`https://hnp5ds36-4000.use2.devtunnels.ms/api/obtenerReservaActiva/${id}`);
       if (!response.ok) throw new Error("Error al obtener reserva activa");
       const data = await response.json();
       console.log("reserva activa-", data);
@@ -188,7 +188,7 @@ function EspaciosParqueadero() {
 
   const aceptarReserva = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4000/api/aceptarReserva/${id}`,
+      const response = await fetch(`https://hnp5ds36-4000.use2.devtunnels.ms/api/aceptarReserva/${id}`,
         {
           method: 'PUT',
           headers: {
@@ -215,7 +215,7 @@ function EspaciosParqueadero() {
 
   const finalizarReserva = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4000/api/finalizarReserva/${id}`, {
+      const response = await fetch(`https://hnp5ds36-4000.use2.devtunnels.ms/api/finalizarReserva/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -251,7 +251,7 @@ function EspaciosParqueadero() {
 
   const obtenerReservasPorEspacio = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4000/api/obtenerReservaEspacio/${id}`);
+      const response = await fetch(`https://hnp5ds36-4000.use2.devtunnels.ms/api/obtenerReservaEspacio/${id}`);
       if (!response.ok) throw new Error('Error al obtener reservas');
       const data = await response.json();
       return data.data || [];

@@ -41,7 +41,7 @@ function ActualizarVehiculo({ vehiculo, handleUpdate, obtenerVehiculo }) {
   console.log("form", form);
 
         try {
-            const response = await fetch(`http://localhost:4000/api/updateVehiculo/${vehiculo.id_documento}`, {
+            const response = await fetch(`https://hnp5ds36-4000.use2.devtunnels.ms/api/updateVehiculo/${vehiculo.id_documento}`, {
                 method: "PUT",
                 credentials: "include",
                 body: form,

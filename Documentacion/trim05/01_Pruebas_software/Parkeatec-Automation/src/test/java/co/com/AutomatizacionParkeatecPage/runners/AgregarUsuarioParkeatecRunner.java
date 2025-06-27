@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         features = "src/test/resources/features/agregarUsuario_parkeatec.feature",
-        glue = {"co.com.AutomatizacionParkeatecPage.stepsdefinitions","co.com.AutomatizacionParkeatecPage.utils.hooks"},
+        glue = {"co.com.AutomatizacionParkeatecPage.stepsdefinitions", "co.com.AutomatizacionParkeatecPage.utils.hooks"},
         snippets = SnippetType.CAMELCASE
 )
 

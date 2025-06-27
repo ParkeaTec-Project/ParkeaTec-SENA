@@ -18,7 +18,7 @@ const RecuperarPassword = () => {
     const verifyToken = async () => {
       try {
         const response = await fetch(
-          `http://localhost:4000/api/reset-password?token=${token}`,
+          `https://hnp5ds36-4000.use2.devtunnels.ms/api/reset-password?token=${token}`,
           {
             credentials: "include",
           }
@@ -56,7 +56,7 @@ const RecuperarPassword = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:4000/api/reset-password-update",
+        "https://hnp5ds36-4000.use2.devtunnels.ms/api/reset-password-update",
         {
           method: "POST",
           headers: {

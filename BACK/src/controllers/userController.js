@@ -31,7 +31,9 @@ const login = async (req, res) => {
         const token = generateToken(user, rol, permisos);
         res.cookie('authToken', token, {
             httpOnly: true,
+            //secure: true,
             secure: process.env.NODE_ENV === 'production',
+            //sameSite: 'None',
             sameSite: 'Strict',
             maxAge: parseInt(process.env.JWT_COOKIE_EXPIRES_MS)
         });
@@ -204,8 +206,10 @@ const resetPasswordUpdate = async (req, res) => {
 const cerrarSesion = async (req, res) => {
     res.clearCookie('authToken', {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'Strict'
+        //secure: process.env.NODE_ENV === 'production',
+        secure: true,
+        sameSite: 'None'
+        //sameSite: 'Strict'
     });
     res.status(200).json({
         isAuthenticated: false,

@@ -9,7 +9,7 @@ function ListaNovedadesAdmin() {
     useEffect(() => {
         const obtenerNovedades = async () => {
             try {
-                const response = await fetch('http://localhost:4000/api/verNovedadesAdmin', {
+                const response = await fetch('https://hnp5ds36-4000.use2.devtunnels.ms/api/verNovedadesAdmin', {
                     credentials: "include"
                 });
 
@@ -29,7 +29,7 @@ function ListaNovedadesAdmin() {
 
     const registrarStrike = async (novedad) => {
         try {
-            const response = await fetch('http://localhost:4000/api/registroStrike', {
+            const response = await fetch('https://hnp5ds36-4000.use2.devtunnels.ms/api/registroStrike', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -62,7 +62,7 @@ function ListaNovedadesAdmin() {
 
     const rechazarNovedad = async (novedad) => {
         try {
-            const response = await fetch('http://localhost:4000/api/rechazarNovedad', {
+            const response = await fetch('https://hnp5ds36-4000.use2.devtunnels.ms/api/rechazarNovedad', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

@@ -3,7 +3,7 @@
     "line": 4,
     "elements": [
       {
-        "line": 9,
+        "line": 8,
         "name": "",
         "description": "",
         "type": "background",
@@ -11,25 +11,25 @@
         "steps": [
           {
             "result": {
-              "duration": 3425203800,
+              "duration": 6372168100,
               "status": "passed"
             },
             "line": 10,
-            "name": "que el administrador se encuentre en la pagina de parkeatec",
+            "name": "que el vigilante se encuentra en la pagina de inicio de sesion de Parkeatec",
             "match": {
-              "location": "AutenticacionAdminParkeatecStepDefinitions.queElAdministradorSeEncuentreEnLaPaginaDeParkeatec()"
+              "location": "AutenticacionVigilanteParkeatecStepDefinitions.queElVigilanteSeEncuentraEnLaPaginaDeInicioDeSesionDeParkeatec()"
             },
             "keyword": "Dado "
           },
           {
             "result": {
-              "duration": 1766145800,
+              "duration": 4625362600,
               "status": "passed"
             },
             "line": 11,
-            "name": "ingrese sus credenciales",
+            "name": "ingrese las credenciales de vigilante correctas (usuario y contrasena)",
             "match": {
-              "location": "AutenticacionAdminParkeatecStepDefinitions.ingreseSusCredenciales(CredencialesInicioSesion\u003e)"
+              "location": "AutenticacionVigilanteParkeatecStepDefinitions.ingreseLasCredencialesDeVigilanteCorrectasUsuarioYContrasena(CredencialesInicioSesion\u003e)"
             },
             "rows": [
               {
@@ -40,7 +40,7 @@
               },
               {
                 "cells": [
-                  "k@gmail.com",
+                  "julianP@gmail.com",
                   "123"
                 ]
               }
@@ -53,7 +53,7 @@
         "before": [
           {
             "result": {
-              "duration": 51168900,
+              "duration": 93234000,
               "status": "passed"
             },
             "match": {
@@ -61,76 +61,50 @@
             }
           }
         ],
-        "line": 25,
-        "name": "Hacer el registro de nuevos usuarios",
+        "line": 17,
+        "name": "Ver mis novedades",
         "description": "",
-        "id": "realizar-el-registro-de-un-usuario;hacer-el-registro-de-nuevos-usuarios;;2",
+        "id": "selecccionar-en-el-menu-el-apartado;ver-mis-novedades",
         "type": "scenario",
-        "keyword": "Esquema del escenario",
+        "keyword": "Escenario",
         "steps": [
           {
             "result": {
-              "error_message": "java.lang.NullPointerException: Cannot invoke \"Object.getClass()\" because \"target\" is null\r\n\tat net.serenitybdd.core.injectors.EnvironmentDependencyInjector.matchingFieldsIn(EnvironmentDependencyInjector.java:88)\r\n\tat net.serenitybdd.core.injectors.EnvironmentDependencyInjector.injectDependenciesInto(EnvironmentDependencyInjector.java:32)\r\n\tat net.thucydides.core.steps.PageObjectDependencyInjector.injectDependenciesInto(PageObjectDependencyInjector.java:28)\r\n\tat net.thucydides.core.steps.StepFactory.injectOtherDependenciesInto(StepFactory.java:181)\r\n\tat net.thucydides.core.steps.StepFactory.instantiateUniqueStepLibraryFor(StepFactory.java:198)\r\n\tat net.thucydides.core.steps.StepFactory.getUniqueStepLibraryFor(StepFactory.java:130)\r\n\tat net.serenitybdd.core.steps.Instrumented$InstrumentedBuilder.newInstance(Instrumented.java:30)\r\n\tat net.serenitybdd.core.steps.Instrumented$InstrumentedBuilder.withProperties(Instrumented.java:34)\r\n\tat co.com.AutomatizacionParkeatecPage.tasks.AgregarUsuario.aute(AgregarUsuario.java:32)\r\n\tat co.com.AutomatizacionParkeatecPage.stepsdefinitions.AgregarUsuarioParkeatecStepDefinitions.ingreseAlApartdoDeVerUsuariosYLleneElFormularioDeCrearUsuario(AgregarUsuarioParkeatecStepDefinitions.java:19)\r\n\tat ✽.ingrese al apartdo de ver usuarios y llene el formulario de crear usuario(src/test/resources/features/agregarUsuario_parkeatec.feature:18)\r\n",
-              "duration": 16113400,
-              "status": "failed"
+              "duration": 3243510900,
+              "status": "passed"
             },
             "line": 18,
-            "name": "ingrese al apartdo de ver usuarios y llene el formulario de crear usuario",
+            "name": "se encuentre en la pantalla inicial seleccione en el menu el apartado",
             "match": {
-              "location": "AgregarUsuarioParkeatecStepDefinitions.ingreseAlApartdoDeVerUsuariosYLleneElFormularioDeCrearUsuario(InfoUsuario\u003e)"
+              "location": "VerNovedadesStepsDefinitions.seEncuentreEnLaPantallaInicialSeleccioneEnElMenuElApartado()"
             },
-            "rows": [
-              {
-                "cells": [
-                  "documento",
-                  "nombre",
-                  "apellido",
-                  "telefono",
-                  "direccion",
-                  "correo",
-                  "password",
-                  "centro_formacion"
-                ]
-              },
-              {
-                "cells": [
-                  "89888548",
-                  "andres",
-                  "perez",
-                  "3000000000",
-                  "carrera 103 #73-51",
-                  "andres",
-                  "Andres123#",
-                  "CEET"
-                ]
-              }
-            ],
             "keyword": "Cuando "
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 500484400,
+              "status": "passed"
             },
-            "line": 21,
-            "name": "se debe registrar la informacion del usuario y visualizarse en la tabla de usuarios",
+            "line": 19,
+            "name": "este reflejara las novedades escritos por el usuario",
             "match": {
-              "location": "AgregarUsuarioParkeatecStepDefinitions.seDebeRegistrarLaInformacionDelUsuarioYVisualizarseEnLaTablaDeUsuarios()"
+              "location": "VerNovedadesStepsDefinitions.esteReflejaraLasNovedadesEscritosPorElUsuario()"
             },
             "keyword": "Entonces "
           }
         ],
         "tags": [
           {
-            "name": "@agregarUsuario"
+            "name": "@VerNovedades"
           }
         ]
       }
     ],
-    "name": "Realizar el registro de un usuario",
-    "description": "  Como administrador de parkeatec\n  Quiero hacer el registro de varios usuarios\n  Para que puedan hacer diferentes funciones dentro de la pagina",
-    "id": "realizar-el-registro-de-un-usuario",
+    "name": "Selecccionar en el menu el apartado",
+    "description": "  como usuario con rol de vigilante de Parkeatec quiero ver las novedades que he registrado.\n  para llevar un registro de estas.",
+    "id": "selecccionar-en-el-menu-el-apartado",
     "keyword": "Característica",
-    "uri": "src/test/resources/features/agregarUsuario_parkeatec.feature",
+    "uri": "src/test/resources/features/VerNovedades.feature",
     "tags": []
   }
 ]
