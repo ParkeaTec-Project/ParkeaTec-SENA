@@ -3,7 +3,7 @@
     "line": 4,
     "elements": [
       {
-        "line": 8,
+        "line": 9,
         "name": "",
         "description": "",
         "type": "background",
@@ -11,25 +11,25 @@
         "steps": [
           {
             "result": {
-              "duration": 6372168100,
+              "duration": 2855013700,
               "status": "passed"
             },
-            "line": 10,
-            "name": "que el vigilante se encuentra en la pagina de inicio de sesion de Parkeatec",
+            "line": 11,
+            "name": "que el usuario se encuentra en la pagina de inicio de sesion de Parkeatec",
             "match": {
-              "location": "AutenticacionVigilanteParkeatecStepDefinitions.queElVigilanteSeEncuentraEnLaPaginaDeInicioDeSesionDeParkeatec()"
+              "location": "AutenticacionUsuarioParkeatecStepDefinitions.queElUsuarioSeEncuentraEnLaPaginaDeInicioDeSesionDeParkeatec()"
             },
             "keyword": "Dado "
           },
           {
             "result": {
-              "duration": 4625362600,
+              "duration": 4988344800,
               "status": "passed"
             },
-            "line": 11,
-            "name": "ingrese las credenciales de vigilante correctas (usuario y contrasena)",
+            "line": 12,
+            "name": "ingrese las credenciales de usuario correctas (usuario y contrasena)",
             "match": {
-              "location": "AutenticacionVigilanteParkeatecStepDefinitions.ingreseLasCredencialesDeVigilanteCorrectasUsuarioYContrasena(CredencialesInicioSesion\u003e)"
+              "location": "AutenticacionUsuarioParkeatecStepDefinitions.ingreseLasCredencialesDeUsuarioCorrectasUsuarioYContrasena(CredencialesInicioSesion\u003e)"
             },
             "rows": [
               {
@@ -40,12 +40,24 @@
               },
               {
                 "cells": [
-                  "julianP@gmail.com",
+                  "prueba@gmail.com",
                   "123"
                 ]
               }
             ],
             "keyword": "Cuando "
+          },
+          {
+            "result": {
+              "duration": 35343400,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "se debe verificar que el usuario haya sido autenticado correctamente y redirigido a su pagina de inicio.",
+            "match": {
+              "location": "AutenticacionUsuarioParkeatecStepDefinitions.seDebeVerificarQueElUsuarioHayaSidoAutenticadoCorrectamenteYRedirigidoASuPaginaDeInicio()"
+            },
+            "keyword": "Entonces "
           }
         ]
       },
@@ -53,7 +65,7 @@
         "before": [
           {
             "result": {
-              "duration": 93234000,
+              "duration": 685200,
               "status": "passed"
             },
             "match": {
@@ -61,50 +73,56 @@
             }
           }
         ],
-        "line": 17,
-        "name": "Ver mis novedades",
+        "line": 19,
+        "name": "Realizar reserva de espacio de parqueadero",
         "description": "",
-        "id": "selecccionar-en-el-menu-el-apartado;ver-mis-novedades",
+        "id": "selecccionar-un-espacio-de-parqueadero;realizar-reserva-de-espacio-de-parqueadero",
         "type": "scenario",
         "keyword": "Escenario",
         "steps": [
           {
             "result": {
-              "duration": 3243510900,
+              "duration": 6053676500,
               "status": "passed"
             },
-            "line": 18,
-            "name": "se encuentre en la pantalla inicial seleccione en el menu el apartado",
+            "line": 20,
+            "name": "realice la reserva de un espacio de parqueadero",
             "match": {
-              "location": "VerNovedadesStepsDefinitions.seEncuentreEnLaPantallaInicialSeleccioneEnElMenuElApartado()"
+              "location": "RealizarReservaParkeatecStepDefinitions.realiceLaReservaDeUnEspacioDeParqueadero()"
             },
             "keyword": "Cuando "
           },
           {
             "result": {
-              "duration": 500484400,
+              "duration": 30576000,
               "status": "passed"
             },
-            "line": 19,
-            "name": "este reflejara las novedades escritos por el usuario",
+            "line": 21,
+            "name": "se debe valida la reserva activa en el apartado de mis reservas",
             "match": {
-              "location": "VerNovedadesStepsDefinitions.esteReflejaraLasNovedadesEscritosPorElUsuario()"
+              "location": "RealizarReservaParkeatecStepDefinitions.seDebeValidaLaReservaActivaEnElApartadoDeMisReservas()"
             },
             "keyword": "Entonces "
           }
         ],
         "tags": [
           {
-            "name": "@VerNovedades"
+            "name": "@realizarReserva"
           }
         ]
       }
     ],
-    "name": "Selecccionar en el menu el apartado",
-    "description": "  como usuario con rol de vigilante de Parkeatec quiero ver las novedades que he registrado.\n  para llevar un registro de estas.",
-    "id": "selecccionar-en-el-menu-el-apartado",
+    "name": "Selecccionar un espacio de parqueadero",
+    "description": "  como usuario aprendiz de parkeatec\n  quiero reservar un espacio de parqueadero\n  para realizar uso de este una vez me encuentre en el SENA",
+    "id": "selecccionar-un-espacio-de-parqueadero",
     "keyword": "Característica",
-    "uri": "src/test/resources/features/VerNovedades.feature",
+    "uri": "src/test/resources/features/realizarReserva_parkeatec.feature",
+    "tags": []
+  }
+]st/resources/features/registroBicicleta_parkeatec.feature",
+    "tags": []
+  }
+]uri": "src/test/resources/features/registro_parkeatec.feature",
     "tags": []
   }
 ]

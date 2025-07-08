@@ -7,6 +7,7 @@ import static co.com.AutomatizacionParkeatecPage.userinterfaces.Registro.*;
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.AutenticacionUsuario.*;
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.Bicicleta.*;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isCurrentlyEnabled;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 import co.com.AutomatizacionParkeatecPage.utils.hooks.Constantes;
@@ -83,7 +84,8 @@ public class RegistroUsuario implements Task {
                 Click.on(CERRAR_MODAL),
                 WaitUntil.the(TITLE_DASH, isVisible()).forNoMoreThan(5).seconds(),
                 Click.on(PERFIL),
-                Click.on(VER_PERFIL)
+                Click.on(VER_PERFIL),
+                WaitUntil.the(INFO_NOMBRE, isVisible()).forNoMoreThan(10).seconds()
         );
 
 
