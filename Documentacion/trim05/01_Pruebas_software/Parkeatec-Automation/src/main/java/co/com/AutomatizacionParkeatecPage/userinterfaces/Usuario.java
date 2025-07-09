@@ -6,6 +6,8 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class Usuario extends PageObject {
 
+    public static Target WELCOME = Target.the("click en boton perfil").located(By.xpath("//*[@id=\"root\"]/div/div/div[1]/h2"));
+
     public static Target TITLE = Target.the("click en boton perfil").located(By.xpath("//*[@id=\"root\"]/div/div/div[1]"));
 
     public static Target CLICK_PERFIL = Target.the("click en boton perfil").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[3]/a"));

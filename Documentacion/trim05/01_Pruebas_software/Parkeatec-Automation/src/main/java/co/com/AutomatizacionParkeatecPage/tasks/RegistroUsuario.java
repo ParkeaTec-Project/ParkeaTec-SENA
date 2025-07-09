@@ -82,10 +82,9 @@ public class RegistroUsuario implements Task {
                 Enter.theValue(info.get(0).getContrasena()).into(INPUT_CLAVE),
                 Click.on(BTN_SUCCESS),
                 Click.on(CERRAR_MODAL),
-                WaitUntil.the(TITLE_DASH, isVisible()).forNoMoreThan(5).seconds(),
+                WaitUntil.the(TITLE_DASH, isVisible()).forNoMoreThan(5).seconds()/*,
                 Click.on(PERFIL),
-                Click.on(VER_PERFIL),
-                WaitUntil.the(INFO_NOMBRE, isVisible()).forNoMoreThan(10).seconds()
+                Click.on(VER_PERFIL)*/
         );
 
 

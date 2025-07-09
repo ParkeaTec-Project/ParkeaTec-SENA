@@ -46,7 +46,7 @@ public class AgregarUsuario implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                //WaitUntil.the(BEGIN, isCurrentlyEnabled()).forNoMoreThan(20).seconds()
+                WaitUntil.the(BEGIN, isCurrentlyEnabled()).forNoMoreThan(5).seconds(),
                 Click.on(CLICK_PERFIL),
                 Click.on(CLICK_USUARIOS),
                 Scroll.to(BTN_CREAR),

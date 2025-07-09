@@ -11,7 +11,7 @@ Característica: Realizar el registro de un usuario
     Cuando ingrese sus credenciales
       | usuario     | clave |
       | k@gmail.com | 123   |
-
+    Entonces se debe validar que el usuario haya iniciado sesion en la pagina exitosamente
   @agregarUsuario
 
   Esquema del escenario: Hacer el registro de nuevos usuarios
