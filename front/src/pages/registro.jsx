@@ -154,6 +154,8 @@ function Registro() {
     console.log("Formulario enviado: ", formData);
 
     try {
+      
+      //
       const response = await fetch("https://hnp5ds36-4000.use2.devtunnels.ms/api/registro", {
         method: "POST",
         body: data,
@@ -400,36 +402,9 @@ function Registro() {
                 </Alert>
             )}
           </Col>
-          {/*<Col className={`${styles.col}`}>
-            <Form.Label className="mt-1">Firma Usuario</Form.Label>
-            <Form.Control
-              className={`mt-1 ${styles.input} `}
-              type="file"
-              name="firma_usuario"
-              onChange={handleChange}
-            ></Form.Control>
-          </Col>*/}
+          
         </Row>
-        {/*<Row className="justify-content-center">
-          <Col className={`${styles.col}`}>
-            <Form.Label className="mt-1">Foto Documento</Form.Label>
-            <Form.Control
-              className={`mt-1 ${styles.input} `}
-              type="file"
-              name="foto_documento"
-              onChange={handleChange}
-            ></Form.Control>
-          </Col>
-          <Col className={`${styles.col}`}>
-            <Form.Label className="mt-1">Foto Carnet</Form.Label>
-            <Form.Control
-              className={`mt-1 ${styles.input} `}
-              type="file"
-              name="foto_carnet"
-              onChange={handleChange}
-            ></Form.Control>
-          </Col>
-        </Row>*/}
+        
         <Button
           className={`mt-3 ${styles.button}`}
           variant="success"

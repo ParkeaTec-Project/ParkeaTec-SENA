@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Form, Row, Col, Button, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
-// import styles from "../styles/header.module.css";
+import styles from "../styles/form.module.css";
 
 function Formulario() {
   const [sesion, setSesion] = useState("");
@@ -76,6 +76,7 @@ function Formulario() {
         console.log(`${key}:`, value instanceof File ? value.name : value);
       }
       const response = await fetch(
+        //
         "https://hnp5ds36-4000.use2.devtunnels.ms/api/registroVehiculo",
         {
           method: "POST",
@@ -113,6 +114,7 @@ function Formulario() {
     const obtenerSesion = async () => {
       try {
         const response = await fetch(
+          //
           "https://hnp5ds36-4000.use2.devtunnels.ms/api/verificarSesion",
           {
             credentials: "include",
@@ -134,6 +136,8 @@ function Formulario() {
     const obtenerUsuario = async () => {
       try {
         const response = await fetch(
+          
+          //
           `https://hnp5ds36-4000.use2.devtunnels.ms/api/user/${sesion.user.id}`,
           {
             method: "GET",
@@ -163,6 +167,7 @@ function Formulario() {
     const obtenerVehiculo = async () => {
       try {
         const response = await fetch(
+          //
           `https://hnp5ds36-4000.use2.devtunnels.ms/api/verVehiculo/${sesion.user.id}`,
           {
             method: "GET",
@@ -187,7 +192,7 @@ function Formulario() {
   console.log("vehiculo", vehiculo);
 
   return (
-    <Container className="mt-4 mb-5">
+    <Container className={`${styles.section} mt-4 mb-5`}>
       <h2>Formulario solicitud parqueadero</h2>
       {vehiculo ? (
         <div className="alert alert-warning mt-4">

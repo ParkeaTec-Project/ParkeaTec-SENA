@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" type="text/css" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" type="text/css" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.19/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.19/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.19/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.19/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.19/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Parkeatec-Automation</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="04800d184599d4749954163e16c7b2136d85b0543dbc2bf81dc5010457c3cf60.html">Registro De Vehiculo En La Pagina De Parkeatec</a></span>
+                > <span class="truncate-60"><a
+                    href="6995cb36e246c0a6f25ac50e35144f6ccdd9703c1bbe405429e1a6eb6bc21fcb.html">registrar de manera exitosa la informacion en la pagina de Parkeatec </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 08-07-2025 19:53</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fa fa-2x fa-comments-o"></i>
+                                    <span class="story-header-title">Registro De Vehiculo En La Pagina De Parkeatec </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                Como usuario de Parkeatec<br />
+Quiero registrarme la informacion de mi vehiculo<br />
+Para poder hacer uso del parqueadero
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="fa fa-tag"></i>&nbsp;<a class="tagLink" style="background:default;" href="f8b3de0b6fe81bf8eeb1828b38d273f56686b9eccc957e870806b21ad2fe6f3a.html">Registro Bicicleta
+                                    (tag)</a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon fa-2x' title='ERROR'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="error-color">registrar de manera exitosa la informacion en la pagina de Parkeatec
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="story-title">
+        <h3>Scenario:</h3>
+        <div class="scenario">Cuando ingrese al apartado de formulario y seleccione llenar formulario<br><table class='embedded'><thead><th>nro_serial</th><th>observacion</th></thead><tbody><tr><td>&lt;nro_serial&gt;</td><td>&lt;observacion&gt;</td></tr></tbody></table><br>Entonces se debe registrar la informacion y verificar que la informacion del vehiculo haya sido registrada correctamente y visualizar en los vehiculos.</div>
+    </div>
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">Unhandled alert exception: unexpected alert open: {Alert text : no se pudo hacer el registro}  (Session info: chrome=138.0.7204.97): no se pudo hacer el registroBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'System info: host: 'COMPUGHOST-D4K7', ip: '192.168.20.16', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.1'Driver info: org.openqa.selenium.chrome.ChromeDriverCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.97, chrome: {chromedriverVersion: 138.0.7204.2 (38bf96e18636e..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56566}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: ignore, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}Session ID: e9c5190cbbd57a2d55a13ec1ed96d781*** Element info: {Using=xpath, value=/html/body/div[3]/div/div/div[2]/button}</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall""
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="far fa-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-overall">
+            <div class="card">
+                <div class="card-header">
+                    <h4>org.openqa.selenium.UnhandledAlertException </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>co.com.AutomatizacionParkeatecPage.tasks.RegistroBicicleta.performAs(RegistroBicicleta.java:41)<br />co.com.AutomatizacionParkeatecPage.stepsdefinitions.RegistroBicicletaParkeatecStepDefinitions.ingreseAlApartadoDeFormularioYSeleccioneLlenarFormulario(RegistroBicicletaParkeatecStepDefinitions.java:19)<br />cucumber.runner.Runner.runPickle(Runner.java:80)<br />worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)<br />worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                <div class="panel-body">
+                    <a href="#" target="_blank" class="btn btn-info">HTML Source</a>
+                </div>
+            </div>
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="ca5a76d25995f7456c5f45259ebeb65d18470c1b20aab3c5d3596ef95d1096fd.png" title=" Example: {nro_serial=123456ABC, observacion=Rayon}" width="1684"/>
+                <img src="ca5a76d25995f7456c5f45259ebeb65d18470c1b20aab3c5d3596ef95d1096fd.png" title=" Dado que el usuario se encuentra en la pagina de inicio de sesion de Parkeatec" width="1684"/>
+                <img src="ca5a76d25995f7456c5f45259ebeb65d18470c1b20aab3c5d3596ef95d1096fd.png" title=" Usuario abrir pagina" width="1684"/>
+                <img src="ca5a76d25995f7456c5f45259ebeb65d18470c1b20aab3c5d3596ef95d1096fd.png" title=" usuario opens the Inicio parkeatec" width="1684"/>
+                <img src="ca5a76d25995f7456c5f45259ebeb65d18470c1b20aab3c5d3596ef95d1096fd.png" title=" Usuario abrir pagina (completed)" width="1684"/>
+                <img src="ca5a76d25995f7456c5f45259ebeb65d18470c1b20aab3c5d3596ef95d1096fd.png" title=" Dado que el usuario se encuentra en la pagina de inicio de sesion de Parkeatec (completed)" width="1684"/>
+                <img src="8e8ff01ee2857e0f5485c79a95cb10d2a65bdd6f820df17a3960f4caa01ced85.png" title=" Cuando ingrese las credenciales de usuario correctas (usuario y contrasena)
+| usuario | clave |
+| juanandres78.jg@gmail.com | 123 |" width="1684"/>
+                <img src="8e8ff01ee2857e0f5485c79a95cb10d2a65bdd6f820df17a3960f4caa01ced85.png" title=" Usuario autenticarse usuario" width="1684"/>
+                <img src="8e8ff01ee2857e0f5485c79a95cb10d2a65bdd6f820df17a3960f4caa01ced85.png" title=" usuario clicks on Ingreso del usuario" width="1684"/>
+                <img src="3918854f50b251d6039b22ed244c7890edfe6b764e7aafba1a5963809b78e46c.png" title=" usuario enters 'juanandres78.jg@gmail.com' into Ingreso del usuario" width="1684"/>
+                <img src="5f71312c39da2f1c7b6ec94ecd16091515f24cfe9c52c1446b0bafc905b16b6a.png" title=" usuario clicks on Ingreso del password" width="1684"/>
+                <img src="29f7bf8e11027dbf027c80e92f27916ccdfc60bc6b42488dc9290ddbf2c4125d.png" title=" usuario enters '123' into Ingreso del password" width="1684"/>
+                <img src="b068e6aeddc79e252c7edf9e7814ccc5b1cf92e86a78aa0e4e62774d9e5c6688.png" title=" usuario clicks on Click btn success" width="1684"/>
+                <img src="9571897bcd061576fc36f7054665dae1d46e8bca9621c522101855b7fc6788c3.png" title=" usuario clicks on Click btn cerrar" width="1684"/>
+                <img src="9571897bcd061576fc36f7054665dae1d46e8bca9621c522101855b7fc6788c3.png" title=" Usuario autenticarse usuario (completed)" width="1684"/>
+                <img src="9571897bcd061576fc36f7054665dae1d46e8bca9621c522101855b7fc6788c3.png" title=" Cuando ingrese las credenciales de usuario correctas (usuario y contrasena)
+| usuario | clave |
+| juanandres78.jg@gmail.com | 123 | (completed)" width="1684"/>
+                <img src="baf4235f5fe98fff5c3d3e3b9a6a76d5d21499ad57dd924d03a3413fbe436326.png" title=" Cuando ingrese al apartado de formulario y seleccione llenar formulario
+| nro_serial | observacion |
+| 123456ABC | Rayon |" width="1684"/>
+                <img src="baf4235f5fe98fff5c3d3e3b9a6a76d5d21499ad57dd924d03a3413fbe436326.png" title=" Usuario registro bicicleta" width="1684"/>
+                <img src="baf4235f5fe98fff5c3d3e3b9a6a76d5d21499ad57dd924d03a3413fbe436326.png" title=" usuario clicks on Click enlace formulario" width="1684"/>
+                <img src="882818d63169238ebffd15bd33ab07d4d215b9736018e5de721d40b265258341.png" title=" usuario clicks on Click enlace llenar formulario" width="1684"/>
+                <img src="eadba668523c0cc01010cca9624e119d4b96da70ec0ad7c367fc9dcc33bd2f5e.png" title=" usuario enters 'C:\Users\User\Documents\ParkeaTec-SENA\Documentacion\trim05\01_Pruebas_software\Parkeatec-Automation\src\test\resources\dataDriven\FIRMA_DIGITAL_2.png' into Ingreso foto firma" width="1684"/>
+                <img src="eadba668523c0cc01010cca9624e119d4b96da70ec0ad7c367fc9dcc33bd2f5e.png" title=" usuario enters 'C:\Users\User\Documents\ParkeaTec-SENA\Documentacion\trim05\01_Pruebas_software\Parkeatec-Automation\src\test\resources\dataDriven\documento.jpg' into Ingreso foto documento" width="1684"/>
+                <img src="2e552bf42b4904a0a93b40b61f20e2fb7e170efe8d245f27dc7f11f24b3eeba4.png" title=" usuario enters 'C:\Users\User\Documents\ParkeaTec-SENA\Documentacion\trim05\01_Pruebas_software\Parkeatec-Automation\src\test\resources\dataDriven\carnet.jpg' into Ingreso foto carnet" width="1684"/>
+                <img src="106c09f3332199f9d25df2b396bfa77dbe7e2ca23e087037a07d856140e80e6b.png" title=" usuario select Bicicleta on Seleccion tipo de vehiculo" width="1684"/>
+                <img src="c85593b1696543aa97ca9145e164fa90cc9afd658d8da5b48bb881a3ac780104.png" title=" usuario clicks on Ingreso numero de serial del vehiculo" width="1684"/>
+                <img src="5d7f3c49b7103ff32332aac4e1bb486e7a1d1a6ef47712c9b07f27b9a17d56b1.png" title=" usuario enters '123456ABC' into Ingreso numero de serial del vehiculo" width="1684"/>
+                <img src="dab33f4e1bbe760ddd041443e5e2a63bdcea3d6ebc5094dbfe4abf6cb3f91f1d.png" title=" usuario enters 'C:\Users\User\Documents\ParkeaTec-SENA\Documentacion\trim05\01_Pruebas_software\Parkeatec-Automation\src\test\resources\dataDriven\serial.jpg' into Ingreso foto serial del vehiculo" width="1684"/>
+                <img src="dab33f4e1bbe760ddd041443e5e2a63bdcea3d6ebc5094dbfe4abf6cb3f91f1d.png" title=" usuario enters 'C:\Users\User\Documents\ParkeaTec-SENA\Documentacion\trim05\01_Pruebas_software\Parkeatec-Automation\src\test\resources\dataDriven\bicicleta.jpg' into Ingreso foto del vehiculo" width="1684"/>
+                <img src="e1236a9a909871fa453912c539c4968d574ce5dd5cdab08d0dcb1ff0af6c1410.png" title=" usuario clicks on Ingreso observacion del vehiculo" width="1684"/>
+                <img src="67a860b796c4ad7c6a99b73fa7ab1299ffe9e4c8785eb68fb80f01ccfd4fb381.png" title=" usuario enters 'Rayon' into Ingreso observacion del vehiculo" width="1684"/>
+                <img src="d66df8f70219d6af9a072b4a0315644893666439af67691146aafb506f6fdad5.png" title=" usuario clicks on Click boton enviar: <span class='error-color'>ERROR</span>" width="1684"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 2.1.1</span>
+</div>
+</body>
+</html>

@@ -207,6 +207,107 @@ const obtenerReservaEspacio = async (req, res) => {
     }
 }
 
+const historialUsuario = async (req, res) => {
+    try {
+        const { id } = req.params;
+        console.log("id usuario", id);
+        const obtenerHistorial = await Reserva.historialUsuario(id);
+        console.log("historial", obtenerHistorial);
+
+        if (obtenerHistorial.length === 0) {
+            return res.status(400).json({ message: "No tiene ningun historial" });
+        } else {
+            return res.status(200).json({ message: "Historial obtenido", data: obtenerHistorial });
+        }
+    } catch (error) {
+        console.error("Error al obtener el historial", error);
+        return res.status(500).json({ message: "Error interno en el servidor" });
+    }
+}
+
+const reservaActual = async (req, res) => {
+    try {
+        const { id } = req.params;
+        console.log("id", id);
+        const reservaActual = await Reserva.reservaActual(id);
+        console.log("reserva actual", reservaActual);
+
+        if (reservaActual.length === 0) {
+            return res.status(400).json({ message: "No tienes reseras actuales" });
+        } else {
+            return res.status(200).json({ message: "Reserva actual", data: reservaActual });
+        }
+    } catch (error) {
+        console.error("Error al obtener la reserva actual", error);
+        return res.status(500).json({ message: "Error interno en el servidor" });
+    }
+}
+
+const reservasDiarias = async (req, res) => {
+    try {
+        const reservasDiarias = await Reserva.reservasDiarias();
+        console.log("reservas diarias", reservasDiarias);
+
+        if (reservasDiarias.length === 0) {
+            return res.status(400).json({ message: "No hay reservas" });
+        } else {
+            return res.status(200).json({ message: "Reservas diarias", data: reservasDiarias });
+        }
+    } catch (error) {
+        console.error("Error al obtener las reservas diarias", error);
+        return res.status(500).json({ message: "Error interno en el servidor" });
+    }
+}
+
+const tipoVehiculo = async (req, res) => {
+    try {
+        const tipoVehiculo = await Reserva.tipoVehiculo();
+        console.log("tipo vehiculo", tipoVehiculo);
+
+        if (tipoVehiculo.length === 0) {
+            return res.status(400).json({ message: "No hay vehiculos" });
+        } else {
+            return res.status(200).json({ message: "Tipos de vehiculos", data: tipoVehiculo });
+        }
+    } catch (error) {
+        console.error("Error al obtener los tipos de vehiuculos", error);
+        return res.status(500).json({ message: "Error interno en el servidor" });
+    }
+    
+}
+
+const obtenerPuestoUsados = async (req, res) => {
+    try {
+        const puestosUsados = await Reserva.obtenerPuestoUsados();
+        console.log("puestos usados", puestosUsados);
+
+        if (puestosUsados.length === 0) {
+            return res.status(400).json({ message: "No hay puestos usados" });
+        } else {
+            return res.status(200).json({ message: "puestos usados", data: puestosUsados });
+        }
+    } catch (error) {
+        console.error("Errro al obtener los puestos usados", error);
+        return res.status(500).json({ message: "Error interno en el servidor" });
+    }
+}
+
+const usuariosFrecuentes = async (req, res) => {
+    try {
+        const usuariosFrecuentes = await Reserva.usuariosFrecuentes();
+        console.log("usuarios frecuentes", usuariosFrecuentes);
+
+        if (usuariosFrecuentes.length === 0) {
+            return res.status(400).json({ message: "No hay usuarios" });
+        } else {
+            return res.status(200).json({ message: "usuarios frecuentes", data: usuariosFrecuentes });
+        }
+    } catch (error) {
+        console.error("Error al obtener los usuarios frecuentes", error);
+        return res.status(500).json({ message: "Error interno en el servidor" });
+    }
+}
+
 export default {
     crearReserva,
     verificarReserva,
@@ -216,4 +317,10 @@ export default {
     aceptarReserva,
     finalizarReserva,
     obtenerReservaEspacio,
+    historialUsuario,
+    reservaActual,
+    reservasDiarias,
+    tipoVehiculo,
+    obtenerPuestoUsados,
+    usuariosFrecuentes,
 }

@@ -39,4 +39,5 @@ const router = express.Router();
  */
 router.get('/espacios', parqueaderoController.obtenerEspacios);
 
+router.get('/espaciosReservados', parqueaderoController.espaciosReservados);
 export default router;

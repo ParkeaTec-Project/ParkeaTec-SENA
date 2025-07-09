@@ -13,6 +13,22 @@ const obtenerEspacios = async (req, res) => {
     }
 };
 
+const espaciosReservados = async (req, res) => {
+    try {
+        const espaciosReservados = await Parqueadero.espaciosReservados();
+
+        if (espaciosReservados.length === 0) {
+            return res.status(400).json({ message: "No hay espacios reservados u ocupados" });
+        } else {
+            return res.status(200).json({ message: "Espacios reservados u ocupados", data: espaciosReservados });
+        }
+    } catch (err) {
+        console.error("Error al obtener los espacios reservados", err);
+        return res.status(500).json({ message: "Error interno en el servidor" });
+    }
+}
+
 export default {
     obtenerEspacios,
+    espaciosReservados,
 };

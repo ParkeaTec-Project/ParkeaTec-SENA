@@ -6,12 +6,14 @@ const MostrarRol = ({ rolesPermitidos = [], children }) => {
     useEffect(() => {
         const obtenerSesion = async () => {
             try {
+                //
                 const response = await fetch("https://hnp5ds36-4000.use2.devtunnels.ms/api/verificarSesion", {
                     credentials: "include",
                 });
 
                 const data = await response.json();
                 setUsuario(data);
+                console.log("usuario obtenido:", data);
             } catch (error) {
                 console.error("Error obteniendo la sesion:", error);
             }

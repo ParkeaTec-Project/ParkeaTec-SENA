@@ -22,6 +22,7 @@ public class RealizarReserva implements Task {
                 Click.on(ESPACIOS),
                 Click.on(ESPACIO_1),
                 Click.on(BTN_RESERVA),
+                Click.on(CERRAR_MODAL),
                 Click.on(BTN_PERFIL),
                 Click.on(BTN_VERRESERVA),
                 Click.on(BTN_CANCELARRESERVA)

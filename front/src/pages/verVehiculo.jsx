@@ -42,6 +42,7 @@ function VerVehiculo({ actualizarVehiculo }) {
     const obtenerSesion = async () => {
       try {
         const response = await fetch(
+          //
           "https://hnp5ds36-4000.use2.devtunnels.ms/api/verificarSesion",
           {
             credentials: "include",
@@ -67,6 +68,7 @@ function VerVehiculo({ actualizarVehiculo }) {
     try {
       // ruta obtener vehiculo
       const response = await fetch(
+        //
         `https://hnp5ds36-4000.use2.devtunnels.ms/api/verVehiculo/${sesion.user.id}`,
         {
           method: "GET",
@@ -175,6 +177,7 @@ function VerVehiculo({ actualizarVehiculo }) {
                     <Image
                       fluid
                       rounded
+                      //
                       src={`https://hnp5ds36-4000.use2.devtunnels.ms/uploads/vehicles/${vehicleData.foto_vehiculo}`}
                       alt="Foto del vehiculo"
                     />

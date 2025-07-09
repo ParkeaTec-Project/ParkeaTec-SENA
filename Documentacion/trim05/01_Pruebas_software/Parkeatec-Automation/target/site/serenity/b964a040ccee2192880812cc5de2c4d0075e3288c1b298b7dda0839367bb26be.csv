@@ -1,0 +1,4 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Selecccionar un espacio de parqueadero","Realizar reserva de espacio de parqueadero","ERROR","2025-07-09T11:54:21.4125852-05:00[America/Bogota]","0.0","16.79"
+"registro de vehiculo en la pagina de Parkeatec","registrar de manera exitosa la informacion en la pagina de Parkeatec","ERROR","2025-07-08T19:53:25.6321134-05:00[America/Bogota]","0.0","15.92"
+"registro en la pagina de Parkeatec","registrar de manera exitosa la informacion en la pagina de Parkeatec","FAILURE","2025-07-08T19:52:57.3097358-05:00[America/Bogota]","0.0","25.7"

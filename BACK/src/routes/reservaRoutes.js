@@ -586,4 +586,19 @@ router.put('/finalizarReserva/:id', reservaController.finalizarReserva);
  */
 router.get('/obtenerReservaEspacio/:id', reservaController.obtenerReservaEspacio);
 
+
+router.get('/historialUsuario/:id', reservaController.historialUsuario);
+
+
+
+router.get('/reservaActual/:id', reservaController.reservaActual);
+
+router.get('/reservasDiarias', reservaController.reservasDiarias);
+
+router.get('/tipoVehiculo', reservaController.tipoVehiculo);
+
+router.get('/obtenerPuestosUsados', reservaController.obtenerPuestoUsados);
+
+router.get('/usuariosFrecuentes', reservaController.usuariosFrecuentes);
+
 export default router;

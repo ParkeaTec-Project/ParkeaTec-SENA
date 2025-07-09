@@ -50,7 +50,7 @@ class Reserva {
         try {
             const [rows] = await connection.promise().query(query, [placa]);
             console.log("rows", rows);
-            return rows[0].count > 0;;
+            return rows[0].count > 0;
         } catch (err) {
             console.error("Error al obtener la reserva", err);
             throw err;
@@ -196,6 +196,104 @@ class Reserva {
         } catch (error) {
             console.log("Error en obtener la reserva del espacio", error);
             throw error;
+        }
+    }
+
+    static async historialUsuario(id) {
+        const query = `SELECT * FROM reserva where id_documento = ? ORDER BY fecha_hora_entrada DESC;`
+
+        try {
+            const [rows] = await connection.promise().query(query, [id]);
+            console.log("historial reservas", rows);
+            return rows;
+        } catch (err) {
+            console.error("Error al obtener el historial", err);
+            throw err;
+        }
+    }
+
+    static async reservaActual(id) {
+        const query = `SELECT * FROM reserva WHERE id_documento = ? ORDER BY fecha_creacion DESC LIMIT 1;`;
+
+        try {
+            const [rows] = await connection.promise().query(query, [id]);
+            console.log("reserva actual", rows);
+            return rows;
+        } catch (err) {
+            console.error("Error al obtener la reserva actual", err);
+            throw err;
+        }
+    }
+
+    static async reservasDiarias() {
+        const query = `SELECT DATE(fecha_hora_entrada) AS dia, COUNT(*) AS total
+                       FROM reserva WHERE estado = 'finalizada'
+                       GROUP BY DATE(fecha_hora_entrada) 
+                       ORDER BY dia ASC;`
+        
+        try {
+            const [rows] = await connection.promise().query(query);
+            console.log("reservas diarias", rows);
+            return rows;
+        } catch (err) {
+            console.error("Error al obtener las reservas diarias", err);
+            throw err;
+        }
+    }
+
+    static async tipoVehiculo() {
+        const query = `SELECT v.tipo_vehiculo, COUNT(*) AS total
+                       FROM reserva r 
+                       JOIN vehiculo v ON r.vehiculo_placa = v.placa
+                       WHERE r.estado = 'finalizada'
+                       GROUP BY v.tipo_vehiculo
+                       ORDER BY total DESC;`;
+
+        try {
+            const [rows] = await connection.promise().query(query);
+            console.log("tipo vehiculo", rows);
+            return rows;
+        } catch (err) {
+            console.error("Error al obtener el tipo de vehiculo", err);
+            throw err;
+        }
+    }
+
+    static async obtenerPuestoUsados() {
+        const query = `SELECT p.numero_espacio, COUNT(*) AS veces_usado
+                       FROM reserva r
+                       JOIN parqueadero p ON r.puesto_asignado = p.id_parqueadero
+                       WHERE r.estado = 'finalizada'
+                       GROUP BY r.puesto_asignado
+                       ORDER BY veces_usado DESC
+                       LIMIT 5;`;
+
+        try {
+            const [rows] = await connection.promise().query(query);
+            console.log("puestos mas usados", rows);
+            return rows;
+        } catch (err) {
+            console.error("Error al obtener los puestos mas usados", err);
+            throw err;
+        }
+    }
+
+    static async usuariosFrecuentes() {
+        const query = `SELECT u.nombre, u.apellido, COUNT(*) AS total_reservas
+                       FROM reserva r 
+                       JOIN usuario u ON r.id_documento = u.id_documento
+                       WHERE r.estado = 'finalizada'
+                       GROUP BY r.id_documento
+                       ORDER BY total_reservas DESC
+                       LIMIT 5;`;
+
+        try {
+            const [rows] = await connection.promise().query(query);
+            console.log("usuarios frecuentes", rows);
+            return rows;
+        } catch (err) {
+            console.error("Error al obtener los usuarios frecuentes", err);
+            throw err;
         }
     }
 }
