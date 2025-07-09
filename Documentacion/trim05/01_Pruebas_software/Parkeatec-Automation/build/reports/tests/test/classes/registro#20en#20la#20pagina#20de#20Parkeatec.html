@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">26.885s</div>
+<div class="counter">34.745s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">0%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,37 +61,16 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Failed tests</a>
+<a href="#tab0">Tests</a>
 </li>
 <li>
-<a href="#tab1">Tests</a>
+<a href="#tab1">Standard output</a>
 </li>
 <li>
-<a href="#tab2">Standard output</a>
-</li>
-<li>
-<a href="#tab3">Standard error</a>
+<a href="#tab2">Standard error</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="registrar de manera exitosa la informacion en la pagina de Parkeatec"></a>
-<h3 class="failures">registrar de manera exitosa la informacion en la pagina de Parkeatec</h3>
-<span class="code">
-<pre>java.lang.AssertionError: Expected validacion registro
-Expected: is &lt;true&gt;
-     but: was &lt;false&gt;
-	at net.serenitybdd.screenplay.ErrorTally.throwSummaryExceptionFrom(ErrorTally.java:36)
-	at net.serenitybdd.screenplay.ErrorTally.reportAnyErrors(ErrorTally.java:30)
-	at net.serenitybdd.screenplay.Actor.should(Actor.java:316)
-	at co.com.AutomatizacionParkeatecPage.stepsdefinitions.RegistroParkeatecStepDefinitions.seDebeVerificarQueLaInformacionDelUsuarioHayaSidoRegistradaCorrectamenteYRedirigidoASuPaginaDeInicio(RegistroParkeatecStepDefinitions.java:33)
-	at ✽.se debe verificar que la informacion del usuario haya sido registrada correctamente y redirigido a su pagina de inicio.(src/test/resources/features/registro_parkeatec.feature:16)
-</pre>
-</span>
-</div>
-</div>
-<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -102,57 +81,46 @@ Expected: is &lt;true&gt;
 </tr>
 </thead>
 <tr>
-<td class="failures">registrar de manera exitosa la informacion en la pagina de Parkeatec</td>
-<td class="failures">26.885s</td>
-<td class="failures">failed</td>
+<td class="success">registrar de manera exitosa la informacion en la pagina de Parkeatec</td>
+<td class="success">34.745s</td>
+<td class="success">passed</td>
 </tr>
 </table>
 </div>
-<div id="tab2" class="tab">
+<div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
 <pre>    ?[32mDado ?[0m?[32mque el usuario se encuentra en la pagina de registro de Parkeatec?[0m                                                           ?[90m# RegistroParkeatecStepDefinitions.queElUsuarioSeEncuentraEnLaPaginaDeRegistroDeParkeatec()?[0m
-juanSu@gmail.com
-prueba dominiojuanSu@gmail.com
+juanWA@gmail.com
+prueba dominiojuanWA@gmail.com
     ?[32mCuando ?[0m?[32mingrese la informacion del formulario correctamente?[0m                                                                       ?[90m# RegistroParkeatecStepDefinitions.ingreseLaInformacionDelFormularioCorrectamente(InfoRegistro&gt;)?[0m
-    ?[31mEntonces ?[0m?[31mse debe verificar que la informacion del usuario haya sido registrada correctamente y redirigido a su pagina de inicio.?[0m ?[90m# RegistroParkeatecStepDefinitions.seDebeVerificarQueLaInformacionDelUsuarioHayaSidoRegistradaCorrectamenteYRedirigidoASuPaginaDeInicio()?[0m
-      ?[31mjava.lang.AssertionError: Expected validacion registro
-Expected: is &lt;true&gt;
-     but: was &lt;false&gt;
-	at net.serenitybdd.screenplay.ErrorTally.throwSummaryExceptionFrom(ErrorTally.java:36)
-	at net.serenitybdd.screenplay.ErrorTally.reportAnyErrors(ErrorTally.java:30)
-	at net.serenitybdd.screenplay.Actor.should(Actor.java:316)
-	at co.com.AutomatizacionParkeatecPage.stepsdefinitions.RegistroParkeatecStepDefinitions.seDebeVerificarQueLaInformacionDelUsuarioHayaSidoRegistradaCorrectamenteYRedirigidoASuPaginaDeInicio(RegistroParkeatecStepDefinitions.java:33)
-	at ?.se debe verificar que la informacion del usuario haya sido registrada correctamente y redirigido a su pagina de inicio.(src/test/resources/features/registro_parkeatec.feature:16)
-?[0m
+    ?[32mEntonces ?[0m?[32mse debe verificar que la informacion del usuario haya sido registrada correctamente y redirigido a su pagina de inicio.?[0m ?[90m# RegistroParkeatecStepDefinitions.seDebeVerificarQueLaInformacionDelUsuarioHayaSidoRegistradaCorrectamenteYRedirigidoASuPaginaDeInicio()?[0m
 </pre>
 </span>
 </div>
-<div id="tab3" class="tab">
+<div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>jul. 08, 2025 12:14:33 P. M. org.openqa.selenium.remote.DesiredCapabilities chrome
+<pre>jul. 09, 2025 2:34:00 P. M. org.openqa.selenium.remote.DesiredCapabilities chrome
 INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
 [Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Instantiating driver
 [Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Driver capabilities: Capabilities {acceptInsecureCerts: false, browserName: chrome, goog:chromeOptions: {args: [], extensions: [], prefs: {behavior: allow}}, loggingPrefs: org.openqa.selenium.logging..., name: proyecto, platform: ANY, unhandledPromptBehavior: ignore, version: }
-Starting ChromeDriver 138.0.7204.2 (38bf96e18636e2404cd3367ae67135175deef35f-refs/branch-heads/7204@{#5}) on port 3761
+Starting ChromeDriver 138.0.7204.2 (38bf96e18636e2404cd3367ae67135175deef35f-refs/branch-heads/7204@{#5}) on port 38514
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-ChromeDriver was started successfully on port 3761.
-jul. 08, 2025 12:14:35 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
+ChromeDriver was started successfully on port 38514.
+jul. 09, 2025 2:34:03 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
-[Test worker] ERROR net.thucydides.core.steps.ConsoleLoggingListener - 
-           __  _____ _____ ____ _____   _____ _    ___ _     _____ ____  
-  _       / / |_   _| ____/ ___|_   _| |  ___/ \  |_ _| |   | ____|  _ \ 
- (_)_____| |    | | |  _| \___ \ | |   | |_ / _ \  | || |   |  _| | | | |
-  _|_____| |    | | | |___ ___) || |   |  _/ ___ \ | || |___| |___| |_| |
- (_)     | |    |_| |_____|____/ |_|   |_|/_/   \_\___|_____|_____|____/ 
-          \_\                                                            
+[Test worker] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
+        __    _____ _____ ____ _____   ____   _    ____  ____  _____ ____  
+  _     \ \  |_   _| ____/ ___|_   _| |  _ \ / \  / ___|/ ___|| ____|  _ \ 
+ (_)_____| |   | | |  _| \___ \ | |   | |_) / _ \ \___ \\___ \|  _| | | | |
+  _|_____| |   | | | |___ ___) || |   |  __/ ___ \ ___) |___) | |___| |_| |
+ (_)     | |   |_| |_____|____/ |_|   |_| /_/   \_\____/|____/|_____|____/ 
+        /_/                                                                
 
-TEST FAILED: registrar de manera exitosa la informacion en la pagina de Parkeatec
---------------------------------------------------------------------------
-[Test worker] ERROR net.thucydides.core.steps.ConsoleLoggingListener - TEST FAILED AT STEP Then validacion registro
-[Test worker] ERROR net.thucydides.core.steps.ConsoleLoggingListener - Expected validacion registroExpected: is &lt;true&gt; but: was &lt;false&gt;
+TEST PASSED: registrar de manera exitosa la informacion en la pagina de Parkeatec
+----------------------------------------------------------------------------
 </pre>
 </span>
 </div>
@@ -164,7 +132,7 @@ TEST FAILED: registrar de manera exitosa la informacion en la pagina de Parkeate
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.4</a> at 8/07/2025, 12:15:38 p. m.</p>
+<a href="http://www.gradle.org">Gradle 7.4</a> at 9/07/2025, 2:35:26 p. m.</p>
 </div>
 </div>
 </body>

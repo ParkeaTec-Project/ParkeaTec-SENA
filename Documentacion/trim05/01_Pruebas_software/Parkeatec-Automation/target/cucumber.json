@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 2855013700,
+              "duration": 3232028700,
               "status": "passed"
             },
             "line": 11,
@@ -23,7 +23,7 @@
           },
           {
             "result": {
-              "duration": 4988344800,
+              "duration": 7214314600,
               "status": "passed"
             },
             "line": 12,
@@ -49,7 +49,7 @@
           },
           {
             "result": {
-              "duration": 35343400,
+              "duration": 275753300,
               "status": "passed"
             },
             "line": 15,
@@ -65,7 +65,7 @@
         "before": [
           {
             "result": {
-              "duration": 685200,
+              "duration": 1388300,
               "status": "passed"
             },
             "match": {
@@ -82,7 +82,7 @@
         "steps": [
           {
             "result": {
-              "duration": 6053676500,
+              "duration": 7562793500,
               "status": "passed"
             },
             "line": 20,
@@ -94,7 +94,7 @@
           },
           {
             "result": {
-              "duration": 30576000,
+              "duration": 298475800,
               "status": "passed"
             },
             "line": 21,
@@ -119,10 +119,7 @@
     "uri": "src/test/resources/features/realizarReserva_parkeatec.feature",
     "tags": []
   }
-]st/resources/features/registroBicicleta_parkeatec.feature",
-    "tags": []
-  }
-]uri": "src/test/resources/features/registro_parkeatec.feature",
+]ces/features/registroBicicleta_parkeatec.feature",
     "tags": []
   }
 ]

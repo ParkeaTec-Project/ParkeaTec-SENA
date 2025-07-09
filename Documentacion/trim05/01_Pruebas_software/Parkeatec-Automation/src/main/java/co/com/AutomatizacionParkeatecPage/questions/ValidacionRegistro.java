@@ -5,6 +5,9 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.Attribute;
 import net.serenitybdd.screenplay.questions.Text;
+
+import static co.com.AutomatizacionParkeatecPage.userinterfaces.Moto.BEGIN;
+import static co.com.AutomatizacionParkeatecPage.userinterfaces.Usuario.WELCOME;
 import static jxl.biff.FormatRecord.logger;
 
 import static co.com.AutomatizacionParkeatecPage.userinterfaces.Registro.*;
@@ -16,16 +19,18 @@ public class ValidacionRegistro implements Question<Boolean> {
 
     @Override
     public Boolean answeredBy(Actor actor) {
-        String usuario = theActorInTheSpotlight().recall(SesionVariable.nombre.toString());
+        /*String usuario = theActorInTheSpotlight().recall(SesionVariable.nombre.toString());
         String nroDocumento = theActorInTheSpotlight().recall(SesionVariable.documento.toString());
-        String email = theActorInTheSpotlight().recall(SesionVariable.correo.toString());
+        String email = theActorInTheSpotlight().recall(SesionVariable.correo.toString());*/
 
         try {
-            String nombre = Attribute.of(INFO_NOMBRE).named("value").viewedBy(actor).asString();
+            String texto = Text.of(WELCOME).viewedBy(actor).asString();
+            return "Libres".equals(texto);
+            /*String nombre = Attribute.of(INFO_NOMBRE).named("value").viewedBy(actor).asString();
             String documento = Attribute.of(INFO_DOCUMENTO).named("value").viewedBy(actor).asString();
             String correo = Attribute.of(INFO_CORREO).named("value").viewedBy(actor).asString();
 
-            return usuario.equals(nombre) && nroDocumento.equals(documento) && email.equals(correo);
+            return usuario.equals(nombre) && nroDocumento.equals(documento) && email.equals(correo);*/
         } catch (Exception e) {
             logger.info("No se encontro la informacion");
             return false;

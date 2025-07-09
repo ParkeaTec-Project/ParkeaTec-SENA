@@ -159,7 +159,7 @@ function EspaciosParqueadero() {
         setTimeout(() => {
           setShowSuccessAlert(false);
           setShowReservaModal(false);
-        }, 3000);
+        }, 1000);
       } else {
         setAlertMessage(data.message || "Error al realizar la reserva");
         setShowErrorAlert(true);
@@ -269,8 +269,9 @@ function EspaciosParqueadero() {
 
   const NotificationAlert = ({ show, variant, message, onClose }) => (
     <div
-      className={`position-fixed top-0 end-0 m-4 ${styles.notification}`}
+      className={`position-fixed top-0 end-0 m-4 mt-5 ${styles.notification}`}
       style={{
+        top: "60px",
         transform: show ? "translateX(0)" : "translateX(200%)",
         transition: "transform 0.3s ease-out",
         zIndex: 9999,

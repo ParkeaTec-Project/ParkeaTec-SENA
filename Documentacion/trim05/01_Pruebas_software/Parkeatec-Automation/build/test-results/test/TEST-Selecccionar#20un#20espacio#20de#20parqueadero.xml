@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Selecccionar un espacio de parqueadero" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-07-08T17:15:23" hostname="LBOG0551" time="14.783">
+<testsuite name="Selecccionar un espacio de parqueadero" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-07-09T19:35:05" hostname="LBOG0551" time="19.812">
   <properties/>
-  <testcase name="Realizar reserva de espacio de parqueadero" classname="Selecccionar un espacio de parqueadero" time="14.783"/>
+  <testcase name="Realizar reserva de espacio de parqueadero" classname="Selecccionar un espacio de parqueadero" time="19.812"/>
   <system-out><![CDATA[    ?[32mDado ?[0m?[32mque el usuario se encuentra en la pagina de inicio de sesion de Parkeatec?[0m                                    ?[90m# AutenticacionUsuarioParkeatecStepDefinitions.queElUsuarioSeEncuentraEnLaPaginaDeInicioDeSesionDeParkeatec()?[0m
     ?[32mCuando ?[0m?[32mingrese las credenciales de usuario correctas (usuario y contrasena)?[0m                                       ?[90m# AutenticacionUsuarioParkeatecStepDefinitions.ingreseLasCredencialesDeUsuarioCorrectasUsuarioYContrasena(CredencialesInicioSesion>)?[0m
     ?[32mEntonces ?[0m?[32mse debe verificar que el usuario haya sido autenticado correctamente y redirigido a su pagina de inicio.?[0m ?[90m# AutenticacionUsuarioParkeatecStepDefinitions.seDebeVerificarQueElUsuarioHayaSidoAutenticadoCorrectamenteYRedirigidoASuPaginaDeInicio()?[0m
@@ -11,15 +11,15 @@
     ?[32mCuando ?[0m?[32mrealice la reserva de un espacio de parqueadero?[0m                   ?[90m# RealizarReservaParkeatecStepDefinitions.realiceLaReservaDeUnEspacioDeParqueadero()?[0m
     ?[32mEntonces ?[0m?[32mse debe valida la reserva activa en el apartado de mis reservas?[0m ?[90m# RealizarReservaParkeatecStepDefinitions.seDebeValidaLaReservaActivaEnElApartadoDeMisReservas()?[0m
 ]]></system-out>
-  <system-err><![CDATA[jul. 08, 2025 12:15:23 P. M. org.openqa.selenium.remote.DesiredCapabilities chrome
+  <system-err><![CDATA[jul. 09, 2025 2:35:05 P. M. org.openqa.selenium.remote.DesiredCapabilities chrome
 INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
 [Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Instantiating driver
 [Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Driver capabilities: Capabilities {acceptInsecureCerts: false, browserName: chrome, goog:chromeOptions: {args: [], extensions: [], prefs: {behavior: allow}}, loggingPrefs: org.openqa.selenium.logging..., name: proyecto, platform: ANY, unhandledPromptBehavior: ignore, version: }
-Starting ChromeDriver 138.0.7204.2 (38bf96e18636e2404cd3367ae67135175deef35f-refs/branch-heads/7204@{#5}) on port 4212
+Starting ChromeDriver 138.0.7204.2 (38bf96e18636e2404cd3367ae67135175deef35f-refs/branch-heads/7204@{#5}) on port 24963
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-ChromeDriver was started successfully on port 4212.
-jul. 08, 2025 12:15:25 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
+ChromeDriver was started successfully on port 24963.
+jul. 09, 2025 2:35:07 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
 [Test worker] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
         __    _____ _____ ____ _____   ____   _    ____  ____  _____ ____  
