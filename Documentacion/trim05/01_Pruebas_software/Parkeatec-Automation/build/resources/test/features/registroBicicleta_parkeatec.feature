@@ -9,8 +9,8 @@ Característica: registro de vehiculo en la pagina de Parkeatec
   Antecedentes:
     Dado que el usuario se encuentra en la pagina de inicio de sesion de Parkeatec
     Cuando ingrese las credenciales de usuario correctas (usuario y contrasena)
-      | usuario                   | clave |
-      | juanandres78.jg@gmail.com | 123   |
+      | usuario            | clave |
+      | diego123@gmail.com | 123   |
 
   @registroBicicleta
 
