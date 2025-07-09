@@ -5,6 +5,12 @@
     align-items: center;
     width: 100vw;
     height: calc(100vh - 80px - 72px);
+    overflow: auto;
+}
+
+.container {
+    height: auto;
+    overflow: auto;
 }
 
 .parkingSpot {
@@ -92,6 +98,7 @@
 .notification {
     min-width: 300px;
     max-width: 100%;
+    margin-top: 50px;
 }
 
 @keyframes slideIn {

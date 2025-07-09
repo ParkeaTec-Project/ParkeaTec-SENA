@@ -31,6 +31,7 @@ import RegistroNovedad from "./pages/registarNovedad";
 import ListaNovedades from "./pages/listaNovedades";
 import ListaNovedadesAdmin from "./pages/listaNovedadesAdmin";
 import VerStrikesUsuario from "./pages/strikesUsuario";
+import Reportes from "./pages/reportes.jsx";
 import NotFound from "./pages/notFound";
 
 
@@ -40,7 +41,10 @@ function App() {
   const session = async () => {
     try {
       const response = await fetch(
+
+        //
         "https://hnp5ds36-4000.use2.devtunnels.ms/api/verificarSesion",
+
         {
           credentials: "include",
         }
@@ -92,6 +96,8 @@ function App() {
           <Route path="/ListaNovedadesAdmin" element={<ListaNovedadesAdmin />}/>
 
           <Route path="/StrikesUsuario" element={<VerStrikesUsuario />}/>
+
+          <Route path="/Reportes" element={<Reportes />} />
         </Route>
       
         <Route path='*' element = { <NotFound /> } />

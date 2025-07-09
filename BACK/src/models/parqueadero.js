@@ -30,6 +30,23 @@ class parqueadero {
             throw err;
         }
     }
+
+    static async espaciosReservados() {
+        const query = `SELECT r.id_reserva, r.fecha_creacion, r.fecha_hora_entrada, p.numero_espacio, p.tipo_parqueadero, p.disponibilidad, r.estado AS estado_reserva, u.nombre, u.apellido, u.id_documento, v.placa AS vehiculo_placa
+                       FROM parqueadero p
+                       JOIN reserva r ON r.puesto_asignado = p.id_parqueadero
+                       JOIN usuario u ON u.id_documento = r.id_documento
+                       JOIN vehiculo v ON v.placa = r.vehiculo_placa
+                       WHERE r.estado IN ('pendiente', 'aceptada');`;
+
+        try {
+            const [result] = await connection.promise().query(query);
+            return result;
+        } catch (err) {
+            console.error("Error al obtener los espacios reservados", err);
+            throw err;
+        }
+    }
 }
 
 export default parqueadero;

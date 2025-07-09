@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import { Row, Container, Button, Col, Badge, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,6 +13,7 @@ function VerReservas() {
     const obtenerSesion = async () => {
       try {
         const response = await fetch(
+          //
           "https://hnp5ds36-4000.use2.devtunnels.ms/api/verificarSesion",
           {
             credentials: "include",
@@ -35,7 +36,11 @@ function VerReservas() {
     const obtenerReserva = async () => {
       try {
         const response = await fetch(
+
+          //
           `https://hnp5ds36-4000.use2.devtunnels.ms/api/obtenerReservas/${sesion.user.id}`,
+
+
           {
             method: "GET",
             credentials: "include",
@@ -60,6 +65,8 @@ function VerReservas() {
     console.log("id reserva", id);
     try {
       const response = await fetch(
+        
+        //
         `https://hnp5ds36-4000.use2.devtunnels.ms/api/cancelarReserva/${id}`,
         {
           method: "PUT",

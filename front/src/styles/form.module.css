@@ -1,0 +1,8 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: calc(100vh - 80px - 72px);
+    padding: 2rem;
+    background: linear-gradient(to bottom, #f9fafb, #ffffff);
+}

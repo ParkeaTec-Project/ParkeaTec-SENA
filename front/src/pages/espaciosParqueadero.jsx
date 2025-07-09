@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Modal, Button, Badge, Container, Row, Col, Alert } from "react-bootstrap";
 import styles from "../styles/espacioParqueadero.module.css";
+import MostrarRol from "../components/MostrarRol";
 
 function EspaciosParqueadero() {
   const navigate = useNavigate();
@@ -17,6 +18,8 @@ function EspaciosParqueadero() {
   const [showErrorAlert, setShowErrorAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [espacios, setEspacios] = useState([]);
+  const [espaciosReservados, setEspaciosReservados] = useState([]);
+  const [busqueda, setBusqueda] = useState("");
   const [espacioSeleccionado, setEspacioSeleccionado] = useState(null);
   console.log("espacio seleccionado set", espacioSeleccionado);
 
@@ -25,7 +28,9 @@ function EspaciosParqueadero() {
     const obtenerSesion = async () => {
       try {
         const response = await fetch(
-          "https://hnp5ds36-4000.use2.devtunnels.ms/api/verificarSesion",
+          
+          //https://hnp5ds36-4000.use2.devtunnels.ms/api/verificarSesion
+          "https://d1vfd6bf-4000.use2.devtunnels.ms/api/verificarSesion",
           {
             credentials: "include",
           }
@@ -47,7 +52,8 @@ function EspaciosParqueadero() {
     const obtenerVehiculo = async () => {
       try {
         const response = await fetch(
-          `https://hnp5ds36-4000.use2.devtunnels.ms/api/verVehiculo/${sesion.user.id}`,
+          //https://hnp5ds36-4000.use2.devtunnels.ms/api/verVehiculo/${sesion.user.id}
+          `https://d1vfd6bf-4000.use2.devtunnels.ms/api/verVehiculo/${sesion.user.id}`,
           {
             method: "GET",
             credentials: "include",
@@ -69,7 +75,7 @@ function EspaciosParqueadero() {
 
         if (data?.vehiculo && Object.keys(data?.vehiculo).length > 0) {
           setVehiculo(data.vehiculo);
-        } else {
+        } else if (sesion?.user?.rol !== 'vigilante' && sesion?.user?.rol !== 'admin') {
           setShowModal(true);
         }
         console.log("dato vehiculo parqueadero", data);
@@ -85,7 +91,9 @@ function EspaciosParqueadero() {
   // Consulta y trae todos los espacios del parqueadero
   const obtenerEspacios = async () => {
     try {
-      const response = await fetch("https://hnp5ds36-4000.use2.devtunnels.ms/api/espacios", {
+      
+      //https://hnp5ds36-4000.use2.devtunnels.ms/api/espacios
+      const response = await fetch("https://d1vfd6bf-4000.use2.devtunnels.ms/api/espacios", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -107,11 +115,35 @@ function EspaciosParqueadero() {
     obtenerEspacios();
   }, []);
 
-  //const obtenerColor = (estado) => colorEstado[estado] || "bg-secondary";
+  useEffect(() => {
+    const obtenerEspaciosReservados = async () => {
+      try {
+        const response = await fetch("https://d1vfd6bf-4000.use2.devtunnels.ms/api/espaciosReservados", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        });
 
-  // const obtenerColor = (estado) => {
-  //   return estado === "libre" ? styles.disponible : styles.ocupado;
-  // };
+        const data = await response.json();
+        setEspaciosReservados(data.data);
+      } catch (error) {
+        console.error("Error cargando los espacios", error);
+      }
+    };
+
+    obtenerEspaciosReservados();
+  }, []);
+
+  const resulBusqueda = busqueda.trim() !== "";
+
+  const espaciosFiltrados = espaciosReservados.filter((e) =>
+    e.numero_espacio.toLowerCase().includes(busqueda.toLowerCase()) ||
+    `${e.nombre} ${e.apellido}`.toLowerCase().includes(busqueda.toLowerCase()) ||
+    e.vehiculo_placa.toLowerCase().includes(busqueda.toLowerCase()) ||
+    e.id_documento.toString().toLowerCase().includes(busqueda.toLowerCase())
+  );
 
   const obtenerColor = (estado) => {
     const clases = {
@@ -140,7 +172,9 @@ function EspaciosParqueadero() {
     };
     
     try {
-      const response = await fetch("https://hnp5ds36-4000.use2.devtunnels.ms/api/crearReserva", {
+      
+      //https://hnp5ds36-4000.use2.devtunnels.ms/api/crearReserva
+      const response = await fetch("https://d1vfd6bf-4000.use2.devtunnels.ms/api/crearReserva", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -173,7 +207,9 @@ function EspaciosParqueadero() {
 
   const obtenerReservaActiva = async (id) => {
     try {
-      const response = await fetch(`https://hnp5ds36-4000.use2.devtunnels.ms/api/obtenerReservaActiva/${id}`);
+      
+      //https://hnp5ds36-4000.use2.devtunnels.ms/api/obtenerReservaActiva/${id}
+      const response = await fetch(`https://d1vfd6bf-4000.use2.devtunnels.ms/api/obtenerReservaActiva/${id}`);
       if (!response.ok) throw new Error("Error al obtener reserva activa");
       const data = await response.json();
       console.log("reserva activa-", data);
@@ -188,7 +224,9 @@ function EspaciosParqueadero() {
 
   const aceptarReserva = async (id) => {
     try {
-      const response = await fetch(`https://hnp5ds36-4000.use2.devtunnels.ms/api/aceptarReserva/${id}`,
+      
+      //https://hnp5ds36-4000.use2.devtunnels.ms/api/aceptarReserva/${id}
+      const response = await fetch(`https://d1vfd6bf-4000.use2.devtunnels.ms/api/aceptarReserva/${id}`,
         {
           method: 'PUT',
           headers: {
@@ -215,7 +253,9 @@ function EspaciosParqueadero() {
 
   const finalizarReserva = async (id) => {
     try {
-      const response = await fetch(`https://hnp5ds36-4000.use2.devtunnels.ms/api/finalizarReserva/${id}`, {
+      
+      //https://hnp5ds36-4000.use2.devtunnels.ms/api/finalizarReserva/${id}
+      const response = await fetch(`https://d1vfd6bf-4000.use2.devtunnels.ms/api/finalizarReserva/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -251,6 +291,8 @@ function EspaciosParqueadero() {
 
   const obtenerReservasPorEspacio = async (id) => {
     try {
+      
+      //
       const response = await fetch(`https://hnp5ds36-4000.use2.devtunnels.ms/api/obtenerReservaEspacio/${id}`);
       if (!response.ok) throw new Error('Error al obtener reservas');
       const data = await response.json();
@@ -305,12 +347,70 @@ function EspaciosParqueadero() {
 
     navigate('/registroNovedad', { state: datos });
   };
+
+  const fechaReserva = new Date(reservaActiva[0]?.fecha_creacion);
+  fechaReserva.setHours(fechaReserva.getHours() - 5);
   
 
   return (
     <section className={`py-5 ${styles.ParkingSection}`}>
       <Container>
-        <h2 className="text-center mb-4">Espacios Parqueadero</h2>
+        <h2 className={`${styles.container} text-center mb-4 `}>Espacios Parqueadero</h2>
+
+        <MostrarRol rolesPermitidos={["admin", "vigilante"]}>
+          <input 
+          type="text"
+          placeholder="Buscar por espacio, nombre o placa"
+          value={busqueda}
+          onChange={(e) => setBusqueda(e.target.value)}
+          style={{
+            padding: "0.5rem",
+            width: "100%",
+            marginBottom: "1rem",
+            borderRadius: "4px",
+            border: "1px solid #ccc"
+          }}
+          />
+        
+        
+
+        {resulBusqueda ? (
+          espaciosFiltrados.length > 0 ? (
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "1rem" }}>
+              {espaciosFiltrados.map((espacio, index) => (
+                <div key={index} style={{ border: "1px solid #ddd", padding: "1rem", marginBottom: "1rem", borderRadius: "8px", cursor: "pointer" }}
+                  onClick={ async () => {
+                    setReservaActiva([espacio]);
+                    setEspacioSeleccionado(espacio);
+                    console.log("barra de busqueda espacio", espacio);
+
+                    if (espacio.disponibilidad === "reservado") {
+                      setShowAceptarModal(true);
+                    } else if (espacio.disponibilidad === "ocupado") {
+                      setShowFinalizarModal(true);
+                    }
+                    
+
+          
+                  }}
+                >
+                
+                  <p><strong>Espacio:</strong> {espacio.numero_espacio}</p>
+                  <p><strong>Tipo:</strong> {espacio.tipo_parqueadero}</p>
+                  <p><strong>Estado:</strong> {espacio.disponibilidad}</p>
+                  <p><strong>Usuario:</strong> {espacio.nombre} {espacio.apellido}</p>
+                  <p><strong>Documento:</strong> {espacio.id_documento}</p>
+                  <p><strong>Placa:</strong> {espacio.vehiculo_placa}</p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p>No se encontraron espacios coincidentes.</p>
+          )
+        ) : (
+          <p>Escribe una placa, documento o nombre para buscar un espacio.</p>
+        )}
+        </MostrarRol>
 
         <div className="d-flex justify-content-center gap-4 mb-4">
           <Badge bg="success" className="px-3 py-2">
@@ -362,8 +462,10 @@ function EspaciosParqueadero() {
                         alert("Solo el vigilante puede gestionar espacios ocupados");
                       }
                     } 
-                    else if (!vehiculo?.placa) {
+                    else if (!vehiculo?.placa && sesion?.user?.rol !== 'vigilante' && sesion?.user?.rol !== 'admin') {
                       // Caso 3: Usuario sin vehículo → Mostrar advertencia
+                      console.log("prueba sesion" );
+                      console.log(sesion?.user?.rol);
                       setShowModal(true);
                     }
                   }}
@@ -447,7 +549,7 @@ function EspaciosParqueadero() {
           <div className="mb-4">
             <h5>Detalles Reserva</h5>
             <p><strong>Vehiculo:</strong>{reservaActiva[0]?.vehiculo_placa}</p>
-            <p><strong>Hora de reserva:</strong>{new Date(reservaActiva[0]?.fecha_creacion).toLocaleString()}</p>
+            <p><strong>Hora de reserva:</strong>{fechaReserva.toLocaleString()}</p>
           </div>
 
           <Button
@@ -531,6 +633,7 @@ function EspaciosParqueadero() {
         variant="success"
         message={alertMessage}
         onClose={() => setShowSuccessAlert(false)}
+        className="mt-5"
       />
 
       <NotificationAlert

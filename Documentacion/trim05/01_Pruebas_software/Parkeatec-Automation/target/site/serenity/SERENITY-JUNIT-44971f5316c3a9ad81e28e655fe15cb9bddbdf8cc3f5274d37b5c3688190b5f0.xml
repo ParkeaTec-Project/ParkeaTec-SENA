@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="registro en la pagina de Parkeatec" skipped="0" tests="1" time="25.7" timestamp="2025-07-08 07:52:57"><testcase name="registrar de manera exitosa la informacion en la pagina de Parkeatec"><failure message="Expected validacion registro&#13;&#10;Expected: is &lt;true&gt;&#13;&#10;     but: was &lt;false&gt;" type="java.lang.AssertionError">Expected validacion registro&#13;
+Expected: is &lt;true&gt;&#13;
+     but: was &lt;false&gt;</failure><system-err>Expected validacion registro&#13;
+Expected: is &lt;true&gt;&#13;
+     but: was &lt;false&gt;&#13;
+co.com.AutomatizacionParkeatecPage.stepsdefinitions.RegistroParkeatecStepDefinitions.seDebeVerificarQueLaInformacionDelUsuarioHayaSidoRegistradaCorrectamenteYRedirigidoASuPaginaDeInicio(RegistroParkeatecStepDefinitions.java:33)&#13;
+✽.se debe verificar que la informacion del usuario haya sido registrada correctamente y redirigido a su pagina de inicio.(src/test/resources/features/registro_parkeatec.feature:16)&#13;
+</system-err></testcase></testsuite>

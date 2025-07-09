@@ -1,5 +1,6 @@
 // src/pages/Dashboard.jsx
 import React from "react";
+import styles from "../styles/dashboard.module.css";
 
 function Dashboard() {
   const username = localStorage.getItem("username") || "Usuario";
@@ -15,7 +16,7 @@ function Dashboard() {
   };
 
   return (
-    <div className="p-6 max-w-xl mx-auto">
+    <div className={`${styles.section} p-6 max-w-xl mx-auto`}>
       <h1 className="text-2xl font-bold mb-4">Hola, {username} 👋</h1>
 
       <div className="grid grid-cols-3 gap-4 mb-6">

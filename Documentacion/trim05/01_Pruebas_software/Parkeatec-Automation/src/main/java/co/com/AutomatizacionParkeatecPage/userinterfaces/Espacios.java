@@ -18,6 +18,10 @@ public class Espacios extends PageObject {
 
     public static Target BTN_RESERVA = Target.the("Click boton reserva").located(By.xpath("/html/body/div[3]/div/div/div[2]/button"));
 
+    public static Target CERRAR_MODAL = Target.the("Click boton reserva").located(By.xpath("//*[@id=\"root\"]/section/div[2]/div/button"));
+
+
+
     public static Target BTN_PERFIL = Target.the("Click boton perfil").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[3]/a"));
 
     public static Target BTN_VERRESERVA = Target.the("Click boton ver reservas").located(By.xpath("//*[@id=\"basic-navbar-nav\"]/div/div[3]/div/a[2]"));

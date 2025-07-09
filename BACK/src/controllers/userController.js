@@ -316,9 +316,19 @@ const obtenerUsuarioId = async (req, res) => {
         const usuario = await User.obtenerUsuarioId(usuarioId);
 
         const datosUsuario = usuario[0];
+        console.log("datos qr usuario", datosUsuario);
 
         //Generar QR
-        const qrData = JSON.stringify({ documento: datosUsuario.id_documento });
+        const qrData = JSON.stringify({ 
+            documento: datosUsuario.id_documento,
+            nombre: datosUsuario.nombre,
+            apellido: datosUsuario.apellido,
+            placa: datosUsuario.vehiculo_placa,
+            vehiculo: datosUsuario.tipo_vehiculo,
+            id_reserva: datosUsuario.id_reserva,
+            estado_reserva: datosUsuario.estado_reserva,
+            fecha_creacion: datosUsuario.fecha_creacion
+        });
         const qrCodeImage = await QRCode.toDataURL(qrData);
 
 
